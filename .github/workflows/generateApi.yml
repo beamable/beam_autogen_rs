@@ -52,6 +52,8 @@ jobs:
       - name: Create Pull Request
         working-directory: gen_api
         if: ${{ steps.changes.outputs.any == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           git config user.email "piotr@beamable.com"
           git config user.name "Piotr"
