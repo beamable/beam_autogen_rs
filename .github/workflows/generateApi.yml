@@ -53,6 +53,8 @@ jobs:
         working-directory: gen_api
         if: ${{ steps.changes.outputs.any == 'true' }}
         run: |
+          git config user.email "piotr@beamable.com"
+          git config user.name "Piotr"
           git checkout -b update-openapi
           git add .
           git commit -m "syncing sdk from openapi"
