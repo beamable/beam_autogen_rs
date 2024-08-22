@@ -44,7 +44,7 @@ jobs:
             docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate -i /local/combinedOpenApi.json -g rust -c /local/package_oapi_config.json -o /local/
       - name: Clear after build
         working-directory: gen_api
-        run: rm combinedOpenApi.json
+        run: rm combinedOpenApi.json && rm git_push.sh
       - name: Check for Changes
         working-directory: gen_api
         run: |
