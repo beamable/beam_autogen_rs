@@ -1,5 +1,6 @@
 {
     "packageName" : "beam_autogen_rs",
     "packageVersion": "0.1.0",
-    "hideGenerationTimestamp": false
+    "hideGenerationTimestamp": true,
+    "useSingleRequestParameter": true
 }

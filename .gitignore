@@ -1,3 +1,5 @@
 /target/
 **/*.rs.bk
 Cargo.lock
+combinedOpenApi.json
+git_push.sh
