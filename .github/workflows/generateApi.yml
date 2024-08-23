@@ -38,6 +38,9 @@ jobs:
         working-directory: gen_api
         run: |
           dotnet run --project ../BeamableProduct/cli/cli -- oapi download --output . --combine-into-one-document
+      - name: Remove old code first
+        working-directory: gen_api
+        run: rm -rf src && rm -rf docs
       - name: Generate code
         working-directory: gen_api
         run: | 
