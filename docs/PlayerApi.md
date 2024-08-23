@@ -4,13 +4,15 @@ All URIs are relative to *https://api.beamable.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_players_player_id_parties_invites_get**](PlayerApi.md#api_players_player_id_parties_invites_get) | **GET** /api/players/{playerId}/parties/invites | Return list of party invites for player.
+[**api_players_player_id_parties_invites_get**](PlayerApi.md#api_players_player_id_parties_invites_get) | **GET** /api/players/{playerId}/parties/invites | 
 
 
 
 ## api_players_player_id_parties_invites_get
 
 > models::PartyInvitesForPlayerResponse api_players_player_id_parties_invites_get(player_id)
+
+
 Return list of party invites for player.
 
 ### Parameters

@@ -4,7 +4,7 @@ All URIs are relative to *https://api.beamable.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_internal_scheduler_job_execute_post**](SchedulerApi.md#api_internal_scheduler_job_execute_post) | **POST** /api/internal/scheduler/job/execute | Called by the Dispatcher lambda function to start a job execution at the appropriate time.
+[**api_internal_scheduler_job_execute_post**](SchedulerApi.md#api_internal_scheduler_job_execute_post) | **POST** /api/internal/scheduler/job/execute | 
 [**api_internal_scheduler_job_post**](SchedulerApi.md#api_internal_scheduler_job_post) | **POST** /api/internal/scheduler/job | 
 [**api_scheduler_job_job_id_activity_get**](SchedulerApi.md#api_scheduler_job_job_id_activity_get) | **GET** /api/scheduler/job/{jobId}/activity | 
 [**api_scheduler_job_job_id_cancel_put**](SchedulerApi.md#api_scheduler_job_job_id_cancel_put) | **PUT** /api/scheduler/job/{jobId}/cancel | 
@@ -19,6 +19,8 @@ Method | HTTP request | Description
 ## api_internal_scheduler_job_execute_post
 
 > models::JobExecutionResult api_internal_scheduler_job_execute_post(job_execution_event)
+
+
 Called by the Dispatcher lambda function to start a job execution at the appropriate time.
 
 ### Parameters

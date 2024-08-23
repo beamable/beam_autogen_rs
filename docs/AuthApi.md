@@ -4,14 +4,16 @@ All URIs are relative to *https://api.beamable.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_auth_refresh_token_post**](AuthApi.md#api_auth_refresh_token_post) | **POST** /api/auth/refresh-token | Generate a new access token for previously authenticated account.
-[**api_auth_server_post**](AuthApi.md#api_auth_server_post) | **POST** /api/auth/server | Generate a new access token for a machine with a shared secret
+[**api_auth_refresh_token_post**](AuthApi.md#api_auth_refresh_token_post) | **POST** /api/auth/refresh-token | 
+[**api_auth_server_post**](AuthApi.md#api_auth_server_post) | **POST** /api/auth/server | 
 
 
 
 ## api_auth_refresh_token_post
 
 > models::AuthResponse api_auth_refresh_token_post(refresh_token_auth_request)
+
+
 Generate a new access token for previously authenticated account.
 
 ### Parameters
@@ -40,6 +42,8 @@ Name | Type | Description  | Required | Notes
 ## api_auth_server_post
 
 > models::ServerTokenResponse api_auth_server_post(server_token_auth_request)
+
+
 Generate a new access token for a machine with a shared secret
 
 ### Parameters

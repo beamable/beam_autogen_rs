@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **title** | **String** |  | 
 **start_date** | Option<**String**> |  | [optional]
 **attachments** | [**Vec<models::AnnouncementAttachment>**](AnnouncementAttachment.md) |  | 
-**summary** | **String** |  | 
+**description** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
