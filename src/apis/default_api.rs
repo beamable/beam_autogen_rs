@@ -2727,14 +2727,6 @@ pub enum ObjectMailObjectIdSearchPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`object_payments_object_id_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ObjectPaymentsObjectIdGetError {
-    Status400(),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`object_stats_object_id_client_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -2779,14 +2771,6 @@ pub enum ObjectStatsObjectIdGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ObjectStatsObjectIdPostError {
-    Status400(),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`object_tournaments_object_id_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ObjectTournamentsObjectIdGetError {
     Status400(),
     UnknownValue(serde_json::Value),
 }
@@ -4414,7 +4398,7 @@ pub async fn basic_beamo_manifest_post(configuration: &configuration::Configurat
     }
 }
 
-pub async fn basic_beamo_manifest_pull_post(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, pull_beamo_manifest_request: Option<models::PullBeamoManifestRequest>) -> Result<models::ManifestChecksums, Error<BasicBeamoManifestPullPostError>> {
+pub async fn basic_beamo_manifest_pull_post(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, pull_beamo_manifest_request: Option<models::PullBeamoManifestRequest>) -> Result<models::BeamoBasicManifestChecksums, Error<BasicBeamoManifestPullPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -4457,7 +4441,7 @@ pub async fn basic_beamo_manifest_pull_post(configuration: &configuration::Confi
     }
 }
 
-pub async fn basic_beamo_manifests_get(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, offset: Option<i32>, limit: Option<i32>, archived: Option<bool>) -> Result<models::GetManifestsResponse, Error<BasicBeamoManifestsGetError>> {
+pub async fn basic_beamo_manifests_get(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, offset: Option<i32>, limit: Option<i32>, archived: Option<bool>) -> Result<models::BeamoBasicGetManifestsResponse, Error<BasicBeamoManifestsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -4985,7 +4969,7 @@ pub async fn basic_beamo_upload_api_get(configuration: &configuration::Configura
     }
 }
 
-pub async fn basic_cloudsaving_data_commit_manifest_put(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, upload_requests: Option<models::UploadRequests>) -> Result<models::Manifest, Error<BasicCloudsavingDataCommitManifestPutError>> {
+pub async fn basic_cloudsaving_data_commit_manifest_put(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, upload_requests: Option<models::UploadRequests>) -> Result<models::CloudsavingBasicManifest, Error<BasicCloudsavingDataCommitManifestPutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -5157,7 +5141,7 @@ pub async fn basic_cloudsaving_data_download_url_post(configuration: &configurat
     }
 }
 
-pub async fn basic_cloudsaving_data_move_from_portal_put(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, player_basic_cloud_data_request: Option<models::PlayerBasicCloudDataRequest>) -> Result<models::Manifest, Error<BasicCloudsavingDataMoveFromPortalPutError>> {
+pub async fn basic_cloudsaving_data_move_from_portal_put(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, player_basic_cloud_data_request: Option<models::PlayerBasicCloudDataRequest>) -> Result<models::CloudsavingBasicManifest, Error<BasicCloudsavingDataMoveFromPortalPutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -5200,7 +5184,7 @@ pub async fn basic_cloudsaving_data_move_from_portal_put(configuration: &configu
     }
 }
 
-pub async fn basic_cloudsaving_data_move_put(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, player_basic_cloud_data_request: Option<models::PlayerBasicCloudDataRequest>) -> Result<models::Manifest, Error<BasicCloudsavingDataMovePutError>> {
+pub async fn basic_cloudsaving_data_move_put(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, player_basic_cloud_data_request: Option<models::PlayerBasicCloudDataRequest>) -> Result<models::CloudsavingBasicManifest, Error<BasicCloudsavingDataMovePutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -5243,7 +5227,7 @@ pub async fn basic_cloudsaving_data_move_put(configuration: &configuration::Conf
     }
 }
 
-pub async fn basic_cloudsaving_data_replace_post(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, replace_objects_request: Option<models::ReplaceObjectsRequest>) -> Result<models::Manifest, Error<BasicCloudsavingDataReplacePostError>> {
+pub async fn basic_cloudsaving_data_replace_post(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, replace_objects_request: Option<models::ReplaceObjectsRequest>) -> Result<models::CloudsavingBasicManifest, Error<BasicCloudsavingDataReplacePostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -5372,7 +5356,7 @@ pub async fn basic_cloudsaving_data_upload_url_post(configuration: &configuratio
     }
 }
 
-pub async fn basic_cloudsaving_get(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, player_id: Option<i64>) -> Result<models::Manifest, Error<BasicCloudsavingGetError>> {
+pub async fn basic_cloudsaving_get(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, player_id: Option<i64>) -> Result<models::CloudsavingBasicManifest, Error<BasicCloudsavingGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -5792,7 +5776,7 @@ pub async fn basic_content_localizations_put(configuration: &configuration::Conf
     }
 }
 
-pub async fn basic_content_manifest_checksum_get(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, id: Option<&str>) -> Result<models::ManifestChecksum, Error<BasicContentManifestChecksumGetError>> {
+pub async fn basic_content_manifest_checksum_get(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, id: Option<&str>) -> Result<models::ContentBasicManifestChecksum, Error<BasicContentManifestChecksumGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -5829,7 +5813,7 @@ pub async fn basic_content_manifest_checksum_get(configuration: &configuration::
     }
 }
 
-pub async fn basic_content_manifest_checksums_get(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>) -> Result<models::ManifestChecksums, Error<BasicContentManifestChecksumsGetError>> {
+pub async fn basic_content_manifest_checksums_get(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>) -> Result<models::ContentBasicManifestChecksums, Error<BasicContentManifestChecksumsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -5871,7 +5855,7 @@ pub async fn basic_content_manifest_checksums_get(configuration: &configuration:
     }
 }
 
-pub async fn basic_content_manifest_exact_get(configuration: &configuration::Configuration, x_beam_scope: &str, uid: &str, x_beam_gamertag: Option<&str>) -> Result<models::Manifest, Error<BasicContentManifestExactGetError>> {
+pub async fn basic_content_manifest_exact_get(configuration: &configuration::Configuration, x_beam_scope: &str, uid: &str, x_beam_gamertag: Option<&str>) -> Result<models::ContentBasicManifest, Error<BasicContentManifestExactGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -5914,7 +5898,7 @@ pub async fn basic_content_manifest_exact_get(configuration: &configuration::Con
     }
 }
 
-pub async fn basic_content_manifest_get(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, id: Option<&str>) -> Result<models::Manifest, Error<BasicContentManifestGetError>> {
+pub async fn basic_content_manifest_get(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, id: Option<&str>) -> Result<models::ContentBasicManifest, Error<BasicContentManifestGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -6007,7 +5991,7 @@ pub async fn basic_content_manifest_history_get(configuration: &configuration::C
     }
 }
 
-pub async fn basic_content_manifest_post(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, save_manifest_request: Option<models::SaveManifestRequest>) -> Result<models::Manifest, Error<BasicContentManifestPostError>> {
+pub async fn basic_content_manifest_post(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, save_manifest_request: Option<models::SaveManifestRequest>) -> Result<models::ContentBasicManifest, Error<BasicContentManifestPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -6214,7 +6198,7 @@ pub async fn basic_content_manifest_public_json_get(configuration: &configuratio
     }
 }
 
-pub async fn basic_content_manifest_pull_post(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, pull_manifest_request: Option<models::PullManifestRequest>) -> Result<models::Manifest, Error<BasicContentManifestPullPostError>> {
+pub async fn basic_content_manifest_pull_post(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, pull_manifest_request: Option<models::PullManifestRequest>) -> Result<models::ContentBasicManifest, Error<BasicContentManifestPullPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -6343,7 +6327,7 @@ pub async fn basic_content_manifests_archive_post(configuration: &configuration:
     }
 }
 
-pub async fn basic_content_manifests_get(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>) -> Result<models::GetManifestsResponse, Error<BasicContentManifestsGetError>> {
+pub async fn basic_content_manifests_get(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>) -> Result<models::ContentBasicGetManifestsResponse, Error<BasicContentManifestsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -6385,7 +6369,7 @@ pub async fn basic_content_manifests_get(configuration: &configuration::Configur
     }
 }
 
-pub async fn basic_content_manifests_pull_post(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, pull_all_manifests_request: Option<models::PullAllManifestsRequest>) -> Result<models::ManifestChecksums, Error<BasicContentManifestsPullPostError>> {
+pub async fn basic_content_manifests_pull_post(configuration: &configuration::Configuration, x_beam_scope: &str, x_beam_gamertag: Option<&str>, pull_all_manifests_request: Option<models::PullAllManifestsRequest>) -> Result<models::ContentBasicManifestChecksums, Error<BasicContentManifestsPullPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -16884,40 +16868,6 @@ pub async fn object_mail_object_id_search_post(configuration: &configuration::Co
     }
 }
 
-pub async fn object_payments_object_id_get(configuration: &configuration::Configuration, x_beam_scope: &str, object_id: &str, x_beam_gamertag: Option<&str>) -> Result<models::CommonResponse, Error<ObjectPaymentsObjectIdGetError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/object/payments/{objectId}/", local_var_configuration.base_path, objectId=crate::apis::urlencode(object_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    local_var_req_builder = local_var_req_builder.header("X-BEAM-SCOPE", x_beam_scope.to_string());
-    if let Some(local_var_param_value) = x_beam_gamertag {
-        local_var_req_builder = local_var_req_builder.header("X-BEAM-GAMERTAG", local_var_param_value.to_string());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<ObjectPaymentsObjectIdGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
 pub async fn object_stats_object_id_client_get(configuration: &configuration::Configuration, x_beam_scope: &str, object_id: &str, x_beam_gamertag: Option<&str>, stats: Option<&str>) -> Result<models::StatsResponse, Error<ObjectStatsObjectIdClientGetError>> {
     let local_var_configuration = configuration;
 
@@ -17175,40 +17125,6 @@ pub async fn object_stats_object_id_post(configuration: &configuration::Configur
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<ObjectStatsObjectIdPostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn object_tournaments_object_id_get(configuration: &configuration::Configuration, x_beam_scope: &str, object_id: &str, x_beam_gamertag: Option<&str>) -> Result<models::TournamentClientView, Error<ObjectTournamentsObjectIdGetError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/object/tournaments/{objectId}/", local_var_configuration.base_path, objectId=crate::apis::urlencode(object_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    local_var_req_builder = local_var_req_builder.header("X-BEAM-SCOPE", x_beam_scope.to_string());
-    if let Some(local_var_param_value) = x_beam_gamertag {
-        local_var_req_builder = local_var_req_builder.header("X-BEAM-GAMERTAG", local_var_param_value.to_string());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<ObjectTournamentsObjectIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

@@ -12,15 +12,18 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ManifestChecksums {
-    #[serde(rename = "manifests")]
-    pub manifests: Vec<models::ManifestChecksum>,
+pub struct CloudsavingBasicUrlResponse {
+    #[serde(rename = "url")]
+    pub url: String,
+    #[serde(rename = "objectKey")]
+    pub object_key: String,
 }
 
-impl ManifestChecksums {
-    pub fn new(manifests: Vec<models::ManifestChecksum>) -> ManifestChecksums {
-        ManifestChecksums {
-            manifests,
+impl CloudsavingBasicUrlResponse {
+    pub fn new(url: String, object_key: String) -> CloudsavingBasicUrlResponse {
+        CloudsavingBasicUrlResponse {
+            url,
+            object_key,
         }
     }
 }

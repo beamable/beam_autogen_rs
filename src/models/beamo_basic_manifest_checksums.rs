@@ -12,18 +12,15 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ServiceImageLayers {
-    #[serde(rename = "service")]
-    pub service: Box<models::BeamoBasicReference>,
-    #[serde(rename = "layers")]
-    pub layers: Vec<String>,
+pub struct BeamoBasicManifestChecksums {
+    #[serde(rename = "manifests")]
+    pub manifests: Vec<models::BeamoBasicManifestChecksum>,
 }
 
-impl ServiceImageLayers {
-    pub fn new(service: models::BeamoBasicReference, layers: Vec<String>) -> ServiceImageLayers {
-        ServiceImageLayers {
-            service: Box::new(service),
-            layers,
+impl BeamoBasicManifestChecksums {
+    pub fn new(manifests: Vec<models::BeamoBasicManifestChecksum>) -> BeamoBasicManifestChecksums {
+        BeamoBasicManifestChecksums {
+            manifests,
         }
     }
 }

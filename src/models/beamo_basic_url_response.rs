@@ -12,16 +12,18 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct GetManifestRequest {
-    /// ID of the content manifest
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
+pub struct BeamoBasicUrlResponse {
+    #[serde(rename = "serviceName")]
+    pub service_name: String,
+    #[serde(rename = "s3URLs")]
+    pub s3_urls: Vec<models::UploadUrl>,
 }
 
-impl GetManifestRequest {
-    pub fn new() -> GetManifestRequest {
-        GetManifestRequest {
-            id: None,
+impl BeamoBasicUrlResponse {
+    pub fn new(service_name: String, s3_urls: Vec<models::UploadUrl>) -> BeamoBasicUrlResponse {
+        BeamoBasicUrlResponse {
+            service_name,
+            s3_urls,
         }
     }
 }

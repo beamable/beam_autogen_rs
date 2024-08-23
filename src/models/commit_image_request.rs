@@ -14,11 +14,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CommitImageRequest {
     #[serde(rename = "service")]
-    pub service: Box<models::Reference>,
+    pub service: Box<models::BeamoBasicReference>,
 }
 
 impl CommitImageRequest {
-    pub fn new(service: models::Reference) -> CommitImageRequest {
+    pub fn new(service: models::BeamoBasicReference) -> CommitImageRequest {
         CommitImageRequest {
             service: Box::new(service),
         }

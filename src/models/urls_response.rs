@@ -14,11 +14,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UrlsResponse {
     #[serde(rename = "response")]
-    pub response: Vec<models::UrlResponse>,
+    pub response: Vec<models::CloudsavingBasicUrlResponse>,
 }
 
 impl UrlsResponse {
-    pub fn new(response: Vec<models::UrlResponse>) -> UrlsResponse {
+    pub fn new(response: Vec<models::CloudsavingBasicUrlResponse>) -> UrlsResponse {
         UrlsResponse {
             response,
         }

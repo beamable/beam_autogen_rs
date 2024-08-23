@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **updated** | Option<**i64**> |  | [optional]
 **crm_link** | Option<**String**> |  | [optional]
 **projects** | [**Vec<models::Project>**](Project.md) |  | 
-**accounts** | [**Vec<models::Account>**](Account.md) |  | 
+**accounts** | [**Vec<models::RealmsBasicAccount>**](RealmsBasicAccount.md) |  | 
 **created** | Option<**i64**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

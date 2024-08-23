@@ -343,14 +343,12 @@ Method | HTTP request | Description
 [**object_mail_object_id_post**](DefaultApi.md#object_mail_object_id_post) | **POST** /object/mail/{objectId}/ | 
 [**object_mail_object_id_put**](DefaultApi.md#object_mail_object_id_put) | **PUT** /object/mail/{objectId}/ | 
 [**object_mail_object_id_search_post**](DefaultApi.md#object_mail_object_id_search_post) | **POST** /object/mail/{objectId}/search | 
-[**object_payments_object_id_get**](DefaultApi.md#object_payments_object_id_get) | **GET** /object/payments/{objectId}/ | 
 [**object_stats_object_id_client_get**](DefaultApi.md#object_stats_object_id_client_get) | **GET** /object/stats/{objectId}/client | 
 [**object_stats_object_id_client_post**](DefaultApi.md#object_stats_object_id_client_post) | **POST** /object/stats/{objectId}/client | 
 [**object_stats_object_id_client_stringlist_post**](DefaultApi.md#object_stats_object_id_client_stringlist_post) | **POST** /object/stats/{objectId}/client/stringlist | 
 [**object_stats_object_id_delete**](DefaultApi.md#object_stats_object_id_delete) | **DELETE** /object/stats/{objectId}/ | 
 [**object_stats_object_id_get**](DefaultApi.md#object_stats_object_id_get) | **GET** /object/stats/{objectId}/ | 
 [**object_stats_object_id_post**](DefaultApi.md#object_stats_object_id_post) | **POST** /object/stats/{objectId}/ | 
-[**object_tournaments_object_id_get**](DefaultApi.md#object_tournaments_object_id_get) | **GET** /object/tournaments/{objectId}/ | 
 
 
 
@@ -1529,7 +1527,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_beamo_manifest_pull_post
 
-> models::ManifestChecksums basic_beamo_manifest_pull_post(x_beam_scope, x_beam_gamertag, pull_beamo_manifest_request)
+> models::BeamoBasicManifestChecksums basic_beamo_manifest_pull_post(x_beam_scope, x_beam_gamertag, pull_beamo_manifest_request)
 
 
 ### Parameters
@@ -1543,7 +1541,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ManifestChecksums**](ManifestChecksums.md)
+[**models::BeamoBasicManifestChecksums**](BeamoBasicManifestChecksums.md)
 
 ### Authorization
 
@@ -1559,7 +1557,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_beamo_manifests_get
 
-> models::GetManifestsResponse basic_beamo_manifests_get(x_beam_scope, x_beam_gamertag, offset, limit, archived)
+> models::BeamoBasicGetManifestsResponse basic_beamo_manifests_get(x_beam_scope, x_beam_gamertag, offset, limit, archived)
 
 
 ### Parameters
@@ -1575,7 +1573,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetManifestsResponse**](GetManifestsResponse.md)
+[**models::BeamoBasicGetManifestsResponse**](BeamoBasicGetManifestsResponse.md)
 
 ### Authorization
 
@@ -1919,7 +1917,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_cloudsaving_data_commit_manifest_put
 
-> models::Manifest basic_cloudsaving_data_commit_manifest_put(x_beam_scope, x_beam_gamertag, upload_requests)
+> models::CloudsavingBasicManifest basic_cloudsaving_data_commit_manifest_put(x_beam_scope, x_beam_gamertag, upload_requests)
 
 
 ### Parameters
@@ -1933,7 +1931,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::Manifest**](Manifest.md)
+[**models::CloudsavingBasicManifest**](CloudsavingBasicManifest.md)
 
 ### Authorization
 
@@ -2039,7 +2037,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_cloudsaving_data_move_from_portal_put
 
-> models::Manifest basic_cloudsaving_data_move_from_portal_put(x_beam_scope, x_beam_gamertag, player_basic_cloud_data_request)
+> models::CloudsavingBasicManifest basic_cloudsaving_data_move_from_portal_put(x_beam_scope, x_beam_gamertag, player_basic_cloud_data_request)
 
 
 ### Parameters
@@ -2053,7 +2051,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::Manifest**](Manifest.md)
+[**models::CloudsavingBasicManifest**](CloudsavingBasicManifest.md)
 
 ### Authorization
 
@@ -2069,7 +2067,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_cloudsaving_data_move_put
 
-> models::Manifest basic_cloudsaving_data_move_put(x_beam_scope, x_beam_gamertag, player_basic_cloud_data_request)
+> models::CloudsavingBasicManifest basic_cloudsaving_data_move_put(x_beam_scope, x_beam_gamertag, player_basic_cloud_data_request)
 
 
 ### Parameters
@@ -2083,7 +2081,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::Manifest**](Manifest.md)
+[**models::CloudsavingBasicManifest**](CloudsavingBasicManifest.md)
 
 ### Authorization
 
@@ -2099,7 +2097,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_cloudsaving_data_replace_post
 
-> models::Manifest basic_cloudsaving_data_replace_post(x_beam_scope, x_beam_gamertag, replace_objects_request)
+> models::CloudsavingBasicManifest basic_cloudsaving_data_replace_post(x_beam_scope, x_beam_gamertag, replace_objects_request)
 
 
 ### Parameters
@@ -2113,7 +2111,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::Manifest**](Manifest.md)
+[**models::CloudsavingBasicManifest**](CloudsavingBasicManifest.md)
 
 ### Authorization
 
@@ -2189,7 +2187,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_cloudsaving_get
 
-> models::Manifest basic_cloudsaving_get(x_beam_scope, x_beam_gamertag, player_id)
+> models::CloudsavingBasicManifest basic_cloudsaving_get(x_beam_scope, x_beam_gamertag, player_id)
 
 
 ### Parameters
@@ -2203,7 +2201,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::Manifest**](Manifest.md)
+[**models::CloudsavingBasicManifest**](CloudsavingBasicManifest.md)
 
 ### Authorization
 
@@ -2489,7 +2487,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_content_manifest_checksum_get
 
-> models::ManifestChecksum basic_content_manifest_checksum_get(x_beam_scope, x_beam_gamertag, id)
+> models::ContentBasicManifestChecksum basic_content_manifest_checksum_get(x_beam_scope, x_beam_gamertag, id)
 
 
 ### Parameters
@@ -2503,7 +2501,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ManifestChecksum**](ManifestChecksum.md)
+[**models::ContentBasicManifestChecksum**](ContentBasicManifestChecksum.md)
 
 ### Authorization
 
@@ -2519,7 +2517,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_content_manifest_checksums_get
 
-> models::ManifestChecksums basic_content_manifest_checksums_get(x_beam_scope, x_beam_gamertag)
+> models::ContentBasicManifestChecksums basic_content_manifest_checksums_get(x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -2532,7 +2530,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ManifestChecksums**](ManifestChecksums.md)
+[**models::ContentBasicManifestChecksums**](ContentBasicManifestChecksums.md)
 
 ### Authorization
 
@@ -2548,7 +2546,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_content_manifest_exact_get
 
-> models::Manifest basic_content_manifest_exact_get(x_beam_scope, uid, x_beam_gamertag)
+> models::ContentBasicManifest basic_content_manifest_exact_get(x_beam_scope, uid, x_beam_gamertag)
 
 
 ### Parameters
@@ -2562,7 +2560,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::Manifest**](Manifest.md)
+[**models::ContentBasicManifest**](ContentBasicManifest.md)
 
 ### Authorization
 
@@ -2578,7 +2576,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_content_manifest_get
 
-> models::Manifest basic_content_manifest_get(x_beam_scope, x_beam_gamertag, id)
+> models::ContentBasicManifest basic_content_manifest_get(x_beam_scope, x_beam_gamertag, id)
 
 
 ### Parameters
@@ -2592,7 +2590,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::Manifest**](Manifest.md)
+[**models::ContentBasicManifest**](ContentBasicManifest.md)
 
 ### Authorization
 
@@ -2639,7 +2637,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_content_manifest_post
 
-> models::Manifest basic_content_manifest_post(x_beam_scope, x_beam_gamertag, save_manifest_request)
+> models::ContentBasicManifest basic_content_manifest_post(x_beam_scope, x_beam_gamertag, save_manifest_request)
 
 
 ### Parameters
@@ -2653,7 +2651,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::Manifest**](Manifest.md)
+[**models::ContentBasicManifest**](ContentBasicManifest.md)
 
 ### Authorization
 
@@ -2789,7 +2787,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_content_manifest_pull_post
 
-> models::Manifest basic_content_manifest_pull_post(x_beam_scope, x_beam_gamertag, pull_manifest_request)
+> models::ContentBasicManifest basic_content_manifest_pull_post(x_beam_scope, x_beam_gamertag, pull_manifest_request)
 
 
 ### Parameters
@@ -2803,7 +2801,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::Manifest**](Manifest.md)
+[**models::ContentBasicManifest**](ContentBasicManifest.md)
 
 ### Authorization
 
@@ -2879,7 +2877,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_content_manifests_get
 
-> models::GetManifestsResponse basic_content_manifests_get(x_beam_scope, x_beam_gamertag)
+> models::ContentBasicGetManifestsResponse basic_content_manifests_get(x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -2892,7 +2890,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetManifestsResponse**](GetManifestsResponse.md)
+[**models::ContentBasicGetManifestsResponse**](ContentBasicGetManifestsResponse.md)
 
 ### Authorization
 
@@ -2908,7 +2906,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_content_manifests_pull_post
 
-> models::ManifestChecksums basic_content_manifests_pull_post(x_beam_scope, x_beam_gamertag, pull_all_manifests_request)
+> models::ContentBasicManifestChecksums basic_content_manifests_pull_post(x_beam_scope, x_beam_gamertag, pull_all_manifests_request)
 
 
 ### Parameters
@@ -2922,7 +2920,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ManifestChecksums**](ManifestChecksums.md)
+[**models::ContentBasicManifestChecksums**](ContentBasicManifestChecksums.md)
 
 ### Authorization
 
@@ -10661,36 +10659,6 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## object_payments_object_id_get
-
-> models::CommonResponse object_payments_object_id_get(x_beam_scope, object_id, x_beam_gamertag)
-
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
-**object_id** | **String** | Gamertag of the player.Underlying objectId type is integer in format int64. | [required] |
-**x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
-
-### Return type
-
-[**models::CommonResponse**](CommonResponse.md)
-
-### Authorization
-
-[user](../README.md#user)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
 ## object_stats_object_id_client_get
 
 > models::StatsResponse object_stats_object_id_client_get(x_beam_scope, object_id, x_beam_gamertag, stats)
@@ -10872,36 +10840,6 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## object_tournaments_object_id_get
-
-> models::TournamentClientView object_tournaments_object_id_get(x_beam_scope, object_id, x_beam_gamertag)
-
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
-**object_id** | **String** | Gamertag of the player.Underlying objectId type is integer in format int64. | [required] |
-**x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
-
-### Return type
-
-[**models::TournamentClientView**](TournamentClientView.md)
-
-### Authorization
-
-[user](../README.md#user)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

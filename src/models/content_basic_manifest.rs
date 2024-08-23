@@ -12,11 +12,11 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Manifest {
+pub struct ContentBasicManifest {
     #[serde(rename = "archived", skip_serializing_if = "Option::is_none")]
     pub archived: Option<bool>,
     #[serde(rename = "references")]
-    pub references: Vec<models::ManifestReferencesInner>,
+    pub references: Vec<models::ContentBasicManifestReferencesInner>,
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "checksum")]
@@ -25,9 +25,9 @@ pub struct Manifest {
     pub created: i64,
 }
 
-impl Manifest {
-    pub fn new(references: Vec<models::ManifestReferencesInner>, id: String, checksum: String, created: i64) -> Manifest {
-        Manifest {
+impl ContentBasicManifest {
+    pub fn new(references: Vec<models::ContentBasicManifestReferencesInner>, id: String, checksum: String, created: i64) -> ContentBasicManifest {
+        ContentBasicManifest {
             archived: None,
             references,
             id,

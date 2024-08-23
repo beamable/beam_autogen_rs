@@ -12,18 +12,18 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct UrlResponse {
-    #[serde(rename = "serviceName")]
-    pub service_name: String,
-    #[serde(rename = "s3URLs")]
-    pub s3_urls: Vec<models::UploadUrl>,
+pub struct BeamoBasicReference {
+    #[serde(rename = "arm")]
+    pub arm: bool,
+    #[serde(rename = "archived")]
+    pub archived: bool,
 }
 
-impl UrlResponse {
-    pub fn new(service_name: String, s3_urls: Vec<models::UploadUrl>) -> UrlResponse {
-        UrlResponse {
-            service_name,
-            s3_urls,
+impl BeamoBasicReference {
+    pub fn new(arm: bool, archived: bool) -> BeamoBasicReference {
+        BeamoBasicReference {
+            arm,
+            archived,
         }
     }
 }

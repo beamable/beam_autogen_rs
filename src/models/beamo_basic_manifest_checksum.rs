@@ -12,24 +12,21 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ManifestChecksum {
+pub struct BeamoBasicManifestChecksum {
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "checksum")]
     pub checksum: String,
     #[serde(rename = "createdAt")]
     pub created_at: i64,
-    #[serde(rename = "archived", skip_serializing_if = "Option::is_none")]
-    pub archived: Option<bool>,
 }
 
-impl ManifestChecksum {
-    pub fn new(id: String, checksum: String, created_at: i64) -> ManifestChecksum {
-        ManifestChecksum {
+impl BeamoBasicManifestChecksum {
+    pub fn new(id: String, checksum: String, created_at: i64) -> BeamoBasicManifestChecksum {
+        BeamoBasicManifestChecksum {
             id,
             checksum,
             created_at,
-            archived: None,
         }
     }
 }

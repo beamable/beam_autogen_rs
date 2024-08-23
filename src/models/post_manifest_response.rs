@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostManifestResponse {
     #[serde(rename = "manifest", skip_serializing_if = "Option::is_none")]
-    pub manifest: Option<Box<models::ManifestChecksum>>,
+    pub manifest: Option<Box<models::BeamoBasicManifestChecksum>>,
 }
 
 impl PostManifestResponse {

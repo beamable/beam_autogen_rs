@@ -13,13 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ManifestReferencesInner {
+pub enum ContentBasicManifestReferencesInner {
     ContentReference(Box<models::ContentReference>),
     TextReference(Box<models::TextReference>),
     BinaryReference(Box<models::BinaryReference>),
 }
 
-impl Default for ManifestReferencesInner {
+impl Default for ContentBasicManifestReferencesInner {
     fn default() -> Self {
         Self::ContentReference(Default::default())
     }

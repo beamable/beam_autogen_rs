@@ -14,11 +14,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SendMessageResponse {
     #[serde(rename = "message")]
-    pub message: Box<models::Message>,
+    pub message: Box<models::ChatV2ObjectMessage>,
 }
 
 impl SendMessageResponse {
-    pub fn new(message: models::Message) -> SendMessageResponse {
+    pub fn new(message: models::ChatV2ObjectMessage) -> SendMessageResponse {
         SendMessageResponse {
             message: Box::new(message),
         }

@@ -1,4 +1,4 @@
-# ManifestReferencesInner
+# ContentBasicManifestReferencesInner
 
 ## Enum Variants
 

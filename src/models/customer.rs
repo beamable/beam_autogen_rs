@@ -32,13 +32,13 @@ pub struct Customer {
     #[serde(rename = "projects")]
     pub projects: Vec<models::Project>,
     #[serde(rename = "accounts")]
-    pub accounts: Vec<models::Account>,
+    pub accounts: Vec<models::RealmsBasicAccount>,
     #[serde(rename = "created", skip_serializing_if = "Option::is_none")]
     pub created: Option<i64>,
 }
 
 impl Customer {
-    pub fn new(name: String, cid: i64, projects: Vec<models::Project>, accounts: Vec<models::Account>) -> Customer {
+    pub fn new(name: String, cid: i64, projects: Vec<models::Project>, accounts: Vec<models::RealmsBasicAccount>) -> Customer {
         Customer {
             name,
             payment_status: None,

@@ -1,13 +1,14 @@
-# ManifestChecksum
+# ContentBasicManifest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**archived** | Option<**bool**> |  | [optional]
+**references** | [**Vec<models::ContentBasicManifestReferencesInner>**](ContentBasicManifest_references_inner.md) |  | 
 **id** | **String** |  | 
 **checksum** | **String** |  | 
-**created_at** | **i64** |  | 
-**archived** | Option<**bool**> |  | [optional]
+**created** | **i64** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -13,32 +13,54 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Message {
-    #[serde(rename = "roomId")]
-    pub room_id: String,
-    #[serde(rename = "gamerTag")]
-    pub gamer_tag: i64,
-    #[serde(rename = "reactions")]
-    pub reactions: std::collections::HashMap<String, String>,
-    #[serde(rename = "timestampMillis")]
-    pub timestamp_millis: i64,
-    #[serde(rename = "censoredContent")]
-    pub censored_content: String,
-    #[serde(rename = "messageId")]
-    pub message_id: uuid::Uuid,
-    #[serde(rename = "content")]
-    pub content: String,
+    #[serde(rename = "body", skip_serializing_if = "Option::is_none")]
+    pub body: Option<String>,
+    #[serde(rename = "expires", skip_serializing_if = "Option::is_none")]
+    pub expires: Option<i32>,
+    #[serde(rename = "playerRewards", skip_serializing_if = "Option::is_none")]
+    pub player_rewards: Option<Box<models::PlayerReward>>,
+    #[serde(rename = "receiverGamerTag")]
+    pub receiver_gamer_tag: i64,
+    #[serde(rename = "subject", skip_serializing_if = "Option::is_none")]
+    pub subject: Option<String>,
+    #[serde(rename = "state")]
+    pub state: String,
+    #[serde(rename = "rewards", skip_serializing_if = "Option::is_none")]
+    pub rewards: Option<Box<models::MailRewards>>,
+    #[serde(rename = "id")]
+    pub id: i64,
+    #[serde(rename = "senderGamerTag")]
+    pub sender_gamer_tag: i64,
+    /// Milliseconds since midnight, January 1, 1970 UTC
+    #[serde(rename = "sent")]
+    pub sent: i64,
+    #[serde(rename = "category")]
+    pub category: String,
+    #[serde(rename = "bodyRef", skip_serializing_if = "Option::is_none")]
+    pub body_ref: Option<i64>,
+    #[serde(rename = "attachments")]
+    pub attachments: Vec<models::Attachment>,
+    #[serde(rename = "claimedTimeMs", skip_serializing_if = "Option::is_none")]
+    pub claimed_time_ms: Option<i64>,
 }
 
 impl Message {
-    pub fn new(room_id: String, gamer_tag: i64, reactions: std::collections::HashMap<String, String>, timestamp_millis: i64, censored_content: String, message_id: uuid::Uuid, content: String) -> Message {
+    pub fn new(receiver_gamer_tag: i64, state: String, id: i64, sender_gamer_tag: i64, sent: i64, category: String, attachments: Vec<models::Attachment>) -> Message {
         Message {
-            room_id,
-            gamer_tag,
-            reactions,
-            timestamp_millis,
-            censored_content,
-            message_id,
-            content,
+            body: None,
+            expires: None,
+            player_rewards: None,
+            receiver_gamer_tag,
+            subject: None,
+            state,
+            rewards: None,
+            id,
+            sender_gamer_tag,
+            sent,
+            category,
+            body_ref: None,
+            attachments,
+            claimed_time_ms: None,
         }
     }
 }

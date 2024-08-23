@@ -12,18 +12,16 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Reference {
-    #[serde(rename = "arm")]
-    pub arm: bool,
-    #[serde(rename = "archived")]
-    pub archived: bool,
+pub struct ContentBasicGetManifestRequest {
+    /// ID of the content manifest
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
 }
 
-impl Reference {
-    pub fn new(arm: bool, archived: bool) -> Reference {
-        Reference {
-            arm,
-            archived,
+impl ContentBasicGetManifestRequest {
+    pub fn new() -> ContentBasicGetManifestRequest {
+        ContentBasicGetManifestRequest {
+            id: None,
         }
     }
 }

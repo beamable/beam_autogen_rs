@@ -14,11 +14,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PreSignedUrlsResponse {
     #[serde(rename = "response")]
-    pub response: Vec<models::UrlResponse>,
+    pub response: Vec<models::BeamoBasicUrlResponse>,
 }
 
 impl PreSignedUrlsResponse {
-    pub fn new(response: Vec<models::UrlResponse>) -> PreSignedUrlsResponse {
+    pub fn new(response: Vec<models::BeamoBasicUrlResponse>) -> PreSignedUrlsResponse {
         PreSignedUrlsResponse {
             response,
         }

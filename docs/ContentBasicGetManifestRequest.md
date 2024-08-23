@@ -1,4 +1,4 @@
-# GetManifestRequest
+# ContentBasicGetManifestRequest
 
 ## Properties
 

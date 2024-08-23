@@ -16,11 +16,11 @@ pub struct ManifestSummary {
     #[serde(rename = "uid")]
     pub uid: String,
     #[serde(rename = "manifest")]
-    pub manifest: Box<models::ManifestChecksum>,
+    pub manifest: Box<models::ContentBasicManifestChecksum>,
 }
 
 impl ManifestSummary {
-    pub fn new(uid: String, manifest: models::ManifestChecksum) -> ManifestSummary {
+    pub fn new(uid: String, manifest: models::ContentBasicManifestChecksum) -> ManifestSummary {
         ManifestSummary {
             uid,
             manifest: Box::new(manifest),

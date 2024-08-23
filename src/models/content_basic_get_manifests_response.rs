@@ -12,14 +12,14 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct GetManifestsResponse {
+pub struct ContentBasicGetManifestsResponse {
     #[serde(rename = "manifests")]
-    pub manifests: Vec<models::Manifest>,
+    pub manifests: Vec<models::ContentBasicManifest>,
 }
 
-impl GetManifestsResponse {
-    pub fn new(manifests: Vec<models::Manifest>) -> GetManifestsResponse {
-        GetManifestsResponse {
+impl ContentBasicGetManifestsResponse {
+    pub fn new(manifests: Vec<models::ContentBasicManifest>) -> ContentBasicGetManifestsResponse {
+        ContentBasicGetManifestsResponse {
             manifests,
         }
     }
