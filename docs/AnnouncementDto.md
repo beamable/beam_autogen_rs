@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **end_date** | Option<**String**> |  | [optional]
 **title** | [**models::LocalizationRef**](LocalizationRef.md) |  | 
 **attachments** | Option<[**Vec<models::AnnouncementAttachment>**](AnnouncementAttachment.md)> |  | [optional]
-**summary** | [**models::LocalizationRef**](LocalizationRef.md) |  | 
+**description** | [**models::LocalizationRef**](LocalizationRef.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

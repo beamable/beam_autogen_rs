@@ -4,13 +4,15 @@ All URIs are relative to *https://api.beamable.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_matchmaking_matches_id_get**](MatchApi.md#api_matchmaking_matches_id_get) | **GET** /api/matchmaking/matches/{id} | Fetch a match by ID.
+[**api_matchmaking_matches_id_get**](MatchApi.md#api_matchmaking_matches_id_get) | **GET** /api/matchmaking/matches/{id} | 
 
 
 
 ## api_matchmaking_matches_id_get
 
 > models::Match api_matchmaking_matches_id_get(id)
+
+
 Fetch a match by ID.
 
 ### Parameters

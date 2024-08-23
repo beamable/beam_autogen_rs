@@ -4,22 +4,24 @@ All URIs are relative to *https://api.beamable.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_lobbies_get**](LobbyApi.md#api_lobbies_get) | **GET** /api/lobbies | Query for active lobbies
-[**api_lobbies_id_delete**](LobbyApi.md#api_lobbies_id_delete) | **DELETE** /api/lobbies/{id} | Remove the requested player from the lobby. The host is able to remove anyone. Others may  only remove themselves without error.
-[**api_lobbies_id_get**](LobbyApi.md#api_lobbies_id_get) | **GET** /api/lobbies/{id} | Get the current status of a lobby by id.
-[**api_lobbies_id_metadata_put**](LobbyApi.md#api_lobbies_id_metadata_put) | **PUT** /api/lobbies/{id}/metadata | Update the properties of a lobby
-[**api_lobbies_id_put**](LobbyApi.md#api_lobbies_id_put) | **PUT** /api/lobbies/{id} | Join a lobby
-[**api_lobbies_id_server_post**](LobbyApi.md#api_lobbies_id_server_post) | **POST** /api/lobbies/{id}/server | Invoke the Lobby actor to make the federated game server request.
-[**api_lobbies_id_tags_delete**](LobbyApi.md#api_lobbies_id_tags_delete) | **DELETE** /api/lobbies/{id}/tags | Remove the request tags from the requested player.
-[**api_lobbies_id_tags_put**](LobbyApi.md#api_lobbies_id_tags_put) | **PUT** /api/lobbies/{id}/tags | Add the request tags to the requested player.
-[**api_lobbies_passcode_put**](LobbyApi.md#api_lobbies_passcode_put) | **PUT** /api/lobbies/passcode | Join a lobby by passcode.
-[**api_lobbies_post**](LobbyApi.md#api_lobbies_post) | **POST** /api/lobbies | Create a lobby. A leader is not necessary to create a lobby.
+[**api_lobbies_get**](LobbyApi.md#api_lobbies_get) | **GET** /api/lobbies | 
+[**api_lobbies_id_delete**](LobbyApi.md#api_lobbies_id_delete) | **DELETE** /api/lobbies/{id} | 
+[**api_lobbies_id_get**](LobbyApi.md#api_lobbies_id_get) | **GET** /api/lobbies/{id} | 
+[**api_lobbies_id_metadata_put**](LobbyApi.md#api_lobbies_id_metadata_put) | **PUT** /api/lobbies/{id}/metadata | 
+[**api_lobbies_id_put**](LobbyApi.md#api_lobbies_id_put) | **PUT** /api/lobbies/{id} | 
+[**api_lobbies_id_server_post**](LobbyApi.md#api_lobbies_id_server_post) | **POST** /api/lobbies/{id}/server | 
+[**api_lobbies_id_tags_delete**](LobbyApi.md#api_lobbies_id_tags_delete) | **DELETE** /api/lobbies/{id}/tags | 
+[**api_lobbies_id_tags_put**](LobbyApi.md#api_lobbies_id_tags_put) | **PUT** /api/lobbies/{id}/tags | 
+[**api_lobbies_passcode_put**](LobbyApi.md#api_lobbies_passcode_put) | **PUT** /api/lobbies/passcode | 
+[**api_lobbies_post**](LobbyApi.md#api_lobbies_post) | **POST** /api/lobbies | 
 
 
 
 ## api_lobbies_get
 
 > models::LobbyQueryResponse api_lobbies_get(skip, limit, match_type)
+
+
 Query for active lobbies
 
 ### Parameters
@@ -50,6 +52,8 @@ Name | Type | Description  | Required | Notes
 ## api_lobbies_id_delete
 
 > serde_json::Value api_lobbies_id_delete(id, remove_from_lobby)
+
+
 Remove the requested player from the lobby. The host is able to remove anyone. Others may  only remove themselves without error.
 
 ### Parameters
@@ -79,6 +83,8 @@ Name | Type | Description  | Required | Notes
 ## api_lobbies_id_get
 
 > models::Lobby api_lobbies_id_get(id)
+
+
 Get the current status of a lobby by id.
 
 ### Parameters
@@ -107,6 +113,8 @@ Name | Type | Description  | Required | Notes
 ## api_lobbies_id_metadata_put
 
 > models::Lobby api_lobbies_id_metadata_put(id, update_lobby)
+
+
 Update the properties of a lobby
 
 ### Parameters
@@ -136,6 +144,8 @@ Name | Type | Description  | Required | Notes
 ## api_lobbies_id_put
 
 > models::Lobby api_lobbies_id_put(id, join_lobby)
+
+
 Join a lobby
 
 ### Parameters
@@ -165,6 +175,8 @@ Name | Type | Description  | Required | Notes
 ## api_lobbies_id_server_post
 
 > serde_json::Value api_lobbies_id_server_post(id, create_federated_game_server)
+
+
 Invoke the Lobby actor to make the federated game server request.
 
 ### Parameters
@@ -194,6 +206,8 @@ Name | Type | Description  | Required | Notes
 ## api_lobbies_id_tags_delete
 
 > models::Lobby api_lobbies_id_tags_delete(id, remove_tags)
+
+
 Remove the request tags from the requested player.
 
 ### Parameters
@@ -223,6 +237,8 @@ Name | Type | Description  | Required | Notes
 ## api_lobbies_id_tags_put
 
 > models::Lobby api_lobbies_id_tags_put(id, add_tags)
+
+
 Add the request tags to the requested player.
 
 ### Parameters
@@ -252,6 +268,8 @@ Name | Type | Description  | Required | Notes
 ## api_lobbies_passcode_put
 
 > models::Lobby api_lobbies_passcode_put(join_lobby)
+
+
 Join a lobby by passcode.
 
 ### Parameters
@@ -280,6 +298,8 @@ Name | Type | Description  | Required | Notes
 ## api_lobbies_post
 
 > models::Lobby api_lobbies_post(create_lobby)
+
+
 Create a lobby. A leader is not necessary to create a lobby.
 
 ### Parameters
