@@ -46,6 +46,10 @@ Method | HTTP request | Description
 [**basic_beamo_manifest_pull_post**](DefaultApi.md#basic_beamo_manifest_pull_post) | **POST** /basic/beamo/manifest/pull | 
 [**basic_beamo_manifests_get**](DefaultApi.md#basic_beamo_manifests_get) | **GET** /basic/beamo/manifests | 
 [**basic_beamo_metrics_url_post**](DefaultApi.md#basic_beamo_metrics_url_post) | **POST** /basic/beamo/metricsUrl | 
+[**basic_beamo_microservice_federation_post**](DefaultApi.md#basic_beamo_microservice_federation_post) | **POST** /basic/beamo/microservice/federation | 
+[**basic_beamo_microservice_federation_traffic_delete**](DefaultApi.md#basic_beamo_microservice_federation_traffic_delete) | **DELETE** /basic/beamo/microservice/federation/traffic | 
+[**basic_beamo_microservice_federation_traffic_put**](DefaultApi.md#basic_beamo_microservice_federation_traffic_put) | **PUT** /basic/beamo/microservice/federation/traffic | 
+[**basic_beamo_microservice_registrations_post**](DefaultApi.md#basic_beamo_microservice_registrations_post) | **POST** /basic/beamo/microservice/registrations | 
 [**basic_beamo_microservice_secret_get**](DefaultApi.md#basic_beamo_microservice_secret_get) | **GET** /basic/beamo/microservice/secret | 
 [**basic_beamo_query_logs_delete**](DefaultApi.md#basic_beamo_query_logs_delete) | **DELETE** /basic/beamo/queryLogs | 
 [**basic_beamo_query_logs_post**](DefaultApi.md#basic_beamo_query_logs_post) | **POST** /basic/beamo/queryLogs | 
@@ -178,6 +182,7 @@ Method | HTTP request | Description
 [**basic_realms_admin_inflight_failures_get**](DefaultApi.md#basic_realms_admin_inflight_failures_get) | **GET** /basic/realms/admin/inflight/failures | 
 [**basic_realms_client_defaults_get**](DefaultApi.md#basic_realms_client_defaults_get) | **GET** /basic/realms/client/defaults | 
 [**basic_realms_config_get**](DefaultApi.md#basic_realms_config_get) | **GET** /basic/realms/config | 
+[**basic_realms_config_post**](DefaultApi.md#basic_realms_config_post) | **POST** /basic/realms/config | 
 [**basic_realms_config_put**](DefaultApi.md#basic_realms_config_put) | **PUT** /basic/realms/config | 
 [**basic_realms_customer_alias_available_get**](DefaultApi.md#basic_realms_customer_alias_available_get) | **GET** /basic/realms/customer/alias/available | 
 [**basic_realms_customer_get**](DefaultApi.md#basic_realms_customer_get) | **GET** /basic/realms/customer | 
@@ -1617,6 +1622,126 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## basic_beamo_microservice_federation_post
+
+> models::SupportedFederationsResponse basic_beamo_microservice_federation_post(x_beam_scope, x_beam_gamertag, microservice_registrations_query)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
+**x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
+**microservice_registrations_query** | Option<[**MicroserviceRegistrationsQuery**](MicroserviceRegistrationsQuery.md)> |  |  |
+
+### Return type
+
+[**models::SupportedFederationsResponse**](SupportedFederationsResponse.md)
+
+### Authorization
+
+[server](../README.md#server), [user](../README.md#user)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## basic_beamo_microservice_federation_traffic_delete
+
+> models::CommonResponse basic_beamo_microservice_federation_traffic_delete(x_beam_scope, x_beam_gamertag, microservice_registration_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
+**x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
+**microservice_registration_request** | Option<[**MicroserviceRegistrationRequest**](MicroserviceRegistrationRequest.md)> |  |  |
+
+### Return type
+
+[**models::CommonResponse**](CommonResponse.md)
+
+### Authorization
+
+[server](../README.md#server), [user](../README.md#user)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## basic_beamo_microservice_federation_traffic_put
+
+> models::CommonResponse basic_beamo_microservice_federation_traffic_put(x_beam_scope, x_beam_gamertag, microservice_registration_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
+**x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
+**microservice_registration_request** | Option<[**MicroserviceRegistrationRequest**](MicroserviceRegistrationRequest.md)> |  |  |
+
+### Return type
+
+[**models::CommonResponse**](CommonResponse.md)
+
+### Authorization
+
+[server](../README.md#server), [user](../README.md#user)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## basic_beamo_microservice_registrations_post
+
+> models::MicroserviceRegistrationsResponse basic_beamo_microservice_registrations_post(x_beam_scope, x_beam_gamertag, microservice_registrations_query)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
+**x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
+**microservice_registrations_query** | Option<[**MicroserviceRegistrationsQuery**](MicroserviceRegistrationsQuery.md)> |  |  |
+
+### Return type
+
+[**models::MicroserviceRegistrationsResponse**](MicroserviceRegistrationsResponse.md)
+
+### Authorization
+
+[server](../README.md#server), [user](../README.md#user)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## basic_beamo_microservice_secret_get
 
 > models::MicroserviceSecretResponse basic_beamo_microservice_secret_get(x_beam_scope, x_beam_gamertag)
@@ -2690,7 +2815,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2750,7 +2875,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3236,7 +3361,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_leaderboards_list_get
 
-> models::LeaderboardListResponse basic_leaderboards_list_get(x_beam_scope, x_beam_gamertag, skip, limit, prefix)
+> models::LeaderboardListResponse basic_leaderboards_list_get(x_beam_scope, x_beam_gamertag, skip, limit, prefix, include_partitions)
 
 
 ### Parameters
@@ -3249,6 +3374,7 @@ Name | Type | Description  | Required | Notes
 **skip** | Option<**i32**> |  |  |
 **limit** | Option<**i32**> |  |  |
 **prefix** | Option<**String**> |  |  |
+**include_partitions** | Option<**bool**> |  |  |
 
 ### Return type
 
@@ -5576,6 +5702,36 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## basic_realms_config_post
+
+> models::CommonResponse basic_realms_config_post(x_beam_scope, x_beam_gamertag, realm_config_change_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
+**x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
+**realm_config_change_request** | Option<[**RealmConfigChangeRequest**](RealmConfigChangeRequest.md)> |  |  |
+
+### Return type
+
+[**models::CommonResponse**](CommonResponse.md)
+
+### Authorization
+
+[server](../README.md#server), [user](../README.md#user)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
