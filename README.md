@@ -71,6 +71,10 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**basic_beamo_manifest_pull_post**](docs/DefaultApi.md#basic_beamo_manifest_pull_post) | **POST** /basic/beamo/manifest/pull | 
 *DefaultApi* | [**basic_beamo_manifests_get**](docs/DefaultApi.md#basic_beamo_manifests_get) | **GET** /basic/beamo/manifests | 
 *DefaultApi* | [**basic_beamo_metrics_url_post**](docs/DefaultApi.md#basic_beamo_metrics_url_post) | **POST** /basic/beamo/metricsUrl | 
+*DefaultApi* | [**basic_beamo_microservice_federation_post**](docs/DefaultApi.md#basic_beamo_microservice_federation_post) | **POST** /basic/beamo/microservice/federation | 
+*DefaultApi* | [**basic_beamo_microservice_federation_traffic_delete**](docs/DefaultApi.md#basic_beamo_microservice_federation_traffic_delete) | **DELETE** /basic/beamo/microservice/federation/traffic | 
+*DefaultApi* | [**basic_beamo_microservice_federation_traffic_put**](docs/DefaultApi.md#basic_beamo_microservice_federation_traffic_put) | **PUT** /basic/beamo/microservice/federation/traffic | 
+*DefaultApi* | [**basic_beamo_microservice_registrations_post**](docs/DefaultApi.md#basic_beamo_microservice_registrations_post) | **POST** /basic/beamo/microservice/registrations | 
 *DefaultApi* | [**basic_beamo_microservice_secret_get**](docs/DefaultApi.md#basic_beamo_microservice_secret_get) | **GET** /basic/beamo/microservice/secret | 
 *DefaultApi* | [**basic_beamo_query_logs_delete**](docs/DefaultApi.md#basic_beamo_query_logs_delete) | **DELETE** /basic/beamo/queryLogs | 
 *DefaultApi* | [**basic_beamo_query_logs_post**](docs/DefaultApi.md#basic_beamo_query_logs_post) | **POST** /basic/beamo/queryLogs | 
@@ -203,6 +207,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**basic_realms_admin_inflight_failures_get**](docs/DefaultApi.md#basic_realms_admin_inflight_failures_get) | **GET** /basic/realms/admin/inflight/failures | 
 *DefaultApi* | [**basic_realms_client_defaults_get**](docs/DefaultApi.md#basic_realms_client_defaults_get) | **GET** /basic/realms/client/defaults | 
 *DefaultApi* | [**basic_realms_config_get**](docs/DefaultApi.md#basic_realms_config_get) | **GET** /basic/realms/config | 
+*DefaultApi* | [**basic_realms_config_post**](docs/DefaultApi.md#basic_realms_config_post) | **POST** /basic/realms/config | 
 *DefaultApi* | [**basic_realms_config_put**](docs/DefaultApi.md#basic_realms_config_put) | **PUT** /basic/realms/config | 
 *DefaultApi* | [**basic_realms_customer_alias_available_get**](docs/DefaultApi.md#basic_realms_customer_alias_available_get) | **GET** /basic/realms/customer/alias/available | 
 *DefaultApi* | [**basic_realms_customer_get**](docs/DefaultApi.md#basic_realms_customer_get) | **GET** /basic/realms/customer | 
@@ -427,7 +432,6 @@ Class | Method | HTTP request | Description
  - [AccountSearchResponse](docs/AccountSearchResponse.md)
  - [AccountUpdate](docs/AccountUpdate.md)
  - [ActiveListingResponse](docs/ActiveListingResponse.md)
- - [AddAccountRequest](docs/AddAccountRequest.md)
  - [AddTags](docs/AddTags.md)
  - [AdminGetPlayerStatusRequest](docs/AdminGetPlayerStatusRequest.md)
  - [AdminGetPlayerStatusResponse](docs/AdminGetPlayerStatusResponse.md)
@@ -484,6 +488,7 @@ Class | Method | HTTP request | Description
  - [ChatV2ObjectMessage](docs/ChatV2ObjectMessage.md)
  - [ClearStatusRequest](docs/ClearStatusRequest.md)
  - [ClientContentInfo](docs/ClientContentInfo.md)
+ - [ClientContentInfoJson](docs/ClientContentInfoJson.md)
  - [ClientDataEntry](docs/ClientDataEntry.md)
  - [ClientManifestJsonResponse](docs/ClientManifestJsonResponse.md)
  - [ClientManifestResponse](docs/ClientManifestResponse.md)
@@ -517,6 +522,7 @@ Class | Method | HTTP request | Description
  - [ContextInfo](docs/ContextInfo.md)
  - [CooldownModifierRequest](docs/CooldownModifierRequest.md)
  - [CreateDonationRequest](docs/CreateDonationRequest.md)
+ - [CreateElevatedAccountRequest](docs/CreateElevatedAccountRequest.md)
  - [CreateFederatedGameServer](docs/CreateFederatedGameServer.md)
  - [CreateLaunchMessageRequest](docs/CreateLaunchMessageRequest.md)
  - [CreateLobby](docs/CreateLobby.md)
@@ -604,6 +610,7 @@ Class | Method | HTTP request | Description
  - [FailPurchaseRequest](docs/FailPurchaseRequest.md)
  - [FailedInFlightFilterRequest](docs/FailedInFlightFilterRequest.md)
  - [FederationInfo](docs/FederationInfo.md)
+ - [FederationType](docs/FederationType.md)
  - [FindAccountRequest](docs/FindAccountRequest.md)
  - [Friend](docs/Friend.md)
  - [FriendSource](docs/FriendSource.md)
@@ -797,6 +804,10 @@ Class | Method | HTTP request | Description
  - [MessageRequest](docs/MessageRequest.md)
  - [MetadataPair](docs/MetadataPair.md)
  - [MetadataView](docs/MetadataView.md)
+ - [MicroserviceRegistrationRequest](docs/MicroserviceRegistrationRequest.md)
+ - [MicroserviceRegistrations](docs/MicroserviceRegistrations.md)
+ - [MicroserviceRegistrationsQuery](docs/MicroserviceRegistrationsQuery.md)
+ - [MicroserviceRegistrationsResponse](docs/MicroserviceRegistrationsResponse.md)
  - [MicroserviceSecretResponse](docs/MicroserviceSecretResponse.md)
  - [MultipliersGetResponse](docs/MultipliersGetResponse.md)
  - [MyMailUpdate](docs/MyMailUpdate.md)
@@ -817,6 +828,7 @@ Class | Method | HTTP request | Description
  - [OnlineStatusQuery](docs/OnlineStatusQuery.md)
  - [OnlineStatusRequest](docs/OnlineStatusRequest.md)
  - [OnlineStatusResponses](docs/OnlineStatusResponses.md)
+ - [OptionalJsonNodeWrapper](docs/OptionalJsonNodeWrapper.md)
  - [OrderRule](docs/OrderRule.md)
  - [OrderRules](docs/OrderRules.md)
  - [PaNamespace](docs/PaNamespace.md)
@@ -874,6 +886,7 @@ Class | Method | HTTP request | Description
  - [Query](docs/Query.md)
  - [RankEntry](docs/RankEntry.md)
  - [RankEntryStat](docs/RankEntryStat.md)
+ - [RealmConfigChangeRequest](docs/RealmConfigChangeRequest.md)
  - [RealmConfigResponse](docs/RealmConfigResponse.md)
  - [RealmConfigSaveRequest](docs/RealmConfigSaveRequest.md)
  - [RealmConfiguration](docs/RealmConfiguration.md)
@@ -981,6 +994,9 @@ Class | Method | HTTP request | Description
  - [SubscriberDetailsResponse](docs/SubscriberDetailsResponse.md)
  - [SubscriptionVerificationRequest](docs/SubscriptionVerificationRequest.md)
  - [SubscriptionVerificationResponse](docs/SubscriptionVerificationResponse.md)
+ - [SupportedFederation](docs/SupportedFederation.md)
+ - [SupportedFederationRegistration](docs/SupportedFederationRegistration.md)
+ - [SupportedFederationsResponse](docs/SupportedFederationsResponse.md)
  - [Tag](docs/Tag.md)
  - [Team](docs/Team.md)
  - [TeamContentProto](docs/TeamContentProto.md)
