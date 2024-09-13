@@ -71,6 +71,7 @@ docs/ChatGetRequest.md
 docs/ChatV2ObjectMessage.md
 docs/ClearStatusRequest.md
 docs/ClientContentInfo.md
+docs/ClientContentInfoJson.md
 docs/ClientDataEntry.md
 docs/ClientManifestJsonResponse.md
 docs/ClientManifestResponse.md
@@ -191,7 +192,6 @@ docs/FacebookPaymentUpdateResponse.md
 docs/FacebookUpdatedEntry.md
 docs/FailPurchaseRequest.md
 docs/FailedInFlightFilterRequest.md
-docs/FederationInfo.md
 docs/FindAccountRequest.md
 docs/Friend.md
 docs/FriendSource.md
@@ -277,12 +277,16 @@ docs/GroupType.md
 docs/GroupUpdate.md
 docs/GroupUser.md
 docs/GroupUserMember.md
+docs/GroupUsersObjectFederationInfo.md
+docs/GroupsObjectFederationInfo.md
 docs/HttpCall.md
 docs/ImportFriendsRequest.md
 docs/InFlightFailure.md
 docs/InFlightFailureResponse.md
 docs/InFlightMessage.md
+docs/InventoryBasicFederationInfo.md
 docs/InventoryGetRequest.md
+docs/InventoryObjectFederationInfo.md
 docs/InventoryQueryRequest.md
 docs/InventoryUpdateRequest.md
 docs/InventoryView.md
@@ -408,6 +412,7 @@ docs/OnlineStatus.md
 docs/OnlineStatusQuery.md
 docs/OnlineStatusRequest.md
 docs/OnlineStatusResponses.md
+docs/OptionalJsonNodeWrapper.md
 docs/OrderRule.md
 docs/OrderRules.md
 docs/PaNamespace.md
@@ -469,6 +474,7 @@ docs/PutLocalizationsRequest.md
 docs/Query.md
 docs/RankEntry.md
 docs/RankEntryStat.md
+docs/RealmConfigChangeRequest.md
 docs/RealmConfigResponse.md
 docs/RealmConfigSaveRequest.md
 docs/RealmConfiguration.md
@@ -713,6 +719,7 @@ src/models/chat_get_request.rs
 src/models/chat_v2_object_message.rs
 src/models/clear_status_request.rs
 src/models/client_content_info.rs
+src/models/client_content_info_json.rs
 src/models/client_data_entry.rs
 src/models/client_manifest_json_response.rs
 src/models/client_manifest_response.rs
@@ -832,7 +839,6 @@ src/models/facebook_payment_update_response.rs
 src/models/facebook_updated_entry.rs
 src/models/fail_purchase_request.rs
 src/models/failed_in_flight_filter_request.rs
-src/models/federation_info.rs
 src/models/find_account_request.rs
 src/models/friend.rs
 src/models/friend_source.rs
@@ -918,12 +924,16 @@ src/models/group_type.rs
 src/models/group_update.rs
 src/models/group_user.rs
 src/models/group_user_member.rs
+src/models/group_users_object_federation_info.rs
+src/models/groups_object_federation_info.rs
 src/models/http_call.rs
 src/models/import_friends_request.rs
 src/models/in_flight_failure.rs
 src/models/in_flight_failure_response.rs
 src/models/in_flight_message.rs
+src/models/inventory_basic_federation_info.rs
 src/models/inventory_get_request.rs
+src/models/inventory_object_federation_info.rs
 src/models/inventory_query_request.rs
 src/models/inventory_update_request.rs
 src/models/inventory_view.rs
@@ -1047,6 +1057,7 @@ src/models/online_status.rs
 src/models/online_status_query.rs
 src/models/online_status_request.rs
 src/models/online_status_responses.rs
+src/models/optional_json_node_wrapper.rs
 src/models/order_rule.rs
 src/models/order_rules.rs
 src/models/pa_namespace.rs
@@ -1104,6 +1115,7 @@ src/models/put_localizations_request.rs
 src/models/query.rs
 src/models/rank_entry.rs
 src/models/rank_entry_stat.rs
+src/models/realm_config_change_request.rs
 src/models/realm_config_response.rs
 src/models/realm_config_save_request.rs
 src/models/realm_configuration.rs
