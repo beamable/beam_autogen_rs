@@ -991,7 +991,8 @@ pub struct BasicLeaderboardsListGetParams {
     pub x_beam_gamertag: Option<String>,
     pub skip: Option<i32>,
     pub limit: Option<i32>,
-    pub prefix: Option<String>
+    pub prefix: Option<String>,
+    pub include_partitions: Option<bool>
 }
 
 /// struct for passing parameters to the method [`basic_leaderboards_player_get`]
@@ -1767,6 +1768,16 @@ pub struct BasicRealmsConfigGetParams {
     pub x_beam_scope: String,
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>
+}
+
+/// struct for passing parameters to the method [`basic_realms_config_post`]
+#[derive(Clone, Debug)]
+pub struct BasicRealmsConfigPostParams {
+    /// Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+    pub x_beam_scope: String,
+    /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
+    pub x_beam_gamertag: Option<String>,
+    pub realm_config_change_request: Option<models::RealmConfigChangeRequest>
 }
 
 /// struct for passing parameters to the method [`basic_realms_config_put`]
@@ -5103,6 +5114,14 @@ pub enum BasicRealmsClientDefaultsGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BasicRealmsConfigGetError {
+    Status400(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`basic_realms_config_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum BasicRealmsConfigPostError {
     Status400(),
     UnknownValue(serde_json::Value),
 }
@@ -11115,6 +11134,7 @@ pub async fn basic_leaderboards_list_get(configuration: &configuration::Configur
     let skip = params.skip;
     let limit = params.limit;
     let prefix = params.prefix;
+    let include_partitions = params.include_partitions;
 
 
     let local_var_client = &local_var_configuration.client;
@@ -11130,6 +11150,9 @@ pub async fn basic_leaderboards_list_get(configuration: &configuration::Configur
     }
     if let Some(ref local_var_str) = prefix {
         local_var_req_builder = local_var_req_builder.query(&[("prefix", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = include_partitions {
+        local_var_req_builder = local_var_req_builder.query(&[("includePartitions", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -14663,6 +14686,55 @@ pub async fn basic_realms_config_get(configuration: &configuration::Configuratio
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<BasicRealmsConfigGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn basic_realms_config_post(configuration: &configuration::Configuration, params: BasicRealmsConfigPostParams) -> Result<models::CommonResponse, Error<BasicRealmsConfigPostError>> {
+    let local_var_configuration = configuration;
+
+    // unbox the parameters
+    let x_beam_scope = params.x_beam_scope;
+    let x_beam_gamertag = params.x_beam_gamertag;
+    let realm_config_change_request = params.realm_config_change_request;
+
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/basic/realms/config", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    local_var_req_builder = local_var_req_builder.header("X-BEAM-SCOPE", x_beam_scope.to_string());
+    if let Some(local_var_param_value) = x_beam_gamertag {
+        local_var_req_builder = local_var_req_builder.header("X-BEAM-GAMERTAG", local_var_param_value.to_string());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("X-DE-SIGNATURE", local_var_value);
+    };
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&realm_config_change_request);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<BasicRealmsConfigPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
