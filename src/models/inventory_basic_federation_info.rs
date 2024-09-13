@@ -12,16 +12,16 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct FederationInfo {
+pub struct InventoryBasicFederationInfo {
     #[serde(rename = "service")]
     pub service: String,
     #[serde(rename = "namespace")]
     pub namespace: String,
 }
 
-impl FederationInfo {
-    pub fn new(service: String, namespace: String) -> FederationInfo {
-        FederationInfo {
+impl InventoryBasicFederationInfo {
+    pub fn new(service: String, namespace: String) -> InventoryBasicFederationInfo {
+        InventoryBasicFederationInfo {
             service,
             namespace,
         }
