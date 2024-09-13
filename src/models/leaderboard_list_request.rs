@@ -19,6 +19,8 @@ pub struct LeaderboardListRequest {
     pub limit: Option<i32>,
     #[serde(rename = "prefix", skip_serializing_if = "Option::is_none")]
     pub prefix: Option<String>,
+    #[serde(rename = "includePartitions", skip_serializing_if = "Option::is_none")]
+    pub include_partitions: Option<bool>,
 }
 
 impl LeaderboardListRequest {
@@ -27,6 +29,7 @@ impl LeaderboardListRequest {
             skip: None,
             limit: None,
             prefix: None,
+            include_partitions: None,
         }
     }
 }
