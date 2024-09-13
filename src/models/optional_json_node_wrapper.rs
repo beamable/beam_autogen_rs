@@ -12,15 +12,15 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ClientManifestJsonResponse {
-    #[serde(rename = "entries")]
-    pub entries: Vec<models::ClientContentInfoJson>,
+pub struct OptionalJsonNodeWrapper {
+    #[serde(rename = "node", skip_serializing_if = "Option::is_none")]
+    pub node: Option<String>,
 }
 
-impl ClientManifestJsonResponse {
-    pub fn new(entries: Vec<models::ClientContentInfoJson>) -> ClientManifestJsonResponse {
-        ClientManifestJsonResponse {
-            entries,
+impl OptionalJsonNodeWrapper {
+    pub fn new() -> OptionalJsonNodeWrapper {
+        OptionalJsonNodeWrapper {
+            node: None,
         }
     }
 }
