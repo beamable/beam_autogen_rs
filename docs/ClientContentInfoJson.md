@@ -1,12 +1,14 @@
-# ItemArchetype
+# ClientContentInfoJson
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbol** | **String** |  | 
-**external** | Option<[**models::InventoryBasicFederationInfo**](InventoryBasicFederationInfo.md)> |  | [optional]
-**client_permission** | Option<[**models::ClientPermission**](ClientPermission.md)> |  | [optional]
+**tags** | **Vec<String>** |  | 
+**uri** | **String** |  | 
+**version** | **String** |  | 
+**content_id** | **String** |  | 
+**r#type** | [**models::ContentType**](ContentType.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
