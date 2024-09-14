@@ -12,7 +12,7 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ClientContentInfo {
+pub struct ClientContentInfoJson {
     #[serde(rename = "tags")]
     pub tags: Vec<String>,
     #[serde(rename = "uri")]
@@ -25,9 +25,9 @@ pub struct ClientContentInfo {
     pub r#type: models::ContentType,
 }
 
-impl ClientContentInfo {
-    pub fn new(tags: Vec<String>, uri: String, version: String, content_id: String, r#type: models::ContentType) -> ClientContentInfo {
-        ClientContentInfo {
+impl ClientContentInfoJson {
+    pub fn new(tags: Vec<String>, uri: String, version: String, content_id: String, r#type: models::ContentType) -> ClientContentInfoJson {
+        ClientContentInfoJson {
             tags,
             uri,
             version,
