@@ -203,6 +203,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**basic_realms_admin_inflight_failures_get**](docs/DefaultApi.md#basic_realms_admin_inflight_failures_get) | **GET** /basic/realms/admin/inflight/failures | 
 *DefaultApi* | [**basic_realms_client_defaults_get**](docs/DefaultApi.md#basic_realms_client_defaults_get) | **GET** /basic/realms/client/defaults | 
 *DefaultApi* | [**basic_realms_config_get**](docs/DefaultApi.md#basic_realms_config_get) | **GET** /basic/realms/config | 
+*DefaultApi* | [**basic_realms_config_post**](docs/DefaultApi.md#basic_realms_config_post) | **POST** /basic/realms/config | 
 *DefaultApi* | [**basic_realms_config_put**](docs/DefaultApi.md#basic_realms_config_put) | **PUT** /basic/realms/config | 
 *DefaultApi* | [**basic_realms_customer_alias_available_get**](docs/DefaultApi.md#basic_realms_customer_alias_available_get) | **GET** /basic/realms/customer/alias/available | 
 *DefaultApi* | [**basic_realms_customer_get**](docs/DefaultApi.md#basic_realms_customer_get) | **GET** /basic/realms/customer | 
@@ -484,6 +485,7 @@ Class | Method | HTTP request | Description
  - [ChatV2ObjectMessage](docs/ChatV2ObjectMessage.md)
  - [ClearStatusRequest](docs/ClearStatusRequest.md)
  - [ClientContentInfo](docs/ClientContentInfo.md)
+ - [ClientContentInfoJson](docs/ClientContentInfoJson.md)
  - [ClientDataEntry](docs/ClientDataEntry.md)
  - [ClientManifestJsonResponse](docs/ClientManifestJsonResponse.md)
  - [ClientManifestResponse](docs/ClientManifestResponse.md)
@@ -603,7 +605,6 @@ Class | Method | HTTP request | Description
  - [FacebookUpdatedEntry](docs/FacebookUpdatedEntry.md)
  - [FailPurchaseRequest](docs/FailPurchaseRequest.md)
  - [FailedInFlightFilterRequest](docs/FailedInFlightFilterRequest.md)
- - [FederationInfo](docs/FederationInfo.md)
  - [FindAccountRequest](docs/FindAccountRequest.md)
  - [Friend](docs/Friend.md)
  - [FriendSource](docs/FriendSource.md)
@@ -689,12 +690,16 @@ Class | Method | HTTP request | Description
  - [GroupUpdate](docs/GroupUpdate.md)
  - [GroupUser](docs/GroupUser.md)
  - [GroupUserMember](docs/GroupUserMember.md)
+ - [GroupUsersObjectFederationInfo](docs/GroupUsersObjectFederationInfo.md)
+ - [GroupsObjectFederationInfo](docs/GroupsObjectFederationInfo.md)
  - [HttpCall](docs/HttpCall.md)
  - [ImportFriendsRequest](docs/ImportFriendsRequest.md)
  - [InFlightFailure](docs/InFlightFailure.md)
  - [InFlightFailureResponse](docs/InFlightFailureResponse.md)
  - [InFlightMessage](docs/InFlightMessage.md)
+ - [InventoryBasicFederationInfo](docs/InventoryBasicFederationInfo.md)
  - [InventoryGetRequest](docs/InventoryGetRequest.md)
+ - [InventoryObjectFederationInfo](docs/InventoryObjectFederationInfo.md)
  - [InventoryQueryRequest](docs/InventoryQueryRequest.md)
  - [InventoryUpdateRequest](docs/InventoryUpdateRequest.md)
  - [InventoryView](docs/InventoryView.md)
@@ -817,6 +822,7 @@ Class | Method | HTTP request | Description
  - [OnlineStatusQuery](docs/OnlineStatusQuery.md)
  - [OnlineStatusRequest](docs/OnlineStatusRequest.md)
  - [OnlineStatusResponses](docs/OnlineStatusResponses.md)
+ - [OptionalJsonNodeWrapper](docs/OptionalJsonNodeWrapper.md)
  - [OrderRule](docs/OrderRule.md)
  - [OrderRules](docs/OrderRules.md)
  - [PaNamespace](docs/PaNamespace.md)
@@ -874,6 +880,7 @@ Class | Method | HTTP request | Description
  - [Query](docs/Query.md)
  - [RankEntry](docs/RankEntry.md)
  - [RankEntryStat](docs/RankEntryStat.md)
+ - [RealmConfigChangeRequest](docs/RealmConfigChangeRequest.md)
  - [RealmConfigResponse](docs/RealmConfigResponse.md)
  - [RealmConfigSaveRequest](docs/RealmConfigSaveRequest.md)
  - [RealmConfiguration](docs/RealmConfiguration.md)
