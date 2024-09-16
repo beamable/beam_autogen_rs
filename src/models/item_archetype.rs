@@ -16,7 +16,7 @@ pub struct ItemArchetype {
     #[serde(rename = "symbol")]
     pub symbol: String,
     #[serde(rename = "external", skip_serializing_if = "Option::is_none")]
-    pub external: Option<Box<models::FederationInfo>>,
+    pub external: Option<Box<models::InventoryBasicFederationInfo>>,
     #[serde(rename = "clientPermission", skip_serializing_if = "Option::is_none")]
     pub client_permission: Option<Box<models::ClientPermission>>,
 }
