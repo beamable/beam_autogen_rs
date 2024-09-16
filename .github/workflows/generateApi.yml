@@ -3,8 +3,8 @@ name: Generate API
 # TODO: eventually, we want this job to trigger based on perforce pushes
 on:
   schedule:
-    # this cron string runs every 2 hours
-    - cron: 0 0/2 * * *
+    # this cron string runs at 00:00, only on Monday
+    - cron: 0 0 * * 1
   workflow_dispatch:
 
 jobs:
@@ -29,10 +29,18 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
+      - name: Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            gen_api/target/
+          key: ${{ runner.os }}-cargo-clippy-${{ hashFiles('**/Cargo.toml') }}
       - name: Install stable toolchain
         uses: dtolnay/rust-toolchain@stable
-        with:
-          components: clippy
       - name: Build CLI 
         run: |
           dotnet build ./BeamableProduct/cli/cli 
@@ -40,19 +48,15 @@ jobs:
         working-directory: gen_api
         run: |
           dotnet run --project ../BeamableProduct/cli/cli -- oapi download --output . --combine-into-one-document
-
       - name: Update OpenAPI from script
         working-directory: gen_api
         run: bash updateOpenApi.sh
       - name: Generate code
         working-directory: gen_api
         run: docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate -i /local/combinedOpenApi.json -g rust -c /local/package_oapi_config.json -o /local/
-      - name: Format the code
+      - name: Test build
         working-directory: gen_api
-        run: cargo fmt --all
-      - name: Cargo clippy fixes
-        working-directory: gen_api
-        run: cargo clippy --fix --allow-dirty --allow-staged
+        run: cargo build
       - name: Check for Changes
         working-directory: gen_api
         run: |
