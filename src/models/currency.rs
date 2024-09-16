@@ -22,7 +22,7 @@ pub struct Currency {
     #[serde(rename = "properties", skip_serializing_if = "Option::is_none")]
     pub properties: Option<Vec<models::CurrencyProperty>>,
     #[serde(rename = "proxy", skip_serializing_if = "Option::is_none")]
-    pub proxy: Option<Box<models::FederationInfo>>,
+    pub proxy: Option<Box<models::GroupUsersObjectFederationInfo>>,
 }
 
 impl Currency {
