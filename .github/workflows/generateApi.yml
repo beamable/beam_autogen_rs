@@ -43,6 +43,12 @@ jobs:
       - name: Generate code
         working-directory: gen_api
         run: docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate -i /local/combinedOpenApi.json -g rust -c /local/package_oapi_config.json -o /local/
+      - name: Format the code
+        working-directory: gen_api
+        run: cargo fmt --all
+      - name: Cargo clippy fixes
+        working-directory: gen_api
+        run: cargo clippy --fix --allow-dirty --allow-staged
       - name: Check for Changes
         working-directory: gen_api
         run: |
