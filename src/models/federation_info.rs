@@ -12,18 +12,21 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InventoryBasicFederationInfo {
+pub struct FederationInfo {
     #[serde(rename = "service")]
     pub service: String,
     #[serde(rename = "namespace")]
     pub namespace: String,
+    #[serde(rename = "settings", skip_serializing_if = "Option::is_none")]
+    pub settings: Option<Box<models::OptionalJsonNodeWrapper>>,
 }
 
-impl InventoryBasicFederationInfo {
-    pub fn new(service: String, namespace: String) -> InventoryBasicFederationInfo {
-        InventoryBasicFederationInfo {
+impl FederationInfo {
+    pub fn new(service: String, namespace: String) -> FederationInfo {
+        FederationInfo {
             service,
             namespace,
+            settings: None,
         }
     }
 }

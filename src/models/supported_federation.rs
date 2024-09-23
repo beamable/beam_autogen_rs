@@ -12,20 +12,20 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct GroupsObjectFederationInfo {
-    #[serde(rename = "service")]
-    pub service: String,
-    #[serde(rename = "namespace")]
-    pub namespace: String,
+pub struct SupportedFederation {
+    #[serde(rename = "type")]
+    pub r#type: models::FederationType,
+    #[serde(rename = "nameSpace", skip_serializing_if = "Option::is_none")]
+    pub name_space: Option<String>,
     #[serde(rename = "settings", skip_serializing_if = "Option::is_none")]
     pub settings: Option<Box<models::OptionalJsonNodeWrapper>>,
 }
 
-impl GroupsObjectFederationInfo {
-    pub fn new(service: String, namespace: String) -> GroupsObjectFederationInfo {
-        GroupsObjectFederationInfo {
-            service,
-            namespace,
+impl SupportedFederation {
+    pub fn new(r#type: models::FederationType) -> SupportedFederation {
+        SupportedFederation {
+            r#type,
+            name_space: None,
             settings: None,
         }
     }
