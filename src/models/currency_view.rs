@@ -20,7 +20,7 @@ pub struct CurrencyView {
     #[serde(rename = "properties")]
     pub properties: Vec<models::CurrencyProperty>,
     #[serde(rename = "proxy", skip_serializing_if = "Option::is_none")]
-    pub proxy: Option<Box<models::InventoryObjectFederationInfo>>,
+    pub proxy: Option<Box<models::FederationInfo>>,
 }
 
 impl CurrencyView {

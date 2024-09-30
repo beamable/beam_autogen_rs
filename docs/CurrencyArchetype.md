@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbol** | **String** |  | 
-**external** | Option<[**models::InventoryBasicFederationInfo**](InventoryBasicFederationInfo.md)> |  | [optional]
+**external** | Option<[**models::FederationInfo**](FederationInfo.md)> |  | [optional]
 **client_permission** | Option<[**models::ClientPermission**](ClientPermission.md)> |  | [optional]
 **starting_amount** | Option<**i64**> |  | [optional]
 
