@@ -12,18 +12,21 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct AddAccountRequest {
+pub struct CreateElevatedAccountRequest {
     #[serde(rename = "email")]
     pub email: String,
     #[serde(rename = "role", skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
+    #[serde(rename = "initProperties", skip_serializing_if = "Option::is_none")]
+    pub init_properties: Option<std::collections::HashMap<String, String>>,
 }
 
-impl AddAccountRequest {
-    pub fn new(email: String) -> AddAccountRequest {
-        AddAccountRequest {
+impl CreateElevatedAccountRequest {
+    pub fn new(email: String) -> CreateElevatedAccountRequest {
+        CreateElevatedAccountRequest {
             email,
             role: None,
+            init_properties: None,
         }
     }
 }

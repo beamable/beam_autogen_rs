@@ -1,4 +1,4 @@
-# GroupUsersObjectFederationInfo
+# FederationInfo
 
 ## Properties
 

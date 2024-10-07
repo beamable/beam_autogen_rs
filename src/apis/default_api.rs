@@ -21,7 +21,7 @@ pub struct BasicAccountsAdminAdminUserPostParams {
     pub x_beam_scope: String,
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
-    pub add_account_request: Option<models::AddAccountRequest>
+    pub create_elevated_account_request: Option<models::CreateElevatedAccountRequest>
 }
 
 /// struct for passing parameters to the method [`basic_accounts_admin_admin_users_get`]
@@ -437,6 +437,46 @@ pub struct BasicBeamoMetricsUrlPostParams {
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
     pub get_metrics_url_request: Option<models::GetMetricsUrlRequest>
+}
+
+/// struct for passing parameters to the method [`basic_beamo_microservice_federation_post`]
+#[derive(Clone, Debug)]
+pub struct BasicBeamoMicroserviceFederationPostParams {
+    /// Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+    pub x_beam_scope: String,
+    /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
+    pub x_beam_gamertag: Option<String>,
+    pub microservice_registrations_query: Option<models::MicroserviceRegistrationsQuery>
+}
+
+/// struct for passing parameters to the method [`basic_beamo_microservice_federation_traffic_delete`]
+#[derive(Clone, Debug)]
+pub struct BasicBeamoMicroserviceFederationTrafficDeleteParams {
+    /// Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+    pub x_beam_scope: String,
+    /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
+    pub x_beam_gamertag: Option<String>,
+    pub microservice_registration_request: Option<models::MicroserviceRegistrationRequest>
+}
+
+/// struct for passing parameters to the method [`basic_beamo_microservice_federation_traffic_put`]
+#[derive(Clone, Debug)]
+pub struct BasicBeamoMicroserviceFederationTrafficPutParams {
+    /// Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+    pub x_beam_scope: String,
+    /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
+    pub x_beam_gamertag: Option<String>,
+    pub microservice_registration_request: Option<models::MicroserviceRegistrationRequest>
+}
+
+/// struct for passing parameters to the method [`basic_beamo_microservice_registrations_post`]
+#[derive(Clone, Debug)]
+pub struct BasicBeamoMicroserviceRegistrationsPostParams {
+    /// Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+    pub x_beam_scope: String,
+    /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
+    pub x_beam_gamertag: Option<String>,
+    pub microservice_registrations_query: Option<models::MicroserviceRegistrationsQuery>
 }
 
 /// struct for passing parameters to the method [`basic_beamo_microservice_secret_get`]
@@ -991,7 +1031,8 @@ pub struct BasicLeaderboardsListGetParams {
     pub x_beam_gamertag: Option<String>,
     pub skip: Option<i32>,
     pub limit: Option<i32>,
-    pub prefix: Option<String>
+    pub prefix: Option<String>,
+    pub include_partitions: Option<bool>
 }
 
 /// struct for passing parameters to the method [`basic_leaderboards_player_get`]
@@ -4061,6 +4102,38 @@ pub enum BasicBeamoMetricsUrlPostError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`basic_beamo_microservice_federation_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum BasicBeamoMicroserviceFederationPostError {
+    Status400(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`basic_beamo_microservice_federation_traffic_delete`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum BasicBeamoMicroserviceFederationTrafficDeleteError {
+    Status400(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`basic_beamo_microservice_federation_traffic_put`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum BasicBeamoMicroserviceFederationTrafficPutError {
+    Status400(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`basic_beamo_microservice_registrations_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum BasicBeamoMicroserviceRegistrationsPostError {
+    Status400(),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`basic_beamo_microservice_secret_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -6500,7 +6573,7 @@ pub async fn basic_accounts_admin_admin_user_post(configuration: &configuration:
     // unbox the parameters
     let x_beam_scope = params.x_beam_scope;
     let x_beam_gamertag = params.x_beam_gamertag;
-    let add_account_request = params.add_account_request;
+    let create_elevated_account_request = params.create_elevated_account_request;
 
 
     let local_var_client = &local_var_configuration.client;
@@ -6526,7 +6599,7 @@ pub async fn basic_accounts_admin_admin_user_post(configuration: &configuration:
     if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
-    local_var_req_builder = local_var_req_builder.json(&add_account_request);
+    local_var_req_builder = local_var_req_builder.json(&create_elevated_account_request);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -8505,6 +8578,202 @@ pub async fn basic_beamo_metrics_url_post(configuration: &configuration::Configu
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<BasicBeamoMetricsUrlPostError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn basic_beamo_microservice_federation_post(configuration: &configuration::Configuration, params: BasicBeamoMicroserviceFederationPostParams) -> Result<models::SupportedFederationsResponse, Error<BasicBeamoMicroserviceFederationPostError>> {
+    let local_var_configuration = configuration;
+
+    // unbox the parameters
+    let x_beam_scope = params.x_beam_scope;
+    let x_beam_gamertag = params.x_beam_gamertag;
+    let microservice_registrations_query = params.microservice_registrations_query;
+
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/basic/beamo/microservice/federation", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    local_var_req_builder = local_var_req_builder.header("X-BEAM-SCOPE", x_beam_scope.to_string());
+    if let Some(local_var_param_value) = x_beam_gamertag {
+        local_var_req_builder = local_var_req_builder.header("X-BEAM-GAMERTAG", local_var_param_value.to_string());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("X-DE-SIGNATURE", local_var_value);
+    };
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&microservice_registrations_query);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<BasicBeamoMicroserviceFederationPostError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn basic_beamo_microservice_federation_traffic_delete(configuration: &configuration::Configuration, params: BasicBeamoMicroserviceFederationTrafficDeleteParams) -> Result<models::CommonResponse, Error<BasicBeamoMicroserviceFederationTrafficDeleteError>> {
+    let local_var_configuration = configuration;
+
+    // unbox the parameters
+    let x_beam_scope = params.x_beam_scope;
+    let x_beam_gamertag = params.x_beam_gamertag;
+    let microservice_registration_request = params.microservice_registration_request;
+
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/basic/beamo/microservice/federation/traffic", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    local_var_req_builder = local_var_req_builder.header("X-BEAM-SCOPE", x_beam_scope.to_string());
+    if let Some(local_var_param_value) = x_beam_gamertag {
+        local_var_req_builder = local_var_req_builder.header("X-BEAM-GAMERTAG", local_var_param_value.to_string());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("X-DE-SIGNATURE", local_var_value);
+    };
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&microservice_registration_request);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<BasicBeamoMicroserviceFederationTrafficDeleteError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn basic_beamo_microservice_federation_traffic_put(configuration: &configuration::Configuration, params: BasicBeamoMicroserviceFederationTrafficPutParams) -> Result<models::CommonResponse, Error<BasicBeamoMicroserviceFederationTrafficPutError>> {
+    let local_var_configuration = configuration;
+
+    // unbox the parameters
+    let x_beam_scope = params.x_beam_scope;
+    let x_beam_gamertag = params.x_beam_gamertag;
+    let microservice_registration_request = params.microservice_registration_request;
+
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/basic/beamo/microservice/federation/traffic", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    local_var_req_builder = local_var_req_builder.header("X-BEAM-SCOPE", x_beam_scope.to_string());
+    if let Some(local_var_param_value) = x_beam_gamertag {
+        local_var_req_builder = local_var_req_builder.header("X-BEAM-GAMERTAG", local_var_param_value.to_string());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("X-DE-SIGNATURE", local_var_value);
+    };
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&microservice_registration_request);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<BasicBeamoMicroserviceFederationTrafficPutError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn basic_beamo_microservice_registrations_post(configuration: &configuration::Configuration, params: BasicBeamoMicroserviceRegistrationsPostParams) -> Result<models::MicroserviceRegistrationsResponse, Error<BasicBeamoMicroserviceRegistrationsPostError>> {
+    let local_var_configuration = configuration;
+
+    // unbox the parameters
+    let x_beam_scope = params.x_beam_scope;
+    let x_beam_gamertag = params.x_beam_gamertag;
+    let microservice_registrations_query = params.microservice_registrations_query;
+
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/basic/beamo/microservice/registrations", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    local_var_req_builder = local_var_req_builder.header("X-BEAM-SCOPE", x_beam_scope.to_string());
+    if let Some(local_var_param_value) = x_beam_gamertag {
+        local_var_req_builder = local_var_req_builder.header("X-BEAM-GAMERTAG", local_var_param_value.to_string());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("X-DE-SIGNATURE", local_var_value);
+    };
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&microservice_registrations_query);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<BasicBeamoMicroserviceRegistrationsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -11133,6 +11402,7 @@ pub async fn basic_leaderboards_list_get(configuration: &configuration::Configur
     let skip = params.skip;
     let limit = params.limit;
     let prefix = params.prefix;
+    let include_partitions = params.include_partitions;
 
 
     let local_var_client = &local_var_configuration.client;
@@ -11148,6 +11418,9 @@ pub async fn basic_leaderboards_list_get(configuration: &configuration::Configur
     }
     if let Some(ref local_var_str) = prefix {
         local_var_req_builder = local_var_req_builder.query(&[("prefix", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = include_partitions {
+        local_var_req_builder = local_var_req_builder.query(&[("includePartitions", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
