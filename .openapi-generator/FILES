@@ -13,7 +13,6 @@ docs/AccountRolesReport.md
 docs/AccountSearchResponse.md
 docs/AccountUpdate.md
 docs/ActiveListingResponse.md
-docs/AddAccountRequest.md
 docs/AddTags.md
 docs/AdminGetPlayerStatusRequest.md
 docs/AdminGetPlayerStatusResponse.md
@@ -105,6 +104,7 @@ docs/ContentVisibility.md
 docs/ContextInfo.md
 docs/CooldownModifierRequest.md
 docs/CreateDonationRequest.md
+docs/CreateElevatedAccountRequest.md
 docs/CreateFederatedGameServer.md
 docs/CreateLaunchMessageRequest.md
 docs/CreateLobby.md
@@ -192,6 +192,8 @@ docs/FacebookPaymentUpdateResponse.md
 docs/FacebookUpdatedEntry.md
 docs/FailPurchaseRequest.md
 docs/FailedInFlightFilterRequest.md
+docs/FederationInfo.md
+docs/FederationType.md
 docs/FindAccountRequest.md
 docs/Friend.md
 docs/FriendSource.md
@@ -277,16 +279,12 @@ docs/GroupType.md
 docs/GroupUpdate.md
 docs/GroupUser.md
 docs/GroupUserMember.md
-docs/GroupUsersObjectFederationInfo.md
-docs/GroupsObjectFederationInfo.md
 docs/HttpCall.md
 docs/ImportFriendsRequest.md
 docs/InFlightFailure.md
 docs/InFlightFailureResponse.md
 docs/InFlightMessage.md
-docs/InventoryBasicFederationInfo.md
 docs/InventoryGetRequest.md
-docs/InventoryObjectFederationInfo.md
 docs/InventoryQueryRequest.md
 docs/InventoryUpdateRequest.md
 docs/InventoryView.md
@@ -392,6 +390,10 @@ docs/Message.md
 docs/MessageRequest.md
 docs/MetadataPair.md
 docs/MetadataView.md
+docs/MicroserviceRegistrationRequest.md
+docs/MicroserviceRegistrations.md
+docs/MicroserviceRegistrationsQuery.md
+docs/MicroserviceRegistrationsResponse.md
 docs/MicroserviceSecretResponse.md
 docs/MultipliersGetResponse.md
 docs/MyMailUpdate.md
@@ -583,6 +585,9 @@ docs/StringStringKeyValuePair.md
 docs/SubscriberDetailsResponse.md
 docs/SubscriptionVerificationRequest.md
 docs/SubscriptionVerificationResponse.md
+docs/SupportedFederation.md
+docs/SupportedFederationRegistration.md
+docs/SupportedFederationsResponse.md
 docs/Tag.md
 docs/Team.md
 docs/TeamContentProto.md
@@ -662,7 +667,6 @@ src/models/account_roles_report.rs
 src/models/account_search_response.rs
 src/models/account_update.rs
 src/models/active_listing_response.rs
-src/models/add_account_request.rs
 src/models/add_tags.rs
 src/models/admin_get_player_status_request.rs
 src/models/admin_get_player_status_response.rs
@@ -753,6 +757,7 @@ src/models/content_visibility.rs
 src/models/context_info.rs
 src/models/cooldown_modifier_request.rs
 src/models/create_donation_request.rs
+src/models/create_elevated_account_request.rs
 src/models/create_federated_game_server.rs
 src/models/create_launch_message_request.rs
 src/models/create_lobby.rs
@@ -839,6 +844,8 @@ src/models/facebook_payment_update_response.rs
 src/models/facebook_updated_entry.rs
 src/models/fail_purchase_request.rs
 src/models/failed_in_flight_filter_request.rs
+src/models/federation_info.rs
+src/models/federation_type.rs
 src/models/find_account_request.rs
 src/models/friend.rs
 src/models/friend_source.rs
@@ -924,16 +931,12 @@ src/models/group_type.rs
 src/models/group_update.rs
 src/models/group_user.rs
 src/models/group_user_member.rs
-src/models/group_users_object_federation_info.rs
-src/models/groups_object_federation_info.rs
 src/models/http_call.rs
 src/models/import_friends_request.rs
 src/models/in_flight_failure.rs
 src/models/in_flight_failure_response.rs
 src/models/in_flight_message.rs
-src/models/inventory_basic_federation_info.rs
 src/models/inventory_get_request.rs
-src/models/inventory_object_federation_info.rs
 src/models/inventory_query_request.rs
 src/models/inventory_update_request.rs
 src/models/inventory_view.rs
@@ -1035,6 +1038,10 @@ src/models/message.rs
 src/models/message_request.rs
 src/models/metadata_pair.rs
 src/models/metadata_view.rs
+src/models/microservice_registration_request.rs
+src/models/microservice_registrations.rs
+src/models/microservice_registrations_query.rs
+src/models/microservice_registrations_response.rs
 src/models/microservice_secret_response.rs
 src/models/mod.rs
 src/models/model_match.rs
@@ -1223,6 +1230,9 @@ src/models/string_string_key_value_pair.rs
 src/models/subscriber_details_response.rs
 src/models/subscription_verification_request.rs
 src/models/subscription_verification_response.rs
+src/models/supported_federation.rs
+src/models/supported_federation_registration.rs
+src/models/supported_federations_response.rs
 src/models/tag.rs
 src/models/team.rs
 src/models/team_content_proto.rs

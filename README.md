@@ -71,6 +71,10 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**basic_beamo_manifest_pull_post**](docs/DefaultApi.md#basic_beamo_manifest_pull_post) | **POST** /basic/beamo/manifest/pull | 
 *DefaultApi* | [**basic_beamo_manifests_get**](docs/DefaultApi.md#basic_beamo_manifests_get) | **GET** /basic/beamo/manifests | 
 *DefaultApi* | [**basic_beamo_metrics_url_post**](docs/DefaultApi.md#basic_beamo_metrics_url_post) | **POST** /basic/beamo/metricsUrl | 
+*DefaultApi* | [**basic_beamo_microservice_federation_post**](docs/DefaultApi.md#basic_beamo_microservice_federation_post) | **POST** /basic/beamo/microservice/federation | 
+*DefaultApi* | [**basic_beamo_microservice_federation_traffic_delete**](docs/DefaultApi.md#basic_beamo_microservice_federation_traffic_delete) | **DELETE** /basic/beamo/microservice/federation/traffic | 
+*DefaultApi* | [**basic_beamo_microservice_federation_traffic_put**](docs/DefaultApi.md#basic_beamo_microservice_federation_traffic_put) | **PUT** /basic/beamo/microservice/federation/traffic | 
+*DefaultApi* | [**basic_beamo_microservice_registrations_post**](docs/DefaultApi.md#basic_beamo_microservice_registrations_post) | **POST** /basic/beamo/microservice/registrations | 
 *DefaultApi* | [**basic_beamo_microservice_secret_get**](docs/DefaultApi.md#basic_beamo_microservice_secret_get) | **GET** /basic/beamo/microservice/secret | 
 *DefaultApi* | [**basic_beamo_query_logs_delete**](docs/DefaultApi.md#basic_beamo_query_logs_delete) | **DELETE** /basic/beamo/queryLogs | 
 *DefaultApi* | [**basic_beamo_query_logs_post**](docs/DefaultApi.md#basic_beamo_query_logs_post) | **POST** /basic/beamo/queryLogs | 
@@ -428,7 +432,6 @@ Class | Method | HTTP request | Description
  - [AccountSearchResponse](docs/AccountSearchResponse.md)
  - [AccountUpdate](docs/AccountUpdate.md)
  - [ActiveListingResponse](docs/ActiveListingResponse.md)
- - [AddAccountRequest](docs/AddAccountRequest.md)
  - [AddTags](docs/AddTags.md)
  - [AdminGetPlayerStatusRequest](docs/AdminGetPlayerStatusRequest.md)
  - [AdminGetPlayerStatusResponse](docs/AdminGetPlayerStatusResponse.md)
@@ -519,6 +522,7 @@ Class | Method | HTTP request | Description
  - [ContextInfo](docs/ContextInfo.md)
  - [CooldownModifierRequest](docs/CooldownModifierRequest.md)
  - [CreateDonationRequest](docs/CreateDonationRequest.md)
+ - [CreateElevatedAccountRequest](docs/CreateElevatedAccountRequest.md)
  - [CreateFederatedGameServer](docs/CreateFederatedGameServer.md)
  - [CreateLaunchMessageRequest](docs/CreateLaunchMessageRequest.md)
  - [CreateLobby](docs/CreateLobby.md)
@@ -605,6 +609,8 @@ Class | Method | HTTP request | Description
  - [FacebookUpdatedEntry](docs/FacebookUpdatedEntry.md)
  - [FailPurchaseRequest](docs/FailPurchaseRequest.md)
  - [FailedInFlightFilterRequest](docs/FailedInFlightFilterRequest.md)
+ - [FederationInfo](docs/FederationInfo.md)
+ - [FederationType](docs/FederationType.md)
  - [FindAccountRequest](docs/FindAccountRequest.md)
  - [Friend](docs/Friend.md)
  - [FriendSource](docs/FriendSource.md)
@@ -690,16 +696,12 @@ Class | Method | HTTP request | Description
  - [GroupUpdate](docs/GroupUpdate.md)
  - [GroupUser](docs/GroupUser.md)
  - [GroupUserMember](docs/GroupUserMember.md)
- - [GroupUsersObjectFederationInfo](docs/GroupUsersObjectFederationInfo.md)
- - [GroupsObjectFederationInfo](docs/GroupsObjectFederationInfo.md)
  - [HttpCall](docs/HttpCall.md)
  - [ImportFriendsRequest](docs/ImportFriendsRequest.md)
  - [InFlightFailure](docs/InFlightFailure.md)
  - [InFlightFailureResponse](docs/InFlightFailureResponse.md)
  - [InFlightMessage](docs/InFlightMessage.md)
- - [InventoryBasicFederationInfo](docs/InventoryBasicFederationInfo.md)
  - [InventoryGetRequest](docs/InventoryGetRequest.md)
- - [InventoryObjectFederationInfo](docs/InventoryObjectFederationInfo.md)
  - [InventoryQueryRequest](docs/InventoryQueryRequest.md)
  - [InventoryUpdateRequest](docs/InventoryUpdateRequest.md)
  - [InventoryView](docs/InventoryView.md)
@@ -802,6 +804,10 @@ Class | Method | HTTP request | Description
  - [MessageRequest](docs/MessageRequest.md)
  - [MetadataPair](docs/MetadataPair.md)
  - [MetadataView](docs/MetadataView.md)
+ - [MicroserviceRegistrationRequest](docs/MicroserviceRegistrationRequest.md)
+ - [MicroserviceRegistrations](docs/MicroserviceRegistrations.md)
+ - [MicroserviceRegistrationsQuery](docs/MicroserviceRegistrationsQuery.md)
+ - [MicroserviceRegistrationsResponse](docs/MicroserviceRegistrationsResponse.md)
  - [MicroserviceSecretResponse](docs/MicroserviceSecretResponse.md)
  - [MultipliersGetResponse](docs/MultipliersGetResponse.md)
  - [MyMailUpdate](docs/MyMailUpdate.md)
@@ -988,6 +994,9 @@ Class | Method | HTTP request | Description
  - [SubscriberDetailsResponse](docs/SubscriberDetailsResponse.md)
  - [SubscriptionVerificationRequest](docs/SubscriptionVerificationRequest.md)
  - [SubscriptionVerificationResponse](docs/SubscriptionVerificationResponse.md)
+ - [SupportedFederation](docs/SupportedFederation.md)
+ - [SupportedFederationRegistration](docs/SupportedFederationRegistration.md)
+ - [SupportedFederationsResponse](docs/SupportedFederationsResponse.md)
  - [Tag](docs/Tag.md)
  - [Team](docs/Team.md)
  - [TeamContentProto](docs/TeamContentProto.md)

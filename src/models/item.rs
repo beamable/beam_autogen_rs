@@ -22,7 +22,7 @@ pub struct Item {
     #[serde(rename = "properties")]
     pub properties: Vec<models::ItemProperty>,
     #[serde(rename = "proxy", skip_serializing_if = "Option::is_none")]
-    pub proxy: Option<Box<models::InventoryObjectFederationInfo>>,
+    pub proxy: Option<Box<models::FederationInfo>>,
     #[serde(rename = "createdAt", skip_serializing_if = "Option::is_none")]
     pub created_at: Option<i64>,
 }
