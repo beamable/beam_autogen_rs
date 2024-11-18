@@ -1,30 +1,30 @@
-# \PlayerApi
+# \PlayerTicketApi
 
 All URIs are relative to *https://api.beamable.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_players_player_id_parties_invites_get**](PlayerApi.md#api_players_player_id_parties_invites_get) | **GET** /api/players/{playerId}/parties/invites | 
+[**api_players_player_id_matchmaking_tickets_get**](PlayerTicketApi.md#api_players_player_id_matchmaking_tickets_get) | **GET** /api/players/{playerId}/matchmaking/tickets | 
 
 
 
-## api_players_player_id_parties_invites_get
+## api_players_player_id_matchmaking_tickets_get
 
-> models::PartyInvitesForPlayerResponse api_players_player_id_parties_invites_get(player_id)
+> models::TicketQueryResponse api_players_player_id_matchmaking_tickets_get(player_id)
 
 
-Return list of party invites for player.
+Fetch the requested player's active Ticket information
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**player_id** | **String** | PlayerId | [required] |
+**player_id** | **String** | Player Id | [required] |
 
 ### Return type
 
-[**models::PartyInvitesForPlayerResponse**](PartyInvitesForPlayerResponse.md)
+[**models::TicketQueryResponse**](TicketQueryResponse.md)
 
 ### Authorization
 

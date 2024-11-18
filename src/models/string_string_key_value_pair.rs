@@ -13,10 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StringStringKeyValuePair {
-    #[serde(rename = "key", skip_serializing_if = "Option::is_none")]
-    pub key: Option<String>,
-    #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<String>,
+    #[serde(rename = "key", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub key: Option<Option<String>>,
+    #[serde(rename = "value", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub value: Option<Option<String>>,
 }
 
 impl StringStringKeyValuePair {

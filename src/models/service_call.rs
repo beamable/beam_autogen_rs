@@ -21,6 +21,8 @@ pub struct ServiceCall {
     pub method: Option<String>,
     #[serde(rename = "body", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub body: Option<Option<String>>,
+    #[serde(rename = "headers", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub headers: Option<Option<Vec<models::StringStringKeyValuePair>>>,
 }
 
 impl ServiceCall {
@@ -30,6 +32,7 @@ impl ServiceCall {
             uri: None,
             method: None,
             body: None,
+            headers: None,
         }
     }
 }
