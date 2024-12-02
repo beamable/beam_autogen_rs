@@ -1,62 +1,29 @@
-# \TicketApi
+# \PlayerPartyApi
 
 All URIs are relative to *https://api.beamable.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_matchmaking_tickets_get**](TicketApi.md#api_matchmaking_tickets_get) | **GET** /api/matchmaking/tickets | 
-[**api_matchmaking_tickets_id_delete**](TicketApi.md#api_matchmaking_tickets_id_delete) | **DELETE** /api/matchmaking/tickets/{id} | 
-[**api_matchmaking_tickets_id_get**](TicketApi.md#api_matchmaking_tickets_id_get) | **GET** /api/matchmaking/tickets/{id} | 
-[**api_matchmaking_tickets_post**](TicketApi.md#api_matchmaking_tickets_post) | **POST** /api/matchmaking/tickets | 
+[**api_players_player_id_parties_delete**](PlayerPartyApi.md#api_players_player_id_parties_delete) | **DELETE** /api/players/{playerId}/parties | 
+[**api_players_player_id_parties_get**](PlayerPartyApi.md#api_players_player_id_parties_get) | **GET** /api/players/{playerId}/parties | 
+[**api_players_player_id_parties_invites_get**](PlayerPartyApi.md#api_players_player_id_parties_invites_get) | **GET** /api/players/{playerId}/parties/invites | 
+[**api_players_player_id_party_invites_get**](PlayerPartyApi.md#api_players_player_id_party_invites_get) | **GET** /api/players/{playerId}/party/invites | 
 
 
 
-## api_matchmaking_tickets_get
+## api_players_player_id_parties_delete
 
-> models::TicketQueryResponse api_matchmaking_tickets_get(players, include_inactive, skip, limit)
-
-
-Query for active tickets
-
-### Parameters
+> serde_json::Value api_players_player_id_parties_delete(player_id)
 
 
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**players** | Option<[**Vec<String>**](String.md)> |  |  |
-**include_inactive** | Option<**bool**> |  |  |
-**skip** | Option<**i32**> |  |  |
-**limit** | Option<**i32**> |  |  |
-
-### Return type
-
-[**models::TicketQueryResponse**](TicketQueryResponse.md)
-
-### Authorization
-
-[user](../README.md#user)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## api_matchmaking_tickets_id_delete
-
-> serde_json::Value api_matchmaking_tickets_id_delete(id)
-
-
-Cancel a pending ticket. If no ticket with the id exists, this will  still return a 204.
+If the requested player is in a party, remove the player
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **uuid::Uuid** |  | [required] |
+**player_id** | **String** | Player Id | [required] |
 
 ### Return type
 
@@ -74,23 +41,23 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## api_matchmaking_tickets_id_get
+## api_players_player_id_parties_get
 
-> models::Ticket api_matchmaking_tickets_id_get(id)
+> models::Party api_players_player_id_parties_get(player_id)
 
 
-Fetch a ticket by ID.
+Fetch the requested player's party information
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **uuid::Uuid** | Ticket ID | [required] |
+**player_id** | **String** | Player Id | [required] |
 
 ### Return type
 
-[**models::Ticket**](Ticket.md)
+[**models::Party**](Party.md)
 
 ### Authorization
 
@@ -104,23 +71,23 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## api_matchmaking_tickets_post
+## api_players_player_id_parties_invites_get
 
-> models::TicketReservationResponse api_matchmaking_tickets_post(ticket_reservation_request)
+> models::PartyInvitesForPlayerResponse api_players_player_id_parties_invites_get(player_id)
 
 
-Create a ticket representing 1 or more players to be matched  with others.
+Return list of party invites for player.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**ticket_reservation_request** | Option<[**TicketReservationRequest**](TicketReservationRequest.md)> |  |  |
+**player_id** | **String** | PlayerId | [required] |
 
 ### Return type
 
-[**models::TicketReservationResponse**](TicketReservationResponse.md)
+[**models::PartyInvitesForPlayerResponse**](PartyInvitesForPlayerResponse.md)
 
 ### Authorization
 
@@ -128,7 +95,37 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_players_player_id_party_invites_get
+
+> models::PartyInvitesForPlayerResponse api_players_player_id_party_invites_get(player_id)
+
+
+Return list of party invites for player.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**player_id** | **String** | PlayerId | [required] |
+
+### Return type
+
+[**models::PartyInvitesForPlayerResponse**](PartyInvitesForPlayerResponse.md)
+
+### Authorization
+
+[user](../README.md#user)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

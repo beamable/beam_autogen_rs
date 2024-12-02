@@ -166,11 +166,12 @@ pub async fn api_internal_scheduler_job_execute_post(configuration: &configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiInternalSchedulerJobExecutePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -201,11 +202,12 @@ pub async fn api_internal_scheduler_job_post(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiInternalSchedulerJobPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -239,11 +241,12 @@ pub async fn api_scheduler_job_job_id_activity_get(configuration: &configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiSchedulerJobJobIdActivityGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -273,11 +276,12 @@ pub async fn api_scheduler_job_job_id_cancel_put(configuration: &configuration::
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiSchedulerJobJobIdCancelPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -307,11 +311,12 @@ pub async fn api_scheduler_job_job_id_delete(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiSchedulerJobJobIdDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -341,11 +346,12 @@ pub async fn api_scheduler_job_job_id_get(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiSchedulerJobJobIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -383,11 +389,12 @@ pub async fn api_scheduler_job_job_id_next_executions_get(configuration: &config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiSchedulerJobJobIdNextExecutionsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -418,11 +425,12 @@ pub async fn api_scheduler_job_post(configuration: &configuration::Configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiSchedulerJobPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -463,11 +471,12 @@ pub async fn api_scheduler_jobs_get(configuration: &configuration::Configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiSchedulerJobsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))

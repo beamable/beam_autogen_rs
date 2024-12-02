@@ -204,11 +204,12 @@ pub async fn api_lobbies_get(configuration: &configuration::Configuration, param
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiLobbiesGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -241,11 +242,12 @@ pub async fn api_lobbies_id_delete(configuration: &configuration::Configuration,
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiLobbiesIdDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -276,11 +278,12 @@ pub async fn api_lobbies_id_get(configuration: &configuration::Configuration, pa
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiLobbiesIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -313,11 +316,12 @@ pub async fn api_lobbies_id_metadata_put(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiLobbiesIdMetadataPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -350,11 +354,12 @@ pub async fn api_lobbies_id_put(configuration: &configuration::Configuration, pa
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiLobbiesIdPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -387,11 +392,12 @@ pub async fn api_lobbies_id_server_post(configuration: &configuration::Configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiLobbiesIdServerPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -424,11 +430,12 @@ pub async fn api_lobbies_id_tags_delete(configuration: &configuration::Configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiLobbiesIdTagsDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -461,11 +468,12 @@ pub async fn api_lobbies_id_tags_put(configuration: &configuration::Configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiLobbiesIdTagsPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -497,11 +505,12 @@ pub async fn api_lobbies_passcode_put(configuration: &configuration::Configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiLobbiesPasscodePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -533,11 +542,12 @@ pub async fn api_lobbies_post(configuration: &configuration::Configuration, para
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiLobbiesPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))

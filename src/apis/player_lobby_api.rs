@@ -14,50 +14,48 @@ use serde::{Deserialize, Serialize};
 use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
-/// struct for passing parameters to the method [`api_auth_refresh_token_post`]
+/// struct for passing parameters to the method [`api_players_player_id_lobbies_delete`]
 #[derive(Clone, Debug)]
-pub struct ApiAuthRefreshTokenPostParams {
-    /// `RefreshTokenAuthRequest`
-    pub refresh_token_auth_request: Option<models::RefreshTokenAuthRequest>
+pub struct ApiPlayersPlayerIdLobbiesDeleteParams {
+    /// Player Id
+    pub player_id: String
 }
 
-/// struct for passing parameters to the method [`api_auth_server_post`]
+/// struct for passing parameters to the method [`api_players_player_id_lobbies_get`]
 #[derive(Clone, Debug)]
-pub struct ApiAuthServerPostParams {
-    /// `ServerTokenAuthRequest`
-    pub server_token_auth_request: Option<models::ServerTokenAuthRequest>
+pub struct ApiPlayersPlayerIdLobbiesGetParams {
+    /// Player Id
+    pub player_id: String
 }
 
 
-/// struct for typed errors of method [`api_auth_refresh_token_post`]
+/// struct for typed errors of method [`api_players_player_id_lobbies_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiAuthRefreshTokenPostError {
-    Status400(models::ProblemDetails),
+pub enum ApiPlayersPlayerIdLobbiesDeleteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_auth_server_post`]
+/// struct for typed errors of method [`api_players_player_id_lobbies_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiAuthServerPostError {
-    Status400(models::ProblemDetails),
+pub enum ApiPlayersPlayerIdLobbiesGetError {
     UnknownValue(serde_json::Value),
 }
 
 
-/// Generate a new access token for previously authenticated account.
-pub async fn api_auth_refresh_token_post(configuration: &configuration::Configuration, params: ApiAuthRefreshTokenPostParams) -> Result<models::AuthResponse, Error<ApiAuthRefreshTokenPostError>> {
+/// If the requested player is in a lobby, remove the player
+pub async fn api_players_player_id_lobbies_delete(configuration: &configuration::Configuration, params: ApiPlayersPlayerIdLobbiesDeleteParams) -> Result<serde_json::Value, Error<ApiPlayersPlayerIdLobbiesDeleteError>> {
     let local_var_configuration = configuration;
 
     // unbox the parameters
-    let refresh_token_auth_request = params.refresh_token_auth_request;
+    let player_id = params.player_id;
 
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/api/auth/refresh-token", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/api/players/{playerId}/lobbies", local_var_configuration.base_path, playerId=crate::apis::urlencode(player_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -65,7 +63,6 @@ pub async fn api_auth_refresh_token_post(configuration: &configuration::Configur
     if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
-    local_var_req_builder = local_var_req_builder.json(&refresh_token_auth_request);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -77,24 +74,24 @@ pub async fn api_auth_refresh_token_post(configuration: &configuration::Configur
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiAuthRefreshTokenPostError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiPlayersPlayerIdLobbiesDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-/// Generate a new access token for a machine with a shared secret
-pub async fn api_auth_server_post(configuration: &configuration::Configuration, params: ApiAuthServerPostParams) -> Result<models::ServerTokenResponse, Error<ApiAuthServerPostError>> {
+/// Fetch the requested player's lobby information
+pub async fn api_players_player_id_lobbies_get(configuration: &configuration::Configuration, params: ApiPlayersPlayerIdLobbiesGetParams) -> Result<models::Lobby, Error<ApiPlayersPlayerIdLobbiesGetError>> {
     let local_var_configuration = configuration;
 
     // unbox the parameters
-    let server_token_auth_request = params.server_token_auth_request;
+    let player_id = params.player_id;
 
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/api/auth/server", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/api/players/{playerId}/lobbies", local_var_configuration.base_path, playerId=crate::apis::urlencode(player_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -102,7 +99,6 @@ pub async fn api_auth_server_post(configuration: &configuration::Configuration, 
     if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
-    local_var_req_builder = local_var_req_builder.json(&server_token_auth_request);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -114,7 +110,7 @@ pub async fn api_auth_server_post(configuration: &configuration::Configuration, 
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiAuthServerPostError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiPlayersPlayerIdLobbiesGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

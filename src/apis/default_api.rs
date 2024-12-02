@@ -6605,11 +6605,12 @@ pub async fn basic_accounts_admin_admin_user_post(configuration: &configuration:
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsAdminAdminUserPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -6652,11 +6653,12 @@ pub async fn basic_accounts_admin_admin_users_get(configuration: &configuration:
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsAdminAdminUsersGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -6699,11 +6701,12 @@ pub async fn basic_accounts_admin_me_get(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsAdminMeGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -6740,11 +6743,12 @@ pub async fn basic_accounts_available_device_id_get(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsAvailableDeviceIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -6787,11 +6791,12 @@ pub async fn basic_accounts_available_external_identity_get(configuration: &conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsAvailableExternalIdentityGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -6828,11 +6833,12 @@ pub async fn basic_accounts_available_get(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsAvailableGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -6871,11 +6877,12 @@ pub async fn basic_accounts_available_third_party_get(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsAvailableThirdPartyGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -6920,11 +6927,12 @@ pub async fn basic_accounts_email_update_confirm_post(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsEmailUpdateConfirmPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -6969,11 +6977,12 @@ pub async fn basic_accounts_email_update_init_post(configuration: &configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsEmailUpdateInitPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7018,11 +7027,12 @@ pub async fn basic_accounts_external_identity_delete(configuration: &configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsExternalIdentityDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7067,11 +7077,12 @@ pub async fn basic_accounts_external_identity_post(configuration: &configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsExternalIdentityPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7116,11 +7127,12 @@ pub async fn basic_accounts_find_get(configuration: &configuration::Configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsFindGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7157,11 +7169,12 @@ pub async fn basic_accounts_get_personally_identifiable_information_get(configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsGetPersonallyIdentifiableInformationGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7206,11 +7219,12 @@ pub async fn basic_accounts_me_device_delete(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsMeDeviceDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7253,11 +7267,12 @@ pub async fn basic_accounts_me_get(configuration: &configuration::Configuration,
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsMeGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7302,11 +7317,12 @@ pub async fn basic_accounts_me_put(configuration: &configuration::Configuration,
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsMePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7351,11 +7367,12 @@ pub async fn basic_accounts_me_third_party_delete(configuration: &configuration:
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsMeThirdPartyDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7392,11 +7409,12 @@ pub async fn basic_accounts_password_update_confirm_post(configuration: &configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsPasswordUpdateConfirmPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7433,11 +7451,12 @@ pub async fn basic_accounts_password_update_init_post(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsPasswordUpdateInitPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7482,11 +7501,12 @@ pub async fn basic_accounts_register_post(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsRegisterPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7535,11 +7555,12 @@ pub async fn basic_accounts_search_get(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAccountsSearchGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7582,11 +7603,12 @@ pub async fn basic_announcements_content_get(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAnnouncementsContentGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7631,11 +7653,12 @@ pub async fn basic_announcements_delete(configuration: &configuration::Configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAnnouncementsDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7678,11 +7701,12 @@ pub async fn basic_announcements_list_definitions_get(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAnnouncementsListDefinitionsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7725,11 +7749,12 @@ pub async fn basic_announcements_list_get(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAnnouncementsListGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7776,11 +7801,12 @@ pub async fn basic_announcements_list_tags_get(configuration: &configuration::Co
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAnnouncementsListTagsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7825,11 +7851,12 @@ pub async fn basic_announcements_post(configuration: &configuration::Configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAnnouncementsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7876,11 +7903,12 @@ pub async fn basic_announcements_search_get(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAnnouncementsSearchGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7917,11 +7945,12 @@ pub async fn basic_auth_token_get(configuration: &configuration::Configuration, 
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAuthTokenGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -7978,11 +8007,12 @@ pub async fn basic_auth_token_list_get(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAuthTokenListGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8019,11 +8049,12 @@ pub async fn basic_auth_token_post(configuration: &configuration::Configuration,
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAuthTokenPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8068,11 +8099,12 @@ pub async fn basic_auth_token_revoke_put(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicAuthTokenRevokePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8117,11 +8149,12 @@ pub async fn basic_beamo_image_commit_put(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoImageCommitPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8166,11 +8199,12 @@ pub async fn basic_beamo_image_urls_post(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoImageUrlsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8215,11 +8249,12 @@ pub async fn basic_beamo_logs_url_post(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoLogsUrlPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8266,11 +8301,12 @@ pub async fn basic_beamo_manifest_current_get(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoManifestCurrentGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8313,11 +8349,12 @@ pub async fn basic_beamo_manifest_deploy_post(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoManifestDeployPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8366,11 +8403,12 @@ pub async fn basic_beamo_manifest_get(configuration: &configuration::Configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoManifestGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8415,11 +8453,12 @@ pub async fn basic_beamo_manifest_post(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoManifestPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8464,11 +8503,12 @@ pub async fn basic_beamo_manifest_pull_post(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoManifestPullPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8523,11 +8563,12 @@ pub async fn basic_beamo_manifests_get(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoManifestsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8572,11 +8613,12 @@ pub async fn basic_beamo_metrics_url_post(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoMetricsUrlPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8621,11 +8663,12 @@ pub async fn basic_beamo_microservice_federation_post(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoMicroserviceFederationPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8670,11 +8713,12 @@ pub async fn basic_beamo_microservice_federation_traffic_delete(configuration: &
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoMicroserviceFederationTrafficDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8719,11 +8763,12 @@ pub async fn basic_beamo_microservice_federation_traffic_put(configuration: &con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoMicroserviceFederationTrafficPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8768,11 +8813,12 @@ pub async fn basic_beamo_microservice_registrations_post(configuration: &configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoMicroserviceRegistrationsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8815,11 +8861,12 @@ pub async fn basic_beamo_microservice_secret_get(configuration: &configuration::
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoMicroserviceSecretGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8864,11 +8911,12 @@ pub async fn basic_beamo_query_logs_delete(configuration: &configuration::Config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoQueryLogsDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8913,11 +8961,12 @@ pub async fn basic_beamo_query_logs_post(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoQueryLogsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -8962,11 +9011,12 @@ pub async fn basic_beamo_query_logs_result_post(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoQueryLogsResultPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9009,11 +9059,12 @@ pub async fn basic_beamo_registry_get(configuration: &configuration::Configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoRegistryGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9056,11 +9107,12 @@ pub async fn basic_beamo_status_get(configuration: &configuration::Configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoStatusGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9103,11 +9155,12 @@ pub async fn basic_beamo_storage_connection_get(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoStorageConnectionGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9166,11 +9219,12 @@ pub async fn basic_beamo_storage_performance_get(configuration: &configuration::
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoStoragePerformanceGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9213,11 +9267,12 @@ pub async fn basic_beamo_templates_get(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoTemplatesGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9260,11 +9315,12 @@ pub async fn basic_beamo_upload_api_get(configuration: &configuration::Configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicBeamoUploadApiGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9309,11 +9365,12 @@ pub async fn basic_cloudsaving_data_commit_manifest_put(configuration: &configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicCloudsavingDataCommitManifestPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9358,11 +9415,12 @@ pub async fn basic_cloudsaving_data_delete(configuration: &configuration::Config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicCloudsavingDataDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9407,11 +9465,12 @@ pub async fn basic_cloudsaving_data_download_url_from_portal_post(configuration:
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicCloudsavingDataDownloadUrlFromPortalPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9456,11 +9515,12 @@ pub async fn basic_cloudsaving_data_download_url_post(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicCloudsavingDataDownloadUrlPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9505,11 +9565,12 @@ pub async fn basic_cloudsaving_data_move_from_portal_put(configuration: &configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicCloudsavingDataMoveFromPortalPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9554,11 +9615,12 @@ pub async fn basic_cloudsaving_data_move_put(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicCloudsavingDataMovePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9603,11 +9665,12 @@ pub async fn basic_cloudsaving_data_replace_post(configuration: &configuration::
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicCloudsavingDataReplacePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9652,11 +9715,12 @@ pub async fn basic_cloudsaving_data_upload_url_from_portal_post(configuration: &
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicCloudsavingDataUploadUrlFromPortalPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9701,11 +9765,12 @@ pub async fn basic_cloudsaving_data_upload_url_post(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicCloudsavingDataUploadUrlPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9744,11 +9809,12 @@ pub async fn basic_cloudsaving_get(configuration: &configuration::Configuration,
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicCloudsavingGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9795,11 +9861,12 @@ pub async fn basic_commerce_catalog_get(configuration: &configuration::Configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicCommerceCatalogGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9844,11 +9911,12 @@ pub async fn basic_commerce_catalog_legacy_post(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicCommerceCatalogLegacyPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9887,11 +9955,12 @@ pub async fn basic_commerce_skus_get(configuration: &configuration::Configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicCommerceSkusGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9936,11 +10005,12 @@ pub async fn basic_commerce_skus_post(configuration: &configuration::Configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicCommerceSkusPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -9985,11 +10055,12 @@ pub async fn basic_content_binary_post(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentBinaryPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10036,11 +10107,12 @@ pub async fn basic_content_content_get(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentContentGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10085,11 +10157,12 @@ pub async fn basic_content_localizations_delete(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentLocalizationsDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10132,11 +10205,12 @@ pub async fn basic_content_localizations_get(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentLocalizationsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10181,11 +10255,12 @@ pub async fn basic_content_localizations_put(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentLocalizationsPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10224,11 +10299,12 @@ pub async fn basic_content_manifest_checksum_get(configuration: &configuration::
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestChecksumGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10271,11 +10347,12 @@ pub async fn basic_content_manifest_checksums_get(configuration: &configuration:
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestChecksumsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10320,11 +10397,12 @@ pub async fn basic_content_manifest_exact_get(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestExactGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10371,11 +10449,12 @@ pub async fn basic_content_manifest_get(configuration: &configuration::Configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10426,11 +10505,12 @@ pub async fn basic_content_manifest_history_get(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestHistoryGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10475,11 +10555,12 @@ pub async fn basic_content_manifest_post(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10526,11 +10607,12 @@ pub async fn basic_content_manifest_private_get(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestPrivateGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10577,11 +10659,12 @@ pub async fn basic_content_manifest_private_json_get(configuration: &configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestPrivateJsonGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10620,11 +10703,12 @@ pub async fn basic_content_manifest_public_get(configuration: &configuration::Co
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestPublicGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10663,11 +10747,12 @@ pub async fn basic_content_manifest_public_json_get(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestPublicJsonGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10712,11 +10797,12 @@ pub async fn basic_content_manifest_pull_post(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestPullPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10761,11 +10847,12 @@ pub async fn basic_content_manifest_repeat_put(configuration: &configuration::Co
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestRepeatPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10810,11 +10897,12 @@ pub async fn basic_content_manifests_archive_post(configuration: &configuration:
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestsArchivePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10857,11 +10945,12 @@ pub async fn basic_content_manifests_get(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10906,11 +10995,12 @@ pub async fn basic_content_manifests_pull_post(configuration: &configuration::Co
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestsPullPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -10955,11 +11045,12 @@ pub async fn basic_content_manifests_unarchive_post(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentManifestsUnarchivePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11004,11 +11095,12 @@ pub async fn basic_content_post(configuration: &configuration::Configuration, pa
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11053,11 +11145,12 @@ pub async fn basic_content_text_post(configuration: &configuration::Configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicContentTextPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11102,11 +11195,12 @@ pub async fn basic_events_apply_content_post(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicEventsApplyContentPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11165,11 +11259,12 @@ pub async fn basic_events_calendar_get(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicEventsCalendarGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11212,11 +11307,12 @@ pub async fn basic_events_content_get(configuration: &configuration::Configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicEventsContentGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11251,11 +11347,12 @@ pub async fn basic_events_running_get(configuration: &configuration::Configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicEventsRunningGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11290,11 +11387,12 @@ pub async fn basic_inventory_currency_get(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicInventoryCurrencyGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11329,11 +11427,12 @@ pub async fn basic_inventory_items_get(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicInventoryItemsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11382,11 +11481,12 @@ pub async fn basic_leaderboards_assignment_get(configuration: &configuration::Co
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicLeaderboardsAssignmentGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11445,11 +11545,12 @@ pub async fn basic_leaderboards_list_get(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicLeaderboardsListGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11494,11 +11595,12 @@ pub async fn basic_leaderboards_player_get(configuration: &configuration::Config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicLeaderboardsPlayerGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11541,11 +11643,12 @@ pub async fn basic_leaderboards_uid_get(configuration: &configuration::Configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicLeaderboardsUidGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11590,11 +11693,12 @@ pub async fn basic_mail_attachments_put(configuration: &configuration::Configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicMailAttachmentsPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11639,11 +11743,12 @@ pub async fn basic_mail_bulk_post(configuration: &configuration::Configuration, 
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicMailBulkPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11680,11 +11785,12 @@ pub async fn basic_mail_get(configuration: &configuration::Configuration, params
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicMailGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11729,11 +11835,12 @@ pub async fn basic_mail_put(configuration: &configuration::Configuration, params
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicMailPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11772,11 +11879,12 @@ pub async fn basic_mail_template_get(configuration: &configuration::Configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicMailTemplateGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11821,11 +11929,12 @@ pub async fn basic_notification_channel_post(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicNotificationChannelPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11870,11 +11979,12 @@ pub async fn basic_notification_custom_post(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicNotificationCustomPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11919,11 +12029,12 @@ pub async fn basic_notification_game_post(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicNotificationGamePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -11968,11 +12079,12 @@ pub async fn basic_notification_generic_post(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicNotificationGenericPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12015,11 +12127,12 @@ pub async fn basic_notification_get(configuration: &configuration::Configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicNotificationGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12064,11 +12177,12 @@ pub async fn basic_notification_player_post(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicNotificationPlayerPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12113,11 +12227,12 @@ pub async fn basic_notification_server_post(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicNotificationServerPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12180,11 +12295,12 @@ pub async fn basic_payments_audits_get(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsAuditsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12221,11 +12337,12 @@ pub async fn basic_payments_coupon_product_get(configuration: &configuration::Co
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsCouponProductGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12270,11 +12387,12 @@ pub async fn basic_payments_coupon_purchase_begin_post(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsCouponPurchaseBeginPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12319,11 +12437,12 @@ pub async fn basic_payments_coupon_purchase_cancel_post(configuration: &configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsCouponPurchaseCancelPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12360,11 +12479,12 @@ pub async fn basic_payments_coupon_purchase_complete_post(configuration: &config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsCouponPurchaseCompletePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12409,11 +12529,12 @@ pub async fn basic_payments_coupon_purchase_fail_post(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsCouponPurchaseFailPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12450,11 +12571,12 @@ pub async fn basic_payments_coupon_purchase_track_post(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsCouponPurchaseTrackPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12491,11 +12613,12 @@ pub async fn basic_payments_coupon_purchase_verify_post(configuration: &configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsCouponPurchaseVerifyPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12532,11 +12655,12 @@ pub async fn basic_payments_facebook_product_get(configuration: &configuration::
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsFacebookProductGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12581,11 +12705,12 @@ pub async fn basic_payments_facebook_purchase_begin_post(configuration: &configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsFacebookPurchaseBeginPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12630,11 +12755,12 @@ pub async fn basic_payments_facebook_purchase_cancel_post(configuration: &config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsFacebookPurchaseCancelPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12671,11 +12797,12 @@ pub async fn basic_payments_facebook_purchase_complete_post(configuration: &conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsFacebookPurchaseCompletePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12720,11 +12847,12 @@ pub async fn basic_payments_facebook_purchase_fail_post(configuration: &configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsFacebookPurchaseFailPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12761,11 +12889,12 @@ pub async fn basic_payments_facebook_purchase_track_post(configuration: &configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsFacebookPurchaseTrackPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12802,11 +12931,12 @@ pub async fn basic_payments_facebook_purchase_verify_post(configuration: &config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsFacebookPurchaseVerifyPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12847,11 +12977,12 @@ pub async fn basic_payments_facebook_update_get(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsFacebookUpdateGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12888,11 +13019,12 @@ pub async fn basic_payments_facebook_update_post(configuration: &configuration::
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsFacebookUpdatePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12929,11 +13061,12 @@ pub async fn basic_payments_googleplay_product_get(configuration: &configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsGoogleplayProductGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -12978,11 +13111,12 @@ pub async fn basic_payments_googleplay_purchase_begin_post(configuration: &confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsGoogleplayPurchaseBeginPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13027,11 +13161,12 @@ pub async fn basic_payments_googleplay_purchase_cancel_post(configuration: &conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsGoogleplayPurchaseCancelPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13068,11 +13203,12 @@ pub async fn basic_payments_googleplay_purchase_complete_post(configuration: &co
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsGoogleplayPurchaseCompletePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13117,11 +13253,12 @@ pub async fn basic_payments_googleplay_purchase_fail_post(configuration: &config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsGoogleplayPurchaseFailPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13158,11 +13295,12 @@ pub async fn basic_payments_googleplay_purchase_track_post(configuration: &confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsGoogleplayPurchaseTrackPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13199,11 +13337,12 @@ pub async fn basic_payments_googleplay_purchase_verify_post(configuration: &conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsGoogleplayPurchaseVerifyPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13240,11 +13379,12 @@ pub async fn basic_payments_itunes_product_get(configuration: &configuration::Co
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsItunesProductGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13289,11 +13429,12 @@ pub async fn basic_payments_itunes_purchase_begin_post(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsItunesPurchaseBeginPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13338,11 +13479,12 @@ pub async fn basic_payments_itunes_purchase_cancel_post(configuration: &configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsItunesPurchaseCancelPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13379,11 +13521,12 @@ pub async fn basic_payments_itunes_purchase_complete_post(configuration: &config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsItunesPurchaseCompletePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13428,11 +13571,12 @@ pub async fn basic_payments_itunes_purchase_fail_post(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsItunesPurchaseFailPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13469,11 +13613,12 @@ pub async fn basic_payments_itunes_purchase_track_post(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsItunesPurchaseTrackPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13510,11 +13655,12 @@ pub async fn basic_payments_itunes_purchase_verify_post(configuration: &configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsItunesPurchaseVerifyPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13551,11 +13697,12 @@ pub async fn basic_payments_steam_auth_post(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsSteamAuthPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13600,11 +13747,12 @@ pub async fn basic_payments_steam_order_get(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsSteamOrderGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13641,11 +13789,12 @@ pub async fn basic_payments_steam_prices_get(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsSteamPricesGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13682,11 +13831,12 @@ pub async fn basic_payments_steam_product_get(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsSteamProductGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13723,11 +13873,12 @@ pub async fn basic_payments_steam_products_get(configuration: &configuration::Co
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsSteamProductsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13772,11 +13923,12 @@ pub async fn basic_payments_steam_purchase_begin_post(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsSteamPurchaseBeginPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13821,11 +13973,12 @@ pub async fn basic_payments_steam_purchase_cancel_post(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsSteamPurchaseCancelPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13862,11 +14015,12 @@ pub async fn basic_payments_steam_purchase_complete_post(configuration: &configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsSteamPurchaseCompletePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13911,11 +14065,12 @@ pub async fn basic_payments_steam_purchase_fail_post(configuration: &configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsSteamPurchaseFailPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13952,11 +14107,12 @@ pub async fn basic_payments_steam_purchase_track_post(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsSteamPurchaseTrackPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -13993,11 +14149,12 @@ pub async fn basic_payments_steam_purchase_verify_post(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsSteamPurchaseVerifyPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14034,11 +14191,12 @@ pub async fn basic_payments_test_product_get(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsTestProductGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14083,11 +14241,12 @@ pub async fn basic_payments_test_purchase_begin_post(configuration: &configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsTestPurchaseBeginPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14132,11 +14291,12 @@ pub async fn basic_payments_test_purchase_cancel_post(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsTestPurchaseCancelPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14173,11 +14333,12 @@ pub async fn basic_payments_test_purchase_complete_post(configuration: &configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsTestPurchaseCompletePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14222,11 +14383,12 @@ pub async fn basic_payments_test_purchase_fail_post(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsTestPurchaseFailPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14263,11 +14425,12 @@ pub async fn basic_payments_test_purchase_track_post(configuration: &configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsTestPurchaseTrackPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14304,11 +14467,12 @@ pub async fn basic_payments_test_purchase_verify_post(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsTestPurchaseVerifyPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14345,11 +14509,12 @@ pub async fn basic_payments_windows_product_get(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsWindowsProductGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14394,11 +14559,12 @@ pub async fn basic_payments_windows_purchase_begin_post(configuration: &configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsWindowsPurchaseBeginPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14443,11 +14609,12 @@ pub async fn basic_payments_windows_purchase_cancel_post(configuration: &configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsWindowsPurchaseCancelPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14484,11 +14651,12 @@ pub async fn basic_payments_windows_purchase_complete_post(configuration: &confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsWindowsPurchaseCompletePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14533,11 +14701,12 @@ pub async fn basic_payments_windows_purchase_fail_post(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsWindowsPurchaseFailPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14574,11 +14743,12 @@ pub async fn basic_payments_windows_purchase_track_post(configuration: &configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsWindowsPurchaseTrackPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14615,11 +14785,12 @@ pub async fn basic_payments_windows_purchase_verify_post(configuration: &configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPaymentsWindowsPurchaseVerifyPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14664,11 +14835,12 @@ pub async fn basic_push_register_post(configuration: &configuration::Configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPushRegisterPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14713,11 +14885,12 @@ pub async fn basic_push_send_post(configuration: &configuration::Configuration, 
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicPushSendPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14760,11 +14933,12 @@ pub async fn basic_realms_admin_customer_get(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsAdminCustomerGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14809,11 +14983,12 @@ pub async fn basic_realms_admin_inflight_failures_delete(configuration: &configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsAdminInflightFailuresDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14862,11 +15037,12 @@ pub async fn basic_realms_admin_inflight_failures_get(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsAdminInflightFailuresGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14901,11 +15077,12 @@ pub async fn basic_realms_client_defaults_get(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsClientDefaultsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14948,11 +15125,12 @@ pub async fn basic_realms_config_get(configuration: &configuration::Configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsConfigGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -14997,11 +15175,12 @@ pub async fn basic_realms_config_post(configuration: &configuration::Configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsConfigPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15046,11 +15225,12 @@ pub async fn basic_realms_config_put(configuration: &configuration::Configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsConfigPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15087,11 +15267,12 @@ pub async fn basic_realms_customer_alias_available_get(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsCustomerAliasAvailableGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15134,11 +15315,12 @@ pub async fn basic_realms_customer_get(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsCustomerGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15175,11 +15357,12 @@ pub async fn basic_realms_customer_post(configuration: &configuration::Configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsCustomerPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15214,11 +15397,12 @@ pub async fn basic_realms_customers_get(configuration: &configuration::Configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsCustomersGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15263,11 +15447,12 @@ pub async fn basic_realms_game_get(configuration: &configuration::Configuration,
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsGameGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15312,11 +15497,12 @@ pub async fn basic_realms_game_post(configuration: &configuration::Configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsGamePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15361,11 +15547,12 @@ pub async fn basic_realms_game_put(configuration: &configuration::Configuration,
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsGamePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15408,11 +15595,12 @@ pub async fn basic_realms_games_get(configuration: &configuration::Configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsGamesGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15447,11 +15635,12 @@ pub async fn basic_realms_is_customer_get(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsIsCustomerGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15496,11 +15685,12 @@ pub async fn basic_realms_launch_message_delete(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsLaunchMessageDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15543,11 +15733,12 @@ pub async fn basic_realms_launch_message_get(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsLaunchMessageGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15592,11 +15783,12 @@ pub async fn basic_realms_launch_message_post(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsLaunchMessagePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15639,11 +15831,12 @@ pub async fn basic_realms_plans_get(configuration: &configuration::Configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsPlansGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15688,11 +15881,12 @@ pub async fn basic_realms_plans_post(configuration: &configuration::Configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsPlansPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15737,11 +15931,12 @@ pub async fn basic_realms_project_beamable_post(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsProjectBeamablePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15786,11 +15981,12 @@ pub async fn basic_realms_project_delete(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsProjectDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15825,11 +16021,12 @@ pub async fn basic_realms_project_get(configuration: &configuration::Configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsProjectGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15874,11 +16071,12 @@ pub async fn basic_realms_project_post(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsProjectPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15937,11 +16135,12 @@ pub async fn basic_realms_project_promote_get(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsProjectPromoteGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -15986,11 +16185,12 @@ pub async fn basic_realms_project_promote_post(configuration: &configuration::Co
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsProjectPromotePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16035,11 +16235,12 @@ pub async fn basic_realms_project_put(configuration: &configuration::Configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsProjectPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16084,11 +16285,12 @@ pub async fn basic_realms_project_rename_put(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsProjectRenamePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16147,11 +16349,12 @@ pub async fn basic_realms_promotion_get(configuration: &configuration::Configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsPromotionGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16196,11 +16399,12 @@ pub async fn basic_realms_promotion_post(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicRealmsPromotionPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16251,11 +16455,12 @@ pub async fn basic_session_client_history_get(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicSessionClientHistoryGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16298,11 +16503,12 @@ pub async fn basic_session_heartbeat_post(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicSessionHeartbeatPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16355,11 +16561,12 @@ pub async fn basic_session_history_get(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicSessionHistoryGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16404,11 +16611,12 @@ pub async fn basic_session_post(configuration: &configuration::Configuration, pa
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicSessionPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16455,11 +16663,12 @@ pub async fn basic_session_status_get(configuration: &configuration::Configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicSessionStatusGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16504,11 +16713,12 @@ pub async fn basic_social_blocked_delete(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicSocialBlockedDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16553,11 +16763,12 @@ pub async fn basic_social_blocked_post(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicSocialBlockedPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16602,11 +16813,12 @@ pub async fn basic_social_friends_delete(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicSocialFriendsDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16651,11 +16863,12 @@ pub async fn basic_social_friends_import_post(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicSocialFriendsImportPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16700,11 +16913,12 @@ pub async fn basic_social_friends_invite_delete(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicSocialFriendsInviteDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16749,11 +16963,12 @@ pub async fn basic_social_friends_invite_post(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicSocialFriendsInvitePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16798,11 +17013,12 @@ pub async fn basic_social_friends_make_post(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicSocialFriendsMakePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16850,11 +17066,12 @@ pub async fn basic_social_get(configuration: &configuration::Configuration, para
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicSocialGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16897,11 +17114,12 @@ pub async fn basic_social_my_get(configuration: &configuration::Configuration, p
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicSocialMyGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16946,11 +17164,12 @@ pub async fn basic_stats_batch_post(configuration: &configuration::Configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicStatsBatchPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -16995,11 +17214,12 @@ pub async fn basic_stats_client_batch_get(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicStatsClientBatchGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17044,11 +17264,12 @@ pub async fn basic_stats_search_extended_post(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicStatsSearchExtendedPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17093,11 +17314,12 @@ pub async fn basic_stats_search_post(configuration: &configuration::Configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicStatsSearchPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17142,11 +17364,12 @@ pub async fn basic_stats_subscribe_delete(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicStatsSubscribeDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17191,11 +17414,12 @@ pub async fn basic_stats_subscribe_put(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicStatsSubscribePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17252,11 +17476,12 @@ pub async fn basic_tournaments_admin_player_get(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsAdminPlayerGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17301,11 +17526,12 @@ pub async fn basic_tournaments_admin_player_put(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsAdminPlayerPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17356,11 +17582,12 @@ pub async fn basic_tournaments_champions_get(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsChampionsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17407,11 +17634,12 @@ pub async fn basic_tournaments_get(configuration: &configuration::Configuration,
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17476,11 +17704,12 @@ pub async fn basic_tournaments_global_get(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsGlobalGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17545,11 +17774,12 @@ pub async fn basic_tournaments_groups_get(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsGroupsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17604,11 +17834,12 @@ pub async fn basic_tournaments_me_get(configuration: &configuration::Configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsMeGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17655,11 +17886,12 @@ pub async fn basic_tournaments_me_group_get(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsMeGroupGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17704,11 +17936,12 @@ pub async fn basic_tournaments_post(configuration: &configuration::Configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17759,11 +17992,12 @@ pub async fn basic_tournaments_rewards_get(configuration: &configuration::Config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsRewardsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17808,11 +18042,12 @@ pub async fn basic_tournaments_rewards_post(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsRewardsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17849,11 +18084,12 @@ pub async fn basic_tournaments_score_post(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsScorePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17890,11 +18126,12 @@ pub async fn basic_tournaments_search_groups_post(configuration: &configuration:
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsSearchGroupsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -17959,11 +18196,12 @@ pub async fn basic_tournaments_standings_get(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsStandingsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18028,11 +18266,12 @@ pub async fn basic_tournaments_standings_group_get(configuration: &configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTournamentsStandingsGroupGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18077,11 +18316,12 @@ pub async fn basic_trials_admin_data_get(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTrialsAdminDataGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18126,11 +18366,12 @@ pub async fn basic_trials_admin_get(configuration: &configuration::Configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTrialsAdminGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18175,11 +18416,12 @@ pub async fn basic_trials_data_delete(configuration: &configuration::Configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTrialsDataDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18224,11 +18466,12 @@ pub async fn basic_trials_data_post(configuration: &configuration::Configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTrialsDataPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18273,11 +18516,12 @@ pub async fn basic_trials_delete(configuration: &configuration::Configuration, p
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTrialsDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18320,11 +18564,12 @@ pub async fn basic_trials_get(configuration: &configuration::Configuration, para
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTrialsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18369,11 +18614,12 @@ pub async fn basic_trials_pause_put(configuration: &configuration::Configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTrialsPausePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18418,11 +18664,12 @@ pub async fn basic_trials_post(configuration: &configuration::Configuration, par
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTrialsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18467,11 +18714,12 @@ pub async fn basic_trials_schedule_put(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTrialsSchedulePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18516,11 +18764,12 @@ pub async fn basic_trials_start_put(configuration: &configuration::Configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<BasicTrialsStartPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18566,11 +18815,12 @@ pub async fn object_accounts_object_id_admin_email_put(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAccountsObjectIdAdminEmailPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18614,11 +18864,12 @@ pub async fn object_accounts_object_id_admin_forget_delete(configuration: &confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAccountsObjectIdAdminForgetDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18664,11 +18915,12 @@ pub async fn object_accounts_object_id_admin_scope_delete(configuration: &config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAccountsObjectIdAdminScopeDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18714,11 +18966,12 @@ pub async fn object_accounts_object_id_admin_scope_put(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAccountsObjectIdAdminScopePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18764,11 +19017,12 @@ pub async fn object_accounts_object_id_admin_third_party_delete(configuration: &
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAccountsObjectIdAdminThirdPartyDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18814,11 +19068,12 @@ pub async fn object_accounts_object_id_admin_third_party_put(configuration: &con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAccountsObjectIdAdminThirdPartyPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18854,11 +19109,12 @@ pub async fn object_accounts_object_id_available_roles_get(configuration: &confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAccountsObjectIdAvailableRolesGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18904,11 +19160,12 @@ pub async fn object_accounts_object_id_put(configuration: &configuration::Config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAccountsObjectIdPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -18954,11 +19211,12 @@ pub async fn object_accounts_object_id_role_delete(configuration: &configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAccountsObjectIdRoleDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19004,11 +19262,12 @@ pub async fn object_accounts_object_id_role_put(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAccountsObjectIdRolePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19052,11 +19311,12 @@ pub async fn object_accounts_object_id_role_report_get(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAccountsObjectIdRoleReportGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19102,11 +19362,12 @@ pub async fn object_announcements_object_id_claim_post(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAnnouncementsObjectIdClaimPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19152,11 +19413,12 @@ pub async fn object_announcements_object_id_delete(configuration: &configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAnnouncementsObjectIdDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19204,11 +19466,12 @@ pub async fn object_announcements_object_id_get(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAnnouncementsObjectIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19252,11 +19515,12 @@ pub async fn object_announcements_object_id_raw_get(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAnnouncementsObjectIdRawGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19302,11 +19566,12 @@ pub async fn object_announcements_object_id_read_put(configuration: &configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectAnnouncementsObjectIdReadPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19344,11 +19609,12 @@ pub async fn object_calendars_object_id_claim_post(configuration: &configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectCalendarsObjectIdClaimPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19384,11 +19650,12 @@ pub async fn object_calendars_object_id_get(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectCalendarsObjectIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19436,11 +19703,12 @@ pub async fn object_chat_v2_object_id_get(configuration: &configuration::Configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectChatV2ObjectIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19486,11 +19754,12 @@ pub async fn object_chat_v2_object_id_messages_post(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectChatV2ObjectIdMessagesPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19536,11 +19805,12 @@ pub async fn object_chat_v2_object_id_rooms_delete(configuration: &configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectChatV2ObjectIdRoomsDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19584,11 +19854,12 @@ pub async fn object_chat_v2_object_id_rooms_get(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectChatV2ObjectIdRoomsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19634,11 +19905,12 @@ pub async fn object_chat_v2_object_id_rooms_post(configuration: &configuration::
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectChatV2ObjectIdRoomsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19674,11 +19946,12 @@ pub async fn object_commerce_object_id_coupons_count_get(configuration: &configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectCommerceObjectIdCouponsCountGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19724,11 +19997,12 @@ pub async fn object_commerce_object_id_coupons_post(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectCommerceObjectIdCouponsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19776,11 +20050,12 @@ pub async fn object_commerce_object_id_get(configuration: &configuration::Config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectCommerceObjectIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19826,11 +20101,12 @@ pub async fn object_commerce_object_id_listings_cooldown_put(configuration: &con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectCommerceObjectIdListingsCooldownPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19884,11 +20160,12 @@ pub async fn object_commerce_object_id_listings_get(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectCommerceObjectIdListingsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -19944,11 +20221,12 @@ pub async fn object_commerce_object_id_offers_admin_get(configuration: &configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectCommerceObjectIdOffersAdminGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20004,11 +20282,12 @@ pub async fn object_commerce_object_id_offers_get(configuration: &configuration:
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectCommerceObjectIdOffersGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20054,11 +20333,12 @@ pub async fn object_commerce_object_id_purchase_post(configuration: &configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectCommerceObjectIdPurchasePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20104,11 +20384,12 @@ pub async fn object_commerce_object_id_purchase_put(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectCommerceObjectIdPurchasePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20154,11 +20435,12 @@ pub async fn object_commerce_object_id_stats_update_post(configuration: &configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectCommerceObjectIdStatsUpdatePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20204,11 +20486,12 @@ pub async fn object_commerce_object_id_status_delete(configuration: &configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectCommerceObjectIdStatusDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20254,11 +20537,12 @@ pub async fn object_event_players_object_id_claim_post(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectEventPlayersObjectIdClaimPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20302,11 +20586,12 @@ pub async fn object_event_players_object_id_get(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectEventPlayersObjectIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20344,11 +20629,12 @@ pub async fn object_event_players_object_id_score_put(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectEventPlayersObjectIdScorePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20392,11 +20678,12 @@ pub async fn object_events_object_id_content_delete(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectEventsObjectIdContentDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20442,11 +20729,12 @@ pub async fn object_events_object_id_content_put(configuration: &configuration::
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectEventsObjectIdContentPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20492,11 +20780,12 @@ pub async fn object_events_object_id_end_phase_put(configuration: &configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectEventsObjectIdEndPhasePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20540,11 +20829,12 @@ pub async fn object_events_object_id_get(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectEventsObjectIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20588,11 +20878,12 @@ pub async fn object_events_object_id_ping_get(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectEventsObjectIdPingGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20636,11 +20927,12 @@ pub async fn object_events_object_id_refresh_put(configuration: &configuration::
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectEventsObjectIdRefreshPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20690,11 +20982,12 @@ pub async fn object_group_users_object_id_availability_get(configuration: &confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupUsersObjectIdAvailabilityGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20730,11 +21023,12 @@ pub async fn object_group_users_object_id_get(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupUsersObjectIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20772,11 +21066,12 @@ pub async fn object_group_users_object_id_group_post(configuration: &configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupUsersObjectIdGroupPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20814,11 +21109,12 @@ pub async fn object_group_users_object_id_join_delete(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupUsersObjectIdJoinDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20856,11 +21152,12 @@ pub async fn object_group_users_object_id_join_post(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupUsersObjectIdJoinPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20896,11 +21193,12 @@ pub async fn object_group_users_object_id_recommended_get(configuration: &config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupUsersObjectIdRecommendedGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -20982,11 +21280,12 @@ pub async fn object_group_users_object_id_search_get(configuration: &configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupUsersObjectIdSearchGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21032,11 +21331,12 @@ pub async fn object_groups_object_id_apply_post(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupsObjectIdApplyPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21074,11 +21374,12 @@ pub async fn object_groups_object_id_delete(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupsObjectIdDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21122,11 +21423,12 @@ pub async fn object_groups_object_id_donations_claim_put(configuration: &configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupsObjectIdDonationsClaimPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21172,11 +21474,12 @@ pub async fn object_groups_object_id_donations_post(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupsObjectIdDonationsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21222,11 +21525,12 @@ pub async fn object_groups_object_id_donations_put(configuration: &configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupsObjectIdDonationsPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21262,11 +21566,12 @@ pub async fn object_groups_object_id_get(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupsObjectIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21312,11 +21617,12 @@ pub async fn object_groups_object_id_invite_post(configuration: &configuration::
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupsObjectIdInvitePostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21354,11 +21660,12 @@ pub async fn object_groups_object_id_kick_post(configuration: &configuration::Co
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupsObjectIdKickPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21396,11 +21703,12 @@ pub async fn object_groups_object_id_member_delete(configuration: &configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupsObjectIdMemberDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21446,11 +21754,12 @@ pub async fn object_groups_object_id_petition_post(configuration: &configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupsObjectIdPetitionPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21488,11 +21797,12 @@ pub async fn object_groups_object_id_put(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupsObjectIdPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21538,11 +21848,12 @@ pub async fn object_groups_object_id_role_put(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectGroupsObjectIdRolePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21582,11 +21893,12 @@ pub async fn object_inventory_object_id_get(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectInventoryObjectIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21622,11 +21934,12 @@ pub async fn object_inventory_object_id_multipliers_get(configuration: &configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectInventoryObjectIdMultipliersGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21664,11 +21977,12 @@ pub async fn object_inventory_object_id_post(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectInventoryObjectIdPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21706,11 +22020,12 @@ pub async fn object_inventory_object_id_preview_put(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectInventoryObjectIdPreviewPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21746,11 +22061,12 @@ pub async fn object_inventory_object_id_proxy_reload_put(configuration: &configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectInventoryObjectIdProxyReloadPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21788,11 +22104,12 @@ pub async fn object_inventory_object_id_put(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectInventoryObjectIdPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21838,11 +22155,12 @@ pub async fn object_inventory_object_id_transaction_delete(configuration: &confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectInventoryObjectIdTransactionDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21888,11 +22206,12 @@ pub async fn object_inventory_object_id_transfer_put(configuration: &configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectInventoryObjectIdTransferPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21938,11 +22257,12 @@ pub async fn object_leaderboards_object_id_assignment_delete(configuration: &con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdAssignmentDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -21986,11 +22306,12 @@ pub async fn object_leaderboards_object_id_assignment_get(configuration: &config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdAssignmentGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22034,11 +22355,12 @@ pub async fn object_leaderboards_object_id_delete(configuration: &configuration:
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22090,11 +22412,12 @@ pub async fn object_leaderboards_object_id_details_get(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdDetailsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22138,11 +22461,12 @@ pub async fn object_leaderboards_object_id_entries_delete(configuration: &config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdEntriesDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22188,11 +22512,12 @@ pub async fn object_leaderboards_object_id_entry_delete(configuration: &configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdEntryDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22230,11 +22555,12 @@ pub async fn object_leaderboards_object_id_entry_put(configuration: &configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdEntryPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22278,11 +22604,12 @@ pub async fn object_leaderboards_object_id_freeze_put(configuration: &configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdFreezePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22326,11 +22653,12 @@ pub async fn object_leaderboards_object_id_friends_get(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdFriendsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22372,11 +22700,12 @@ pub async fn object_leaderboards_object_id_matches_get(configuration: &configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdMatchesGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22422,11 +22751,12 @@ pub async fn object_leaderboards_object_id_membership_get(configuration: &config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdMembershipGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22472,11 +22802,12 @@ pub async fn object_leaderboards_object_id_partition_get(configuration: &configu
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdPartitionGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22522,11 +22853,12 @@ pub async fn object_leaderboards_object_id_post(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22564,11 +22896,12 @@ pub async fn object_leaderboards_object_id_ranks_get(configuration: &configurati
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdRanksGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22614,11 +22947,12 @@ pub async fn object_leaderboards_object_id_swap_put(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdSwapPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22678,11 +23012,12 @@ pub async fn object_leaderboards_object_id_view_get(configuration: &configuratio
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectLeaderboardsObjectIdViewGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22720,11 +23055,12 @@ pub async fn object_mail_object_id_accept_many_put(configuration: &configuration
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectMailObjectIdAcceptManyPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22770,11 +23106,12 @@ pub async fn object_mail_object_id_bulk_post(configuration: &configuration::Conf
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectMailObjectIdBulkPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22812,11 +23149,12 @@ pub async fn object_mail_object_id_bulk_put(configuration: &configuration::Confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectMailObjectIdBulkPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22852,11 +23190,12 @@ pub async fn object_mail_object_id_categories_get(configuration: &configuration:
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectMailObjectIdCategoriesGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22894,11 +23233,12 @@ pub async fn object_mail_object_id_detail_get(configuration: &configuration::Con
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectMailObjectIdDetailGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22934,11 +23274,12 @@ pub async fn object_mail_object_id_get(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectMailObjectIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -22984,11 +23325,12 @@ pub async fn object_mail_object_id_post(configuration: &configuration::Configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectMailObjectIdPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -23026,11 +23368,12 @@ pub async fn object_mail_object_id_put(configuration: &configuration::Configurat
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectMailObjectIdPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -23068,11 +23411,12 @@ pub async fn object_mail_object_id_search_post(configuration: &configuration::Co
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectMailObjectIdSearchPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -23120,11 +23464,12 @@ pub async fn object_stats_object_id_client_get(configuration: &configuration::Co
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectStatsObjectIdClientGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -23170,11 +23515,12 @@ pub async fn object_stats_object_id_client_post(configuration: &configuration::C
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectStatsObjectIdClientPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -23220,11 +23566,12 @@ pub async fn object_stats_object_id_client_stringlist_post(configuration: &confi
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectStatsObjectIdClientStringlistPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -23270,11 +23617,12 @@ pub async fn object_stats_object_id_delete(configuration: &configuration::Config
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectStatsObjectIdDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -23322,11 +23670,12 @@ pub async fn object_stats_object_id_get(configuration: &configuration::Configura
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectStatsObjectIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -23372,11 +23721,12 @@ pub async fn object_stats_object_id_post(configuration: &configuration::Configur
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ObjectStatsObjectIdPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))

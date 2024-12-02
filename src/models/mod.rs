@@ -1168,6 +1168,8 @@ pub mod third_party_available_request;
 pub use self::third_party_available_request::ThirdPartyAvailableRequest;
 pub mod ticket;
 pub use self::ticket::Ticket;
+pub mod ticket_query_response;
+pub use self::ticket_query_response::TicketQueryResponse;
 pub mod ticket_reservation_request;
 pub use self::ticket_reservation_request::TicketReservationRequest;
 pub mod ticket_reservation_response;
