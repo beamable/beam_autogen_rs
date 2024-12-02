@@ -41,6 +41,8 @@ pub struct Ticket {
     pub watch_online_status: Option<bool>,
     #[serde(rename = "tags", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tags: Option<Option<Vec<models::Tag>>>,
+    #[serde(rename = "lobbyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub lobby_id: Option<Option<String>>,
 }
 
 impl Ticket {
@@ -60,6 +62,7 @@ impl Ticket {
             party_id: None,
             watch_online_status: None,
             tags: None,
+            lobby_id: None,
         }
     }
 }

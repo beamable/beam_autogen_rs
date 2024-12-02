@@ -15,24 +15,24 @@ use serde::{Deserialize, Serialize};
 pub struct MessageRequest {
     #[serde(rename = "body", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub body: Option<Option<String>>,
-    #[serde(rename = "cid", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub cid: Option<Option<String>>,
     #[serde(rename = "pid", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub pid: Option<Option<String>>,
     #[serde(rename = "playerId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub player_id: Option<Option<String>>,
     #[serde(rename = "channel", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub channel: Option<Option<String>>,
+    #[serde(rename = "realmId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub realm_id: Option<Option<String>>,
 }
 
 impl MessageRequest {
     pub fn new() -> MessageRequest {
         MessageRequest {
             body: None,
-            cid: None,
             pid: None,
             player_id: None,
             channel: None,
+            realm_id: None,
         }
     }
 }

@@ -14,129 +14,75 @@ use serde::{Deserialize, Serialize};
 use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
-/// struct for passing parameters to the method [`api_matchmaking_tickets_get`]
+/// struct for passing parameters to the method [`api_players_player_id_parties_delete`]
 #[derive(Clone, Debug)]
-pub struct ApiMatchmakingTicketsGetParams {
-    pub players: Option<Vec<String>>,
-    pub include_inactive: Option<bool>,
-    pub skip: Option<i32>,
-    pub limit: Option<i32>
+pub struct ApiPlayersPlayerIdPartiesDeleteParams {
+    /// Player Id
+    pub player_id: String
 }
 
-/// struct for passing parameters to the method [`api_matchmaking_tickets_id_delete`]
+/// struct for passing parameters to the method [`api_players_player_id_parties_get`]
 #[derive(Clone, Debug)]
-pub struct ApiMatchmakingTicketsIdDeleteParams {
-    pub id: String
+pub struct ApiPlayersPlayerIdPartiesGetParams {
+    /// Player Id
+    pub player_id: String
 }
 
-/// struct for passing parameters to the method [`api_matchmaking_tickets_id_get`]
+/// struct for passing parameters to the method [`api_players_player_id_parties_invites_get`]
 #[derive(Clone, Debug)]
-pub struct ApiMatchmakingTicketsIdGetParams {
-    /// Ticket ID
-    pub id: String
+pub struct ApiPlayersPlayerIdPartiesInvitesGetParams {
+    /// PlayerId
+    pub player_id: String
 }
 
-/// struct for passing parameters to the method [`api_matchmaking_tickets_post`]
+/// struct for passing parameters to the method [`api_players_player_id_party_invites_get`]
 #[derive(Clone, Debug)]
-pub struct ApiMatchmakingTicketsPostParams {
-    pub ticket_reservation_request: Option<models::TicketReservationRequest>
+pub struct ApiPlayersPlayerIdPartyInvitesGetParams {
+    /// PlayerId
+    pub player_id: String
 }
 
 
-/// struct for typed errors of method [`api_matchmaking_tickets_get`]
+/// struct for typed errors of method [`api_players_player_id_parties_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiMatchmakingTicketsGetError {
+pub enum ApiPlayersPlayerIdPartiesDeleteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_matchmaking_tickets_id_delete`]
+/// struct for typed errors of method [`api_players_player_id_parties_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiMatchmakingTicketsIdDeleteError {
+pub enum ApiPlayersPlayerIdPartiesGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_matchmaking_tickets_id_get`]
+/// struct for typed errors of method [`api_players_player_id_parties_invites_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiMatchmakingTicketsIdGetError {
+pub enum ApiPlayersPlayerIdPartiesInvitesGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_matchmaking_tickets_post`]
+/// struct for typed errors of method [`api_players_player_id_party_invites_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiMatchmakingTicketsPostError {
+pub enum ApiPlayersPlayerIdPartyInvitesGetError {
     UnknownValue(serde_json::Value),
 }
 
 
-/// Query for active tickets
-pub async fn api_matchmaking_tickets_get(configuration: &configuration::Configuration, params: ApiMatchmakingTicketsGetParams) -> Result<models::TicketQueryResponse, Error<ApiMatchmakingTicketsGetError>> {
+/// If the requested player is in a party, remove the player
+pub async fn api_players_player_id_parties_delete(configuration: &configuration::Configuration, params: ApiPlayersPlayerIdPartiesDeleteParams) -> Result<serde_json::Value, Error<ApiPlayersPlayerIdPartiesDeleteError>> {
     let local_var_configuration = configuration;
 
     // unbox the parameters
-    let players = params.players;
-    let include_inactive = params.include_inactive;
-    let skip = params.skip;
-    let limit = params.limit;
+    let player_id = params.player_id;
 
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/api/matchmaking/tickets", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = players {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("Players".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("Players", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
-        };
-    }
-    if let Some(ref local_var_str) = include_inactive {
-        local_var_req_builder = local_var_req_builder.query(&[("IncludeInactive", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = skip {
-        local_var_req_builder = local_var_req_builder.query(&[("Skip", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("Limit", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiMatchmakingTicketsGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Cancel a pending ticket. If no ticket with the id exists, this will  still return a 204.
-pub async fn api_matchmaking_tickets_id_delete(configuration: &configuration::Configuration, params: ApiMatchmakingTicketsIdDeleteParams) -> Result<serde_json::Value, Error<ApiMatchmakingTicketsIdDeleteError>> {
-    let local_var_configuration = configuration;
-
-    // unbox the parameters
-    let id = params.id;
-
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/matchmaking/tickets/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
+    let local_var_uri_str = format!("{}/api/players/{playerId}/parties", local_var_configuration.base_path, playerId=crate::apis::urlencode(player_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -156,23 +102,23 @@ pub async fn api_matchmaking_tickets_id_delete(configuration: &configuration::Co
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiMatchmakingTicketsIdDeleteError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiPlayersPlayerIdPartiesDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-/// Fetch a ticket by ID.
-pub async fn api_matchmaking_tickets_id_get(configuration: &configuration::Configuration, params: ApiMatchmakingTicketsIdGetParams) -> Result<models::Ticket, Error<ApiMatchmakingTicketsIdGetError>> {
+/// Fetch the requested player's party information
+pub async fn api_players_player_id_parties_get(configuration: &configuration::Configuration, params: ApiPlayersPlayerIdPartiesGetParams) -> Result<models::Party, Error<ApiPlayersPlayerIdPartiesGetError>> {
     let local_var_configuration = configuration;
 
     // unbox the parameters
-    let id = params.id;
+    let player_id = params.player_id;
 
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/api/matchmaking/tickets/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
+    let local_var_uri_str = format!("{}/api/players/{playerId}/parties", local_var_configuration.base_path, playerId=crate::apis::urlencode(player_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -192,24 +138,24 @@ pub async fn api_matchmaking_tickets_id_get(configuration: &configuration::Confi
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiMatchmakingTicketsIdGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiPlayersPlayerIdPartiesGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-/// Create a ticket representing 1 or more players to be matched  with others.
-pub async fn api_matchmaking_tickets_post(configuration: &configuration::Configuration, params: ApiMatchmakingTicketsPostParams) -> Result<models::TicketReservationResponse, Error<ApiMatchmakingTicketsPostError>> {
+/// Return list of party invites for player.
+pub async fn api_players_player_id_parties_invites_get(configuration: &configuration::Configuration, params: ApiPlayersPlayerIdPartiesInvitesGetParams) -> Result<models::PartyInvitesForPlayerResponse, Error<ApiPlayersPlayerIdPartiesInvitesGetError>> {
     let local_var_configuration = configuration;
 
     // unbox the parameters
-    let ticket_reservation_request = params.ticket_reservation_request;
+    let player_id = params.player_id;
 
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/api/matchmaking/tickets", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/api/players/{playerId}/parties/invites", local_var_configuration.base_path, playerId=crate::apis::urlencode(player_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -217,7 +163,6 @@ pub async fn api_matchmaking_tickets_post(configuration: &configuration::Configu
     if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
-    local_var_req_builder = local_var_req_builder.json(&ticket_reservation_request);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -229,7 +174,43 @@ pub async fn api_matchmaking_tickets_post(configuration: &configuration::Configu
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiMatchmakingTicketsPostError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiPlayersPlayerIdPartiesInvitesGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Return list of party invites for player.
+pub async fn api_players_player_id_party_invites_get(configuration: &configuration::Configuration, params: ApiPlayersPlayerIdPartyInvitesGetParams) -> Result<models::PartyInvitesForPlayerResponse, Error<ApiPlayersPlayerIdPartyInvitesGetError>> {
+    let local_var_configuration = configuration;
+
+    // unbox the parameters
+    let player_id = params.player_id;
+
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/players/{playerId}/party/invites", local_var_configuration.base_path, playerId=crate::apis::urlencode(player_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_content = local_var_resp.text().await?;
+        let local_var_entity: Option<ApiPlayersPlayerIdPartyInvitesGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

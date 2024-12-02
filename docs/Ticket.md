@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **party_id** | Option<**String**> |  | [optional]
 **watch_online_status** | Option<**bool**> |  | [optional]
 **tags** | Option<[**Vec<models::Tag>**](Tag.md)> |  | [optional][readonly]
+**lobby_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
