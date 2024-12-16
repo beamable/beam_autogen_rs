@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **username** | Option<**String**> |  | [optional]
 **scope** | Option<**Vec<String>**> |  | [optional]
 **refresh_token** | Option<**String**> |  | [optional]
-**context** | Option<[**models::ContextInfo**](ContextInfo.md)> |  | [optional]
+**context** | Option<[**models::AuthBasicContextInfo**](AuthBasicContextInfo.md)> |  | [optional]
 **third_party** | Option<**String**> |  | [optional]
 **redirect_uri** | Option<**String**> |  | [optional]
 **client_id** | Option<**String**> |  | [optional]

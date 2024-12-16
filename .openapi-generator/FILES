@@ -36,7 +36,9 @@ docs/AttachExternalIdentityApiResponse.md
 docs/Attachment.md
 docs/AttachmentProperty.md
 docs/AttachmentRequest.md
+docs/AuthActorContextInfo.md
 docs/AuthApi.md
+docs/AuthBasicContextInfo.md
 docs/AuthResponse.md
 docs/AvailabilityRequest.md
 docs/AvailabilityResponse.md
@@ -101,7 +103,6 @@ docs/ContentOrText.md
 docs/ContentReference.md
 docs/ContentType.md
 docs/ContentVisibility.md
-docs/ContextInfo.md
 docs/CooldownModifierRequest.md
 docs/CreateDonationRequest.md
 docs/CreateElevatedAccountRequest.md
@@ -279,6 +280,7 @@ docs/GroupType.md
 docs/GroupUpdate.md
 docs/GroupUser.md
 docs/GroupUserMember.md
+docs/GuestAuthRequest.md
 docs/HttpCall.md
 docs/ImportFriendsRequest.md
 docs/InFlightFailure.md
@@ -424,6 +426,7 @@ docs/Party.md
 docs/PartyApi.md
 docs/PartyInvitation.md
 docs/PartyInvitesForPlayerResponse.md
+docs/PasswordAuthRequest.md
 docs/PasswordUpdateConfirmation.md
 docs/PasswordUpdateRequest.md
 docs/PauseTrialRequest.md
@@ -695,6 +698,8 @@ src/models/attach_external_identity_api_response.rs
 src/models/attachment.rs
 src/models/attachment_property.rs
 src/models/attachment_request.rs
+src/models/auth_actor_context_info.rs
+src/models/auth_basic_context_info.rs
 src/models/auth_response.rs
 src/models/availability_request.rs
 src/models/availability_response.rs
@@ -759,7 +764,6 @@ src/models/content_or_text.rs
 src/models/content_reference.rs
 src/models/content_type.rs
 src/models/content_visibility.rs
-src/models/context_info.rs
 src/models/cooldown_modifier_request.rs
 src/models/create_donation_request.rs
 src/models/create_elevated_account_request.rs
@@ -936,6 +940,7 @@ src/models/group_type.rs
 src/models/group_update.rs
 src/models/group_user.rs
 src/models/group_user_member.rs
+src/models/guest_auth_request.rs
 src/models/http_call.rs
 src/models/import_friends_request.rs
 src/models/in_flight_failure.rs
@@ -1078,6 +1083,7 @@ src/models/pa_suggested_index.rs
 src/models/party.rs
 src/models/party_invitation.rs
 src/models/party_invites_for_player_response.rs
+src/models/password_auth_request.rs
 src/models/password_update_confirmation.rs
 src/models/password_update_request.rs
 src/models/pause_trial_request.rs

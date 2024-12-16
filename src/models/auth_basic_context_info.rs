@@ -12,16 +12,16 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ContextInfo {
+pub struct AuthBasicContextInfo {
     #[serde(rename = "platform")]
     pub platform: String,
     #[serde(rename = "device")]
     pub device: String,
 }
 
-impl ContextInfo {
-    pub fn new(platform: String, device: String) -> ContextInfo {
-        ContextInfo {
+impl AuthBasicContextInfo {
+    pub fn new(platform: String, device: String) -> AuthBasicContextInfo {
+        AuthBasicContextInfo {
             platform,
             device,
         }

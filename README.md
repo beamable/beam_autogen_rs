@@ -29,6 +29,9 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthApi* | [**api_auth_refresh_token_post**](docs/AuthApi.md#api_auth_refresh_token_post) | **POST** /api/auth/refresh-token | 
 *AuthApi* | [**api_auth_server_post**](docs/AuthApi.md#api_auth_server_post) | **POST** /api/auth/server | 
+*AuthApi* | [**api_auth_tokens_guest_post**](docs/AuthApi.md#api_auth_tokens_guest_post) | **POST** /api/auth/tokens/guest | 
+*AuthApi* | [**api_auth_tokens_password_post**](docs/AuthApi.md#api_auth_tokens_password_post) | **POST** /api/auth/tokens/password | 
+*AuthApi* | [**api_auth_tokens_refresh_token_post**](docs/AuthApi.md#api_auth_tokens_refresh_token_post) | **POST** /api/auth/tokens/refresh-token | 
 *DefaultApi* | [**basic_accounts_admin_admin_user_post**](docs/DefaultApi.md#basic_accounts_admin_admin_user_post) | **POST** /basic/accounts/admin/admin-user | 
 *DefaultApi* | [**basic_accounts_admin_admin_users_get**](docs/DefaultApi.md#basic_accounts_admin_admin_users_get) | **GET** /basic/accounts/admin/admin-users | 
 *DefaultApi* | [**basic_accounts_admin_me_get**](docs/DefaultApi.md#basic_accounts_admin_me_get) | **GET** /basic/accounts/admin/me | 
@@ -462,6 +465,8 @@ Class | Method | HTTP request | Description
  - [Attachment](docs/Attachment.md)
  - [AttachmentProperty](docs/AttachmentProperty.md)
  - [AttachmentRequest](docs/AttachmentRequest.md)
+ - [AuthActorContextInfo](docs/AuthActorContextInfo.md)
+ - [AuthBasicContextInfo](docs/AuthBasicContextInfo.md)
  - [AuthResponse](docs/AuthResponse.md)
  - [AvailabilityRequest](docs/AvailabilityRequest.md)
  - [AvailabilityResponse](docs/AvailabilityResponse.md)
@@ -526,7 +531,6 @@ Class | Method | HTTP request | Description
  - [ContentReference](docs/ContentReference.md)
  - [ContentType](docs/ContentType.md)
  - [ContentVisibility](docs/ContentVisibility.md)
- - [ContextInfo](docs/ContextInfo.md)
  - [CooldownModifierRequest](docs/CooldownModifierRequest.md)
  - [CreateDonationRequest](docs/CreateDonationRequest.md)
  - [CreateElevatedAccountRequest](docs/CreateElevatedAccountRequest.md)
@@ -703,6 +707,7 @@ Class | Method | HTTP request | Description
  - [GroupUpdate](docs/GroupUpdate.md)
  - [GroupUser](docs/GroupUser.md)
  - [GroupUserMember](docs/GroupUserMember.md)
+ - [GuestAuthRequest](docs/GuestAuthRequest.md)
  - [HttpCall](docs/HttpCall.md)
  - [ImportFriendsRequest](docs/ImportFriendsRequest.md)
  - [InFlightFailure](docs/InFlightFailure.md)
@@ -844,6 +849,7 @@ Class | Method | HTTP request | Description
  - [Party](docs/Party.md)
  - [PartyInvitation](docs/PartyInvitation.md)
  - [PartyInvitesForPlayerResponse](docs/PartyInvitesForPlayerResponse.md)
+ - [PasswordAuthRequest](docs/PasswordAuthRequest.md)
  - [PasswordUpdateConfirmation](docs/PasswordUpdateConfirmation.md)
  - [PasswordUpdateRequest](docs/PasswordUpdateRequest.md)
  - [PauseTrialRequest](docs/PauseTrialRequest.md)
