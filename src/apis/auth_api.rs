@@ -28,6 +28,27 @@ pub struct ApiAuthServerPostParams {
     pub server_token_auth_request: Option<models::ServerTokenAuthRequest>
 }
 
+/// struct for passing parameters to the method [`api_auth_tokens_guest_post`]
+#[derive(Clone, Debug)]
+pub struct ApiAuthTokensGuestPostParams {
+    /// `GuestAuthRequest`
+    pub guest_auth_request: Option<models::GuestAuthRequest>
+}
+
+/// struct for passing parameters to the method [`api_auth_tokens_password_post`]
+#[derive(Clone, Debug)]
+pub struct ApiAuthTokensPasswordPostParams {
+    /// `PasswordAuthRequest`
+    pub password_auth_request: Option<models::PasswordAuthRequest>
+}
+
+/// struct for passing parameters to the method [`api_auth_tokens_refresh_token_post`]
+#[derive(Clone, Debug)]
+pub struct ApiAuthTokensRefreshTokenPostParams {
+    /// `RefreshTokenAuthRequest`
+    pub refresh_token_auth_request: Option<models::RefreshTokenAuthRequest>
+}
+
 
 /// struct for typed errors of method [`api_auth_refresh_token_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -45,8 +66,32 @@ pub enum ApiAuthServerPostError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`api_auth_tokens_guest_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiAuthTokensGuestPostError {
+    Status400(models::ProblemDetails),
+    UnknownValue(serde_json::Value),
+}
 
-/// Generate a new access token for previously authenticated account.
+/// struct for typed errors of method [`api_auth_tokens_password_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiAuthTokensPasswordPostError {
+    Status400(models::ProblemDetails),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`api_auth_tokens_refresh_token_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiAuthTokensRefreshTokenPostError {
+    Status400(models::ProblemDetails),
+    UnknownValue(serde_json::Value),
+}
+
+
+/// Generate a new access token for previously authenticated account. DEPRECATED: Use `tokens/refresh-token` instead.
 pub async fn api_auth_refresh_token_post(configuration: &configuration::Configuration, params: ApiAuthRefreshTokenPostParams) -> Result<models::AuthResponse, Error<ApiAuthRefreshTokenPostError>> {
     let local_var_configuration = configuration;
 
@@ -115,6 +160,117 @@ pub async fn api_auth_server_post(configuration: &configuration::Configuration, 
     } else {
         let local_var_content = local_var_resp.text().await?;
         let local_var_entity: Option<ApiAuthServerPostError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Generate a new access token for a brand-new player.
+pub async fn api_auth_tokens_guest_post(configuration: &configuration::Configuration, params: ApiAuthTokensGuestPostParams) -> Result<models::AuthResponse, Error<ApiAuthTokensGuestPostError>> {
+    let local_var_configuration = configuration;
+
+    // unbox the parameters
+    let guest_auth_request = params.guest_auth_request;
+
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/auth/tokens/guest", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&guest_auth_request);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_content = local_var_resp.text().await?;
+        let local_var_entity: Option<ApiAuthTokensGuestPostError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Generate a new access token when given email and password credentials
+pub async fn api_auth_tokens_password_post(configuration: &configuration::Configuration, params: ApiAuthTokensPasswordPostParams) -> Result<models::AuthResponse, Error<ApiAuthTokensPasswordPostError>> {
+    let local_var_configuration = configuration;
+
+    // unbox the parameters
+    let password_auth_request = params.password_auth_request;
+
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/auth/tokens/password", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&password_auth_request);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_content = local_var_resp.text().await?;
+        let local_var_entity: Option<ApiAuthTokensPasswordPostError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Generate a new access token for previously authenticated account.
+pub async fn api_auth_tokens_refresh_token_post(configuration: &configuration::Configuration, params: ApiAuthTokensRefreshTokenPostParams) -> Result<models::AuthResponse, Error<ApiAuthTokensRefreshTokenPostError>> {
+    let local_var_configuration = configuration;
+
+    // unbox the parameters
+    let refresh_token_auth_request = params.refresh_token_auth_request;
+
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/auth/tokens/refresh-token", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&refresh_token_auth_request);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        let local_var_content = local_var_resp.text().await?;
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_content = local_var_resp.text().await?;
+        let local_var_entity: Option<ApiAuthTokensRefreshTokenPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

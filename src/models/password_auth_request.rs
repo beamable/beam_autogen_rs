@@ -12,9 +12,13 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct RefreshTokenAuthRequest {
-    #[serde(rename = "refreshToken", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub refresh_token: Option<Option<String>>,
+pub struct PasswordAuthRequest {
+    #[serde(rename = "email", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub email: Option<Option<String>>,
+    #[serde(rename = "password", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub password: Option<Option<String>>,
+    #[serde(rename = "scope", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub scope: Option<Option<String>>,
     #[serde(rename = "customerId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub customer_id: Option<Option<String>>,
     #[serde(rename = "realmId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -23,10 +27,12 @@ pub struct RefreshTokenAuthRequest {
     pub context: Option<Box<models::AuthActorContextInfo>>,
 }
 
-impl RefreshTokenAuthRequest {
-    pub fn new() -> RefreshTokenAuthRequest {
-        RefreshTokenAuthRequest {
-            refresh_token: None,
+impl PasswordAuthRequest {
+    pub fn new() -> PasswordAuthRequest {
+        PasswordAuthRequest {
+            email: None,
+            password: None,
+            scope: None,
             customer_id: None,
             realm_id: None,
             context: None,

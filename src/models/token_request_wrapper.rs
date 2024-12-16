@@ -22,7 +22,7 @@ pub struct TokenRequestWrapper {
     #[serde(rename = "refresh_token", skip_serializing_if = "Option::is_none")]
     pub refresh_token: Option<String>,
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
-    pub context: Option<Box<models::ContextInfo>>,
+    pub context: Option<Box<models::AuthBasicContextInfo>>,
     #[serde(rename = "third_party", skip_serializing_if = "Option::is_none")]
     pub third_party: Option<String>,
     #[serde(rename = "redirect_uri", skip_serializing_if = "Option::is_none")]
