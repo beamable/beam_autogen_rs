@@ -42,7 +42,7 @@ jobs:
       - name: Generate API
         working-directory: gen_api
         run: |
-          dotnet beam oapi download --output . --combine-into-one-document
+          beam oapi download --output . --combine-into-one-document
       - name: Update OpenAPI from script
         working-directory: gen_api
         run: bash updateOpenApi.sh
