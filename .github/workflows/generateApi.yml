@@ -20,11 +20,6 @@ jobs:
           persist-credentials: true
           token: ${{ secrets.BOT_TOKEN }}
           path: gen_api/
-      - uses: actions/checkout@v4
-        with:
-          repository: beamable/BeamableProduct
-          fetch-depth: 0
-          path: BeamableProduct/
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v4
         with:
@@ -41,13 +36,13 @@ jobs:
           key: ${{ runner.os }}-cargo-clippy-${{ hashFiles('**/Cargo.toml') }}
       - name: Install stable toolchain
         uses: dtolnay/rust-toolchain@stable
-      - name: Build CLI 
+      - name: Install Beamable CLI 
         run: |
-          dotnet build ./BeamableProduct/cli/cli 
+          dotnet tool install --global Beamable.Tools
       - name: Generate API
         working-directory: gen_api
         run: |
-          dotnet run --project ../BeamableProduct/cli/cli -- oapi download --output . --combine-into-one-document
+          dotnet beam oapi download --output . --combine-into-one-document
       - name: Update OpenAPI from script
         working-directory: gen_api
         run: bash updateOpenApi.sh
