@@ -17,6 +17,10 @@ use super::{Error, configuration};
 /// struct for passing parameters to the method [`api_internal_scheduler_job_execute_post`]
 #[derive(Clone, Debug)]
 pub struct ApiInternalSchedulerJobExecutePostParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// 
     pub job_execution_event: Option<models::JobExecutionEvent>
 }
@@ -24,6 +28,10 @@ pub struct ApiInternalSchedulerJobExecutePostParams {
 /// struct for passing parameters to the method [`api_internal_scheduler_job_post`]
 #[derive(Clone, Debug)]
 pub struct ApiInternalSchedulerJobPostParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     pub job_definition_save_request: Option<models::JobDefinitionSaveRequest>
 }
 
@@ -31,25 +39,41 @@ pub struct ApiInternalSchedulerJobPostParams {
 #[derive(Clone, Debug)]
 pub struct ApiSchedulerJobJobIdActivityGetParams {
     pub job_id: String,
-    pub limit: Option<i32>
+    pub limit: Option<i32>,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>
 }
 
 /// struct for passing parameters to the method [`api_scheduler_job_job_id_cancel_put`]
 #[derive(Clone, Debug)]
 pub struct ApiSchedulerJobJobIdCancelPutParams {
-    pub job_id: String
+    pub job_id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>
 }
 
 /// struct for passing parameters to the method [`api_scheduler_job_job_id_delete`]
 #[derive(Clone, Debug)]
 pub struct ApiSchedulerJobJobIdDeleteParams {
-    pub job_id: String
+    pub job_id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>
 }
 
 /// struct for passing parameters to the method [`api_scheduler_job_job_id_get`]
 #[derive(Clone, Debug)]
 pub struct ApiSchedulerJobJobIdGetParams {
-    pub job_id: String
+    pub job_id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>
 }
 
 /// struct for passing parameters to the method [`api_scheduler_job_job_id_next_executions_get`]
@@ -57,12 +81,20 @@ pub struct ApiSchedulerJobJobIdGetParams {
 pub struct ApiSchedulerJobJobIdNextExecutionsGetParams {
     pub job_id: String,
     pub from: Option<String>,
-    pub limit: Option<i32>
+    pub limit: Option<i32>,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>
 }
 
 /// struct for passing parameters to the method [`api_scheduler_job_post`]
 #[derive(Clone, Debug)]
 pub struct ApiSchedulerJobPostParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     pub job_definition_save_request: Option<models::JobDefinitionSaveRequest>
 }
 
@@ -71,7 +103,11 @@ pub struct ApiSchedulerJobPostParams {
 pub struct ApiSchedulerJobsGetParams {
     pub source: Option<String>,
     pub name: Option<String>,
-    pub limit: Option<i32>
+    pub limit: Option<i32>,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>
 }
 
 
@@ -143,343 +179,293 @@ pub enum ApiSchedulerJobsGetError {
 
 /// Called by the Dispatcher lambda function to start a job execution at the appropriate time.
 pub async fn api_internal_scheduler_job_execute_post(configuration: &configuration::Configuration, params: ApiInternalSchedulerJobExecutePostParams) -> Result<models::JobExecutionResult, Error<ApiInternalSchedulerJobExecutePostError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let job_execution_event = params.job_execution_event;
+    let uri_str = format!("{}/api/internal/scheduler/job/execute", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/internal/scheduler/job/execute", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&job_execution_event);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.job_execution_event);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiInternalSchedulerJobExecutePostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiInternalSchedulerJobExecutePostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 pub async fn api_internal_scheduler_job_post(configuration: &configuration::Configuration, params: ApiInternalSchedulerJobPostParams) -> Result<models::JobDefinition, Error<ApiInternalSchedulerJobPostError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let job_definition_save_request = params.job_definition_save_request;
+    let uri_str = format!("{}/api/internal/scheduler/job", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/internal/scheduler/job", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&job_definition_save_request);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.job_definition_save_request);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiInternalSchedulerJobPostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiInternalSchedulerJobPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 pub async fn api_scheduler_job_job_id_activity_get(configuration: &configuration::Configuration, params: ApiSchedulerJobJobIdActivityGetParams) -> Result<Vec<models::JobActivity>, Error<ApiSchedulerJobJobIdActivityGetError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let job_id = params.job_id;
-    let limit = params.limit;
+    let uri_str = format!("{}/api/scheduler/job/{jobId}/activity", configuration.base_path, jobId=crate::apis::urlencode(params.job_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/scheduler/job/{jobId}/activity", local_var_configuration.base_path, jobId=crate::apis::urlencode(job_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiSchedulerJobJobIdActivityGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiSchedulerJobJobIdActivityGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 pub async fn api_scheduler_job_job_id_cancel_put(configuration: &configuration::Configuration, params: ApiSchedulerJobJobIdCancelPutParams) -> Result<serde_json::Value, Error<ApiSchedulerJobJobIdCancelPutError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let job_id = params.job_id;
+    let uri_str = format!("{}/api/scheduler/job/{jobId}/cancel", configuration.base_path, jobId=crate::apis::urlencode(params.job_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/scheduler/job/{jobId}/cancel", local_var_configuration.base_path, jobId=crate::apis::urlencode(job_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiSchedulerJobJobIdCancelPutError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiSchedulerJobJobIdCancelPutError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 pub async fn api_scheduler_job_job_id_delete(configuration: &configuration::Configuration, params: ApiSchedulerJobJobIdDeleteParams) -> Result<serde_json::Value, Error<ApiSchedulerJobJobIdDeleteError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let job_id = params.job_id;
+    let uri_str = format!("{}/api/scheduler/job/{jobId}", configuration.base_path, jobId=crate::apis::urlencode(params.job_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/scheduler/job/{jobId}", local_var_configuration.base_path, jobId=crate::apis::urlencode(job_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiSchedulerJobJobIdDeleteError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiSchedulerJobJobIdDeleteError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 pub async fn api_scheduler_job_job_id_get(configuration: &configuration::Configuration, params: ApiSchedulerJobJobIdGetParams) -> Result<models::JobDefinition, Error<ApiSchedulerJobJobIdGetError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let job_id = params.job_id;
+    let uri_str = format!("{}/api/scheduler/job/{jobId}", configuration.base_path, jobId=crate::apis::urlencode(params.job_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/scheduler/job/{jobId}", local_var_configuration.base_path, jobId=crate::apis::urlencode(job_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiSchedulerJobJobIdGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiSchedulerJobJobIdGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 pub async fn api_scheduler_job_job_id_next_executions_get(configuration: &configuration::Configuration, params: ApiSchedulerJobJobIdNextExecutionsGetParams) -> Result<Vec<String>, Error<ApiSchedulerJobJobIdNextExecutionsGetError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let job_id = params.job_id;
-    let from = params.from;
-    let limit = params.limit;
+    let uri_str = format!("{}/api/scheduler/job/{jobId}/next-executions", configuration.base_path, jobId=crate::apis::urlencode(params.job_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/scheduler/job/{jobId}/next-executions", local_var_configuration.base_path, jobId=crate::apis::urlencode(job_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = from {
-        local_var_req_builder = local_var_req_builder.query(&[("from", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.from {
+        req_builder = req_builder.query(&[("from", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiSchedulerJobJobIdNextExecutionsGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiSchedulerJobJobIdNextExecutionsGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 pub async fn api_scheduler_job_post(configuration: &configuration::Configuration, params: ApiSchedulerJobPostParams) -> Result<models::JobDefinition, Error<ApiSchedulerJobPostError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let job_definition_save_request = params.job_definition_save_request;
+    let uri_str = format!("{}/api/scheduler/job", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/scheduler/job", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&job_definition_save_request);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.job_definition_save_request);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiSchedulerJobPostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiSchedulerJobPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 pub async fn api_scheduler_jobs_get(configuration: &configuration::Configuration, params: ApiSchedulerJobsGetParams) -> Result<Vec<models::JobDefinition>, Error<ApiSchedulerJobsGetError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let source = params.source;
-    let name = params.name;
-    let limit = params.limit;
+    let uri_str = format!("{}/api/scheduler/jobs", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/scheduler/jobs", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = source {
-        local_var_req_builder = local_var_req_builder.query(&[("source", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.source {
+        req_builder = req_builder.query(&[("source", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = name {
-        local_var_req_builder = local_var_req_builder.query(&[("name", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.name {
+        req_builder = req_builder.query(&[("name", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiSchedulerJobsGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiSchedulerJobsGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## api_parties_id_get
 
-> models::Party api_parties_id_get(id)
+> models::Party api_parties_id_get(id, x_beam_scope, x_beam_gamertag)
 
 
 Return the status of a party.
@@ -28,6 +28,8 @@ Return the status of a party.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the party | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
@@ -35,7 +37,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -47,7 +49,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_parties_id_invite_delete
 
-> serde_json::Value api_parties_id_invite_delete(id, cancel_invite_to_party)
+> serde_json::Value api_parties_id_invite_delete(id, x_beam_scope, x_beam_gamertag, cancel_invite_to_party)
 
 
 Cancel party invitation.
@@ -58,6 +60,8 @@ Cancel party invitation.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the party | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **cancel_invite_to_party** | Option<[**CancelInviteToParty**](CancelInviteToParty.md)> | Player to be uninvited |  |
 
 ### Return type
@@ -66,7 +70,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -78,7 +82,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_parties_id_invite_post
 
-> serde_json::Value api_parties_id_invite_post(id, invite_to_party)
+> serde_json::Value api_parties_id_invite_post(id, x_beam_scope, x_beam_gamertag, invite_to_party)
 
 
 Invite a player to a party
@@ -89,6 +93,8 @@ Invite a player to a party
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the party | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **invite_to_party** | Option<[**InviteToParty**](InviteToParty.md)> | Player to invite to the party |  |
 
 ### Return type
@@ -97,7 +103,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -109,7 +115,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_parties_id_members_delete
 
-> serde_json::Value api_parties_id_members_delete(id, leave_party)
+> serde_json::Value api_parties_id_members_delete(id, x_beam_scope, x_beam_gamertag, leave_party)
 
 
 Remove the requested player from the party. The leader is able to remove anyone. Others may  only remove themselves without error.
@@ -120,6 +126,8 @@ Remove the requested player from the party. The leader is able to remove anyone.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the party | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **leave_party** | Option<[**LeaveParty**](LeaveParty.md)> | The leave party request |  |
 
 ### Return type
@@ -128,7 +136,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -140,7 +148,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_parties_id_metadata_put
 
-> models::Party api_parties_id_metadata_put(id, update_party)
+> models::Party api_parties_id_metadata_put(id, x_beam_scope, x_beam_gamertag, update_party)
 
 
 Updates party state.
@@ -151,6 +159,8 @@ Updates party state.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the party | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **update_party** | Option<[**UpdateParty**](UpdateParty.md)> | Argument to pass to the party actor to update state. |  |
 
 ### Return type
@@ -159,7 +169,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -171,7 +181,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_parties_id_promote_put
 
-> models::Party api_parties_id_promote_put(id, promote_new_leader)
+> models::Party api_parties_id_promote_put(id, x_beam_scope, x_beam_gamertag, promote_new_leader)
 
 
 Promote a party member to leader.
@@ -182,6 +192,8 @@ Promote a party member to leader.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the party | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **promote_new_leader** | Option<[**PromoteNewLeader**](PromoteNewLeader.md)> | Player to promote to leader |  |
 
 ### Return type
@@ -190,7 +202,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -202,7 +214,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_parties_id_put
 
-> models::Party api_parties_id_put(id)
+> models::Party api_parties_id_put(id, x_beam_scope, x_beam_gamertag)
 
 
 Join a party
@@ -213,6 +225,8 @@ Join a party
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the party | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
@@ -220,7 +234,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -232,7 +246,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_parties_post
 
-> models::Party api_parties_post(create_party)
+> models::Party api_parties_post(x_beam_scope, x_beam_gamertag, create_party)
 
 
 Create a party for the current player.
@@ -242,6 +256,8 @@ Create a party for the current player.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **create_party** | Option<[**CreateParty**](CreateParty.md)> | Argument to pass to the party actor to initialize state. |  |
 
 ### Return type
@@ -250,7 +266,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 

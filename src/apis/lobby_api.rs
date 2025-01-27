@@ -19,7 +19,11 @@ use super::{Error, configuration};
 pub struct ApiLobbiesGetParams {
     pub skip: Option<i32>,
     pub limit: Option<i32>,
-    pub match_type: Option<String>
+    pub match_type: Option<String>,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>
 }
 
 /// struct for passing parameters to the method [`api_lobbies_id_delete`]
@@ -27,6 +31,10 @@ pub struct ApiLobbiesGetParams {
 pub struct ApiLobbiesIdDeleteParams {
     /// Id of the lobby
     pub id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// Request including the player requested to remove
     pub remove_from_lobby: Option<models::RemoveFromLobby>
 }
@@ -35,7 +43,11 @@ pub struct ApiLobbiesIdDeleteParams {
 #[derive(Clone, Debug)]
 pub struct ApiLobbiesIdGetParams {
     /// The lobby id.
-    pub id: String
+    pub id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>
 }
 
 /// struct for passing parameters to the method [`api_lobbies_id_metadata_put`]
@@ -43,6 +55,10 @@ pub struct ApiLobbiesIdGetParams {
 pub struct ApiLobbiesIdMetadataPutParams {
     /// Id of the lobby
     pub id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// The update lobby request.
     pub update_lobby: Option<models::UpdateLobby>
 }
@@ -52,6 +68,10 @@ pub struct ApiLobbiesIdMetadataPutParams {
 pub struct ApiLobbiesIdPutParams {
     /// Id of the lobby
     pub id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// The join lobby request. Includes tags.
     pub join_lobby: Option<models::JoinLobby>
 }
@@ -61,6 +81,10 @@ pub struct ApiLobbiesIdPutParams {
 pub struct ApiLobbiesIdServerPostParams {
     /// Id of the lobby
     pub id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// Includes an optional matchtype
     pub create_federated_game_server: Option<models::CreateFederatedGameServer>
 }
@@ -70,6 +94,10 @@ pub struct ApiLobbiesIdServerPostParams {
 pub struct ApiLobbiesIdTagsDeleteParams {
     /// Id of the lobby
     pub id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// Includes the player ID and the tags to remove.
     pub remove_tags: Option<models::RemoveTags>
 }
@@ -79,6 +107,10 @@ pub struct ApiLobbiesIdTagsDeleteParams {
 pub struct ApiLobbiesIdTagsPutParams {
     /// Id of the lobby
     pub id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// Includes the player ID and tags to add.
     pub add_tags: Option<models::AddTags>
 }
@@ -86,6 +118,10 @@ pub struct ApiLobbiesIdTagsPutParams {
 /// struct for passing parameters to the method [`api_lobbies_passcode_put`]
 #[derive(Clone, Debug)]
 pub struct ApiLobbiesPasscodePutParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// The join lobby request. Includes tags.
     pub join_lobby: Option<models::JoinLobby>
 }
@@ -93,6 +129,10 @@ pub struct ApiLobbiesPasscodePutParams {
 /// struct for passing parameters to the method [`api_lobbies_post`]
 #[derive(Clone, Debug)]
 pub struct ApiLobbiesPostParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// The Create request.
     pub create_lobby: Option<models::CreateLobby>
 }
@@ -171,386 +211,328 @@ pub enum ApiLobbiesPostError {
 
 /// Query for active lobbies
 pub async fn api_lobbies_get(configuration: &configuration::Configuration, params: ApiLobbiesGetParams) -> Result<models::LobbyQueryResponse, Error<ApiLobbiesGetError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let skip = params.skip;
-    let limit = params.limit;
-    let match_type = params.match_type;
+    let uri_str = format!("{}/api/lobbies", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/lobbies", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = skip {
-        local_var_req_builder = local_var_req_builder.query(&[("Skip", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("Skip", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("Limit", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("Limit", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = match_type {
-        local_var_req_builder = local_var_req_builder.query(&[("MatchType", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.match_type {
+        req_builder = req_builder.query(&[("MatchType", &param_value.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiLobbiesGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiLobbiesGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Remove the requested player from the lobby. The host is able to remove anyone. Others may  only remove themselves without error.
 pub async fn api_lobbies_id_delete(configuration: &configuration::Configuration, params: ApiLobbiesIdDeleteParams) -> Result<serde_json::Value, Error<ApiLobbiesIdDeleteError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
-    let remove_from_lobby = params.remove_from_lobby;
+    let uri_str = format!("{}/api/lobbies/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/lobbies/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&remove_from_lobby);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.remove_from_lobby);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiLobbiesIdDeleteError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiLobbiesIdDeleteError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Get the current status of a lobby by id.
 pub async fn api_lobbies_id_get(configuration: &configuration::Configuration, params: ApiLobbiesIdGetParams) -> Result<models::Lobby, Error<ApiLobbiesIdGetError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
+    let uri_str = format!("{}/api/lobbies/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/lobbies/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiLobbiesIdGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiLobbiesIdGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Update the properties of a lobby
 pub async fn api_lobbies_id_metadata_put(configuration: &configuration::Configuration, params: ApiLobbiesIdMetadataPutParams) -> Result<models::Lobby, Error<ApiLobbiesIdMetadataPutError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
-    let update_lobby = params.update_lobby;
+    let uri_str = format!("{}/api/lobbies/{id}/metadata", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/lobbies/{id}/metadata", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&update_lobby);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.update_lobby);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiLobbiesIdMetadataPutError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiLobbiesIdMetadataPutError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Join a lobby
 pub async fn api_lobbies_id_put(configuration: &configuration::Configuration, params: ApiLobbiesIdPutParams) -> Result<models::Lobby, Error<ApiLobbiesIdPutError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
-    let join_lobby = params.join_lobby;
+    let uri_str = format!("{}/api/lobbies/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/lobbies/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&join_lobby);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.join_lobby);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiLobbiesIdPutError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiLobbiesIdPutError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Invoke the Lobby actor to make the federated game server request.
 pub async fn api_lobbies_id_server_post(configuration: &configuration::Configuration, params: ApiLobbiesIdServerPostParams) -> Result<serde_json::Value, Error<ApiLobbiesIdServerPostError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
-    let create_federated_game_server = params.create_federated_game_server;
+    let uri_str = format!("{}/api/lobbies/{id}/server", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/lobbies/{id}/server", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&create_federated_game_server);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.create_federated_game_server);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiLobbiesIdServerPostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiLobbiesIdServerPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Remove the request tags from the requested player.
 pub async fn api_lobbies_id_tags_delete(configuration: &configuration::Configuration, params: ApiLobbiesIdTagsDeleteParams) -> Result<models::Lobby, Error<ApiLobbiesIdTagsDeleteError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
-    let remove_tags = params.remove_tags;
+    let uri_str = format!("{}/api/lobbies/{id}/tags", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/lobbies/{id}/tags", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&remove_tags);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.remove_tags);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiLobbiesIdTagsDeleteError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiLobbiesIdTagsDeleteError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Add the request tags to the requested player.
 pub async fn api_lobbies_id_tags_put(configuration: &configuration::Configuration, params: ApiLobbiesIdTagsPutParams) -> Result<models::Lobby, Error<ApiLobbiesIdTagsPutError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
-    let add_tags = params.add_tags;
+    let uri_str = format!("{}/api/lobbies/{id}/tags", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/lobbies/{id}/tags", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&add_tags);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.add_tags);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiLobbiesIdTagsPutError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiLobbiesIdTagsPutError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Join a lobby by passcode.
 pub async fn api_lobbies_passcode_put(configuration: &configuration::Configuration, params: ApiLobbiesPasscodePutParams) -> Result<models::Lobby, Error<ApiLobbiesPasscodePutError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let join_lobby = params.join_lobby;
+    let uri_str = format!("{}/api/lobbies/passcode", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/lobbies/passcode", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&join_lobby);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.join_lobby);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiLobbiesPasscodePutError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiLobbiesPasscodePutError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Create a lobby. A leader is not necessary to create a lobby.
 pub async fn api_lobbies_post(configuration: &configuration::Configuration, params: ApiLobbiesPostParams) -> Result<models::Lobby, Error<ApiLobbiesPostError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let create_lobby = params.create_lobby;
+    let uri_str = format!("{}/api/lobbies", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/lobbies", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&create_lobby);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.create_lobby);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiLobbiesPostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiLobbiesPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 

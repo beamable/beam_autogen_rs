@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## api_internal_scheduler_job_execute_post
 
-> models::JobExecutionResult api_internal_scheduler_job_execute_post(job_execution_event)
+> models::JobExecutionResult api_internal_scheduler_job_execute_post(x_beam_scope, x_beam_gamertag, job_execution_event)
 
 
 Called by the Dispatcher lambda function to start a job execution at the appropriate time.
@@ -28,6 +28,8 @@ Called by the Dispatcher lambda function to start a job execution at the appropr
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **job_execution_event** | Option<[**JobExecutionEvent**](JobExecutionEvent.md)> |  |  |
 
 ### Return type
@@ -36,7 +38,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -48,7 +50,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_internal_scheduler_job_post
 
-> models::JobDefinition api_internal_scheduler_job_post(job_definition_save_request)
+> models::JobDefinition api_internal_scheduler_job_post(x_beam_scope, x_beam_gamertag, job_definition_save_request)
 
 
 ### Parameters
@@ -56,6 +58,8 @@ Name | Type | Description  | Required | Notes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **job_definition_save_request** | Option<[**JobDefinitionSaveRequest**](JobDefinitionSaveRequest.md)> |  |  |
 
 ### Return type
@@ -64,7 +68,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -76,7 +80,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_scheduler_job_job_id_activity_get
 
-> Vec<models::JobActivity> api_scheduler_job_job_id_activity_get(job_id, limit)
+> Vec<models::JobActivity> api_scheduler_job_job_id_activity_get(job_id, limit, x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -86,6 +90,8 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **job_id** | **String** |  | [required] |
 **limit** | Option<**i32**> |  |  |[default to 1000]
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
@@ -93,7 +99,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -105,7 +111,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_scheduler_job_job_id_cancel_put
 
-> serde_json::Value api_scheduler_job_job_id_cancel_put(job_id)
+> serde_json::Value api_scheduler_job_job_id_cancel_put(job_id, x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -114,6 +120,8 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **job_id** | **String** |  | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
@@ -121,7 +129,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -133,7 +141,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_scheduler_job_job_id_delete
 
-> serde_json::Value api_scheduler_job_job_id_delete(job_id)
+> serde_json::Value api_scheduler_job_job_id_delete(job_id, x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -142,6 +150,8 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **job_id** | **String** |  | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
@@ -149,7 +159,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -161,7 +171,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_scheduler_job_job_id_get
 
-> models::JobDefinition api_scheduler_job_job_id_get(job_id)
+> models::JobDefinition api_scheduler_job_job_id_get(job_id, x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -170,6 +180,8 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **job_id** | **String** |  | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
@@ -177,7 +189,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -189,7 +201,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_scheduler_job_job_id_next_executions_get
 
-> Vec<String> api_scheduler_job_job_id_next_executions_get(job_id, from, limit)
+> Vec<String> api_scheduler_job_job_id_next_executions_get(job_id, from, limit, x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -200,6 +212,8 @@ Name | Type | Description  | Required | Notes
 **job_id** | **String** |  | [required] |
 **from** | Option<**String**> |  |  |
 **limit** | Option<**i32**> |  |  |[default to 1000]
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
@@ -207,7 +221,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -219,7 +233,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_scheduler_job_post
 
-> models::JobDefinition api_scheduler_job_post(job_definition_save_request)
+> models::JobDefinition api_scheduler_job_post(x_beam_scope, x_beam_gamertag, job_definition_save_request)
 
 
 ### Parameters
@@ -227,6 +241,8 @@ Name | Type | Description  | Required | Notes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **job_definition_save_request** | Option<[**JobDefinitionSaveRequest**](JobDefinitionSaveRequest.md)> |  |  |
 
 ### Return type
@@ -235,7 +251,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -247,7 +263,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_scheduler_jobs_get
 
-> Vec<models::JobDefinition> api_scheduler_jobs_get(source, name, limit)
+> Vec<models::JobDefinition> api_scheduler_jobs_get(source, name, limit, x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -258,6 +274,8 @@ Name | Type | Description  | Required | Notes
 **source** | Option<**String**> |  |  |
 **name** | Option<**String**> |  |  |
 **limit** | Option<**i32**> |  |  |[default to 1000]
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
@@ -265,7 +283,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
