@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## api_players_player_id_lobbies_delete
 
-> serde_json::Value api_players_player_id_lobbies_delete(player_id)
+> serde_json::Value api_players_player_id_lobbies_delete(player_id, x_beam_scope, x_beam_gamertag)
 
 
 If the requested player is in a lobby, remove the player
@@ -22,6 +22,8 @@ If the requested player is in a lobby, remove the player
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **player_id** | **String** | Player Id | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
@@ -29,7 +31,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -41,7 +43,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_players_player_id_lobbies_get
 
-> models::Lobby api_players_player_id_lobbies_get(player_id)
+> models::Lobby api_players_player_id_lobbies_get(player_id, x_beam_scope, x_beam_gamertag)
 
 
 Fetch the requested player's lobby information
@@ -52,6 +54,8 @@ Fetch the requested player's lobby information
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **player_id** | **String** | Player Id | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
@@ -59,7 +63,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## api_presence_query_post
 
-> models::PlayersStatusResponse api_presence_query_post(online_status_query)
+> models::PlayersStatusResponse api_presence_query_post(x_beam_scope, x_beam_gamertag, online_status_query)
 
 
 ### Parameters
@@ -18,6 +18,8 @@ Method | HTTP request | Description
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **online_status_query** | Option<[**OnlineStatusQuery**](OnlineStatusQuery.md)> |  |  |
 
 ### Return type
@@ -26,7 +28,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 

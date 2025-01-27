@@ -18,7 +18,11 @@ use super::{Error, configuration};
 #[derive(Clone, Debug)]
 pub struct ApiPartiesIdGetParams {
     /// Id of the party
-    pub id: String
+    pub id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>
 }
 
 /// struct for passing parameters to the method [`api_parties_id_invite_delete`]
@@ -26,6 +30,10 @@ pub struct ApiPartiesIdGetParams {
 pub struct ApiPartiesIdInviteDeleteParams {
     /// Id of the party
     pub id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// Player to be uninvited
     pub cancel_invite_to_party: Option<models::CancelInviteToParty>
 }
@@ -35,6 +43,10 @@ pub struct ApiPartiesIdInviteDeleteParams {
 pub struct ApiPartiesIdInvitePostParams {
     /// Id of the party
     pub id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// Player to invite to the party
     pub invite_to_party: Option<models::InviteToParty>
 }
@@ -44,6 +56,10 @@ pub struct ApiPartiesIdInvitePostParams {
 pub struct ApiPartiesIdMembersDeleteParams {
     /// Id of the party
     pub id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// The leave party request
     pub leave_party: Option<models::LeaveParty>
 }
@@ -53,6 +69,10 @@ pub struct ApiPartiesIdMembersDeleteParams {
 pub struct ApiPartiesIdMetadataPutParams {
     /// Id of the party
     pub id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// Argument to pass to the party actor to update state.
     pub update_party: Option<models::UpdateParty>
 }
@@ -62,6 +82,10 @@ pub struct ApiPartiesIdMetadataPutParams {
 pub struct ApiPartiesIdPromotePutParams {
     /// Id of the party
     pub id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// Player to promote to leader
     pub promote_new_leader: Option<models::PromoteNewLeader>
 }
@@ -70,12 +94,20 @@ pub struct ApiPartiesIdPromotePutParams {
 #[derive(Clone, Debug)]
 pub struct ApiPartiesIdPutParams {
     /// Id of the party
-    pub id: String
+    pub id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>
 }
 
 /// struct for passing parameters to the method [`api_parties_post`]
 #[derive(Clone, Debug)]
 pub struct ApiPartiesPostParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// Argument to pass to the party actor to initialize state.
     pub create_party: Option<models::CreateParty>
 }
@@ -140,300 +172,255 @@ pub enum ApiPartiesPostError {
 
 /// Return the status of a party.
 pub async fn api_parties_id_get(configuration: &configuration::Configuration, params: ApiPartiesIdGetParams) -> Result<models::Party, Error<ApiPartiesIdGetError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
+    let uri_str = format!("{}/api/parties/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/parties/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiPartiesIdGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiPartiesIdGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Cancel party invitation.
 pub async fn api_parties_id_invite_delete(configuration: &configuration::Configuration, params: ApiPartiesIdInviteDeleteParams) -> Result<serde_json::Value, Error<ApiPartiesIdInviteDeleteError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
-    let cancel_invite_to_party = params.cancel_invite_to_party;
+    let uri_str = format!("{}/api/parties/{id}/invite", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/parties/{id}/invite", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&cancel_invite_to_party);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.cancel_invite_to_party);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiPartiesIdInviteDeleteError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiPartiesIdInviteDeleteError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Invite a player to a party
 pub async fn api_parties_id_invite_post(configuration: &configuration::Configuration, params: ApiPartiesIdInvitePostParams) -> Result<serde_json::Value, Error<ApiPartiesIdInvitePostError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
-    let invite_to_party = params.invite_to_party;
+    let uri_str = format!("{}/api/parties/{id}/invite", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/parties/{id}/invite", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&invite_to_party);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.invite_to_party);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiPartiesIdInvitePostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiPartiesIdInvitePostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Remove the requested player from the party. The leader is able to remove anyone. Others may  only remove themselves without error.
 pub async fn api_parties_id_members_delete(configuration: &configuration::Configuration, params: ApiPartiesIdMembersDeleteParams) -> Result<serde_json::Value, Error<ApiPartiesIdMembersDeleteError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
-    let leave_party = params.leave_party;
+    let uri_str = format!("{}/api/parties/{id}/members", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/parties/{id}/members", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&leave_party);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.leave_party);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiPartiesIdMembersDeleteError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiPartiesIdMembersDeleteError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Updates party state.
 pub async fn api_parties_id_metadata_put(configuration: &configuration::Configuration, params: ApiPartiesIdMetadataPutParams) -> Result<models::Party, Error<ApiPartiesIdMetadataPutError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
-    let update_party = params.update_party;
+    let uri_str = format!("{}/api/parties/{id}/metadata", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/parties/{id}/metadata", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&update_party);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.update_party);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiPartiesIdMetadataPutError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiPartiesIdMetadataPutError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Promote a party member to leader.
 pub async fn api_parties_id_promote_put(configuration: &configuration::Configuration, params: ApiPartiesIdPromotePutParams) -> Result<models::Party, Error<ApiPartiesIdPromotePutError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
-    let promote_new_leader = params.promote_new_leader;
+    let uri_str = format!("{}/api/parties/{id}/promote", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/parties/{id}/promote", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&promote_new_leader);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.promote_new_leader);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiPartiesIdPromotePutError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiPartiesIdPromotePutError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Join a party
 pub async fn api_parties_id_put(configuration: &configuration::Configuration, params: ApiPartiesIdPutParams) -> Result<models::Party, Error<ApiPartiesIdPutError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
+    let uri_str = format!("{}/api/parties/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/parties/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiPartiesIdPutError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiPartiesIdPutError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Create a party for the current player.
 pub async fn api_parties_post(configuration: &configuration::Configuration, params: ApiPartiesPostParams) -> Result<models::Party, Error<ApiPartiesPostError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let create_party = params.create_party;
+    let uri_str = format!("{}/api/parties", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/parties", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&create_party);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.create_party);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiPartiesPostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiPartiesPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 

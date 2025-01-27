@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## api_auth_refresh_token_post
 
-> models::AuthResponse api_auth_refresh_token_post(refresh_token_auth_request)
+> models::AuthResponse api_auth_refresh_token_post(x_beam_scope, x_beam_gamertag, refresh_token_auth_request)
 
 
 Generate a new access token for previously authenticated account. DEPRECATED: Use `tokens/refresh-token` instead.
@@ -24,6 +24,8 @@ Generate a new access token for previously authenticated account. DEPRECATED: Us
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **refresh_token_auth_request** | Option<[**RefreshTokenAuthRequest**](RefreshTokenAuthRequest.md)> | `RefreshTokenAuthRequest` |  |
 
 ### Return type
@@ -32,7 +34,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -44,7 +46,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_auth_server_post
 
-> models::ServerTokenResponse api_auth_server_post(server_token_auth_request)
+> models::ServerTokenResponse api_auth_server_post(x_beam_scope, x_beam_gamertag, server_token_auth_request)
 
 
 Generate a new access token for a machine with a shared secret
@@ -54,6 +56,8 @@ Generate a new access token for a machine with a shared secret
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **server_token_auth_request** | Option<[**ServerTokenAuthRequest**](ServerTokenAuthRequest.md)> | `ServerTokenAuthRequest` |  |
 
 ### Return type
@@ -62,7 +66,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -74,7 +78,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_auth_tokens_guest_post
 
-> models::AuthResponse api_auth_tokens_guest_post(guest_auth_request)
+> models::AuthResponse api_auth_tokens_guest_post(x_beam_scope, x_beam_gamertag, guest_auth_request)
 
 
 Generate a new access token for a brand-new player.
@@ -84,6 +88,8 @@ Generate a new access token for a brand-new player.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **guest_auth_request** | Option<[**GuestAuthRequest**](GuestAuthRequest.md)> | `GuestAuthRequest` |  |
 
 ### Return type
@@ -92,7 +98,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -104,7 +110,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_auth_tokens_password_post
 
-> models::AuthResponse api_auth_tokens_password_post(password_auth_request)
+> models::AuthResponse api_auth_tokens_password_post(x_beam_scope, x_beam_gamertag, password_auth_request)
 
 
 Generate a new access token when given email and password credentials
@@ -114,6 +120,8 @@ Generate a new access token when given email and password credentials
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **password_auth_request** | Option<[**PasswordAuthRequest**](PasswordAuthRequest.md)> | `PasswordAuthRequest` |  |
 
 ### Return type
@@ -122,7 +130,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -134,7 +142,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_auth_tokens_refresh_token_post
 
-> models::AuthResponse api_auth_tokens_refresh_token_post(refresh_token_auth_request)
+> models::AuthResponse api_auth_tokens_refresh_token_post(x_beam_scope, x_beam_gamertag, refresh_token_auth_request)
 
 
 Generate a new access token for previously authenticated account.
@@ -144,6 +152,8 @@ Generate a new access token for previously authenticated account.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **refresh_token_auth_request** | Option<[**RefreshTokenAuthRequest**](RefreshTokenAuthRequest.md)> | `RefreshTokenAuthRequest` |  |
 
 ### Return type
@@ -152,7 +162,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 

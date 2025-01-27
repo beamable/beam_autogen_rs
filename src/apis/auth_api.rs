@@ -17,6 +17,10 @@ use super::{Error, configuration};
 /// struct for passing parameters to the method [`api_auth_refresh_token_post`]
 #[derive(Clone, Debug)]
 pub struct ApiAuthRefreshTokenPostParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// `RefreshTokenAuthRequest`
     pub refresh_token_auth_request: Option<models::RefreshTokenAuthRequest>
 }
@@ -24,6 +28,10 @@ pub struct ApiAuthRefreshTokenPostParams {
 /// struct for passing parameters to the method [`api_auth_server_post`]
 #[derive(Clone, Debug)]
 pub struct ApiAuthServerPostParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// `ServerTokenAuthRequest`
     pub server_token_auth_request: Option<models::ServerTokenAuthRequest>
 }
@@ -31,6 +39,10 @@ pub struct ApiAuthServerPostParams {
 /// struct for passing parameters to the method [`api_auth_tokens_guest_post`]
 #[derive(Clone, Debug)]
 pub struct ApiAuthTokensGuestPostParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// `GuestAuthRequest`
     pub guest_auth_request: Option<models::GuestAuthRequest>
 }
@@ -38,6 +50,10 @@ pub struct ApiAuthTokensGuestPostParams {
 /// struct for passing parameters to the method [`api_auth_tokens_password_post`]
 #[derive(Clone, Debug)]
 pub struct ApiAuthTokensPasswordPostParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// `PasswordAuthRequest`
     pub password_auth_request: Option<models::PasswordAuthRequest>
 }
@@ -45,6 +61,10 @@ pub struct ApiAuthTokensPasswordPostParams {
 /// struct for passing parameters to the method [`api_auth_tokens_refresh_token_post`]
 #[derive(Clone, Debug)]
 pub struct ApiAuthTokensRefreshTokenPostParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
     /// `RefreshTokenAuthRequest`
     pub refresh_token_auth_request: Option<models::RefreshTokenAuthRequest>
 }
@@ -93,186 +113,161 @@ pub enum ApiAuthTokensRefreshTokenPostError {
 
 /// Generate a new access token for previously authenticated account. DEPRECATED: Use `tokens/refresh-token` instead.
 pub async fn api_auth_refresh_token_post(configuration: &configuration::Configuration, params: ApiAuthRefreshTokenPostParams) -> Result<models::AuthResponse, Error<ApiAuthRefreshTokenPostError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let refresh_token_auth_request = params.refresh_token_auth_request;
+    let uri_str = format!("{}/api/auth/refresh-token", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/auth/refresh-token", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&refresh_token_auth_request);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.refresh_token_auth_request);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiAuthRefreshTokenPostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiAuthRefreshTokenPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Generate a new access token for a machine with a shared secret
 pub async fn api_auth_server_post(configuration: &configuration::Configuration, params: ApiAuthServerPostParams) -> Result<models::ServerTokenResponse, Error<ApiAuthServerPostError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let server_token_auth_request = params.server_token_auth_request;
+    let uri_str = format!("{}/api/auth/server", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/auth/server", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&server_token_auth_request);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.server_token_auth_request);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiAuthServerPostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiAuthServerPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Generate a new access token for a brand-new player.
 pub async fn api_auth_tokens_guest_post(configuration: &configuration::Configuration, params: ApiAuthTokensGuestPostParams) -> Result<models::AuthResponse, Error<ApiAuthTokensGuestPostError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let guest_auth_request = params.guest_auth_request;
+    let uri_str = format!("{}/api/auth/tokens/guest", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/auth/tokens/guest", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&guest_auth_request);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.guest_auth_request);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiAuthTokensGuestPostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiAuthTokensGuestPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Generate a new access token when given email and password credentials
 pub async fn api_auth_tokens_password_post(configuration: &configuration::Configuration, params: ApiAuthTokensPasswordPostParams) -> Result<models::AuthResponse, Error<ApiAuthTokensPasswordPostError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let password_auth_request = params.password_auth_request;
+    let uri_str = format!("{}/api/auth/tokens/password", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/auth/tokens/password", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&password_auth_request);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.password_auth_request);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiAuthTokensPasswordPostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiAuthTokensPasswordPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Generate a new access token for previously authenticated account.
 pub async fn api_auth_tokens_refresh_token_post(configuration: &configuration::Configuration, params: ApiAuthTokensRefreshTokenPostParams) -> Result<models::AuthResponse, Error<ApiAuthTokensRefreshTokenPostError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let refresh_token_auth_request = params.refresh_token_auth_request;
+    let uri_str = format!("{}/api/auth/tokens/refresh-token", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/auth/tokens/refresh-token", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&refresh_token_auth_request);
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.refresh_token_auth_request);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        let local_var_content = local_var_resp.text().await?;
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_content = local_var_resp.text().await?;
-        let local_var_entity: Option<ApiAuthTokensRefreshTokenPostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiAuthTokensRefreshTokenPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 

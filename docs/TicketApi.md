@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## api_matchmaking_tickets_get
 
-> models::TicketQueryResponse api_matchmaking_tickets_get(players, include_inactive, skip, limit)
+> models::TicketQueryResponse api_matchmaking_tickets_get(players, include_inactive, skip, limit, x_beam_scope, x_beam_gamertag)
 
 
 Query for active tickets
@@ -27,6 +27,8 @@ Name | Type | Description  | Required | Notes
 **include_inactive** | Option<**bool**> |  |  |
 **skip** | Option<**i32**> |  |  |
 **limit** | Option<**i32**> |  |  |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
@@ -34,7 +36,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -46,7 +48,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_matchmaking_tickets_id_delete
 
-> serde_json::Value api_matchmaking_tickets_id_delete(id)
+> serde_json::Value api_matchmaking_tickets_id_delete(id, x_beam_scope, x_beam_gamertag)
 
 
 Cancel a pending ticket. If no ticket with the id exists, this will  still return a 204.
@@ -57,6 +59,8 @@ Cancel a pending ticket. If no ticket with the id exists, this will  still retur
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** |  | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
@@ -64,7 +68,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -76,7 +80,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_matchmaking_tickets_id_get
 
-> models::Ticket api_matchmaking_tickets_id_get(id)
+> models::Ticket api_matchmaking_tickets_id_get(id, x_beam_scope, x_beam_gamertag)
 
 
 Fetch a ticket by ID.
@@ -87,6 +91,8 @@ Fetch a ticket by ID.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Ticket ID | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
@@ -94,7 +100,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
@@ -106,7 +112,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_matchmaking_tickets_post
 
-> models::TicketReservationResponse api_matchmaking_tickets_post(ticket_reservation_request)
+> models::TicketReservationResponse api_matchmaking_tickets_post(x_beam_scope, x_beam_gamertag, ticket_reservation_request)
 
 
 Create a ticket representing 1 or more players to be matched  with others.
@@ -116,6 +122,8 @@ Create a ticket representing 1 or more players to be matched  with others.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **ticket_reservation_request** | Option<[**TicketReservationRequest**](TicketReservationRequest.md)> |  |  |
 
 ### Return type
@@ -124,7 +132,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 

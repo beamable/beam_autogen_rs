@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## api_players_player_id_matchmaking_tickets_get
 
-> models::TicketQueryResponse api_players_player_id_matchmaking_tickets_get(player_id)
+> models::TicketQueryResponse api_players_player_id_matchmaking_tickets_get(player_id, x_beam_scope, x_beam_gamertag)
 
 
 Fetch the requested player's active Ticket information
@@ -21,6 +21,8 @@ Fetch the requested player's active Ticket information
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **player_id** | **String** | Player Id | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
@@ -28,7 +30,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+No authorization required
 
 ### HTTP request headers
 
