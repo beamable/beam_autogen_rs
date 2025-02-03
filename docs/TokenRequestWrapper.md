@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **external_token** | Option<**String**> |  | [optional]
 **code** | Option<**String**> |  | [optional]
 **token** | Option<**String**> |  | [optional]
+**init_properties** | Option<**std::collections::HashMap<String, String>**> |  | [optional]
 **customer_scoped** | Option<**bool**> |  | [optional]
 **provider_service** | Option<**String**> |  | [optional]
 **grant_type** | **String** |  | 

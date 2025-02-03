@@ -39,6 +39,8 @@ pub struct TokenRequestWrapper {
     pub code: Option<String>,
     #[serde(rename = "token", skip_serializing_if = "Option::is_none")]
     pub token: Option<String>,
+    #[serde(rename = "initProperties", skip_serializing_if = "Option::is_none")]
+    pub init_properties: Option<std::collections::HashMap<String, String>>,
     #[serde(rename = "customerScoped", skip_serializing_if = "Option::is_none")]
     pub customer_scoped: Option<bool>,
     #[serde(rename = "provider_service", skip_serializing_if = "Option::is_none")]
@@ -65,6 +67,7 @@ impl TokenRequestWrapper {
             external_token: None,
             code: None,
             token: None,
+            init_properties: None,
             customer_scoped: None,
             provider_service: None,
             grant_type,
