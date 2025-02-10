@@ -17,13 +17,13 @@ use super::{Error, configuration};
 /// struct for passing parameters to the method [`api_lobbies_get`]
 #[derive(Clone, Debug)]
 pub struct ApiLobbiesGetParams {
-    pub skip: Option<i32>,
-    pub limit: Option<i32>,
-    pub match_type: Option<String>,
     /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
     pub x_beam_scope: Option<String>,
     /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
-    pub x_beam_gamertag: Option<String>
+    pub x_beam_gamertag: Option<String>,
+    pub skip: Option<i32>,
+    pub limit: Option<i32>,
+    pub match_type: Option<String>
 }
 
 /// struct for passing parameters to the method [`api_lobbies_id_delete`]

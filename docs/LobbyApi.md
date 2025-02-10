@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## api_lobbies_get
 
-> models::LobbyQueryResponse api_lobbies_get(skip, limit, match_type, x_beam_scope, x_beam_gamertag)
+> models::LobbyQueryResponse api_lobbies_get(x_beam_scope, x_beam_gamertag, skip, limit, match_type)
 
 
 Query for active lobbies
@@ -29,11 +29,11 @@ Query for active lobbies
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **skip** | Option<**i32**> |  |  |
 **limit** | Option<**i32**> |  |  |
 **match_type** | Option<**String**> |  |  |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
-**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 

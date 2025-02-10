@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## api_matchmaking_tickets_get
 
-> models::TicketQueryResponse api_matchmaking_tickets_get(players, include_inactive, skip, limit, x_beam_scope, x_beam_gamertag)
+> models::TicketQueryResponse api_matchmaking_tickets_get(x_beam_scope, x_beam_gamertag, players, include_inactive, skip, limit)
 
 
 Query for active tickets
@@ -23,12 +23,12 @@ Query for active tickets
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **players** | Option<[**Vec<String>**](String.md)> |  |  |
 **include_inactive** | Option<**bool**> |  |  |
 **skip** | Option<**i32**> |  |  |
 **limit** | Option<**i32**> |  |  |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
-**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 
