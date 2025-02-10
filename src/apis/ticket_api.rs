@@ -17,14 +17,14 @@ use super::{Error, configuration};
 /// struct for passing parameters to the method [`api_matchmaking_tickets_get`]
 #[derive(Clone, Debug)]
 pub struct ApiMatchmakingTicketsGetParams {
-    pub players: Option<Vec<String>>,
-    pub include_inactive: Option<bool>,
-    pub skip: Option<i32>,
-    pub limit: Option<i32>,
     /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
     pub x_beam_scope: Option<String>,
     /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
-    pub x_beam_gamertag: Option<String>
+    pub x_beam_gamertag: Option<String>,
+    pub players: Option<Vec<String>>,
+    pub include_inactive: Option<bool>,
+    pub skip: Option<i32>,
+    pub limit: Option<i32>
 }
 
 /// struct for passing parameters to the method [`api_matchmaking_tickets_id_delete`]

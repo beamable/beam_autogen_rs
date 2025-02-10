@@ -80,7 +80,7 @@ No authorization required
 
 ## api_scheduler_job_job_id_activity_get
 
-> Vec<models::JobActivity> api_scheduler_job_job_id_activity_get(job_id, limit, x_beam_scope, x_beam_gamertag)
+> Vec<models::JobActivity> api_scheduler_job_job_id_activity_get(job_id, x_beam_scope, x_beam_gamertag, limit)
 
 
 ### Parameters
@@ -89,9 +89,9 @@ No authorization required
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **job_id** | **String** |  | [required] |
-**limit** | Option<**i32**> |  |  |[default to 1000]
 **x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**limit** | Option<**i32**> |  |  |[default to 1000]
 
 ### Return type
 
@@ -201,7 +201,7 @@ No authorization required
 
 ## api_scheduler_job_job_id_next_executions_get
 
-> Vec<String> api_scheduler_job_job_id_next_executions_get(job_id, from, limit, x_beam_scope, x_beam_gamertag)
+> Vec<String> api_scheduler_job_job_id_next_executions_get(job_id, x_beam_scope, x_beam_gamertag, from, limit)
 
 
 ### Parameters
@@ -210,10 +210,10 @@ No authorization required
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **job_id** | **String** |  | [required] |
-**from** | Option<**String**> |  |  |
-**limit** | Option<**i32**> |  |  |[default to 1000]
 **x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**from** | Option<**String**> |  |  |
+**limit** | Option<**i32**> |  |  |[default to 1000]
 
 ### Return type
 
@@ -263,7 +263,7 @@ No authorization required
 
 ## api_scheduler_jobs_get
 
-> Vec<models::JobDefinition> api_scheduler_jobs_get(source, name, limit, x_beam_scope, x_beam_gamertag)
+> Vec<models::JobDefinition> api_scheduler_jobs_get(x_beam_scope, x_beam_gamertag, source, name, limit)
 
 
 ### Parameters
@@ -271,11 +271,11 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **source** | Option<**String**> |  |  |
 **name** | Option<**String**> |  |  |
 **limit** | Option<**i32**> |  |  |[default to 1000]
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
-**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 
 ### Return type
 

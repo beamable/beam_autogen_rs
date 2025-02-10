@@ -39,11 +39,11 @@ pub struct ApiInternalSchedulerJobPostParams {
 #[derive(Clone, Debug)]
 pub struct ApiSchedulerJobJobIdActivityGetParams {
     pub job_id: String,
-    pub limit: Option<i32>,
     /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
     pub x_beam_scope: Option<String>,
     /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
-    pub x_beam_gamertag: Option<String>
+    pub x_beam_gamertag: Option<String>,
+    pub limit: Option<i32>
 }
 
 /// struct for passing parameters to the method [`api_scheduler_job_job_id_cancel_put`]
@@ -80,12 +80,12 @@ pub struct ApiSchedulerJobJobIdGetParams {
 #[derive(Clone, Debug)]
 pub struct ApiSchedulerJobJobIdNextExecutionsGetParams {
     pub job_id: String,
-    pub from: Option<String>,
-    pub limit: Option<i32>,
     /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
     pub x_beam_scope: Option<String>,
     /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
-    pub x_beam_gamertag: Option<String>
+    pub x_beam_gamertag: Option<String>,
+    pub from: Option<String>,
+    pub limit: Option<i32>
 }
 
 /// struct for passing parameters to the method [`api_scheduler_job_post`]
@@ -101,13 +101,13 @@ pub struct ApiSchedulerJobPostParams {
 /// struct for passing parameters to the method [`api_scheduler_jobs_get`]
 #[derive(Clone, Debug)]
 pub struct ApiSchedulerJobsGetParams {
-    pub source: Option<String>,
-    pub name: Option<String>,
-    pub limit: Option<i32>,
     /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
     pub x_beam_scope: Option<String>,
     /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
-    pub x_beam_gamertag: Option<String>
+    pub x_beam_gamertag: Option<String>,
+    pub source: Option<String>,
+    pub name: Option<String>,
+    pub limit: Option<i32>
 }
 
 
