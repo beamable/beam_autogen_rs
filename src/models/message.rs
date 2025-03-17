@@ -15,8 +15,9 @@ use serde::{Deserialize, Serialize};
 pub struct Message {
     #[serde(rename = "body", skip_serializing_if = "Option::is_none")]
     pub body: Option<String>,
+    /// Milliseconds since midnight, January 1, 1970 UTC
     #[serde(rename = "expires", skip_serializing_if = "Option::is_none")]
-    pub expires: Option<i32>,
+    pub expires: Option<i64>,
     #[serde(rename = "playerRewards", skip_serializing_if = "Option::is_none")]
     pub player_rewards: Option<Box<models::PlayerReward>>,
     #[serde(rename = "receiverGamerTag")]

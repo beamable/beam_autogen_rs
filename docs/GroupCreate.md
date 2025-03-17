@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **requirement** | **i64** |  | 
 **client_data** | Option<**String**> |  | [optional]
 **scores** | Option<[**Vec<models::GroupScoreBinding>**](GroupScoreBinding.md)> |  | [optional]
-**time** | Option<**i32**> |  | [optional]
+**time** | Option<**i64**> | Milliseconds since midnight, January 1, 1970 UTC | [optional]
 **r#type** | [**models::GroupType**](GroupType.md) |  | 
 **max_size** | **i32** |  | 
 **group** | Option<**i64**> |  | [optional]

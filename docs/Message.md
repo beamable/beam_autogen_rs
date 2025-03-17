@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **body** | Option<**String**> |  | [optional]
-**expires** | Option<**i32**> |  | [optional]
+**expires** | Option<**i64**> | Milliseconds since midnight, January 1, 1970 UTC | [optional]
 **player_rewards** | Option<[**models::PlayerReward**](PlayerReward.md)> |  | [optional]
 **receiver_gamer_tag** | **i64** |  | 
 **subject** | Option<**String**> |  | [optional]
