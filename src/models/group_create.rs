@@ -25,8 +25,9 @@ pub struct GroupCreate {
     pub client_data: Option<String>,
     #[serde(rename = "scores", skip_serializing_if = "Option::is_none")]
     pub scores: Option<Vec<models::GroupScoreBinding>>,
+    /// Milliseconds since midnight, January 1, 1970 UTC
     #[serde(rename = "time", skip_serializing_if = "Option::is_none")]
-    pub time: Option<i32>,
+    pub time: Option<i64>,
     #[serde(rename = "type")]
     pub r#type: models::GroupType,
     #[serde(rename = "maxSize")]
