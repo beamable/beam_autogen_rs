@@ -46,6 +46,17 @@ pub struct ApiSchedulerJobJobIdActivityGetParams {
     pub limit: Option<i32>
 }
 
+/// struct for passing parameters to the method [`api_scheduler_job_job_id_activity_paged_get`]
+#[derive(Clone, Debug)]
+pub struct ApiSchedulerJobJobIdActivityPagedGetParams {
+    pub job_id: String,
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
+    pub cursor: Option<String>
+}
+
 /// struct for passing parameters to the method [`api_scheduler_job_job_id_cancel_put`]
 #[derive(Clone, Debug)]
 pub struct ApiSchedulerJobJobIdCancelPutParams {
@@ -110,6 +121,30 @@ pub struct ApiSchedulerJobsGetParams {
     pub limit: Option<i32>
 }
 
+/// struct for passing parameters to the method [`api_scheduler_jobs_paged_get`]
+#[derive(Clone, Debug)]
+pub struct ApiSchedulerJobsPagedGetParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
+    pub source: Option<String>,
+    pub name: Option<String>,
+    pub only_unique: Option<bool>,
+    pub cursor: Option<String>
+}
+
+/// struct for passing parameters to the method [`api_scheduler_jobs_suspended_get`]
+#[derive(Clone, Debug)]
+pub struct ApiSchedulerJobsSuspendedGetParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
+    pub from: Option<String>,
+    pub cursor: Option<String>
+}
+
 
 /// struct for typed errors of method [`api_internal_scheduler_job_execute_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -129,6 +164,14 @@ pub enum ApiInternalSchedulerJobPostError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiSchedulerJobJobIdActivityGetError {
+    Status400(models::ProblemDetails),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`api_scheduler_job_job_id_activity_paged_get`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiSchedulerJobJobIdActivityPagedGetError {
     Status400(models::ProblemDetails),
     UnknownValue(serde_json::Value),
 }
@@ -173,6 +216,20 @@ pub enum ApiSchedulerJobPostError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiSchedulerJobsGetError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`api_scheduler_jobs_paged_get`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiSchedulerJobsPagedGetError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`api_scheduler_jobs_suspended_get`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiSchedulerJobsSuspendedGetError {
     UnknownValue(serde_json::Value),
 }
 
@@ -299,6 +356,49 @@ pub async fn api_scheduler_job_job_id_activity_get(configuration: &configuration
     } else {
         let content = resp.text().await?;
         let entity: Option<ApiSchedulerJobJobIdActivityGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn api_scheduler_job_job_id_activity_paged_get(configuration: &configuration::Configuration, params: ApiSchedulerJobJobIdActivityPagedGetParams) -> Result<models::JobActivityCursorPagedResult, Error<ApiSchedulerJobJobIdActivityPagedGetError>> {
+
+    let uri_str = format!("{}/api/scheduler/job/{jobId}/activity-paged", configuration.base_path, jobId=crate::apis::urlencode(params.job_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.cursor {
+        req_builder = req_builder.query(&[("cursor", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobActivityCursorPagedResult`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobActivityCursorPagedResult`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ApiSchedulerJobJobIdActivityPagedGetError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -555,6 +655,104 @@ pub async fn api_scheduler_jobs_get(configuration: &configuration::Configuration
     } else {
         let content = resp.text().await?;
         let entity: Option<ApiSchedulerJobsGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn api_scheduler_jobs_paged_get(configuration: &configuration::Configuration, params: ApiSchedulerJobsPagedGetParams) -> Result<models::JobDefinitionCursorPagedResult, Error<ApiSchedulerJobsPagedGetError>> {
+
+    let uri_str = format!("{}/api/scheduler/jobs-paged", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.source {
+        req_builder = req_builder.query(&[("source", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.name {
+        req_builder = req_builder.query(&[("name", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.only_unique {
+        req_builder = req_builder.query(&[("onlyUnique", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.cursor {
+        req_builder = req_builder.query(&[("cursor", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobDefinitionCursorPagedResult`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobDefinitionCursorPagedResult`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ApiSchedulerJobsPagedGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn api_scheduler_jobs_suspended_get(configuration: &configuration::Configuration, params: ApiSchedulerJobsSuspendedGetParams) -> Result<models::JobDefinitionCursorPagedResult, Error<ApiSchedulerJobsSuspendedGetError>> {
+
+    let uri_str = format!("{}/api/scheduler/jobs/suspended", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.from {
+        req_builder = req_builder.query(&[("from", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.cursor {
+        req_builder = req_builder.query(&[("cursor", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobDefinitionCursorPagedResult`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobDefinitionCursorPagedResult`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ApiSchedulerJobsSuspendedGetError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

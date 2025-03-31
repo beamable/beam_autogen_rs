@@ -7,12 +7,15 @@ Method | HTTP request | Description
 [**api_internal_scheduler_job_execute_post**](SchedulerApi.md#api_internal_scheduler_job_execute_post) | **POST** /api/internal/scheduler/job/execute | 
 [**api_internal_scheduler_job_post**](SchedulerApi.md#api_internal_scheduler_job_post) | **POST** /api/internal/scheduler/job | 
 [**api_scheduler_job_job_id_activity_get**](SchedulerApi.md#api_scheduler_job_job_id_activity_get) | **GET** /api/scheduler/job/{jobId}/activity | 
+[**api_scheduler_job_job_id_activity_paged_get**](SchedulerApi.md#api_scheduler_job_job_id_activity_paged_get) | **GET** /api/scheduler/job/{jobId}/activity-paged | 
 [**api_scheduler_job_job_id_cancel_put**](SchedulerApi.md#api_scheduler_job_job_id_cancel_put) | **PUT** /api/scheduler/job/{jobId}/cancel | 
 [**api_scheduler_job_job_id_delete**](SchedulerApi.md#api_scheduler_job_job_id_delete) | **DELETE** /api/scheduler/job/{jobId} | 
 [**api_scheduler_job_job_id_get**](SchedulerApi.md#api_scheduler_job_job_id_get) | **GET** /api/scheduler/job/{jobId} | 
 [**api_scheduler_job_job_id_next_executions_get**](SchedulerApi.md#api_scheduler_job_job_id_next_executions_get) | **GET** /api/scheduler/job/{jobId}/next-executions | 
 [**api_scheduler_job_post**](SchedulerApi.md#api_scheduler_job_post) | **POST** /api/scheduler/job | 
 [**api_scheduler_jobs_get**](SchedulerApi.md#api_scheduler_jobs_get) | **GET** /api/scheduler/jobs | 
+[**api_scheduler_jobs_paged_get**](SchedulerApi.md#api_scheduler_jobs_paged_get) | **GET** /api/scheduler/jobs-paged | 
+[**api_scheduler_jobs_suspended_get**](SchedulerApi.md#api_scheduler_jobs_suspended_get) | **GET** /api/scheduler/jobs/suspended | 
 
 
 
@@ -96,6 +99,37 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**Vec<models::JobActivity>**](JobActivity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_scheduler_job_job_id_activity_paged_get
+
+> models::JobActivityCursorPagedResult api_scheduler_job_job_id_activity_paged_get(job_id, x_beam_scope, x_beam_gamertag, cursor)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**job_id** | **String** |  | [required] |
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**cursor** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::JobActivityCursorPagedResult**](JobActivityCursorPagedResult.md)
 
 ### Authorization
 
@@ -213,7 +247,7 @@ Name | Type | Description  | Required | Notes
 **x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
 **from** | Option<**String**> |  |  |
-**limit** | Option<**i32**> |  |  |[default to 1000]
+**limit** | Option<**i32**> |  |  |[default to 200]
 
 ### Return type
 
@@ -280,6 +314,70 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**Vec<models::JobDefinition>**](JobDefinition.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_scheduler_jobs_paged_get
+
+> models::JobDefinitionCursorPagedResult api_scheduler_jobs_paged_get(x_beam_scope, x_beam_gamertag, source, name, only_unique, cursor)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**source** | Option<**String**> |  |  |
+**name** | Option<**String**> |  |  |
+**only_unique** | Option<**bool**> |  |  |[default to false]
+**cursor** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::JobDefinitionCursorPagedResult**](JobDefinitionCursorPagedResult.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_scheduler_jobs_suspended_get
+
+> models::JobDefinitionCursorPagedResult api_scheduler_jobs_suspended_get(x_beam_scope, x_beam_gamertag, from, cursor)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**from** | Option<**String**> |  |  |
+**cursor** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::JobDefinitionCursorPagedResult**](JobDefinitionCursorPagedResult.md)
 
 ### Authorization
 

@@ -31,6 +31,12 @@ pub struct JobDefinition {
     pub source: Option<Option<String>>,
     #[serde(rename = "nonce", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub nonce: Option<Option<String>>,
+    #[serde(rename = "isUnique", skip_serializing_if = "Option::is_none")]
+    pub is_unique: Option<bool>,
+    #[serde(rename = "suspendedAt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub suspended_at: Option<Option<String>>,
+    #[serde(rename = "analytics", skip_serializing_if = "Option::is_none")]
+    pub analytics: Option<Box<models::JobAnalytics>>,
 }
 
 impl JobDefinition {
@@ -45,6 +51,9 @@ impl JobDefinition {
             last_update: None,
             source: None,
             nonce: None,
+            is_unique: None,
+            suspended_at: None,
+            analytics: None,
         }
     }
 }

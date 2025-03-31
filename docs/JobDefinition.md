@@ -13,6 +13,9 @@ Name | Type | Description | Notes
 **last_update** | Option<**String**> |  | [optional]
 **source** | Option<**String**> |  | [optional]
 **nonce** | Option<**String**> |  | [optional]
+**is_unique** | Option<**bool**> |  | [optional]
+**suspended_at** | Option<**String**> |  | [optional]
+**analytics** | Option<[**models::JobAnalytics**](JobAnalytics.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
