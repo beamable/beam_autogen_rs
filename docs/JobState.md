@@ -9,6 +9,7 @@
 | Running | RUNNING |
 | Done | DONE |
 | Canceled | CANCELED |
+| Suspended | SUSPENDED |
 | Error | ERROR |
 
 

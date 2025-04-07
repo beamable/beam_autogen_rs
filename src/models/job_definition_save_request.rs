@@ -25,6 +25,8 @@ pub struct JobDefinitionSaveRequest {
     pub retry_policy: Option<Box<models::JobRetryPolicy>>,
     #[serde(rename = "source", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub source: Option<Option<String>>,
+    #[serde(rename = "isUnique", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub is_unique: Option<Option<bool>>,
 }
 
 impl JobDefinitionSaveRequest {
@@ -36,6 +38,7 @@ impl JobDefinitionSaveRequest {
             job_action: None,
             retry_policy: None,
             source: None,
+            is_unique: None,
         }
     }
 }

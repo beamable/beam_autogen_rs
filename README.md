@@ -416,12 +416,15 @@ Class | Method | HTTP request | Description
 *SchedulerApi* | [**api_internal_scheduler_job_execute_post**](docs/SchedulerApi.md#api_internal_scheduler_job_execute_post) | **POST** /api/internal/scheduler/job/execute | 
 *SchedulerApi* | [**api_internal_scheduler_job_post**](docs/SchedulerApi.md#api_internal_scheduler_job_post) | **POST** /api/internal/scheduler/job | 
 *SchedulerApi* | [**api_scheduler_job_job_id_activity_get**](docs/SchedulerApi.md#api_scheduler_job_job_id_activity_get) | **GET** /api/scheduler/job/{jobId}/activity | 
+*SchedulerApi* | [**api_scheduler_job_job_id_activity_paged_get**](docs/SchedulerApi.md#api_scheduler_job_job_id_activity_paged_get) | **GET** /api/scheduler/job/{jobId}/activity-paged | 
 *SchedulerApi* | [**api_scheduler_job_job_id_cancel_put**](docs/SchedulerApi.md#api_scheduler_job_job_id_cancel_put) | **PUT** /api/scheduler/job/{jobId}/cancel | 
 *SchedulerApi* | [**api_scheduler_job_job_id_delete**](docs/SchedulerApi.md#api_scheduler_job_job_id_delete) | **DELETE** /api/scheduler/job/{jobId} | 
 *SchedulerApi* | [**api_scheduler_job_job_id_get**](docs/SchedulerApi.md#api_scheduler_job_job_id_get) | **GET** /api/scheduler/job/{jobId} | 
 *SchedulerApi* | [**api_scheduler_job_job_id_next_executions_get**](docs/SchedulerApi.md#api_scheduler_job_job_id_next_executions_get) | **GET** /api/scheduler/job/{jobId}/next-executions | 
 *SchedulerApi* | [**api_scheduler_job_post**](docs/SchedulerApi.md#api_scheduler_job_post) | **POST** /api/scheduler/job | 
 *SchedulerApi* | [**api_scheduler_jobs_get**](docs/SchedulerApi.md#api_scheduler_jobs_get) | **GET** /api/scheduler/jobs | 
+*SchedulerApi* | [**api_scheduler_jobs_paged_get**](docs/SchedulerApi.md#api_scheduler_jobs_paged_get) | **GET** /api/scheduler/jobs-paged | 
+*SchedulerApi* | [**api_scheduler_jobs_suspended_get**](docs/SchedulerApi.md#api_scheduler_jobs_suspended_get) | **GET** /api/scheduler/jobs/suspended | 
 *TicketApi* | [**api_matchmaking_tickets_get**](docs/TicketApi.md#api_matchmaking_tickets_get) | **GET** /api/matchmaking/tickets | 
 *TicketApi* | [**api_matchmaking_tickets_id_delete**](docs/TicketApi.md#api_matchmaking_tickets_id_delete) | **DELETE** /api/matchmaking/tickets/{id} | 
 *TicketApi* | [**api_matchmaking_tickets_id_get**](docs/TicketApi.md#api_matchmaking_tickets_id_get) | **GET** /api/matchmaking/tickets/{id} | 
@@ -730,7 +733,10 @@ Class | Method | HTTP request | Description
  - [ItemProperty](docs/ItemProperty.md)
  - [ItemUpdateRequest](docs/ItemUpdateRequest.md)
  - [JobActivity](docs/JobActivity.md)
+ - [JobActivityCursorPagedResult](docs/JobActivityCursorPagedResult.md)
+ - [JobAnalytics](docs/JobAnalytics.md)
  - [JobDefinition](docs/JobDefinition.md)
+ - [JobDefinitionCursorPagedResult](docs/JobDefinitionCursorPagedResult.md)
  - [JobDefinitionSaveRequest](docs/JobDefinitionSaveRequest.md)
  - [JobDefinitionSaveRequestJobAction](docs/JobDefinitionSaveRequestJobAction.md)
  - [JobDefinitionSaveRequestTriggersInner](docs/JobDefinitionSaveRequestTriggersInner.md)

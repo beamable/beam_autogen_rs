@@ -24,6 +24,8 @@ pub enum JobState {
     Done,
     #[serde(rename = "CANCELED")]
     Canceled,
+    #[serde(rename = "SUSPENDED")]
+    Suspended,
     #[serde(rename = "ERROR")]
     Error,
 
@@ -37,6 +39,7 @@ impl std::fmt::Display for JobState {
             Self::Running => write!(f, "RUNNING"),
             Self::Done => write!(f, "DONE"),
             Self::Canceled => write!(f, "CANCELED"),
+            Self::Suspended => write!(f, "SUSPENDED"),
             Self::Error => write!(f, "ERROR"),
         }
     }

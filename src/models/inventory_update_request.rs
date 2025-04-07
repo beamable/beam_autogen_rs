@@ -15,16 +15,10 @@ use serde::{Deserialize, Serialize};
 pub struct InventoryUpdateRequest {
     #[serde(rename = "currencies", skip_serializing_if = "Option::is_none")]
     pub currencies: Option<std::collections::HashMap<String, i64>>,
-    #[serde(rename = "empty")]
-    pub empty: bool,
     #[serde(rename = "currencyProperties", skip_serializing_if = "Option::is_none")]
     pub currency_properties: Option<std::collections::HashMap<String, Vec<models::CurrencyProperty>>>,
-    #[serde(rename = "currencyContentIds")]
-    pub currency_content_ids: Vec<String>,
     #[serde(rename = "applyVipBonus", skip_serializing_if = "Option::is_none")]
     pub apply_vip_bonus: Option<bool>,
-    #[serde(rename = "itemContentIds")]
-    pub item_content_ids: Vec<String>,
     #[serde(rename = "updateItems", skip_serializing_if = "Option::is_none")]
     pub update_items: Option<Vec<models::ItemUpdateRequest>>,
     #[serde(rename = "newItems", skip_serializing_if = "Option::is_none")]
@@ -36,14 +30,11 @@ pub struct InventoryUpdateRequest {
 }
 
 impl InventoryUpdateRequest {
-    pub fn new(empty: bool, currency_content_ids: Vec<String>, item_content_ids: Vec<String>) -> InventoryUpdateRequest {
+    pub fn new() -> InventoryUpdateRequest {
         InventoryUpdateRequest {
             currencies: None,
-            empty,
             currency_properties: None,
-            currency_content_ids,
             apply_vip_bonus: None,
-            item_content_ids,
             update_items: None,
             new_items: None,
             transaction: None,
