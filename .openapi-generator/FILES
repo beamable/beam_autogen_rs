@@ -303,7 +303,10 @@ docs/ItemGroup.md
 docs/ItemProperty.md
 docs/ItemUpdateRequest.md
 docs/JobActivity.md
+docs/JobActivityCursorPagedResult.md
+docs/JobAnalytics.md
 docs/JobDefinition.md
+docs/JobDefinitionCursorPagedResult.md
 docs/JobDefinitionSaveRequest.md
 docs/JobDefinitionSaveRequestJobAction.md
 docs/JobDefinitionSaveRequestTriggersInner.md
@@ -963,7 +966,10 @@ src/models/item_group.rs
 src/models/item_property.rs
 src/models/item_update_request.rs
 src/models/job_activity.rs
+src/models/job_activity_cursor_paged_result.rs
+src/models/job_analytics.rs
 src/models/job_definition.rs
+src/models/job_definition_cursor_paged_result.rs
 src/models/job_definition_save_request.rs
 src/models/job_definition_save_request_job_action.rs
 src/models/job_definition_save_request_triggers_inner.rs
