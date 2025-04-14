@@ -212,9 +212,11 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**basic_realms_config_get**](docs/DefaultApi.md#basic_realms_config_get) | **GET** /basic/realms/config | 
 *DefaultApi* | [**basic_realms_config_post**](docs/DefaultApi.md#basic_realms_config_post) | **POST** /basic/realms/config | 
 *DefaultApi* | [**basic_realms_config_put**](docs/DefaultApi.md#basic_realms_config_put) | **PUT** /basic/realms/config | 
+*DefaultApi* | [**basic_realms_customer_activate_get**](docs/DefaultApi.md#basic_realms_customer_activate_get) | **GET** /basic/realms/customer/activate | 
 *DefaultApi* | [**basic_realms_customer_alias_available_get**](docs/DefaultApi.md#basic_realms_customer_alias_available_get) | **GET** /basic/realms/customer/alias/available | 
 *DefaultApi* | [**basic_realms_customer_get**](docs/DefaultApi.md#basic_realms_customer_get) | **GET** /basic/realms/customer | 
 *DefaultApi* | [**basic_realms_customer_post**](docs/DefaultApi.md#basic_realms_customer_post) | **POST** /basic/realms/customer | 
+*DefaultApi* | [**basic_realms_customer_verify_post**](docs/DefaultApi.md#basic_realms_customer_verify_post) | **POST** /basic/realms/customer/verify | 
 *DefaultApi* | [**basic_realms_customers_get**](docs/DefaultApi.md#basic_realms_customers_get) | **GET** /basic/realms/customers | 
 *DefaultApi* | [**basic_realms_game_get**](docs/DefaultApi.md#basic_realms_game_get) | **GET** /basic/realms/game | 
 *DefaultApi* | [**basic_realms_game_post**](docs/DefaultApi.md#basic_realms_game_post) | **POST** /basic/realms/game | 
@@ -422,6 +424,7 @@ Class | Method | HTTP request | Description
 *SchedulerApi* | [**api_scheduler_job_job_id_get**](docs/SchedulerApi.md#api_scheduler_job_job_id_get) | **GET** /api/scheduler/job/{jobId} | 
 *SchedulerApi* | [**api_scheduler_job_job_id_next_executions_get**](docs/SchedulerApi.md#api_scheduler_job_job_id_next_executions_get) | **GET** /api/scheduler/job/{jobId}/next-executions | 
 *SchedulerApi* | [**api_scheduler_job_post**](docs/SchedulerApi.md#api_scheduler_job_post) | **POST** /api/scheduler/job | 
+*SchedulerApi* | [**api_scheduler_jobs_activity_paged_get**](docs/SchedulerApi.md#api_scheduler_jobs_activity_paged_get) | **GET** /api/scheduler/jobs/activity-paged | 
 *SchedulerApi* | [**api_scheduler_jobs_get**](docs/SchedulerApi.md#api_scheduler_jobs_get) | **GET** /api/scheduler/jobs | 
 *SchedulerApi* | [**api_scheduler_jobs_paged_get**](docs/SchedulerApi.md#api_scheduler_jobs_paged_get) | **GET** /api/scheduler/jobs-paged | 
 *SchedulerApi* | [**api_scheduler_jobs_suspended_get**](docs/SchedulerApi.md#api_scheduler_jobs_suspended_get) | **GET** /api/scheduler/jobs/suspended | 
@@ -444,6 +447,7 @@ Class | Method | HTTP request | Description
  - [AccountRolesReport](docs/AccountRolesReport.md)
  - [AccountSearchResponse](docs/AccountSearchResponse.md)
  - [AccountUpdate](docs/AccountUpdate.md)
+ - [ActivationRequest](docs/ActivationRequest.md)
  - [ActiveListingResponse](docs/ActiveListingResponse.md)
  - [AddTags](docs/AddTags.md)
  - [AdminGetPlayerStatusRequest](docs/AdminGetPlayerStatusRequest.md)
@@ -511,6 +515,7 @@ Class | Method | HTTP request | Description
  - [CloudDataStatus](docs/CloudDataStatus.md)
  - [CloudStorage](docs/CloudStorage.md)
  - [CloudsavingBasicManifest](docs/CloudsavingBasicManifest.md)
+ - [CloudsavingBasicReference](docs/CloudsavingBasicReference.md)
  - [CloudsavingBasicUrlResponse](docs/CloudsavingBasicUrlResponse.md)
  - [Cohort](docs/Cohort.md)
  - [CohortEntry](docs/CohortEntry.md)
@@ -711,6 +716,7 @@ Class | Method | HTTP request | Description
  - [GroupUser](docs/GroupUser.md)
  - [GroupUserMember](docs/GroupUserMember.md)
  - [GuestAuthRequest](docs/GuestAuthRequest.md)
+ - [HtmlResponse](docs/HtmlResponse.md)
  - [HttpCall](docs/HttpCall.md)
  - [ImportFriendsRequest](docs/ImportFriendsRequest.md)
  - [InFlightFailure](docs/InFlightFailure.md)
@@ -733,13 +739,15 @@ Class | Method | HTTP request | Description
  - [ItemProperty](docs/ItemProperty.md)
  - [ItemUpdateRequest](docs/ItemUpdateRequest.md)
  - [JobActivity](docs/JobActivity.md)
- - [JobActivityCursorPagedResult](docs/JobActivityCursorPagedResult.md)
+ - [JobActivityView](docs/JobActivityView.md)
+ - [JobActivityViewCursorPagedResult](docs/JobActivityViewCursorPagedResult.md)
  - [JobAnalytics](docs/JobAnalytics.md)
  - [JobDefinition](docs/JobDefinition.md)
- - [JobDefinitionCursorPagedResult](docs/JobDefinitionCursorPagedResult.md)
  - [JobDefinitionSaveRequest](docs/JobDefinitionSaveRequest.md)
  - [JobDefinitionSaveRequestJobAction](docs/JobDefinitionSaveRequestJobAction.md)
  - [JobDefinitionSaveRequestTriggersInner](docs/JobDefinitionSaveRequestTriggersInner.md)
+ - [JobDefinitionView](docs/JobDefinitionView.md)
+ - [JobDefinitionViewCursorPagedResult](docs/JobDefinitionViewCursorPagedResult.md)
  - [JobExecutionEvent](docs/JobExecutionEvent.md)
  - [JobExecutionResult](docs/JobExecutionResult.md)
  - [JobRetryPolicy](docs/JobRetryPolicy.md)

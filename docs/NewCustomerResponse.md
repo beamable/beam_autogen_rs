@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
 **project_name** | **String** |  | 
+**activation_pending** | **bool** |  | 
 **alias** | Option<**String**> |  | [optional]
 **cid** | **i64** |  | 
 **pid** | **String** |  | 

@@ -109,6 +109,16 @@ pub struct ApiSchedulerJobPostParams {
     pub job_definition_save_request: Option<models::JobDefinitionSaveRequest>
 }
 
+/// struct for passing parameters to the method [`api_scheduler_jobs_activity_paged_get`]
+#[derive(Clone, Debug)]
+pub struct ApiSchedulerJobsActivityPagedGetParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
+    pub cursor: Option<String>
+}
+
 /// struct for passing parameters to the method [`api_scheduler_jobs_get`]
 #[derive(Clone, Debug)]
 pub struct ApiSchedulerJobsGetParams {
@@ -212,6 +222,14 @@ pub enum ApiSchedulerJobPostError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`api_scheduler_jobs_activity_paged_get`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiSchedulerJobsActivityPagedGetError {
+    Status400(models::ProblemDetails),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`api_scheduler_jobs_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -276,7 +294,7 @@ pub async fn api_internal_scheduler_job_execute_post(configuration: &configurati
     }
 }
 
-pub async fn api_internal_scheduler_job_post(configuration: &configuration::Configuration, params: ApiInternalSchedulerJobPostParams) -> Result<models::JobDefinition, Error<ApiInternalSchedulerJobPostError>> {
+pub async fn api_internal_scheduler_job_post(configuration: &configuration::Configuration, params: ApiInternalSchedulerJobPostParams) -> Result<models::JobDefinitionView, Error<ApiInternalSchedulerJobPostError>> {
 
     let uri_str = format!("{}/api/internal/scheduler/job", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -307,8 +325,8 @@ pub async fn api_internal_scheduler_job_post(configuration: &configuration::Conf
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobDefinition`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobDefinition`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobDefinitionView`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobDefinitionView`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -360,7 +378,7 @@ pub async fn api_scheduler_job_job_id_activity_get(configuration: &configuration
     }
 }
 
-pub async fn api_scheduler_job_job_id_activity_paged_get(configuration: &configuration::Configuration, params: ApiSchedulerJobJobIdActivityPagedGetParams) -> Result<models::JobActivityCursorPagedResult, Error<ApiSchedulerJobJobIdActivityPagedGetError>> {
+pub async fn api_scheduler_job_job_id_activity_paged_get(configuration: &configuration::Configuration, params: ApiSchedulerJobJobIdActivityPagedGetParams) -> Result<models::JobActivityViewCursorPagedResult, Error<ApiSchedulerJobJobIdActivityPagedGetError>> {
 
     let uri_str = format!("{}/api/scheduler/job/{jobId}/activity-paged", configuration.base_path, jobId=crate::apis::urlencode(params.job_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -393,8 +411,8 @@ pub async fn api_scheduler_job_job_id_activity_paged_get(configuration: &configu
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobActivityCursorPagedResult`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobActivityCursorPagedResult`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobActivityViewCursorPagedResult`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobActivityViewCursorPagedResult`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -483,7 +501,7 @@ pub async fn api_scheduler_job_job_id_delete(configuration: &configuration::Conf
     }
 }
 
-pub async fn api_scheduler_job_job_id_get(configuration: &configuration::Configuration, params: ApiSchedulerJobJobIdGetParams) -> Result<models::JobDefinition, Error<ApiSchedulerJobJobIdGetError>> {
+pub async fn api_scheduler_job_job_id_get(configuration: &configuration::Configuration, params: ApiSchedulerJobJobIdGetParams) -> Result<models::JobDefinitionView, Error<ApiSchedulerJobJobIdGetError>> {
 
     let uri_str = format!("{}/api/scheduler/job/{jobId}", configuration.base_path, jobId=crate::apis::urlencode(params.job_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -513,8 +531,8 @@ pub async fn api_scheduler_job_job_id_get(configuration: &configuration::Configu
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobDefinition`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobDefinition`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobDefinitionView`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobDefinitionView`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -569,7 +587,7 @@ pub async fn api_scheduler_job_job_id_next_executions_get(configuration: &config
     }
 }
 
-pub async fn api_scheduler_job_post(configuration: &configuration::Configuration, params: ApiSchedulerJobPostParams) -> Result<models::JobDefinition, Error<ApiSchedulerJobPostError>> {
+pub async fn api_scheduler_job_post(configuration: &configuration::Configuration, params: ApiSchedulerJobPostParams) -> Result<models::JobDefinitionView, Error<ApiSchedulerJobPostError>> {
 
     let uri_str = format!("{}/api/scheduler/job", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -600,12 +618,55 @@ pub async fn api_scheduler_job_post(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobDefinition`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobDefinition`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobDefinitionView`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobDefinitionView`")))),
         }
     } else {
         let content = resp.text().await?;
         let entity: Option<ApiSchedulerJobPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn api_scheduler_jobs_activity_paged_get(configuration: &configuration::Configuration, params: ApiSchedulerJobsActivityPagedGetParams) -> Result<models::JobActivityViewCursorPagedResult, Error<ApiSchedulerJobsActivityPagedGetError>> {
+
+    let uri_str = format!("{}/api/scheduler/jobs/activity-paged", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.cursor {
+        req_builder = req_builder.query(&[("cursor", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobActivityViewCursorPagedResult`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobActivityViewCursorPagedResult`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ApiSchedulerJobsActivityPagedGetError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -659,7 +720,7 @@ pub async fn api_scheduler_jobs_get(configuration: &configuration::Configuration
     }
 }
 
-pub async fn api_scheduler_jobs_paged_get(configuration: &configuration::Configuration, params: ApiSchedulerJobsPagedGetParams) -> Result<models::JobDefinitionCursorPagedResult, Error<ApiSchedulerJobsPagedGetError>> {
+pub async fn api_scheduler_jobs_paged_get(configuration: &configuration::Configuration, params: ApiSchedulerJobsPagedGetParams) -> Result<models::JobDefinitionViewCursorPagedResult, Error<ApiSchedulerJobsPagedGetError>> {
 
     let uri_str = format!("{}/api/scheduler/jobs-paged", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -701,8 +762,8 @@ pub async fn api_scheduler_jobs_paged_get(configuration: &configuration::Configu
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobDefinitionCursorPagedResult`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobDefinitionCursorPagedResult`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobDefinitionViewCursorPagedResult`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobDefinitionViewCursorPagedResult`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -711,7 +772,7 @@ pub async fn api_scheduler_jobs_paged_get(configuration: &configuration::Configu
     }
 }
 
-pub async fn api_scheduler_jobs_suspended_get(configuration: &configuration::Configuration, params: ApiSchedulerJobsSuspendedGetParams) -> Result<models::JobDefinitionCursorPagedResult, Error<ApiSchedulerJobsSuspendedGetError>> {
+pub async fn api_scheduler_jobs_suspended_get(configuration: &configuration::Configuration, params: ApiSchedulerJobsSuspendedGetParams) -> Result<models::JobDefinitionViewCursorPagedResult, Error<ApiSchedulerJobsSuspendedGetError>> {
 
     let uri_str = format!("{}/api/scheduler/jobs/suspended", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -747,8 +808,8 @@ pub async fn api_scheduler_jobs_suspended_get(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobDefinitionCursorPagedResult`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobDefinitionCursorPagedResult`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::JobDefinitionViewCursorPagedResult`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::JobDefinitionViewCursorPagedResult`")))),
         }
     } else {
         let content = resp.text().await?;
