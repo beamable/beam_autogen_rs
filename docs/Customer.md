@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
+**activation_status** | Option<**String**> |  | [optional]
 **payment_status** | Option<**String**> |  | [optional]
 **image** | Option<**String**> |  | [optional]
 **contact** | Option<**String**> |  | [optional]

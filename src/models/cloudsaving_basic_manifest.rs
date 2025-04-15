@@ -16,7 +16,7 @@ pub struct CloudsavingBasicManifest {
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "manifest")]
-    pub manifest: Vec<serde_json::Value>,
+    pub manifest: Vec<models::CloudsavingBasicReference>,
     #[serde(rename = "created")]
     pub created: i64,
     #[serde(rename = "replacement")]
@@ -24,7 +24,7 @@ pub struct CloudsavingBasicManifest {
 }
 
 impl CloudsavingBasicManifest {
-    pub fn new(id: String, manifest: Vec<serde_json::Value>, created: i64, replacement: bool) -> CloudsavingBasicManifest {
+    pub fn new(id: String, manifest: Vec<models::CloudsavingBasicReference>, created: i64, replacement: bool) -> CloudsavingBasicManifest {
         CloudsavingBasicManifest {
             id,
             manifest,

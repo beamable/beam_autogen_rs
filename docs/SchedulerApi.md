@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**api_scheduler_job_job_id_get**](SchedulerApi.md#api_scheduler_job_job_id_get) | **GET** /api/scheduler/job/{jobId} | 
 [**api_scheduler_job_job_id_next_executions_get**](SchedulerApi.md#api_scheduler_job_job_id_next_executions_get) | **GET** /api/scheduler/job/{jobId}/next-executions | 
 [**api_scheduler_job_post**](SchedulerApi.md#api_scheduler_job_post) | **POST** /api/scheduler/job | 
+[**api_scheduler_jobs_activity_paged_get**](SchedulerApi.md#api_scheduler_jobs_activity_paged_get) | **GET** /api/scheduler/jobs/activity-paged | 
 [**api_scheduler_jobs_get**](SchedulerApi.md#api_scheduler_jobs_get) | **GET** /api/scheduler/jobs | 
 [**api_scheduler_jobs_paged_get**](SchedulerApi.md#api_scheduler_jobs_paged_get) | **GET** /api/scheduler/jobs-paged | 
 [**api_scheduler_jobs_suspended_get**](SchedulerApi.md#api_scheduler_jobs_suspended_get) | **GET** /api/scheduler/jobs/suspended | 
@@ -53,7 +54,7 @@ No authorization required
 
 ## api_internal_scheduler_job_post
 
-> models::JobDefinition api_internal_scheduler_job_post(x_beam_scope, x_beam_gamertag, job_definition_save_request)
+> models::JobDefinitionView api_internal_scheduler_job_post(x_beam_scope, x_beam_gamertag, job_definition_save_request)
 
 
 ### Parameters
@@ -67,7 +68,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::JobDefinition**](JobDefinition.md)
+[**models::JobDefinitionView**](JobDefinitionView.md)
 
 ### Authorization
 
@@ -114,7 +115,7 @@ No authorization required
 
 ## api_scheduler_job_job_id_activity_paged_get
 
-> models::JobActivityCursorPagedResult api_scheduler_job_job_id_activity_paged_get(job_id, x_beam_scope, x_beam_gamertag, cursor)
+> models::JobActivityViewCursorPagedResult api_scheduler_job_job_id_activity_paged_get(job_id, x_beam_scope, x_beam_gamertag, cursor)
 
 
 ### Parameters
@@ -129,7 +130,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::JobActivityCursorPagedResult**](JobActivityCursorPagedResult.md)
+[**models::JobActivityViewCursorPagedResult**](JobActivityViewCursorPagedResult.md)
 
 ### Authorization
 
@@ -205,7 +206,7 @@ No authorization required
 
 ## api_scheduler_job_job_id_get
 
-> models::JobDefinition api_scheduler_job_job_id_get(job_id, x_beam_scope, x_beam_gamertag)
+> models::JobDefinitionView api_scheduler_job_job_id_get(job_id, x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -219,7 +220,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::JobDefinition**](JobDefinition.md)
+[**models::JobDefinitionView**](JobDefinitionView.md)
 
 ### Authorization
 
@@ -267,7 +268,7 @@ No authorization required
 
 ## api_scheduler_job_post
 
-> models::JobDefinition api_scheduler_job_post(x_beam_scope, x_beam_gamertag, job_definition_save_request)
+> models::JobDefinitionView api_scheduler_job_post(x_beam_scope, x_beam_gamertag, job_definition_save_request)
 
 
 ### Parameters
@@ -281,7 +282,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::JobDefinition**](JobDefinition.md)
+[**models::JobDefinitionView**](JobDefinitionView.md)
 
 ### Authorization
 
@@ -290,6 +291,36 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_scheduler_jobs_activity_paged_get
+
+> models::JobActivityViewCursorPagedResult api_scheduler_jobs_activity_paged_get(x_beam_scope, x_beam_gamertag, cursor)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**cursor** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::JobActivityViewCursorPagedResult**](JobActivityViewCursorPagedResult.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -329,7 +360,7 @@ No authorization required
 
 ## api_scheduler_jobs_paged_get
 
-> models::JobDefinitionCursorPagedResult api_scheduler_jobs_paged_get(x_beam_scope, x_beam_gamertag, source, name, only_unique, cursor)
+> models::JobDefinitionViewCursorPagedResult api_scheduler_jobs_paged_get(x_beam_scope, x_beam_gamertag, source, name, only_unique, cursor)
 
 
 ### Parameters
@@ -346,7 +377,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::JobDefinitionCursorPagedResult**](JobDefinitionCursorPagedResult.md)
+[**models::JobDefinitionViewCursorPagedResult**](JobDefinitionViewCursorPagedResult.md)
 
 ### Authorization
 
@@ -362,7 +393,7 @@ No authorization required
 
 ## api_scheduler_jobs_suspended_get
 
-> models::JobDefinitionCursorPagedResult api_scheduler_jobs_suspended_get(x_beam_scope, x_beam_gamertag, from, cursor)
+> models::JobDefinitionViewCursorPagedResult api_scheduler_jobs_suspended_get(x_beam_scope, x_beam_gamertag, from, cursor)
 
 
 ### Parameters
@@ -377,7 +408,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::JobDefinitionCursorPagedResult**](JobDefinitionCursorPagedResult.md)
+[**models::JobDefinitionViewCursorPagedResult**](JobDefinitionViewCursorPagedResult.md)
 
 ### Authorization
 

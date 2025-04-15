@@ -1830,6 +1830,17 @@ pub struct BasicRealmsConfigPutParams {
     pub realm_config_save_request: Option<models::RealmConfigSaveRequest>
 }
 
+/// struct for passing parameters to the method [`basic_realms_customer_activate_get`]
+#[derive(Clone, Debug)]
+pub struct BasicRealmsCustomerActivateGetParams {
+    /// Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+    pub x_beam_scope: String,
+    pub token: String,
+    pub cid: i64,
+    /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
+    pub x_beam_gamertag: Option<String>
+}
+
 /// struct for passing parameters to the method [`basic_realms_customer_alias_available_get`]
 #[derive(Clone, Debug)]
 pub struct BasicRealmsCustomerAliasAvailableGetParams {
@@ -1852,6 +1863,16 @@ pub struct BasicRealmsCustomerGetParams {
 /// struct for passing parameters to the method [`basic_realms_customer_post`]
 #[derive(Clone, Debug)]
 pub struct BasicRealmsCustomerPostParams {
+    /// Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+    pub x_beam_scope: String,
+    /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
+    pub x_beam_gamertag: Option<String>,
+    pub new_customer_request: Option<models::NewCustomerRequest>
+}
+
+/// struct for passing parameters to the method [`basic_realms_customer_verify_post`]
+#[derive(Clone, Debug)]
+pub struct BasicRealmsCustomerVerifyPostParams {
     /// Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
     pub x_beam_scope: String,
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
@@ -5206,6 +5227,14 @@ pub enum BasicRealmsConfigPutError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`basic_realms_customer_activate_get`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum BasicRealmsCustomerActivateGetError {
+    Status400(),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`basic_realms_customer_alias_available_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -5226,6 +5255,14 @@ pub enum BasicRealmsCustomerGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BasicRealmsCustomerPostError {
+    Status400(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`basic_realms_customer_verify_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum BasicRealmsCustomerVerifyPostError {
     Status400(),
     UnknownValue(serde_json::Value),
 }
@@ -15065,6 +15102,46 @@ pub async fn basic_realms_config_put(configuration: &configuration::Configuratio
     }
 }
 
+pub async fn basic_realms_customer_activate_get(configuration: &configuration::Configuration, params: BasicRealmsCustomerActivateGetParams) -> Result<models::HtmlResponse, Error<BasicRealmsCustomerActivateGetError>> {
+
+    let uri_str = format!("{}/basic/realms/customer/activate", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("token", &params.token.to_string())]);
+    req_builder = req_builder.query(&[("cid", &params.cid.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.header("X-BEAM-SCOPE", params.x_beam_scope.to_string());
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HtmlResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HtmlResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<BasicRealmsCustomerActivateGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn basic_realms_customer_alias_available_get(configuration: &configuration::Configuration, params: BasicRealmsCustomerAliasAvailableGetParams) -> Result<models::AliasAvailableResponse, Error<BasicRealmsCustomerAliasAvailableGetError>> {
 
     let uri_str = format!("{}/basic/realms/customer/alias/available", configuration.base_path);
@@ -15188,6 +15265,45 @@ pub async fn basic_realms_customer_post(configuration: &configuration::Configura
     } else {
         let content = resp.text().await?;
         let entity: Option<BasicRealmsCustomerPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn basic_realms_customer_verify_post(configuration: &configuration::Configuration, params: BasicRealmsCustomerVerifyPostParams) -> Result<models::NewCustomerResponse, Error<BasicRealmsCustomerVerifyPostError>> {
+
+    let uri_str = format!("{}/basic/realms/customer/verify", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.header("X-BEAM-SCOPE", params.x_beam_scope.to_string());
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.new_customer_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::NewCustomerResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::NewCustomerResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<BasicRealmsCustomerVerifyPostError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

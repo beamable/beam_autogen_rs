@@ -12,16 +12,16 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct JobActivityCursorPagedResult {
+pub struct JobDefinitionViewCursorPagedResult {
     #[serde(rename = "records", skip_serializing_if = "Option::is_none")]
-    pub records: Option<Vec<models::JobActivity>>,
+    pub records: Option<Vec<models::JobDefinitionView>>,
     #[serde(rename = "nextCursor", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub next_cursor: Option<Option<String>>,
 }
 
-impl JobActivityCursorPagedResult {
-    pub fn new() -> JobActivityCursorPagedResult {
-        JobActivityCursorPagedResult {
+impl JobDefinitionViewCursorPagedResult {
+    pub fn new() -> JobDefinitionViewCursorPagedResult {
+        JobDefinitionViewCursorPagedResult {
             records: None,
             next_cursor: None,
         }

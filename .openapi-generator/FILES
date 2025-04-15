@@ -12,6 +12,7 @@ docs/AccountRegistration.md
 docs/AccountRolesReport.md
 docs/AccountSearchResponse.md
 docs/AccountUpdate.md
+docs/ActivationRequest.md
 docs/ActiveListingResponse.md
 docs/AddTags.md
 docs/AdminGetPlayerStatusRequest.md
@@ -80,6 +81,7 @@ docs/ClientPermission.md
 docs/CloudDataStatus.md
 docs/CloudStorage.md
 docs/CloudsavingBasicManifest.md
+docs/CloudsavingBasicReference.md
 docs/CloudsavingBasicUrlResponse.md
 docs/Cohort.md
 docs/CohortEntry.md
@@ -281,6 +283,7 @@ docs/GroupUpdate.md
 docs/GroupUser.md
 docs/GroupUserMember.md
 docs/GuestAuthRequest.md
+docs/HtmlResponse.md
 docs/HttpCall.md
 docs/ImportFriendsRequest.md
 docs/InFlightFailure.md
@@ -303,13 +306,15 @@ docs/ItemGroup.md
 docs/ItemProperty.md
 docs/ItemUpdateRequest.md
 docs/JobActivity.md
-docs/JobActivityCursorPagedResult.md
+docs/JobActivityView.md
+docs/JobActivityViewCursorPagedResult.md
 docs/JobAnalytics.md
 docs/JobDefinition.md
-docs/JobDefinitionCursorPagedResult.md
 docs/JobDefinitionSaveRequest.md
 docs/JobDefinitionSaveRequestJobAction.md
 docs/JobDefinitionSaveRequestTriggersInner.md
+docs/JobDefinitionView.md
+docs/JobDefinitionViewCursorPagedResult.md
 docs/JobExecutionEvent.md
 docs/JobExecutionResult.md
 docs/JobRetryPolicy.md
@@ -677,6 +682,7 @@ src/models/account_registration.rs
 src/models/account_roles_report.rs
 src/models/account_search_response.rs
 src/models/account_update.rs
+src/models/activation_request.rs
 src/models/active_listing_response.rs
 src/models/add_tags.rs
 src/models/admin_get_player_status_request.rs
@@ -744,6 +750,7 @@ src/models/client_permission.rs
 src/models/cloud_data_status.rs
 src/models/cloud_storage.rs
 src/models/cloudsaving_basic_manifest.rs
+src/models/cloudsaving_basic_reference.rs
 src/models/cloudsaving_basic_url_response.rs
 src/models/cohort.rs
 src/models/cohort_entry.rs
@@ -944,6 +951,7 @@ src/models/group_update.rs
 src/models/group_user.rs
 src/models/group_user_member.rs
 src/models/guest_auth_request.rs
+src/models/html_response.rs
 src/models/http_call.rs
 src/models/import_friends_request.rs
 src/models/in_flight_failure.rs
@@ -966,13 +974,15 @@ src/models/item_group.rs
 src/models/item_property.rs
 src/models/item_update_request.rs
 src/models/job_activity.rs
-src/models/job_activity_cursor_paged_result.rs
+src/models/job_activity_view.rs
+src/models/job_activity_view_cursor_paged_result.rs
 src/models/job_analytics.rs
 src/models/job_definition.rs
-src/models/job_definition_cursor_paged_result.rs
 src/models/job_definition_save_request.rs
 src/models/job_definition_save_request_job_action.rs
 src/models/job_definition_save_request_triggers_inner.rs
+src/models/job_definition_view.rs
+src/models/job_definition_view_cursor_paged_result.rs
 src/models/job_execution_event.rs
 src/models/job_execution_result.rs
 src/models/job_retry_policy.rs

@@ -15,6 +15,8 @@ use serde::{Deserialize, Serialize};
 pub struct Customer {
     #[serde(rename = "name")]
     pub name: String,
+    #[serde(rename = "activationStatus", skip_serializing_if = "Option::is_none")]
+    pub activation_status: Option<String>,
     #[serde(rename = "paymentStatus", skip_serializing_if = "Option::is_none")]
     pub payment_status: Option<String>,
     #[serde(rename = "image", skip_serializing_if = "Option::is_none")]
@@ -41,6 +43,7 @@ impl Customer {
     pub fn new(name: String, cid: i64, projects: Vec<models::Project>, accounts: Vec<models::RealmsBasicAccount>) -> Customer {
         Customer {
             name,
+            activation_status: None,
             payment_status: None,
             image: None,
             contact: None,

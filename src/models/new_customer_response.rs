@@ -17,6 +17,8 @@ pub struct NewCustomerResponse {
     pub name: String,
     #[serde(rename = "projectName")]
     pub project_name: String,
+    #[serde(rename = "activationPending")]
+    pub activation_pending: bool,
     #[serde(rename = "alias", skip_serializing_if = "Option::is_none")]
     pub alias: Option<String>,
     #[serde(rename = "cid")]
@@ -28,10 +30,11 @@ pub struct NewCustomerResponse {
 }
 
 impl NewCustomerResponse {
-    pub fn new(name: String, project_name: String, cid: i64, pid: String, token: models::TokenResponse) -> NewCustomerResponse {
+    pub fn new(name: String, project_name: String, activation_pending: bool, cid: i64, pid: String, token: models::TokenResponse) -> NewCustomerResponse {
         NewCustomerResponse {
             name,
             project_name,
+            activation_pending,
             alias: None,
             cid,
             pid,

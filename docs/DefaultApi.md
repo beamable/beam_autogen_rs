@@ -184,9 +184,11 @@ Method | HTTP request | Description
 [**basic_realms_config_get**](DefaultApi.md#basic_realms_config_get) | **GET** /basic/realms/config | 
 [**basic_realms_config_post**](DefaultApi.md#basic_realms_config_post) | **POST** /basic/realms/config | 
 [**basic_realms_config_put**](DefaultApi.md#basic_realms_config_put) | **PUT** /basic/realms/config | 
+[**basic_realms_customer_activate_get**](DefaultApi.md#basic_realms_customer_activate_get) | **GET** /basic/realms/customer/activate | 
 [**basic_realms_customer_alias_available_get**](DefaultApi.md#basic_realms_customer_alias_available_get) | **GET** /basic/realms/customer/alias/available | 
 [**basic_realms_customer_get**](DefaultApi.md#basic_realms_customer_get) | **GET** /basic/realms/customer | 
 [**basic_realms_customer_post**](DefaultApi.md#basic_realms_customer_post) | **POST** /basic/realms/customer | 
+[**basic_realms_customer_verify_post**](DefaultApi.md#basic_realms_customer_verify_post) | **POST** /basic/realms/customer/verify | 
 [**basic_realms_customers_get**](DefaultApi.md#basic_realms_customers_get) | **GET** /basic/realms/customers | 
 [**basic_realms_game_get**](DefaultApi.md#basic_realms_game_get) | **GET** /basic/realms/game | 
 [**basic_realms_game_post**](DefaultApi.md#basic_realms_game_post) | **POST** /basic/realms/game | 
@@ -5767,6 +5769,37 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## basic_realms_customer_activate_get
+
+> models::HtmlResponse basic_realms_customer_activate_get(x_beam_scope, token, cid, x_beam_gamertag)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
+**token** | **String** |  | [required] |
+**cid** | **i64** |  | [required] |
+**x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
+
+### Return type
+
+[**models::HtmlResponse**](HtmlResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## basic_realms_customer_alias_available_get
 
 > models::AliasAvailableResponse basic_realms_customer_alias_available_get(x_beam_scope, alias, x_beam_gamertag)
@@ -5829,6 +5862,36 @@ Name | Type | Description  | Required | Notes
 ## basic_realms_customer_post
 
 > models::NewCustomerResponse basic_realms_customer_post(x_beam_scope, x_beam_gamertag, new_customer_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
+**x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
+**new_customer_request** | Option<[**NewCustomerRequest**](NewCustomerRequest.md)> |  |  |
+
+### Return type
+
+[**models::NewCustomerResponse**](NewCustomerResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## basic_realms_customer_verify_post
+
+> models::NewCustomerResponse basic_realms_customer_verify_post(x_beam_scope, x_beam_gamertag, new_customer_request)
 
 
 ### Parameters
