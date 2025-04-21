@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **is_unique** | Option<**bool**> |  | [optional]
 **suspended_at** | Option<**String**> |  | [optional]
 **analytics** | Option<[**models::JobAnalytics**](JobAnalytics.md)> |  | [optional]
+**owner** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

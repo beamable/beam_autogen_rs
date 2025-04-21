@@ -33,6 +33,8 @@ pub struct JobDefinitionView {
     pub suspended_at: Option<Option<String>>,
     #[serde(rename = "analytics", skip_serializing_if = "Option::is_none")]
     pub analytics: Option<Box<models::JobAnalytics>>,
+    #[serde(rename = "owner", skip_serializing_if = "Option::is_none")]
+    pub owner: Option<String>,
 }
 
 impl JobDefinitionView {
@@ -48,6 +50,7 @@ impl JobDefinitionView {
             is_unique: None,
             suspended_at: None,
             analytics: None,
+            owner: None,
         }
     }
 }
