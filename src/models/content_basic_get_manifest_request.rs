@@ -16,12 +16,16 @@ pub struct ContentBasicGetManifestRequest {
     /// ID of the content manifest
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
+    /// UID of the content manifest
+    #[serde(rename = "uid", skip_serializing_if = "Option::is_none")]
+    pub uid: Option<String>,
 }
 
 impl ContentBasicGetManifestRequest {
     pub fn new() -> ContentBasicGetManifestRequest {
         ContentBasicGetManifestRequest {
             id: None,
+            uid: None,
         }
     }
 }

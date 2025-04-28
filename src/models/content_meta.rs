@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ContentMeta {
     #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
-    pub data: Option<String>,
+    pub data: Option<Box<models::OptionalJsonNodeWrapper>>,
     #[serde(rename = "text", skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
     #[serde(rename = "visibility")]

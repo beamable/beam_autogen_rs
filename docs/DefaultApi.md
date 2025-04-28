@@ -2614,7 +2614,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_content_manifest_checksum_get
 
-> models::ContentBasicManifestChecksum basic_content_manifest_checksum_get(x_beam_scope, x_beam_gamertag, id)
+> models::ContentBasicManifestChecksum basic_content_manifest_checksum_get(x_beam_scope, x_beam_gamertag, id, uid)
 
 
 ### Parameters
@@ -2625,6 +2625,7 @@ Name | Type | Description  | Required | Notes
 **x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
 **id** | Option<**String**> | ID of the content manifest |  |
+**uid** | Option<**String**> | UID of the content manifest |  |
 
 ### Return type
 
@@ -2703,7 +2704,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_content_manifest_get
 
-> models::ContentBasicManifest basic_content_manifest_get(x_beam_scope, x_beam_gamertag, id)
+> models::ContentBasicManifest basic_content_manifest_get(x_beam_scope, x_beam_gamertag, id, uid)
 
 
 ### Parameters
@@ -2714,6 +2715,7 @@ Name | Type | Description  | Required | Notes
 **x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
 **id** | Option<**String**> | ID of the content manifest |  |
+**uid** | Option<**String**> | UID of the content manifest |  |
 
 ### Return type
 
@@ -2794,7 +2796,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_content_manifest_private_get
 
-> models::ClientManifestResponse basic_content_manifest_private_get(x_beam_scope, x_beam_gamertag, id)
+> models::ClientManifestResponse basic_content_manifest_private_get(x_beam_scope, x_beam_gamertag, id, uid)
 
 
 ### Parameters
@@ -2805,6 +2807,7 @@ Name | Type | Description  | Required | Notes
 **x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
 **id** | Option<**String**> | ID of the content manifest |  |
+**uid** | Option<**String**> | UID of the content manifest |  |
 
 ### Return type
 
@@ -2824,7 +2827,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_content_manifest_private_json_get
 
-> models::ClientManifestJsonResponse basic_content_manifest_private_json_get(x_beam_scope, x_beam_gamertag, id)
+> models::ClientManifestJsonResponse basic_content_manifest_private_json_get(x_beam_scope, x_beam_gamertag, id, uid)
 
 
 ### Parameters
@@ -2834,7 +2837,8 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
-**id** | Option<**String**> | ID of the content manifest |  |
+**id** | Option<**String**> | Content ID of the content manifest |  |
+**uid** | Option<**String**> | UID of the content manifest |  |
 
 ### Return type
 
@@ -2854,7 +2858,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_content_manifest_public_get
 
-> models::ClientManifestResponse basic_content_manifest_public_get(x_beam_scope, x_beam_gamertag, id)
+> models::ClientManifestResponse basic_content_manifest_public_get(x_beam_scope, x_beam_gamertag, id, uid)
 
 
 ### Parameters
@@ -2865,6 +2869,7 @@ Name | Type | Description  | Required | Notes
 **x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
 **id** | Option<**String**> | ID of the content manifest |  |
+**uid** | Option<**String**> | UID of the content manifest |  |
 
 ### Return type
 
@@ -2884,7 +2889,7 @@ No authorization required
 
 ## basic_content_manifest_public_json_get
 
-> models::ClientManifestJsonResponse basic_content_manifest_public_json_get(x_beam_scope, x_beam_gamertag, id)
+> models::ClientManifestJsonResponse basic_content_manifest_public_json_get(x_beam_scope, x_beam_gamertag, id, uid)
 
 
 ### Parameters
@@ -2894,7 +2899,8 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
-**id** | Option<**String**> | ID of the content manifest |  |
+**id** | Option<**String**> | Content ID of the content manifest |  |
+**uid** | Option<**String**> | UID of the content manifest |  |
 
 ### Return type
 

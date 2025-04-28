@@ -775,7 +775,9 @@ pub struct BasicContentManifestChecksumGetParams {
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
     /// ID of the content manifest
-    pub id: Option<String>
+    pub id: Option<String>,
+    /// UID of the content manifest
+    pub uid: Option<String>
 }
 
 /// struct for passing parameters to the method [`basic_content_manifest_checksums_get`]
@@ -805,7 +807,9 @@ pub struct BasicContentManifestGetParams {
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
     /// ID of the content manifest
-    pub id: Option<String>
+    pub id: Option<String>,
+    /// UID of the content manifest
+    pub uid: Option<String>
 }
 
 /// struct for passing parameters to the method [`basic_content_manifest_history_get`]
@@ -837,7 +841,9 @@ pub struct BasicContentManifestPrivateGetParams {
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
     /// ID of the content manifest
-    pub id: Option<String>
+    pub id: Option<String>,
+    /// UID of the content manifest
+    pub uid: Option<String>
 }
 
 /// struct for passing parameters to the method [`basic_content_manifest_private_json_get`]
@@ -847,8 +853,10 @@ pub struct BasicContentManifestPrivateJsonGetParams {
     pub x_beam_scope: String,
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
-    /// ID of the content manifest
-    pub id: Option<String>
+    /// Content ID of the content manifest
+    pub id: Option<String>,
+    /// UID of the content manifest
+    pub uid: Option<String>
 }
 
 /// struct for passing parameters to the method [`basic_content_manifest_public_get`]
@@ -859,7 +867,9 @@ pub struct BasicContentManifestPublicGetParams {
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
     /// ID of the content manifest
-    pub id: Option<String>
+    pub id: Option<String>,
+    /// UID of the content manifest
+    pub uid: Option<String>
 }
 
 /// struct for passing parameters to the method [`basic_content_manifest_public_json_get`]
@@ -869,8 +879,10 @@ pub struct BasicContentManifestPublicJsonGetParams {
     pub x_beam_scope: String,
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
-    /// ID of the content manifest
-    pub id: Option<String>
+    /// Content ID of the content manifest
+    pub id: Option<String>,
+    /// UID of the content manifest
+    pub uid: Option<String>
 }
 
 /// struct for passing parameters to the method [`basic_content_manifest_pull_post`]
@@ -10276,6 +10288,9 @@ pub async fn basic_content_manifest_checksum_get(configuration: &configuration::
     if let Some(ref param_value) = params.id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.uid {
+        req_builder = req_builder.query(&[("uid", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -10415,6 +10430,9 @@ pub async fn basic_content_manifest_get(configuration: &configuration::Configura
 
     if let Some(ref param_value) = params.id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.uid {
+        req_builder = req_builder.query(&[("uid", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -10573,6 +10591,9 @@ pub async fn basic_content_manifest_private_get(configuration: &configuration::C
     if let Some(ref param_value) = params.id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.uid {
+        req_builder = req_builder.query(&[("uid", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -10624,6 +10645,9 @@ pub async fn basic_content_manifest_private_json_get(configuration: &configurati
 
     if let Some(ref param_value) = params.id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.uid {
+        req_builder = req_builder.query(&[("uid", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -10677,6 +10701,9 @@ pub async fn basic_content_manifest_public_get(configuration: &configuration::Co
     if let Some(ref param_value) = params.id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.uid {
+        req_builder = req_builder.query(&[("uid", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -10717,6 +10744,9 @@ pub async fn basic_content_manifest_public_json_get(configuration: &configuratio
 
     if let Some(ref param_value) = params.id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.uid {
+        req_builder = req_builder.query(&[("uid", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
