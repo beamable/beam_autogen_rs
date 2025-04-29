@@ -13,15 +13,19 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetManifestRequestJson {
-    /// ID of the content manifest
+    /// Content ID of the content manifest
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
+    /// UID of the content manifest
+    #[serde(rename = "uid", skip_serializing_if = "Option::is_none")]
+    pub uid: Option<String>,
 }
 
 impl GetManifestRequestJson {
     pub fn new() -> GetManifestRequestJson {
         GetManifestRequestJson {
             id: None,
+            uid: None,
         }
     }
 }

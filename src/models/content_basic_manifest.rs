@@ -17,10 +17,14 @@ pub struct ContentBasicManifest {
     pub archived: Option<bool>,
     #[serde(rename = "references")]
     pub references: Vec<models::ContentBasicManifestReferencesInner>,
+    #[serde(rename = "publisherAccountId", skip_serializing_if = "Option::is_none")]
+    pub publisher_account_id: Option<i64>,
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "checksum")]
     pub checksum: String,
+    #[serde(rename = "uid", skip_serializing_if = "Option::is_none")]
+    pub uid: Option<String>,
     #[serde(rename = "created")]
     pub created: i64,
 }
@@ -30,8 +34,10 @@ impl ContentBasicManifest {
         ContentBasicManifest {
             archived: None,
             references,
+            publisher_account_id: None,
             id,
             checksum,
+            uid: None,
             created,
         }
     }

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | Option<**String**> |  | [optional]
+**data** | Option<[**models::OptionalJsonNodeWrapper**](OptionalJsonNodeWrapper.md)> |  | [optional]
 **text** | Option<**String**> |  | [optional]
 **visibility** | [**models::ContentVisibility**](ContentVisibility.md) |  | 
 

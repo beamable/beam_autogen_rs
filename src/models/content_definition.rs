@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ContentDefinition {
-    #[serde(rename = "prefix")]
-    pub prefix: String,
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<String>>,
     #[serde(rename = "id")]
@@ -28,9 +26,8 @@ pub struct ContentDefinition {
 }
 
 impl ContentDefinition {
-    pub fn new(prefix: String, id: String, checksum: String, properties: std::collections::HashMap<String, models::ContentMeta>) -> ContentDefinition {
+    pub fn new(id: String, checksum: String, properties: std::collections::HashMap<String, models::ContentMeta>) -> ContentDefinition {
         ContentDefinition {
-            prefix,
             tags: None,
             id,
             checksum,

@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**prefix** | **String** |  | 
 **tags** | Option<**Vec<String>**> |  | [optional]
 **id** | **String** |  | 
 **checksum** | **String** |  | 
