@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **tags** | **Vec<String>** |  | 
 **uri** | **String** |  | 
 **version** | **String** |  | 
+**checksum** | Option<**String**> |  | [optional]
 **content_id** | **String** |  | 
 **r#type** | [**models::ContentType**](ContentType.md) |  | 
 
