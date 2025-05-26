@@ -19,6 +19,8 @@ pub struct ClientContentInfo {
     pub uri: String,
     #[serde(rename = "version")]
     pub version: String,
+    #[serde(rename = "checksum", skip_serializing_if = "Option::is_none")]
+    pub checksum: Option<String>,
     #[serde(rename = "contentId")]
     pub content_id: String,
     #[serde(rename = "type")]
@@ -31,6 +33,7 @@ impl ClientContentInfo {
             tags,
             uri,
             version,
+            checksum: None,
             content_id,
             r#type,
         }

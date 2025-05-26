@@ -17,6 +17,10 @@ pub struct ContentMeta {
     pub data: Option<Box<models::OptionalJsonNodeWrapper>>,
     #[serde(rename = "text", skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
+    #[serde(rename = "$links", skip_serializing_if = "Option::is_none")]
+    pub dollar_links: Option<Vec<String>>,
+    #[serde(rename = "$link", skip_serializing_if = "Option::is_none")]
+    pub dollar_link: Option<String>,
     #[serde(rename = "visibility")]
     pub visibility: models::ContentVisibility,
 }
@@ -26,6 +30,8 @@ impl ContentMeta {
         ContentMeta {
             data: None,
             text: None,
+            dollar_links: None,
+            dollar_link: None,
             visibility,
         }
     }
