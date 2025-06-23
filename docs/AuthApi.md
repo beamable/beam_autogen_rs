@@ -17,7 +17,7 @@ Method | HTTP request | Description
 > models::AuthResponse api_auth_refresh_token_post(x_beam_scope, x_beam_gamertag, refresh_token_auth_request)
 
 
-Generate a new access token for previously authenticated account. DEPRECATED: Use `tokens/refresh-token` instead.
+Generate a new access token for a previously authenticated account. DEPRECATED: Use `tokens/refresh-token` instead.
 
 ### Parameters
 
@@ -145,7 +145,7 @@ No authorization required
 > models::AuthResponse api_auth_tokens_refresh_token_post(x_beam_scope, x_beam_gamertag, refresh_token_auth_request)
 
 
-Generate a new access token for previously authenticated account.
+Generate a new access token for a previously authenticated account.
 
 ### Parameters
 

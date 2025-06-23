@@ -111,7 +111,7 @@ pub enum ApiAuthTokensRefreshTokenPostError {
 }
 
 
-/// Generate a new access token for previously authenticated account. DEPRECATED: Use `tokens/refresh-token` instead.
+/// Generate a new access token for a previously authenticated account. DEPRECATED: Use `tokens/refresh-token` instead.
 pub async fn api_auth_refresh_token_post(configuration: &configuration::Configuration, params: ApiAuthRefreshTokenPostParams) -> Result<models::AuthResponse, Error<ApiAuthRefreshTokenPostError>> {
 
     let uri_str = format!("{}/api/auth/refresh-token", configuration.base_path);
@@ -279,7 +279,7 @@ pub async fn api_auth_tokens_password_post(configuration: &configuration::Config
     }
 }
 
-/// Generate a new access token for previously authenticated account.
+/// Generate a new access token for a previously authenticated account.
 pub async fn api_auth_tokens_refresh_token_post(configuration: &configuration::Configuration, params: ApiAuthTokensRefreshTokenPostParams) -> Result<models::AuthResponse, Error<ApiAuthTokensRefreshTokenPostError>> {
 
     let uri_str = format!("{}/api/auth/tokens/refresh-token", configuration.base_path);
