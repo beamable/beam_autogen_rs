@@ -1504,7 +1504,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_beamo_manifest_post
 
-> models::PostManifestResponse basic_beamo_manifest_post(x_beam_scope, x_beam_gamertag, post_manifest_request)
+> models::PostManifestResponse basic_beamo_manifest_post(x_beam_scope, x_beam_gamertag, beamo_basic_post_manifest_request)
 
 
 ### Parameters
@@ -1514,7 +1514,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
-**post_manifest_request** | Option<[**PostManifestRequest**](PostManifestRequest.md)> |  |  |
+**beamo_basic_post_manifest_request** | Option<[**BeamoBasicPostManifestRequest**](BeamoBasicPostManifestRequest.md)> |  |  |
 
 ### Return type
 
@@ -1894,7 +1894,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_beamo_status_get
 
-> models::GetStatusResponse basic_beamo_status_get(x_beam_scope, x_beam_gamertag)
+> models::BeamoBasicGetStatusResponse basic_beamo_status_get(x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -1907,7 +1907,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetStatusResponse**](GetStatusResponse.md)
+[**models::BeamoBasicGetStatusResponse**](BeamoBasicGetStatusResponse.md)
 
 ### Authorization
 
@@ -1986,7 +1986,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_beamo_templates_get
 
-> models::GetTemplatesResponse basic_beamo_templates_get(x_beam_scope, x_beam_gamertag)
+> models::BeamoBasicGetTemplatesResponse basic_beamo_templates_get(x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -1999,7 +1999,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetTemplatesResponse**](GetTemplatesResponse.md)
+[**models::BeamoBasicGetTemplatesResponse**](BeamoBasicGetTemplatesResponse.md)
 
 ### Authorization
 

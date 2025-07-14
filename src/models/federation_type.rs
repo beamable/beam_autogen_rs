@@ -14,34 +14,34 @@ use serde::{Deserialize, Serialize};
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum FederationType {
-    #[serde(rename = "IFederatedPlayerInit")]
-    IFederatedPlayerInit,
-    #[serde(rename = "IFederatedInventory")]
-    IFederatedInventory,
     #[serde(rename = "IFederatedLogin")]
     IFederatedLogin,
-    #[serde(rename = "IFederatedGameServer")]
-    IFederatedGameServer,
+    #[serde(rename = "IFederatedInventory")]
+    IFederatedInventory,
     #[serde(rename = "IFederatedCommerce")]
     IFederatedCommerce,
+    #[serde(rename = "IFederatedGameServer")]
+    IFederatedGameServer,
+    #[serde(rename = "IFederatedPlayerInit")]
+    IFederatedPlayerInit,
 
 }
 
 impl std::fmt::Display for FederationType {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::IFederatedPlayerInit => write!(f, "IFederatedPlayerInit"),
-            Self::IFederatedInventory => write!(f, "IFederatedInventory"),
             Self::IFederatedLogin => write!(f, "IFederatedLogin"),
-            Self::IFederatedGameServer => write!(f, "IFederatedGameServer"),
+            Self::IFederatedInventory => write!(f, "IFederatedInventory"),
             Self::IFederatedCommerce => write!(f, "IFederatedCommerce"),
+            Self::IFederatedGameServer => write!(f, "IFederatedGameServer"),
+            Self::IFederatedPlayerInit => write!(f, "IFederatedPlayerInit"),
         }
     }
 }
 
 impl Default for FederationType {
     fn default() -> FederationType {
-        Self::IFederatedPlayerInit
+        Self::IFederatedLogin
     }
 }
 
