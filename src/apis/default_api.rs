@@ -404,7 +404,7 @@ pub struct BasicBeamoManifestPostParams {
     pub x_beam_scope: String,
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
-    pub post_manifest_request: Option<models::PostManifestRequest>
+    pub beamo_basic_post_manifest_request: Option<models::BeamoBasicPostManifestRequest>
 }
 
 /// struct for passing parameters to the method [`basic_beamo_manifest_pull_post`]
@@ -8457,7 +8457,7 @@ pub async fn basic_beamo_manifest_post(configuration: &configuration::Configurat
     if let Some(ref token) = configuration.bearer_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&params.post_manifest_request);
+    req_builder = req_builder.json(&params.beamo_basic_post_manifest_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -9090,7 +9090,7 @@ pub async fn basic_beamo_registry_get(configuration: &configuration::Configurati
     }
 }
 
-pub async fn basic_beamo_status_get(configuration: &configuration::Configuration, params: BasicBeamoStatusGetParams) -> Result<models::GetStatusResponse, Error<BasicBeamoStatusGetError>> {
+pub async fn basic_beamo_status_get(configuration: &configuration::Configuration, params: BasicBeamoStatusGetParams) -> Result<models::BeamoBasicGetStatusResponse, Error<BasicBeamoStatusGetError>> {
 
     let uri_str = format!("{}/basic/beamo/status", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -9129,8 +9129,8 @@ pub async fn basic_beamo_status_get(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetStatusResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetStatusResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoBasicGetStatusResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoBasicGetStatusResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -9248,7 +9248,7 @@ pub async fn basic_beamo_storage_performance_get(configuration: &configuration::
     }
 }
 
-pub async fn basic_beamo_templates_get(configuration: &configuration::Configuration, params: BasicBeamoTemplatesGetParams) -> Result<models::GetTemplatesResponse, Error<BasicBeamoTemplatesGetError>> {
+pub async fn basic_beamo_templates_get(configuration: &configuration::Configuration, params: BasicBeamoTemplatesGetParams) -> Result<models::BeamoBasicGetTemplatesResponse, Error<BasicBeamoTemplatesGetError>> {
 
     let uri_str = format!("{}/basic/beamo/templates", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -9287,8 +9287,8 @@ pub async fn basic_beamo_templates_get(configuration: &configuration::Configurat
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTemplatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTemplatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoBasicGetTemplatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoBasicGetTemplatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;

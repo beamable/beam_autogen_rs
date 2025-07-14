@@ -28,7 +28,7 @@ pub struct MicroserviceRegistrations {
     #[serde(rename = "startedById", skip_serializing_if = "Option::is_none")]
     pub started_by_id: Option<i64>,
     #[serde(rename = "federation", skip_serializing_if = "Option::is_none")]
-    pub federation: Option<Vec<models::SupportedFederation>>,
+    pub federation: Option<Vec<models::BeamoBasicSupportedFederation>>,
     #[serde(rename = "beamoName", skip_serializing_if = "Option::is_none")]
     pub beamo_name: Option<String>,
 }
