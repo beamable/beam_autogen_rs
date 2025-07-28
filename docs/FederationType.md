@@ -4,11 +4,11 @@
 
 | Name | Value |
 |---- | -----|
-| IFederatedLogin | IFederatedLogin |
-| IFederatedInventory | IFederatedInventory |
-| IFederatedCommerce | IFederatedCommerce |
-| IFederatedGameServer | IFederatedGameServer |
 | IFederatedPlayerInit | IFederatedPlayerInit |
+| IFederatedInventory | IFederatedInventory |
+| IFederatedLogin | IFederatedLogin |
+| IFederatedGameServer | IFederatedGameServer |
+| IFederatedCommerce | IFederatedCommerce |
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

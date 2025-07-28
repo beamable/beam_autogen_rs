@@ -29,7 +29,7 @@ Method | HTTP request | Description
 
 ## api_beamo_manifests_current_get
 
-> models::BeamoActorManifest api_beamo_manifests_current_get(x_beam_scope, x_beam_gamertag, archived)
+> models::BeamoV2Manifest api_beamo_manifests_current_get(x_beam_scope, x_beam_gamertag, archived)
 
 
 ### Parameters
@@ -43,7 +43,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::BeamoActorManifest**](BeamoActorManifest.md)
+[**models::BeamoV2Manifest**](BeamoV2Manifest.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ No authorization required
 
 ## api_beamo_manifests_get
 
-> models::BeamoActorGetManifestsResponse api_beamo_manifests_get(x_beam_scope, x_beam_gamertag, offset, limit, archived)
+> models::BeamoV2GetManifestsResponse api_beamo_manifests_get(x_beam_scope, x_beam_gamertag, offset, limit, archived)
 
 
 ### Parameters
@@ -104,7 +104,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::BeamoActorGetManifestsResponse**](BeamoActorGetManifestsResponse.md)
+[**models::BeamoV2GetManifestsResponse**](BeamoV2GetManifestsResponse.md)
 
 ### Authorization
 
@@ -120,7 +120,7 @@ No authorization required
 
 ## api_beamo_manifests_manifest_id_get
 
-> models::BeamoActorManifest api_beamo_manifests_manifest_id_get(manifest_id, x_beam_scope, x_beam_gamertag, archived)
+> models::BeamoV2Manifest api_beamo_manifests_manifest_id_get(manifest_id, x_beam_scope, x_beam_gamertag, archived)
 
 
 ### Parameters
@@ -135,7 +135,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::BeamoActorManifest**](BeamoActorManifest.md)
+[**models::BeamoV2Manifest**](BeamoV2Manifest.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ No authorization required
 
 ## api_beamo_manifests_post
 
-> models::BeamoActorManifestChecksum api_beamo_manifests_post(x_beam_scope, x_beam_gamertag, beamo_actor_post_manifest_request)
+> models::BeamoV2ManifestChecksum api_beamo_manifests_post(x_beam_scope, x_beam_gamertag, beamo_v2_post_manifest_request)
 
 
 ### Parameters
@@ -161,11 +161,11 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**beamo_actor_post_manifest_request** | Option<[**BeamoActorPostManifestRequest**](BeamoActorPostManifestRequest.md)> |  |  |
+**beamo_v2_post_manifest_request** | Option<[**BeamoV2PostManifestRequest**](BeamoV2PostManifestRequest.md)> |  |  |
 
 ### Return type
 
-[**models::BeamoActorManifestChecksum**](BeamoActorManifestChecksum.md)
+[**models::BeamoV2ManifestChecksum**](BeamoV2ManifestChecksum.md)
 
 ### Authorization
 
@@ -181,7 +181,7 @@ No authorization required
 
 ## api_beamo_manifests_promote_post
 
-> serde_json::Value api_beamo_manifests_promote_post(x_beam_scope, x_beam_gamertag, promote_beamo_manifest_request)
+> serde_json::Value api_beamo_manifests_promote_post(x_beam_scope, x_beam_gamertag, beamo_v2_promote_beamo_manifest_request)
 
 
 ### Parameters
@@ -191,7 +191,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**promote_beamo_manifest_request** | Option<[**PromoteBeamoManifestRequest**](PromoteBeamoManifestRequest.md)> |  |  |
+**beamo_v2_promote_beamo_manifest_request** | Option<[**BeamoV2PromoteBeamoManifestRequest**](BeamoV2PromoteBeamoManifestRequest.md)> |  |  |
 
 ### Return type
 
@@ -211,7 +211,7 @@ No authorization required
 
 ## api_beamo_registry_uri_get
 
-> models::UriResponse api_beamo_registry_uri_get(x_beam_scope, x_beam_gamertag)
+> models::BeamoV2UriResponse api_beamo_registry_uri_get(x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -224,7 +224,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::UriResponse**](UriResponse.md)
+[**models::BeamoV2UriResponse**](BeamoV2UriResponse.md)
 
 ### Authorization
 
@@ -240,7 +240,7 @@ No authorization required
 
 ## api_beamo_services_federation_post
 
-> models::FederationRegistrationResponse api_beamo_services_federation_post(x_beam_scope, x_beam_gamertag, service_registration_query)
+> models::BeamoV2FederationRegistrationResponse api_beamo_services_federation_post(x_beam_scope, x_beam_gamertag, beamo_v2_service_registration_query)
 
 
 ### Parameters
@@ -250,11 +250,11 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**service_registration_query** | Option<[**ServiceRegistrationQuery**](ServiceRegistrationQuery.md)> |  |  |
+**beamo_v2_service_registration_query** | Option<[**BeamoV2ServiceRegistrationQuery**](BeamoV2ServiceRegistrationQuery.md)> |  |  |
 
 ### Return type
 
-[**models::FederationRegistrationResponse**](FederationRegistrationResponse.md)
+[**models::BeamoV2FederationRegistrationResponse**](BeamoV2FederationRegistrationResponse.md)
 
 ### Authorization
 
@@ -300,7 +300,7 @@ No authorization required
 
 ## api_beamo_services_logs_query_query_id_get
 
-> models::SignedRequest api_beamo_services_logs_query_query_id_get(query_id, x_beam_scope, x_beam_gamertag)
+> models::BeamoV2SignedRequest api_beamo_services_logs_query_query_id_get(query_id, x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -314,7 +314,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::SignedRequest**](SignedRequest.md)
+[**models::BeamoV2SignedRequest**](BeamoV2SignedRequest.md)
 
 ### Authorization
 
@@ -330,7 +330,7 @@ No authorization required
 
 ## api_beamo_services_registrations_post
 
-> models::ServiceRegistrationResponse api_beamo_services_registrations_post(x_beam_scope, x_beam_gamertag, service_registration_query)
+> models::BeamoV2ServiceRegistrationResponse api_beamo_services_registrations_post(x_beam_scope, x_beam_gamertag, beamo_v2_service_registration_query)
 
 
 ### Parameters
@@ -340,11 +340,11 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**service_registration_query** | Option<[**ServiceRegistrationQuery**](ServiceRegistrationQuery.md)> |  |  |
+**beamo_v2_service_registration_query** | Option<[**BeamoV2ServiceRegistrationQuery**](BeamoV2ServiceRegistrationQuery.md)> |  |  |
 
 ### Return type
 
-[**models::ServiceRegistrationResponse**](ServiceRegistrationResponse.md)
+[**models::BeamoV2ServiceRegistrationResponse**](BeamoV2ServiceRegistrationResponse.md)
 
 ### Authorization
 
@@ -360,7 +360,7 @@ No authorization required
 
 ## api_beamo_services_secret_get
 
-> models::GetServiceSecretResponse api_beamo_services_secret_get(x_beam_scope, x_beam_gamertag)
+> models::BeamoV2GetServiceSecretResponse api_beamo_services_secret_get(x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -373,7 +373,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetServiceSecretResponse**](GetServiceSecretResponse.md)
+[**models::BeamoV2GetServiceSecretResponse**](BeamoV2GetServiceSecretResponse.md)
 
 ### Authorization
 
@@ -389,7 +389,7 @@ No authorization required
 
 ## api_beamo_services_service_name_federation_traffic_delete
 
-> serde_json::Value api_beamo_services_service_name_federation_traffic_delete(service_name, x_beam_scope, x_beam_gamertag, delete_registration_request)
+> serde_json::Value api_beamo_services_service_name_federation_traffic_delete(service_name, x_beam_scope, x_beam_gamertag, beamo_v2_delete_registration_request)
 
 
 ### Parameters
@@ -400,7 +400,7 @@ Name | Type | Description  | Required | Notes
 **service_name** | **String** |  | [required] |
 **x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**delete_registration_request** | Option<[**DeleteRegistrationRequest**](DeleteRegistrationRequest.md)> |  |  |
+**beamo_v2_delete_registration_request** | Option<[**BeamoV2DeleteRegistrationRequest**](BeamoV2DeleteRegistrationRequest.md)> |  |  |
 
 ### Return type
 
@@ -420,7 +420,7 @@ No authorization required
 
 ## api_beamo_services_service_name_federation_traffic_put
 
-> serde_json::Value api_beamo_services_service_name_federation_traffic_put(service_name, x_beam_scope, x_beam_gamertag, service_registration_request)
+> serde_json::Value api_beamo_services_service_name_federation_traffic_put(service_name, x_beam_scope, x_beam_gamertag, beamo_v2_service_registration_request)
 
 
 ### Parameters
@@ -431,7 +431,7 @@ Name | Type | Description  | Required | Notes
 **service_name** | **String** |  | [required] |
 **x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**service_registration_request** | Option<[**ServiceRegistrationRequest**](ServiceRegistrationRequest.md)> |  |  |
+**beamo_v2_service_registration_request** | Option<[**BeamoV2ServiceRegistrationRequest**](BeamoV2ServiceRegistrationRequest.md)> |  |  |
 
 ### Return type
 
@@ -451,7 +451,7 @@ No authorization required
 
 ## api_beamo_services_service_name_logs_query_post
 
-> models::QueryResponse api_beamo_services_service_name_logs_query_post(service_name, x_beam_scope, x_beam_gamertag, start_service_logs_request)
+> models::BeamoV2QueryResponse api_beamo_services_service_name_logs_query_post(service_name, x_beam_scope, x_beam_gamertag, beamo_v2_start_service_logs_request)
 
 
 ### Parameters
@@ -462,11 +462,11 @@ Name | Type | Description  | Required | Notes
 **service_name** | **String** |  | [required] |
 **x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**start_service_logs_request** | Option<[**StartServiceLogsRequest**](StartServiceLogsRequest.md)> |  |  |
+**beamo_v2_start_service_logs_request** | Option<[**BeamoV2StartServiceLogsRequest**](BeamoV2StartServiceLogsRequest.md)> |  |  |
 
 ### Return type
 
-[**models::QueryResponse**](QueryResponse.md)
+[**models::BeamoV2QueryResponse**](BeamoV2QueryResponse.md)
 
 ### Authorization
 
@@ -482,7 +482,7 @@ No authorization required
 
 ## api_beamo_services_service_name_metrics_request_post
 
-> models::SignedRequest api_beamo_services_service_name_metrics_request_post(service_name, x_beam_scope, x_beam_gamertag, get_metrics_request)
+> models::BeamoV2SignedRequest api_beamo_services_service_name_metrics_request_post(service_name, x_beam_scope, x_beam_gamertag, beamo_v2_get_metrics_request)
 
 
 ### Parameters
@@ -493,11 +493,11 @@ Name | Type | Description  | Required | Notes
 **service_name** | **String** |  | [required] |
 **x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**get_metrics_request** | Option<[**GetMetricsRequest**](GetMetricsRequest.md)> |  |  |
+**beamo_v2_get_metrics_request** | Option<[**BeamoV2GetMetricsRequest**](BeamoV2GetMetricsRequest.md)> |  |  |
 
 ### Return type
 
-[**models::SignedRequest**](SignedRequest.md)
+[**models::BeamoV2SignedRequest**](BeamoV2SignedRequest.md)
 
 ### Authorization
 
@@ -513,7 +513,7 @@ No authorization required
 
 ## api_beamo_status_get
 
-> models::BeamoActorGetStatusResponse api_beamo_status_get(x_beam_scope, x_beam_gamertag)
+> models::BeamoV2GetStatusResponse api_beamo_status_get(x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -526,7 +526,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::BeamoActorGetStatusResponse**](BeamoActorGetStatusResponse.md)
+[**models::BeamoV2GetStatusResponse**](BeamoV2GetStatusResponse.md)
 
 ### Authorization
 
@@ -542,7 +542,7 @@ No authorization required
 
 ## api_beamo_storage_connection_get
 
-> models::ConnectionStringResponse api_beamo_storage_connection_get(x_beam_scope, x_beam_gamertag)
+> models::BeamoV2ConnectionStringResponse api_beamo_storage_connection_get(x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -555,7 +555,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ConnectionStringResponse**](ConnectionStringResponse.md)
+[**models::BeamoV2ConnectionStringResponse**](BeamoV2ConnectionStringResponse.md)
 
 ### Authorization
 
@@ -571,7 +571,7 @@ No authorization required
 
 ## api_beamo_storage_storage_object_name_performance_get
 
-> models::StoragePerformance api_beamo_storage_storage_object_name_performance_get(storage_object_name, x_beam_scope, x_beam_gamertag, period, start_time, end_time, granularity)
+> models::BeamoV2StoragePerformance api_beamo_storage_storage_object_name_performance_get(storage_object_name, x_beam_scope, x_beam_gamertag, period, start_time, end_time, granularity)
 
 
 ### Parameters
@@ -589,7 +589,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::StoragePerformance**](StoragePerformance.md)
+[**models::BeamoV2StoragePerformance**](BeamoV2StoragePerformance.md)
 
 ### Authorization
 
@@ -605,7 +605,7 @@ No authorization required
 
 ## api_beamo_templates_get
 
-> models::BeamoActorGetTemplatesResponse api_beamo_templates_get(x_beam_scope, x_beam_gamertag)
+> models::BeamoV2GetTemplatesResponse api_beamo_templates_get(x_beam_scope, x_beam_gamertag)
 
 
 ### Parameters
@@ -618,7 +618,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::BeamoActorGetTemplatesResponse**](BeamoActorGetTemplatesResponse.md)
+[**models::BeamoV2GetTemplatesResponse**](BeamoV2GetTemplatesResponse.md)
 
 ### Authorization
 

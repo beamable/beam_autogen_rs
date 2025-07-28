@@ -1,0 +1,15 @@
+# BeamoV2ServiceStatus
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**service_name** | Option<**String**> |  | [optional]
+**running** | Option<**bool**> |  | [optional]
+**image_id** | Option<**String**> |  | [optional]
+**is_current** | Option<**bool**> |  | [optional]
+**service_dependency_references** | Option<[**Vec<models::BeamoV2ServiceDependencyReference>**](BeamoV2ServiceDependencyReference.md)> |  | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

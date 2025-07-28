@@ -16,15 +16,15 @@ pub struct PerformanceResponse {
     #[serde(rename = "namespaces")]
     pub namespaces: Vec<models::PaNamespace>,
     #[serde(rename = "indexes")]
-    pub indexes: Vec<models::BeamoBasicPaSuggestedIndex>,
+    pub indexes: Vec<models::PaSuggestedIndex>,
     #[serde(rename = "queries")]
     pub queries: Vec<models::PaSlowQuery>,
     #[serde(rename = "databaseMeasurements")]
-    pub database_measurements: Box<models::BeamoBasicDatabaseMeasurements>,
+    pub database_measurements: Box<models::DatabaseMeasurements>,
 }
 
 impl PerformanceResponse {
-    pub fn new(namespaces: Vec<models::PaNamespace>, indexes: Vec<models::BeamoBasicPaSuggestedIndex>, queries: Vec<models::PaSlowQuery>, database_measurements: models::BeamoBasicDatabaseMeasurements) -> PerformanceResponse {
+    pub fn new(namespaces: Vec<models::PaNamespace>, indexes: Vec<models::PaSuggestedIndex>, queries: Vec<models::PaSlowQuery>, database_measurements: models::DatabaseMeasurements) -> PerformanceResponse {
         PerformanceResponse {
             namespaces,
             indexes,
