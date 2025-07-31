@@ -18,7 +18,7 @@ pub struct MicroserviceRegistrationsQuery {
     #[serde(rename = "routingKey", skip_serializing_if = "Option::is_none")]
     pub routing_key: Option<String>,
     #[serde(rename = "federation", skip_serializing_if = "Option::is_none")]
-    pub federation: Option<Box<models::BeamoBasicSupportedFederation>>,
+    pub federation: Option<Box<models::SupportedFederation>>,
     #[serde(rename = "localOnly", skip_serializing_if = "Option::is_none")]
     pub local_only: Option<bool>,
 }

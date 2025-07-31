@@ -63,7 +63,7 @@ pub struct ApiBeamoManifestsPostParams {
     pub x_beam_scope: Option<String>,
     /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
     pub x_beam_gamertag: Option<String>,
-    pub beamo_actor_post_manifest_request: Option<models::BeamoActorPostManifestRequest>
+    pub beamo_v2_post_manifest_request: Option<models::BeamoV2PostManifestRequest>
 }
 
 /// struct for passing parameters to the method [`api_beamo_manifests_promote_post`]
@@ -73,7 +73,7 @@ pub struct ApiBeamoManifestsPromotePostParams {
     pub x_beam_scope: Option<String>,
     /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
     pub x_beam_gamertag: Option<String>,
-    pub promote_beamo_manifest_request: Option<models::PromoteBeamoManifestRequest>
+    pub beamo_v2_promote_beamo_manifest_request: Option<models::BeamoV2PromoteBeamoManifestRequest>
 }
 
 /// struct for passing parameters to the method [`api_beamo_registry_uri_get`]
@@ -92,7 +92,7 @@ pub struct ApiBeamoServicesFederationPostParams {
     pub x_beam_scope: Option<String>,
     /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
     pub x_beam_gamertag: Option<String>,
-    pub service_registration_query: Option<models::ServiceRegistrationQuery>
+    pub beamo_v2_service_registration_query: Option<models::BeamoV2ServiceRegistrationQuery>
 }
 
 /// struct for passing parameters to the method [`api_beamo_services_logs_query_query_id_delete`]
@@ -122,7 +122,7 @@ pub struct ApiBeamoServicesRegistrationsPostParams {
     pub x_beam_scope: Option<String>,
     /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
     pub x_beam_gamertag: Option<String>,
-    pub service_registration_query: Option<models::ServiceRegistrationQuery>
+    pub beamo_v2_service_registration_query: Option<models::BeamoV2ServiceRegistrationQuery>
 }
 
 /// struct for passing parameters to the method [`api_beamo_services_secret_get`]
@@ -142,7 +142,7 @@ pub struct ApiBeamoServicesServiceNameFederationTrafficDeleteParams {
     pub x_beam_scope: Option<String>,
     /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
     pub x_beam_gamertag: Option<String>,
-    pub delete_registration_request: Option<models::DeleteRegistrationRequest>
+    pub beamo_v2_delete_registration_request: Option<models::BeamoV2DeleteRegistrationRequest>
 }
 
 /// struct for passing parameters to the method [`api_beamo_services_service_name_federation_traffic_put`]
@@ -153,7 +153,7 @@ pub struct ApiBeamoServicesServiceNameFederationTrafficPutParams {
     pub x_beam_scope: Option<String>,
     /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
     pub x_beam_gamertag: Option<String>,
-    pub service_registration_request: Option<models::ServiceRegistrationRequest>
+    pub beamo_v2_service_registration_request: Option<models::BeamoV2ServiceRegistrationRequest>
 }
 
 /// struct for passing parameters to the method [`api_beamo_services_service_name_logs_query_post`]
@@ -164,7 +164,7 @@ pub struct ApiBeamoServicesServiceNameLogsQueryPostParams {
     pub x_beam_scope: Option<String>,
     /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
     pub x_beam_gamertag: Option<String>,
-    pub start_service_logs_request: Option<models::StartServiceLogsRequest>
+    pub beamo_v2_start_service_logs_request: Option<models::BeamoV2StartServiceLogsRequest>
 }
 
 /// struct for passing parameters to the method [`api_beamo_services_service_name_metrics_request_post`]
@@ -175,7 +175,7 @@ pub struct ApiBeamoServicesServiceNameMetricsRequestPostParams {
     pub x_beam_scope: Option<String>,
     /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
     pub x_beam_gamertag: Option<String>,
-    pub get_metrics_request: Option<models::GetMetricsRequest>
+    pub beamo_v2_get_metrics_request: Option<models::BeamoV2GetMetricsRequest>
 }
 
 /// struct for passing parameters to the method [`api_beamo_status_get`]
@@ -224,7 +224,7 @@ pub struct ApiBeamoTemplatesGetParams {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiBeamoManifestsCurrentGetError {
-    Status404(models::ProtoError),
+    Status404(models::BeamoV2ProtoError),
     UnknownValue(serde_json::Value),
 }
 
@@ -232,7 +232,7 @@ pub enum ApiBeamoManifestsCurrentGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiBeamoManifestsCurrentPostError {
-    Status403(models::ProblemDetails),
+    Status403(models::BeamoV2ProblemDetails),
     UnknownValue(serde_json::Value),
 }
 
@@ -247,7 +247,7 @@ pub enum ApiBeamoManifestsGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiBeamoManifestsManifestIdGetError {
-    Status404(models::ProtoError),
+    Status404(models::BeamoV2ProtoError),
     UnknownValue(serde_json::Value),
 }
 
@@ -255,7 +255,7 @@ pub enum ApiBeamoManifestsManifestIdGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiBeamoManifestsPostError {
-    Status403(models::ProblemDetails),
+    Status403(models::BeamoV2ProblemDetails),
     UnknownValue(serde_json::Value),
 }
 
@@ -263,7 +263,7 @@ pub enum ApiBeamoManifestsPostError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiBeamoManifestsPromotePostError {
-    Status403(models::ProblemDetails),
+    Status403(models::BeamoV2ProblemDetails),
     UnknownValue(serde_json::Value),
 }
 
@@ -366,7 +366,7 @@ pub enum ApiBeamoTemplatesGetError {
 }
 
 
-pub async fn api_beamo_manifests_current_get(configuration: &configuration::Configuration, params: ApiBeamoManifestsCurrentGetParams) -> Result<models::BeamoActorManifest, Error<ApiBeamoManifestsCurrentGetError>> {
+pub async fn api_beamo_manifests_current_get(configuration: &configuration::Configuration, params: ApiBeamoManifestsCurrentGetParams) -> Result<models::BeamoV2Manifest, Error<ApiBeamoManifestsCurrentGetError>> {
 
     let uri_str = format!("{}/api/beamo/manifests/current", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -399,8 +399,8 @@ pub async fn api_beamo_manifests_current_get(configuration: &configuration::Conf
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoActorManifest`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoActorManifest`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2Manifest`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2Manifest`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -449,7 +449,7 @@ pub async fn api_beamo_manifests_current_post(configuration: &configuration::Con
     }
 }
 
-pub async fn api_beamo_manifests_get(configuration: &configuration::Configuration, params: ApiBeamoManifestsGetParams) -> Result<models::BeamoActorGetManifestsResponse, Error<ApiBeamoManifestsGetError>> {
+pub async fn api_beamo_manifests_get(configuration: &configuration::Configuration, params: ApiBeamoManifestsGetParams) -> Result<models::BeamoV2GetManifestsResponse, Error<ApiBeamoManifestsGetError>> {
 
     let uri_str = format!("{}/api/beamo/manifests", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -488,8 +488,8 @@ pub async fn api_beamo_manifests_get(configuration: &configuration::Configuratio
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoActorGetManifestsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoActorGetManifestsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2GetManifestsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2GetManifestsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -498,7 +498,7 @@ pub async fn api_beamo_manifests_get(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn api_beamo_manifests_manifest_id_get(configuration: &configuration::Configuration, params: ApiBeamoManifestsManifestIdGetParams) -> Result<models::BeamoActorManifest, Error<ApiBeamoManifestsManifestIdGetError>> {
+pub async fn api_beamo_manifests_manifest_id_get(configuration: &configuration::Configuration, params: ApiBeamoManifestsManifestIdGetParams) -> Result<models::BeamoV2Manifest, Error<ApiBeamoManifestsManifestIdGetError>> {
 
     let uri_str = format!("{}/api/beamo/manifests/{manifestId}", configuration.base_path, manifestId=crate::apis::urlencode(params.manifest_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -531,8 +531,8 @@ pub async fn api_beamo_manifests_manifest_id_get(configuration: &configuration::
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoActorManifest`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoActorManifest`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2Manifest`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2Manifest`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -541,7 +541,7 @@ pub async fn api_beamo_manifests_manifest_id_get(configuration: &configuration::
     }
 }
 
-pub async fn api_beamo_manifests_post(configuration: &configuration::Configuration, params: ApiBeamoManifestsPostParams) -> Result<models::BeamoActorManifestChecksum, Error<ApiBeamoManifestsPostError>> {
+pub async fn api_beamo_manifests_post(configuration: &configuration::Configuration, params: ApiBeamoManifestsPostParams) -> Result<models::BeamoV2ManifestChecksum, Error<ApiBeamoManifestsPostError>> {
 
     let uri_str = format!("{}/api/beamo/manifests", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -555,7 +555,7 @@ pub async fn api_beamo_manifests_post(configuration: &configuration::Configurati
     if let Some(param_value) = params.x_beam_gamertag {
         req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
     }
-    req_builder = req_builder.json(&params.beamo_actor_post_manifest_request);
+    req_builder = req_builder.json(&params.beamo_v2_post_manifest_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -572,8 +572,8 @@ pub async fn api_beamo_manifests_post(configuration: &configuration::Configurati
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoActorManifestChecksum`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoActorManifestChecksum`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2ManifestChecksum`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2ManifestChecksum`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -596,7 +596,7 @@ pub async fn api_beamo_manifests_promote_post(configuration: &configuration::Con
     if let Some(param_value) = params.x_beam_gamertag {
         req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
     }
-    req_builder = req_builder.json(&params.promote_beamo_manifest_request);
+    req_builder = req_builder.json(&params.beamo_v2_promote_beamo_manifest_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -623,7 +623,7 @@ pub async fn api_beamo_manifests_promote_post(configuration: &configuration::Con
     }
 }
 
-pub async fn api_beamo_registry_uri_get(configuration: &configuration::Configuration, params: ApiBeamoRegistryUriGetParams) -> Result<models::UriResponse, Error<ApiBeamoRegistryUriGetError>> {
+pub async fn api_beamo_registry_uri_get(configuration: &configuration::Configuration, params: ApiBeamoRegistryUriGetParams) -> Result<models::BeamoV2UriResponse, Error<ApiBeamoRegistryUriGetError>> {
 
     let uri_str = format!("{}/api/beamo/registry-uri", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -653,8 +653,8 @@ pub async fn api_beamo_registry_uri_get(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UriResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UriResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2UriResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2UriResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -663,7 +663,7 @@ pub async fn api_beamo_registry_uri_get(configuration: &configuration::Configura
     }
 }
 
-pub async fn api_beamo_services_federation_post(configuration: &configuration::Configuration, params: ApiBeamoServicesFederationPostParams) -> Result<models::FederationRegistrationResponse, Error<ApiBeamoServicesFederationPostError>> {
+pub async fn api_beamo_services_federation_post(configuration: &configuration::Configuration, params: ApiBeamoServicesFederationPostParams) -> Result<models::BeamoV2FederationRegistrationResponse, Error<ApiBeamoServicesFederationPostError>> {
 
     let uri_str = format!("{}/api/beamo/services/federation", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -677,7 +677,7 @@ pub async fn api_beamo_services_federation_post(configuration: &configuration::C
     if let Some(param_value) = params.x_beam_gamertag {
         req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
     }
-    req_builder = req_builder.json(&params.service_registration_query);
+    req_builder = req_builder.json(&params.beamo_v2_service_registration_query);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -694,8 +694,8 @@ pub async fn api_beamo_services_federation_post(configuration: &configuration::C
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FederationRegistrationResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FederationRegistrationResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2FederationRegistrationResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2FederationRegistrationResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -744,7 +744,7 @@ pub async fn api_beamo_services_logs_query_query_id_delete(configuration: &confi
     }
 }
 
-pub async fn api_beamo_services_logs_query_query_id_get(configuration: &configuration::Configuration, params: ApiBeamoServicesLogsQueryQueryIdGetParams) -> Result<models::SignedRequest, Error<ApiBeamoServicesLogsQueryQueryIdGetError>> {
+pub async fn api_beamo_services_logs_query_query_id_get(configuration: &configuration::Configuration, params: ApiBeamoServicesLogsQueryQueryIdGetParams) -> Result<models::BeamoV2SignedRequest, Error<ApiBeamoServicesLogsQueryQueryIdGetError>> {
 
     let uri_str = format!("{}/api/beamo/services/logs/query/{queryId}", configuration.base_path, queryId=crate::apis::urlencode(params.query_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -774,8 +774,8 @@ pub async fn api_beamo_services_logs_query_query_id_get(configuration: &configur
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SignedRequest`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SignedRequest`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2SignedRequest`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2SignedRequest`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -784,7 +784,7 @@ pub async fn api_beamo_services_logs_query_query_id_get(configuration: &configur
     }
 }
 
-pub async fn api_beamo_services_registrations_post(configuration: &configuration::Configuration, params: ApiBeamoServicesRegistrationsPostParams) -> Result<models::ServiceRegistrationResponse, Error<ApiBeamoServicesRegistrationsPostError>> {
+pub async fn api_beamo_services_registrations_post(configuration: &configuration::Configuration, params: ApiBeamoServicesRegistrationsPostParams) -> Result<models::BeamoV2ServiceRegistrationResponse, Error<ApiBeamoServicesRegistrationsPostError>> {
 
     let uri_str = format!("{}/api/beamo/services/registrations", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -798,7 +798,7 @@ pub async fn api_beamo_services_registrations_post(configuration: &configuration
     if let Some(param_value) = params.x_beam_gamertag {
         req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
     }
-    req_builder = req_builder.json(&params.service_registration_query);
+    req_builder = req_builder.json(&params.beamo_v2_service_registration_query);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -815,8 +815,8 @@ pub async fn api_beamo_services_registrations_post(configuration: &configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ServiceRegistrationResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ServiceRegistrationResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2ServiceRegistrationResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2ServiceRegistrationResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -825,7 +825,7 @@ pub async fn api_beamo_services_registrations_post(configuration: &configuration
     }
 }
 
-pub async fn api_beamo_services_secret_get(configuration: &configuration::Configuration, params: ApiBeamoServicesSecretGetParams) -> Result<models::GetServiceSecretResponse, Error<ApiBeamoServicesSecretGetError>> {
+pub async fn api_beamo_services_secret_get(configuration: &configuration::Configuration, params: ApiBeamoServicesSecretGetParams) -> Result<models::BeamoV2GetServiceSecretResponse, Error<ApiBeamoServicesSecretGetError>> {
 
     let uri_str = format!("{}/api/beamo/services/secret", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -855,8 +855,8 @@ pub async fn api_beamo_services_secret_get(configuration: &configuration::Config
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetServiceSecretResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetServiceSecretResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2GetServiceSecretResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2GetServiceSecretResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -879,7 +879,7 @@ pub async fn api_beamo_services_service_name_federation_traffic_delete(configura
     if let Some(param_value) = params.x_beam_gamertag {
         req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
     }
-    req_builder = req_builder.json(&params.delete_registration_request);
+    req_builder = req_builder.json(&params.beamo_v2_delete_registration_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -920,7 +920,7 @@ pub async fn api_beamo_services_service_name_federation_traffic_put(configuratio
     if let Some(param_value) = params.x_beam_gamertag {
         req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
     }
-    req_builder = req_builder.json(&params.service_registration_request);
+    req_builder = req_builder.json(&params.beamo_v2_service_registration_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -947,7 +947,7 @@ pub async fn api_beamo_services_service_name_federation_traffic_put(configuratio
     }
 }
 
-pub async fn api_beamo_services_service_name_logs_query_post(configuration: &configuration::Configuration, params: ApiBeamoServicesServiceNameLogsQueryPostParams) -> Result<models::QueryResponse, Error<ApiBeamoServicesServiceNameLogsQueryPostError>> {
+pub async fn api_beamo_services_service_name_logs_query_post(configuration: &configuration::Configuration, params: ApiBeamoServicesServiceNameLogsQueryPostParams) -> Result<models::BeamoV2QueryResponse, Error<ApiBeamoServicesServiceNameLogsQueryPostError>> {
 
     let uri_str = format!("{}/api/beamo/services/{serviceName}/logs/query", configuration.base_path, serviceName=crate::apis::urlencode(params.service_name));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -961,7 +961,7 @@ pub async fn api_beamo_services_service_name_logs_query_post(configuration: &con
     if let Some(param_value) = params.x_beam_gamertag {
         req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
     }
-    req_builder = req_builder.json(&params.start_service_logs_request);
+    req_builder = req_builder.json(&params.beamo_v2_start_service_logs_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -978,8 +978,8 @@ pub async fn api_beamo_services_service_name_logs_query_post(configuration: &con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::QueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::QueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2QueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2QueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -988,7 +988,7 @@ pub async fn api_beamo_services_service_name_logs_query_post(configuration: &con
     }
 }
 
-pub async fn api_beamo_services_service_name_metrics_request_post(configuration: &configuration::Configuration, params: ApiBeamoServicesServiceNameMetricsRequestPostParams) -> Result<models::SignedRequest, Error<ApiBeamoServicesServiceNameMetricsRequestPostError>> {
+pub async fn api_beamo_services_service_name_metrics_request_post(configuration: &configuration::Configuration, params: ApiBeamoServicesServiceNameMetricsRequestPostParams) -> Result<models::BeamoV2SignedRequest, Error<ApiBeamoServicesServiceNameMetricsRequestPostError>> {
 
     let uri_str = format!("{}/api/beamo/services/{serviceName}/metrics-request", configuration.base_path, serviceName=crate::apis::urlencode(params.service_name));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -1002,7 +1002,7 @@ pub async fn api_beamo_services_service_name_metrics_request_post(configuration:
     if let Some(param_value) = params.x_beam_gamertag {
         req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
     }
-    req_builder = req_builder.json(&params.get_metrics_request);
+    req_builder = req_builder.json(&params.beamo_v2_get_metrics_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1019,8 +1019,8 @@ pub async fn api_beamo_services_service_name_metrics_request_post(configuration:
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SignedRequest`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SignedRequest`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2SignedRequest`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2SignedRequest`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1029,7 +1029,7 @@ pub async fn api_beamo_services_service_name_metrics_request_post(configuration:
     }
 }
 
-pub async fn api_beamo_status_get(configuration: &configuration::Configuration, params: ApiBeamoStatusGetParams) -> Result<models::BeamoActorGetStatusResponse, Error<ApiBeamoStatusGetError>> {
+pub async fn api_beamo_status_get(configuration: &configuration::Configuration, params: ApiBeamoStatusGetParams) -> Result<models::BeamoV2GetStatusResponse, Error<ApiBeamoStatusGetError>> {
 
     let uri_str = format!("{}/api/beamo/status", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -1059,8 +1059,8 @@ pub async fn api_beamo_status_get(configuration: &configuration::Configuration, 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoActorGetStatusResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoActorGetStatusResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2GetStatusResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2GetStatusResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1069,7 +1069,7 @@ pub async fn api_beamo_status_get(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn api_beamo_storage_connection_get(configuration: &configuration::Configuration, params: ApiBeamoStorageConnectionGetParams) -> Result<models::ConnectionStringResponse, Error<ApiBeamoStorageConnectionGetError>> {
+pub async fn api_beamo_storage_connection_get(configuration: &configuration::Configuration, params: ApiBeamoStorageConnectionGetParams) -> Result<models::BeamoV2ConnectionStringResponse, Error<ApiBeamoStorageConnectionGetError>> {
 
     let uri_str = format!("{}/api/beamo/storage/connection", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -1099,8 +1099,8 @@ pub async fn api_beamo_storage_connection_get(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ConnectionStringResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ConnectionStringResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2ConnectionStringResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2ConnectionStringResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1109,7 +1109,7 @@ pub async fn api_beamo_storage_connection_get(configuration: &configuration::Con
     }
 }
 
-pub async fn api_beamo_storage_storage_object_name_performance_get(configuration: &configuration::Configuration, params: ApiBeamoStorageStorageObjectNamePerformanceGetParams) -> Result<models::StoragePerformance, Error<ApiBeamoStorageStorageObjectNamePerformanceGetError>> {
+pub async fn api_beamo_storage_storage_object_name_performance_get(configuration: &configuration::Configuration, params: ApiBeamoStorageStorageObjectNamePerformanceGetParams) -> Result<models::BeamoV2StoragePerformance, Error<ApiBeamoStorageStorageObjectNamePerformanceGetError>> {
 
     let uri_str = format!("{}/api/beamo/storage/{storageObjectName}/performance", configuration.base_path, storageObjectName=crate::apis::urlencode(params.storage_object_name));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -1151,8 +1151,8 @@ pub async fn api_beamo_storage_storage_object_name_performance_get(configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::StoragePerformance`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::StoragePerformance`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2StoragePerformance`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2StoragePerformance`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1161,7 +1161,7 @@ pub async fn api_beamo_storage_storage_object_name_performance_get(configuration
     }
 }
 
-pub async fn api_beamo_templates_get(configuration: &configuration::Configuration, params: ApiBeamoTemplatesGetParams) -> Result<models::BeamoActorGetTemplatesResponse, Error<ApiBeamoTemplatesGetError>> {
+pub async fn api_beamo_templates_get(configuration: &configuration::Configuration, params: ApiBeamoTemplatesGetParams) -> Result<models::BeamoV2GetTemplatesResponse, Error<ApiBeamoTemplatesGetError>> {
 
     let uri_str = format!("{}/api/beamo/templates", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -1191,8 +1191,8 @@ pub async fn api_beamo_templates_get(configuration: &configuration::Configuratio
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoActorGetTemplatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoActorGetTemplatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BeamoV2GetTemplatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BeamoV2GetTemplatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;

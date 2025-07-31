@@ -18,7 +18,7 @@ pub struct SupportedFederationRegistration {
     #[serde(rename = "routingKey", skip_serializing_if = "Option::is_none")]
     pub routing_key: Option<String>,
     #[serde(rename = "federation", skip_serializing_if = "Option::is_none")]
-    pub federation: Option<Vec<models::BeamoBasicSupportedFederation>>,
+    pub federation: Option<Vec<models::SupportedFederation>>,
     #[serde(rename = "trafficFilterEnabled")]
     pub traffic_filter_enabled: bool,
 }

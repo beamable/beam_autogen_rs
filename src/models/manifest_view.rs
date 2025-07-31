@@ -20,9 +20,9 @@ pub struct ManifestView {
     #[serde(rename = "checksum")]
     pub checksum: String,
     #[serde(rename = "storageReference", skip_serializing_if = "Option::is_none")]
-    pub storage_reference: Option<Vec<models::BeamoBasicServiceStorageReference>>,
+    pub storage_reference: Option<Vec<models::ServiceStorageReference>>,
     #[serde(rename = "manifest")]
-    pub manifest: Vec<models::BeamoBasicServiceReference>,
+    pub manifest: Vec<models::ServiceReference>,
     #[serde(rename = "created")]
     pub created: i64,
     #[serde(rename = "comments", skip_serializing_if = "Option::is_none")]
@@ -30,7 +30,7 @@ pub struct ManifestView {
 }
 
 impl ManifestView {
-    pub fn new(id: String, checksum: String, manifest: Vec<models::BeamoBasicServiceReference>, created: i64) -> ManifestView {
+    pub fn new(id: String, checksum: String, manifest: Vec<models::ServiceReference>, created: i64) -> ManifestView {
         ManifestView {
             created_by_account_id: None,
             id,
