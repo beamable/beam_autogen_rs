@@ -13,20 +13,26 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ClientManifestJsonResponse {
-    #[serde(rename = "uid", skip_serializing_if = "Option::is_none")]
-    pub uid: Option<String>,
-    #[serde(rename = "entries")]
-    pub entries: Vec<models::ClientContentInfoJson>,
+    #[serde(rename = "latestUpdate", skip_serializing_if = "Option::is_none")]
+    pub latest_update: Option<i64>,
     #[serde(rename = "publisherAccountId", skip_serializing_if = "Option::is_none")]
     pub publisher_account_id: Option<i64>,
+    #[serde(rename = "entries")]
+    pub entries: Vec<models::ClientContentInfoJson>,
+    #[serde(rename = "createdAt", skip_serializing_if = "Option::is_none")]
+    pub created_at: Option<i64>,
+    #[serde(rename = "uid", skip_serializing_if = "Option::is_none")]
+    pub uid: Option<String>,
 }
 
 impl ClientManifestJsonResponse {
     pub fn new(entries: Vec<models::ClientContentInfoJson>) -> ClientManifestJsonResponse {
         ClientManifestJsonResponse {
-            uid: None,
-            entries,
+            latest_update: None,
             publisher_account_id: None,
+            entries,
+            created_at: None,
+            uid: None,
         }
     }
 }
