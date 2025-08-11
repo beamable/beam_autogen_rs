@@ -789,6 +789,22 @@ pub struct BasicContentManifestChecksumsGetParams {
     pub x_beam_gamertag: Option<String>
 }
 
+/// struct for passing parameters to the method [`basic_content_manifest_diffs_get`]
+#[derive(Clone, Debug)]
+pub struct BasicContentManifestDiffsGetParams {
+    /// Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+    pub x_beam_scope: String,
+    pub manifest_id: String,
+    /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
+    pub x_beam_gamertag: Option<String>,
+    pub from_uid: Option<String>,
+    pub to_uid: Option<String>,
+    pub offset: Option<i32>,
+    pub from_date: Option<i64>,
+    pub to_date: Option<i64>,
+    pub limit: Option<i32>
+}
+
 /// struct for passing parameters to the method [`basic_content_manifest_exact_get`]
 #[derive(Clone, Debug)]
 pub struct BasicContentManifestExactGetParams {
@@ -4411,6 +4427,14 @@ pub enum BasicContentManifestChecksumGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BasicContentManifestChecksumsGetError {
+    Status400(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`basic_content_manifest_diffs_get`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum BasicContentManifestDiffsGetError {
     Status400(),
     UnknownValue(serde_json::Value),
 }
@@ -10373,6 +10397,74 @@ pub async fn basic_content_manifest_checksums_get(configuration: &configuration:
     }
 }
 
+pub async fn basic_content_manifest_diffs_get(configuration: &configuration::Configuration, params: BasicContentManifestDiffsGetParams) -> Result<models::GetManifestDiffsResponse, Error<BasicContentManifestDiffsGetError>> {
+
+    let uri_str = format!("{}/basic/content/manifest/diffs", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("manifestId", &params.manifest_id.to_string())]);
+    if let Some(ref param_value) = params.from_uid {
+        req_builder = req_builder.query(&[("fromUid", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.to_uid {
+        req_builder = req_builder.query(&[("toUid", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.from_date {
+        req_builder = req_builder.query(&[("fromDate", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.to_date {
+        req_builder = req_builder.query(&[("toDate", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.header("X-BEAM-SCOPE", params.x_beam_scope.to_string());
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("X-DE-SIGNATURE", value);
+    };
+    if let Some(ref token) = configuration.bearer_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetManifestDiffsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetManifestDiffsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<BasicContentManifestDiffsGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn basic_content_manifest_exact_get(configuration: &configuration::Configuration, params: BasicContentManifestExactGetParams) -> Result<models::ContentBasicManifest, Error<BasicContentManifestExactGetError>> {
 
     let uri_str = format!("{}/basic/content/manifest/exact", configuration.base_path);
@@ -10533,7 +10625,7 @@ pub async fn basic_content_manifest_history_get(configuration: &configuration::C
     }
 }
 
-pub async fn basic_content_manifest_post(configuration: &configuration::Configuration, params: BasicContentManifestPostParams) -> Result<models::ContentBasicManifest, Error<BasicContentManifestPostError>> {
+pub async fn basic_content_manifest_post(configuration: &configuration::Configuration, params: BasicContentManifestPostParams) -> Result<models::SaveManifestResponse, Error<BasicContentManifestPostError>> {
 
     let uri_str = format!("{}/basic/content/manifest", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -10573,8 +10665,8 @@ pub async fn basic_content_manifest_post(configuration: &configuration::Configur
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentBasicManifest`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentBasicManifest`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SaveManifestResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SaveManifestResponse`")))),
         }
     } else {
         let content = resp.text().await?;
