@@ -52,6 +52,8 @@ Class | Method | HTTP request | Description
 *BeamoApi* | [**api_beamo_storage_connection_get**](docs/BeamoApi.md#api_beamo_storage_connection_get) | **GET** /api/beamo/storage/connection | 
 *BeamoApi* | [**api_beamo_storage_storage_object_name_performance_get**](docs/BeamoApi.md#api_beamo_storage_storage_object_name_performance_get) | **GET** /api/beamo/storage/{storageObjectName}/performance | 
 *BeamoApi* | [**api_beamo_templates_get**](docs/BeamoApi.md#api_beamo_templates_get) | **GET** /api/beamo/templates | 
+*BeamoOtelApi* | [**api_beamo_otel_auth_reader_config_get**](docs/BeamoOtelApi.md#api_beamo_otel_auth_reader_config_get) | **GET** /api/beamo/otel/auth/reader/config | 
+*BeamoOtelApi* | [**api_beamo_otel_auth_writer_config_get**](docs/BeamoOtelApi.md#api_beamo_otel_auth_writer_config_get) | **GET** /api/beamo/otel/auth/writer/config | 
 *DefaultApi* | [**basic_accounts_admin_admin_user_post**](docs/DefaultApi.md#basic_accounts_admin_admin_user_post) | **POST** /basic/accounts/admin/admin-user | 
 *DefaultApi* | [**basic_accounts_admin_admin_users_get**](docs/DefaultApi.md#basic_accounts_admin_admin_users_get) | **GET** /basic/accounts/admin/admin-users | 
 *DefaultApi* | [**basic_accounts_admin_me_get**](docs/DefaultApi.md#basic_accounts_admin_me_get) | **GET** /basic/accounts/admin/me | 
@@ -129,6 +131,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**basic_content_localizations_put**](docs/DefaultApi.md#basic_content_localizations_put) | **PUT** /basic/content/localizations | 
 *DefaultApi* | [**basic_content_manifest_checksum_get**](docs/DefaultApi.md#basic_content_manifest_checksum_get) | **GET** /basic/content/manifest/checksum | 
 *DefaultApi* | [**basic_content_manifest_checksums_get**](docs/DefaultApi.md#basic_content_manifest_checksums_get) | **GET** /basic/content/manifest/checksums | 
+*DefaultApi* | [**basic_content_manifest_diffs_get**](docs/DefaultApi.md#basic_content_manifest_diffs_get) | **GET** /basic/content/manifest/diffs | 
 *DefaultApi* | [**basic_content_manifest_exact_get**](docs/DefaultApi.md#basic_content_manifest_exact_get) | **GET** /basic/content/manifest/exact | 
 *DefaultApi* | [**basic_content_manifest_get**](docs/DefaultApi.md#basic_content_manifest_get) | **GET** /basic/content/manifest | 
 *DefaultApi* | [**basic_content_manifest_history_get**](docs/DefaultApi.md#basic_content_manifest_history_get) | **GET** /basic/content/manifest/history | 
@@ -414,6 +417,7 @@ Class | Method | HTTP request | Description
 *LobbyApi* | [**api_lobbies_id_tags_put**](docs/LobbyApi.md#api_lobbies_id_tags_put) | **PUT** /api/lobbies/{id}/tags | 
 *LobbyApi* | [**api_lobbies_passcode_put**](docs/LobbyApi.md#api_lobbies_passcode_put) | **PUT** /api/lobbies/passcode | 
 *LobbyApi* | [**api_lobbies_post**](docs/LobbyApi.md#api_lobbies_post) | **POST** /api/lobbies | 
+*LobbyApi* | [**api_lobbies_put**](docs/LobbyApi.md#api_lobbies_put) | **PUT** /api/lobbies | 
 *MailboxApi* | [**api_mailbox_publish_post**](docs/MailboxApi.md#api_mailbox_publish_post) | **POST** /api/mailbox/publish | 
 *MatchApi* | [**api_matchmaking_matches_id_get**](docs/MatchApi.md#api_matchmaking_matches_id_get) | **GET** /api/matchmaking/matches/{id} | 
 *PartyApi* | [**api_parties_id_get**](docs/PartyApi.md#api_parties_id_get) | **GET** /api/parties/{id} | 
@@ -723,6 +727,8 @@ Class | Method | HTTP request | Description
  - [GetLogsUrlHeader](docs/GetLogsUrlHeader.md)
  - [GetLogsUrlRequest](docs/GetLogsUrlRequest.md)
  - [GetMailDetailsRequest](docs/GetMailDetailsRequest.md)
+ - [GetManifestDiffsRequest](docs/GetManifestDiffsRequest.md)
+ - [GetManifestDiffsResponse](docs/GetManifestDiffsResponse.md)
  - [GetManifestHistoryRequest](docs/GetManifestHistoryRequest.md)
  - [GetManifestHistoryResponse](docs/GetManifestHistoryResponse.md)
  - [GetManifestRequestJson](docs/GetManifestRequestJson.md)
@@ -880,6 +886,7 @@ Class | Method | HTTP request | Description
  - [MailTemplate](docs/MailTemplate.md)
  - [MakeDonationRequest](docs/MakeDonationRequest.md)
  - [MakeFriendshipRequest](docs/MakeFriendshipRequest.md)
+ - [ManifestDiffSummary](docs/ManifestDiffSummary.md)
  - [ManifestSummary](docs/ManifestSummary.md)
  - [ManifestView](docs/ManifestView.md)
  - [Match](docs/Match.md)
@@ -919,6 +926,7 @@ Class | Method | HTTP request | Description
  - [OptionalJsonNodeWrapper](docs/OptionalJsonNodeWrapper.md)
  - [OrderRule](docs/OrderRule.md)
  - [OrderRules](docs/OrderRules.md)
+ - [OtelAuthConfig](docs/OtelAuthConfig.md)
  - [PaNamespace](docs/PaNamespace.md)
  - [PaSlowQuery](docs/PaSlowQuery.md)
  - [PaSuggestedIndex](docs/PaSuggestedIndex.md)
@@ -1013,6 +1021,7 @@ Class | Method | HTTP request | Description
  - [SaveContentResponse](docs/SaveContentResponse.md)
  - [SaveGameDataResponse](docs/SaveGameDataResponse.md)
  - [SaveManifestRequest](docs/SaveManifestRequest.md)
+ - [SaveManifestResponse](docs/SaveManifestResponse.md)
  - [SaveSkusRequest](docs/SaveSkusRequest.md)
  - [SaveTextRequest](docs/SaveTextRequest.md)
  - [SaveTextResponse](docs/SaveTextResponse.md)
@@ -1057,6 +1066,7 @@ Class | Method | HTTP request | Description
  - [SessionLanguageContext](docs/SessionLanguageContext.md)
  - [SessionUser](docs/SessionUser.md)
  - [SetContentRequest](docs/SetContentRequest.md)
+ - [SetLobbyResponse](docs/SetLobbyResponse.md)
  - [SetPresenceStatusRequest](docs/SetPresenceStatusRequest.md)
  - [Sku](docs/Sku.md)
  - [SkuDefinitions](docs/SkuDefinitions.md)
