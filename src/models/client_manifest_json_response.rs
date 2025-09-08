@@ -19,6 +19,8 @@ pub struct ClientManifestJsonResponse {
     pub entries: Vec<models::ClientContentInfoJson>,
     #[serde(rename = "publisherAccountId", skip_serializing_if = "Option::is_none")]
     pub publisher_account_id: Option<i64>,
+    #[serde(rename = "createdAt", skip_serializing_if = "Option::is_none")]
+    pub created_at: Option<i64>,
 }
 
 impl ClientManifestJsonResponse {
@@ -27,6 +29,7 @@ impl ClientManifestJsonResponse {
             uid: None,
             entries,
             publisher_account_id: None,
+            created_at: None,
         }
     }
 }

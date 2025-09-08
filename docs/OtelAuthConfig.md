@@ -1,12 +1,13 @@
-# ClientManifestResponse
+# OtelAuthConfig
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**Vec<models::ClientContentInfo>**](ClientContentInfo.md) |  | 
-**created_at** | Option<**i64**> |  | [optional]
-**latest_update** | Option<**i64**> |  | [optional]
+**endpoint** | **String** |  | 
+**username** | **String** |  | 
+**password** | **String** |  | 
+**expires_at** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

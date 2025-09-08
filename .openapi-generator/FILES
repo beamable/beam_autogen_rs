@@ -56,6 +56,7 @@ docs/BeamoBasicManifestChecksums.md
 docs/BeamoBasicReference.md
 docs/BeamoBasicUrlResponse.md
 docs/BeamoLimits.md
+docs/BeamoOtelApi.md
 docs/BeamoV2ConnectionStringResponse.md
 docs/BeamoV2DataPoint.md
 docs/BeamoV2DatabaseMeasurement.md
@@ -149,6 +150,8 @@ docs/ContentReference.md
 docs/ContentType.md
 docs/ContentVisibility.md
 docs/CooldownModifierRequest.md
+docs/CreateAccountWithCredsApiResponse.md
+docs/CreateAccountWithCredsRequest.md
 docs/CreateDonationRequest.md
 docs/CreateElevatedAccountRequest.md
 docs/CreateFederatedGameServer.md
@@ -271,6 +274,8 @@ docs/GetLogsInsightUrlRequest.md
 docs/GetLogsUrlHeader.md
 docs/GetLogsUrlRequest.md
 docs/GetMailDetailsRequest.md
+docs/GetManifestDiffsRequest.md
+docs/GetManifestDiffsResponse.md
 docs/GetManifestHistoryRequest.md
 docs/GetManifestHistoryResponse.md
 docs/GetManifestRequestJson.md
@@ -430,6 +435,7 @@ docs/MailTemplate.md
 docs/MailboxApi.md
 docs/MakeDonationRequest.md
 docs/MakeFriendshipRequest.md
+docs/ManifestDiffSummary.md
 docs/ManifestSummary.md
 docs/ManifestView.md
 docs/Match.md
@@ -456,6 +462,7 @@ docs/NewGameRequest.md
 docs/NewItemReward.md
 docs/NotificationRequest.md
 docs/NotificationRequestData.md
+docs/ObjectId.md
 docs/ObjectMetadataResponse.md
 docs/ObjectRequest.md
 docs/ObjectRequests.md
@@ -470,6 +477,9 @@ docs/OnlineStatusResponses.md
 docs/OptionalJsonNodeWrapper.md
 docs/OrderRule.md
 docs/OrderRules.md
+docs/OtelAuthConfig.md
+docs/OtelView.md
+docs/OtelViewsResponse.md
 docs/PaNamespace.md
 docs/PaSlowQuery.md
 docs/PaSuggestedIndex.md
@@ -570,6 +580,7 @@ docs/SaveContentRequest.md
 docs/SaveContentResponse.md
 docs/SaveGameDataResponse.md
 docs/SaveManifestRequest.md
+docs/SaveManifestResponse.md
 docs/SaveSkusRequest.md
 docs/SaveTextRequest.md
 docs/SaveTextResponse.md
@@ -615,6 +626,7 @@ docs/SessionHistoryResponse.md
 docs/SessionLanguageContext.md
 docs/SessionUser.md
 docs/SetContentRequest.md
+docs/SetLobbyResponse.md
 docs/SetPresenceStatusRequest.md
 docs/Sku.md
 docs/SkuDefinitions.md
@@ -677,6 +689,7 @@ docs/UpdateGameHierarchyRequest.md
 docs/UpdateListingCooldownRequest.md
 docs/UpdateLobby.md
 docs/UpdateMailRequest.md
+docs/UpdateOtelViewRequest.md
 docs/UpdateParty.md
 docs/UpdatePlayerStatusRequest.md
 docs/UpdateRole.md
@@ -700,6 +713,7 @@ docs/WebhookServiceType.md
 git_push.sh
 src/apis/auth_api.rs
 src/apis/beamo_api.rs
+src/apis/beamo_otel_api.rs
 src/apis/configuration.rs
 src/apis/default_api.rs
 src/apis/lobby_api.rs
@@ -861,6 +875,8 @@ src/models/content_reference.rs
 src/models/content_type.rs
 src/models/content_visibility.rs
 src/models/cooldown_modifier_request.rs
+src/models/create_account_with_creds_api_response.rs
+src/models/create_account_with_creds_request.rs
 src/models/create_donation_request.rs
 src/models/create_elevated_account_request.rs
 src/models/create_federated_game_server.rs
@@ -982,6 +998,8 @@ src/models/get_logs_insight_url_request.rs
 src/models/get_logs_url_header.rs
 src/models/get_logs_url_request.rs
 src/models/get_mail_details_request.rs
+src/models/get_manifest_diffs_request.rs
+src/models/get_manifest_diffs_response.rs
 src/models/get_manifest_history_request.rs
 src/models/get_manifest_history_response.rs
 src/models/get_manifest_request_json.rs
@@ -1139,6 +1157,7 @@ src/models/mail_success_response.rs
 src/models/mail_template.rs
 src/models/make_donation_request.rs
 src/models/make_friendship_request.rs
+src/models/manifest_diff_summary.rs
 src/models/manifest_summary.rs
 src/models/manifest_view.rs
 src/models/match_making_matches_pvp_response.rs
@@ -1165,6 +1184,7 @@ src/models/new_game_request.rs
 src/models/new_item_reward.rs
 src/models/notification_request.rs
 src/models/notification_request_data.rs
+src/models/object_id.rs
 src/models/object_metadata_response.rs
 src/models/object_request.rs
 src/models/object_requests.rs
@@ -1179,6 +1199,9 @@ src/models/online_status_responses.rs
 src/models/optional_json_node_wrapper.rs
 src/models/order_rule.rs
 src/models/order_rules.rs
+src/models/otel_auth_config.rs
+src/models/otel_view.rs
+src/models/otel_views_response.rs
 src/models/pa_namespace.rs
 src/models/pa_slow_query.rs
 src/models/pa_suggested_index.rs
@@ -1273,6 +1296,7 @@ src/models/save_content_request.rs
 src/models/save_content_response.rs
 src/models/save_game_data_response.rs
 src/models/save_manifest_request.rs
+src/models/save_manifest_response.rs
 src/models/save_skus_request.rs
 src/models/save_text_request.rs
 src/models/save_text_response.rs
@@ -1317,6 +1341,7 @@ src/models/session_history_response.rs
 src/models/session_language_context.rs
 src/models/session_user.rs
 src/models/set_content_request.rs
+src/models/set_lobby_response.rs
 src/models/set_presence_status_request.rs
 src/models/sku.rs
 src/models/sku_definitions.rs
@@ -1378,6 +1403,7 @@ src/models/update_game_hierarchy_request.rs
 src/models/update_listing_cooldown_request.rs
 src/models/update_lobby.rs
 src/models/update_mail_request.rs
+src/models/update_otel_view_request.rs
 src/models/update_party.rs
 src/models/update_player_status_request.rs
 src/models/update_role.rs

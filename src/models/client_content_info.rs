@@ -13,6 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ClientContentInfo {
+    #[serde(rename = "updatedAt", skip_serializing_if = "Option::is_none")]
+    pub updated_at: Option<i64>,
     #[serde(rename = "tags")]
     pub tags: Vec<String>,
     #[serde(rename = "uri")]
@@ -21,6 +23,8 @@ pub struct ClientContentInfo {
     pub version: String,
     #[serde(rename = "checksum", skip_serializing_if = "Option::is_none")]
     pub checksum: Option<String>,
+    #[serde(rename = "createdAt", skip_serializing_if = "Option::is_none")]
+    pub created_at: Option<i64>,
     #[serde(rename = "contentId")]
     pub content_id: String,
     #[serde(rename = "type")]
@@ -30,10 +34,12 @@ pub struct ClientContentInfo {
 impl ClientContentInfo {
     pub fn new(tags: Vec<String>, uri: String, version: String, content_id: String, r#type: models::ContentType) -> ClientContentInfo {
         ClientContentInfo {
+            updated_at: None,
             tags,
             uri,
             version,
             checksum: None,
+            created_at: None,
             content_id,
             r#type,
         }

@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**basic_accounts_password_update_init_post**](DefaultApi.md#basic_accounts_password_update_init_post) | **POST** /basic/accounts/password-update/init | 
 [**basic_accounts_register_post**](DefaultApi.md#basic_accounts_register_post) | **POST** /basic/accounts/register | 
 [**basic_accounts_search_get**](DefaultApi.md#basic_accounts_search_get) | **GET** /basic/accounts/search | 
+[**basic_accounts_signup_post**](DefaultApi.md#basic_accounts_signup_post) | **POST** /basic/accounts/signup | 
 [**basic_announcements_content_get**](DefaultApi.md#basic_announcements_content_get) | **GET** /basic/announcements/content | 
 [**basic_announcements_delete**](DefaultApi.md#basic_announcements_delete) | **DELETE** /basic/announcements/ | 
 [**basic_announcements_list_definitions_get**](DefaultApi.md#basic_announcements_list_definitions_get) | **GET** /basic/announcements/list/definitions | 
@@ -81,6 +82,7 @@ Method | HTTP request | Description
 [**basic_content_localizations_put**](DefaultApi.md#basic_content_localizations_put) | **PUT** /basic/content/localizations | 
 [**basic_content_manifest_checksum_get**](DefaultApi.md#basic_content_manifest_checksum_get) | **GET** /basic/content/manifest/checksum | 
 [**basic_content_manifest_checksums_get**](DefaultApi.md#basic_content_manifest_checksums_get) | **GET** /basic/content/manifest/checksums | 
+[**basic_content_manifest_diffs_get**](DefaultApi.md#basic_content_manifest_diffs_get) | **GET** /basic/content/manifest/diffs | 
 [**basic_content_manifest_exact_get**](DefaultApi.md#basic_content_manifest_exact_get) | **GET** /basic/content/manifest/exact | 
 [**basic_content_manifest_get**](DefaultApi.md#basic_content_manifest_get) | **GET** /basic/content/manifest | 
 [**basic_content_manifest_history_get**](DefaultApi.md#basic_content_manifest_history_get) | **GET** /basic/content/manifest/history | 
@@ -986,6 +988,36 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## basic_accounts_signup_post
+
+> models::CreateAccountWithCredsApiResponse basic_accounts_signup_post(x_beam_scope, x_beam_gamertag, create_account_with_creds_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
+**x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
+**create_account_with_creds_request** | Option<[**CreateAccountWithCredsRequest**](CreateAccountWithCredsRequest.md)> |  |  |
+
+### Return type
+
+[**models::CreateAccountWithCredsApiResponse**](CreateAccountWithCredsApiResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2672,6 +2704,42 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## basic_content_manifest_diffs_get
+
+> models::GetManifestDiffsResponse basic_content_manifest_diffs_get(x_beam_scope, manifest_id, x_beam_gamertag, from_uid, to_uid, offset, from_date, to_date, limit)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | **String** | Customer and project scope. This should be in the form of '<customer-id>.<project-id>'. | [required] |
+**manifest_id** | **String** |  | [required] |
+**x_beam_gamertag** | Option<**String**> | Override the Gamer Tag of the player. This is generally inferred by the auth token. |  |
+**from_uid** | Option<**String**> |  |  |
+**to_uid** | Option<**String**> |  |  |
+**offset** | Option<**i32**> |  |  |
+**from_date** | Option<**i64**> |  |  |
+**to_date** | Option<**i64**> |  |  |
+**limit** | Option<**i32**> |  |  |
+
+### Return type
+
+[**models::GetManifestDiffsResponse**](GetManifestDiffsResponse.md)
+
+### Authorization
+
+[server](../README.md#server), [user](../README.md#user)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## basic_content_manifest_exact_get
 
 > models::ContentBasicManifest basic_content_manifest_exact_get(x_beam_scope, uid, x_beam_gamertag)
@@ -2766,7 +2834,7 @@ Name | Type | Description  | Required | Notes
 
 ## basic_content_manifest_post
 
-> models::ContentBasicManifest basic_content_manifest_post(x_beam_scope, x_beam_gamertag, save_manifest_request)
+> models::SaveManifestResponse basic_content_manifest_post(x_beam_scope, x_beam_gamertag, save_manifest_request)
 
 
 ### Parameters
@@ -2780,7 +2848,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ContentBasicManifest**](ContentBasicManifest.md)
+[**models::SaveManifestResponse**](SaveManifestResponse.md)
 
 ### Authorization
 
