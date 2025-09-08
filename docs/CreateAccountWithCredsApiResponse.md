@@ -1,12 +1,12 @@
-# ClientManifestResponse
+# CreateAccountWithCredsApiResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**Vec<models::ClientContentInfo>**](ClientContentInfo.md) |  | 
-**created_at** | Option<**i64**> |  | [optional]
-**latest_update** | Option<**i64**> |  | [optional]
+**account** | Option<[**models::AccountPlayerView**](AccountPlayerView.md)> |  | [optional]
+**challenge_token** | Option<**String**> |  | [optional]
+**token** | Option<[**models::TokenResponse**](TokenResponse.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
