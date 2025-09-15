@@ -17,10 +17,14 @@ pub struct SearchExtendedRequest {
     pub criteria: Vec<models::StatsSearchCriteria>,
     #[serde(rename = "domain")]
     pub domain: String,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i32>,
     #[serde(rename = "objectType")]
     pub object_type: String,
     #[serde(rename = "statKeys")]
     pub stat_keys: Vec<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i32>,
     #[serde(rename = "access")]
     pub access: String,
 }
@@ -30,8 +34,10 @@ impl SearchExtendedRequest {
         SearchExtendedRequest {
             criteria,
             domain,
+            offset: None,
             object_type,
             stat_keys,
+            limit: None,
             access,
         }
     }

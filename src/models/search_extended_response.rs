@@ -15,12 +15,21 @@ use serde::{Deserialize, Serialize};
 pub struct SearchExtendedResponse {
     #[serde(rename = "gamerStats")]
     pub gamer_stats: std::collections::HashMap<String, std::collections::HashMap<String, String>>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i32>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i32>,
+    #[serde(rename = "total", skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
 }
 
 impl SearchExtendedResponse {
     pub fn new(gamer_stats: std::collections::HashMap<String, std::collections::HashMap<String, String>>) -> SearchExtendedResponse {
         SearchExtendedResponse {
             gamer_stats,
+            offset: None,
+            limit: None,
+            total: None,
         }
     }
 }
