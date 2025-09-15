@@ -137,6 +137,16 @@ pub struct ApiLobbiesPostParams {
     pub create_lobby: Option<models::CreateLobby>
 }
 
+/// struct for passing parameters to the method [`api_lobbies_put`]
+#[derive(Clone, Debug)]
+pub struct ApiLobbiesPutParams {
+    /// Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token
+    pub x_beam_scope: Option<String>,
+    /// Override the playerId of the requester. This is only necessary when not using a JWT bearer token.
+    pub x_beam_gamertag: Option<String>,
+    pub lobby: Option<models::Lobby>
+}
+
 
 /// struct for typed errors of method [`api_lobbies_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -208,6 +218,13 @@ pub enum ApiLobbiesPostError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`api_lobbies_put`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiLobbiesPutError {
+    UnknownValue(serde_json::Value),
+}
+
 
 /// Query for active lobbies
 pub async fn api_lobbies_get(configuration: &configuration::Configuration, params: ApiLobbiesGetParams) -> Result<models::LobbyQueryResponse, Error<ApiLobbiesGetError>> {
@@ -259,7 +276,7 @@ pub async fn api_lobbies_get(configuration: &configuration::Configuration, param
     }
 }
 
-/// Remove the requested player from the lobby. The host is able to remove anyone. Others may  only remove themselves without error.
+/// Remove the requested player from the lobby. The host is able to remove anyone. Others may only remove themselves without error.
 pub async fn api_lobbies_id_delete(configuration: &configuration::Configuration, params: ApiLobbiesIdDeleteParams) -> Result<serde_json::Value, Error<ApiLobbiesIdDeleteError>> {
 
     let uri_str = format!("{}/api/lobbies/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
@@ -632,6 +649,48 @@ pub async fn api_lobbies_post(configuration: &configuration::Configuration, para
     } else {
         let content = resp.text().await?;
         let entity: Option<ApiLobbiesPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Exposes the internal \"SetLobby\" behavior as an Admin only endpoint
+pub async fn api_lobbies_put(configuration: &configuration::Configuration, params: ApiLobbiesPutParams) -> Result<models::SetLobbyResponse, Error<ApiLobbiesPutError>> {
+
+    let uri_str = format!("{}/api/lobbies", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(param_value) = params.x_beam_scope {
+        req_builder = req_builder.header("X-BEAM-SCOPE", param_value.to_string());
+    }
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.lobby);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SetLobbyResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SetLobbyResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ApiLobbiesPutError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

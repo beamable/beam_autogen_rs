@@ -4,10 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**updated_at** | Option<**i64**> |  | [optional]
 **tags** | **Vec<String>** |  | 
 **uri** | **String** |  | 
 **version** | **String** |  | 
 **checksum** | Option<**String**> |  | [optional]
+**created_at** | Option<**i64**> |  | [optional]
 **content_id** | **String** |  | 
 **r#type** | [**models::ContentType**](ContentType.md) |  | 
 

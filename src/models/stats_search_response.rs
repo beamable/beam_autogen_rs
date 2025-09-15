@@ -15,12 +15,21 @@ use serde::{Deserialize, Serialize};
 pub struct StatsSearchResponse {
     #[serde(rename = "ids")]
     pub ids: Vec<i64>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i32>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i32>,
+    #[serde(rename = "total", skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
 }
 
 impl StatsSearchResponse {
     pub fn new(ids: Vec<i64>) -> StatsSearchResponse {
         StatsSearchResponse {
             ids,
+            offset: None,
+            limit: None,
+            total: None,
         }
     }
 }

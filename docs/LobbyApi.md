@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**api_lobbies_id_tags_put**](LobbyApi.md#api_lobbies_id_tags_put) | **PUT** /api/lobbies/{id}/tags | 
 [**api_lobbies_passcode_put**](LobbyApi.md#api_lobbies_passcode_put) | **PUT** /api/lobbies/passcode | 
 [**api_lobbies_post**](LobbyApi.md#api_lobbies_post) | **POST** /api/lobbies | 
+[**api_lobbies_put**](LobbyApi.md#api_lobbies_put) | **PUT** /api/lobbies | 
 
 
 
@@ -56,7 +57,7 @@ No authorization required
 > serde_json::Value api_lobbies_id_delete(id, x_beam_scope, x_beam_gamertag, remove_from_lobby)
 
 
-Remove the requested player from the lobby. The host is able to remove anyone. Others may  only remove themselves without error.
+Remove the requested player from the lobby. The host is able to remove anyone. Others may only remove themselves without error.
 
 ### Parameters
 
@@ -332,6 +333,38 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::Lobby**](Lobby.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_lobbies_put
+
+> models::SetLobbyResponse api_lobbies_put(x_beam_scope, x_beam_gamertag, lobby)
+
+
+Exposes the internal \"SetLobby\" behavior as an Admin only endpoint
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**lobby** | Option<[**Lobby**](Lobby.md)> |  |  |
+
+### Return type
+
+[**models::SetLobbyResponse**](SetLobbyResponse.md)
 
 ### Authorization
 

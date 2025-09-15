@@ -15,12 +15,18 @@ use serde::{Deserialize, Serialize};
 pub struct ClientManifestResponse {
     #[serde(rename = "items")]
     pub items: Vec<models::ClientContentInfo>,
+    #[serde(rename = "createdAt", skip_serializing_if = "Option::is_none")]
+    pub created_at: Option<i64>,
+    #[serde(rename = "latestUpdate", skip_serializing_if = "Option::is_none")]
+    pub latest_update: Option<i64>,
 }
 
 impl ClientManifestResponse {
     pub fn new(items: Vec<models::ClientContentInfo>) -> ClientManifestResponse {
         ClientManifestResponse {
             items,
+            created_at: None,
+            latest_update: None,
         }
     }
 }

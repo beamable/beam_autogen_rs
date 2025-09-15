@@ -118,7 +118,7 @@ No authorization required
 > serde_json::Value api_parties_id_members_delete(id, x_beam_scope, x_beam_gamertag, leave_party)
 
 
-Remove the requested player from the party. The leader is able to remove anyone. Others may  only remove themselves without error.
+Remove the requested player from the party. The leader is able to remove anyone. Others may only remove themselves without error.
 
 ### Parameters
 

@@ -144,7 +144,7 @@ pub async fn api_matchmaking_tickets_get(configuration: &configuration::Configur
     }
 }
 
-/// Cancel a pending ticket. If no ticket with the id exists, this will  still return a 204.
+/// Cancel a pending ticket. If no ticket with the id exists, this will still return a 204.
 pub async fn api_matchmaking_tickets_id_delete(configuration: &configuration::Configuration, params: ApiMatchmakingTicketsIdDeleteParams) -> Result<serde_json::Value, Error<ApiMatchmakingTicketsIdDeleteError>> {
 
     let uri_str = format!("{}/api/matchmaking/tickets/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
@@ -226,7 +226,7 @@ pub async fn api_matchmaking_tickets_id_get(configuration: &configuration::Confi
     }
 }
 
-/// Create a ticket representing 1 or more players to be matched  with others.
+/// Create a ticket representing 1 or more players to be matched with others.
 pub async fn api_matchmaking_tickets_post(configuration: &configuration::Configuration, params: ApiMatchmakingTicketsPostParams) -> Result<models::TicketReservationResponse, Error<ApiMatchmakingTicketsPostError>> {
 
     let uri_str = format!("{}/api/matchmaking/tickets", configuration.base_path);
