@@ -32,11 +32,11 @@ pub struct CreatePlanRequest {
     #[serde(rename = "messageBusCommon", skip_serializing_if = "Option::is_none")]
     pub message_bus_common: Option<Vec<String>>,
     #[serde(rename = "redisShards")]
-    pub redis_shards: Vec<models::RedisShardRequest>,
+    pub redis_shards: Vec<models::RealmsBasicRedisShardRequest>,
 }
 
 impl CreatePlanRequest {
-    pub fn new(name: String, memcached_hosts: String, mongo_ssl: bool, platform_jbdc: String, sharded: bool, mongo_hosts: String, redis_shards: Vec<models::RedisShardRequest>) -> CreatePlanRequest {
+    pub fn new(name: String, memcached_hosts: String, mongo_ssl: bool, platform_jbdc: String, sharded: bool, mongo_hosts: String, redis_shards: Vec<models::RealmsBasicRedisShardRequest>) -> CreatePlanRequest {
         CreatePlanRequest {
             name,
             message_bus_analytics: None,

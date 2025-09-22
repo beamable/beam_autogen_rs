@@ -295,7 +295,7 @@ pub async fn api_parties_id_invite_post(configuration: &configuration::Configura
     }
 }
 
-/// Remove the requested player from the party. The leader is able to remove anyone. Others may  only remove themselves without error.
+/// Remove the requested player from the party. The leader is able to remove anyone. Others may only remove themselves without error.
 pub async fn api_parties_id_members_delete(configuration: &configuration::Configuration, params: ApiPartiesIdMembersDeleteParams) -> Result<serde_json::Value, Error<ApiPartiesIdMembersDeleteError>> {
 
     let uri_str = format!("{}/api/parties/{id}/members", configuration.base_path, id=crate::apis::urlencode(params.id));

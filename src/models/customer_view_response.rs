@@ -14,11 +14,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CustomerViewResponse {
     #[serde(rename = "customer")]
-    pub customer: Box<models::CustomerView>,
+    pub customer: Box<models::RealmsBasicCustomerView>,
 }
 
 impl CustomerViewResponse {
-    pub fn new(customer: models::CustomerView) -> CustomerViewResponse {
+    pub fn new(customer: models::RealmsBasicCustomerView) -> CustomerViewResponse {
         CustomerViewResponse {
             customer: Box::new(customer),
         }
