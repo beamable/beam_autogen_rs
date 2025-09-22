@@ -13,23 +13,29 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StatsSearchRequest {
-    #[serde(rename = "domain")]
-    pub domain: String,
-    #[serde(rename = "access")]
-    pub access: String,
-    #[serde(rename = "objectType")]
-    pub object_type: String,
     #[serde(rename = "criteria")]
     pub criteria: Vec<models::StatsSearchCriteria>,
+    #[serde(rename = "domain")]
+    pub domain: String,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i32>,
+    #[serde(rename = "objectType")]
+    pub object_type: String,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i32>,
+    #[serde(rename = "access")]
+    pub access: String,
 }
 
 impl StatsSearchRequest {
-    pub fn new(domain: String, access: String, object_type: String, criteria: Vec<models::StatsSearchCriteria>) -> StatsSearchRequest {
+    pub fn new(criteria: Vec<models::StatsSearchCriteria>, domain: String, object_type: String, access: String) -> StatsSearchRequest {
         StatsSearchRequest {
-            domain,
-            access,
-            object_type,
             criteria,
+            domain,
+            offset: None,
+            object_type,
+            limit: None,
+            access,
         }
     }
 }

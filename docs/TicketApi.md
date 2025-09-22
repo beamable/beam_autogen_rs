@@ -51,7 +51,7 @@ No authorization required
 > serde_json::Value api_matchmaking_tickets_id_delete(id, x_beam_scope, x_beam_gamertag)
 
 
-Cancel a pending ticket. If no ticket with the id exists, this will  still return a 204.
+Cancel a pending ticket. If no ticket with the id exists, this will still return a 204.
 
 ### Parameters
 
@@ -115,7 +115,7 @@ No authorization required
 > models::TicketReservationResponse api_matchmaking_tickets_post(x_beam_scope, x_beam_gamertag, ticket_reservation_request)
 
 
-Create a ticket representing 1 or more players to be matched  with others.
+Create a ticket representing 1 or more players to be matched with others.
 
 ### Parameters
 

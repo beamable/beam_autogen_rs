@@ -113,6 +113,8 @@ impl From<&str> for ContentType {
 
 pub mod auth_api;
 pub mod beamo_api;
+pub mod beamo_otel_api;
+pub mod customer_api;
 pub mod default_api;
 pub mod lobby_api;
 pub mod mailbox_api;
@@ -124,6 +126,7 @@ pub mod player_presence_api;
 pub mod player_ticket_api;
 pub mod presence_api;
 pub mod scheduler_api;
+pub mod service_plan_api;
 pub mod ticket_api;
 
 pub mod configuration;
