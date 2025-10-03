@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **sharded** | **bool** |  | 
 **mongo_hosts** | **String** |  | 
 **message_bus_common** | Option<**Vec<String>**> |  | [optional]
-**redis_shards** | [**Vec<models::RedisShardRequest>**](RedisShardRequest.md) |  | 
+**redis_shards** | [**Vec<models::RealmsBasicRedisShardRequest>**](RealmsBasicRedisShardRequest.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

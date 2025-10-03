@@ -226,6 +226,16 @@ pub struct BasicAccountsSearchGetParams {
     pub x_beam_gamertag: Option<String>
 }
 
+/// struct for passing parameters to the method [`basic_accounts_signup_post`]
+#[derive(Clone, Debug)]
+pub struct BasicAccountsSignupPostParams {
+    /// Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+    pub x_beam_scope: String,
+    /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
+    pub x_beam_gamertag: Option<String>,
+    pub create_account_with_creds_request: Option<models::CreateAccountWithCredsRequest>
+}
+
 /// struct for passing parameters to the method [`basic_announcements_content_get`]
 #[derive(Clone, Debug)]
 pub struct BasicAnnouncementsContentGetParams {
@@ -787,6 +797,22 @@ pub struct BasicContentManifestChecksumsGetParams {
     pub x_beam_scope: String,
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>
+}
+
+/// struct for passing parameters to the method [`basic_content_manifest_diffs_get`]
+#[derive(Clone, Debug)]
+pub struct BasicContentManifestDiffsGetParams {
+    /// Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+    pub x_beam_scope: String,
+    pub manifest_id: String,
+    /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
+    pub x_beam_gamertag: Option<String>,
+    pub from_uid: Option<String>,
+    pub to_uid: Option<String>,
+    pub offset: Option<i32>,
+    pub from_date: Option<i64>,
+    pub to_date: Option<i64>,
+    pub limit: Option<i32>
 }
 
 /// struct for passing parameters to the method [`basic_content_manifest_exact_get`]
@@ -1839,7 +1865,7 @@ pub struct BasicRealmsConfigPutParams {
     pub x_beam_scope: String,
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
-    pub realm_config_save_request: Option<models::RealmConfigSaveRequest>
+    pub realms_basic_realm_config_save_request: Option<models::RealmsBasicRealmConfigSaveRequest>
 }
 
 /// struct for passing parameters to the method [`basic_realms_customer_activate_get`]
@@ -1879,7 +1905,7 @@ pub struct BasicRealmsCustomerPostParams {
     pub x_beam_scope: String,
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
-    pub new_customer_request: Option<models::NewCustomerRequest>
+    pub realms_basic_new_customer_request: Option<models::RealmsBasicNewCustomerRequest>
 }
 
 /// struct for passing parameters to the method [`basic_realms_customer_verify_post`]
@@ -1889,7 +1915,7 @@ pub struct BasicRealmsCustomerVerifyPostParams {
     pub x_beam_scope: String,
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
-    pub new_customer_request: Option<models::NewCustomerRequest>
+    pub realms_basic_new_customer_request: Option<models::RealmsBasicNewCustomerRequest>
 }
 
 /// struct for passing parameters to the method [`basic_realms_customers_get`]
@@ -1928,7 +1954,7 @@ pub struct BasicRealmsGamePutParams {
     pub x_beam_scope: String,
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
-    pub update_game_hierarchy_request: Option<models::UpdateGameHierarchyRequest>
+    pub realms_basic_update_game_hierarchy_request: Option<models::RealmsBasicUpdateGameHierarchyRequest>
 }
 
 /// struct for passing parameters to the method [`basic_realms_games_get`]
@@ -2055,7 +2081,7 @@ pub struct BasicRealmsProjectPromotePostParams {
     pub x_beam_scope: String,
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
-    pub promote_realm_request: Option<models::PromoteRealmRequest>
+    pub realms_basic_promote_realm_request: Option<models::RealmsBasicPromoteRealmRequest>
 }
 
 /// struct for passing parameters to the method [`basic_realms_project_put`]
@@ -2097,7 +2123,7 @@ pub struct BasicRealmsPromotionPostParams {
     pub x_beam_scope: String,
     /// Override the Gamer Tag of the player. This is generally inferred by the auth token.
     pub x_beam_gamertag: Option<String>,
-    pub promote_realm_request: Option<models::PromoteRealmRequest>
+    pub realms_basic_promote_realm_request: Option<models::RealmsBasicPromoteRealmRequest>
 }
 
 /// struct for passing parameters to the method [`basic_session_client_history_get`]
@@ -3967,6 +3993,14 @@ pub enum BasicAccountsSearchGetError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`basic_accounts_signup_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum BasicAccountsSignupPostError {
+    Status400(),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`basic_announcements_content_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -4411,6 +4445,14 @@ pub enum BasicContentManifestChecksumGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BasicContentManifestChecksumsGetError {
+    Status400(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`basic_content_manifest_diffs_get`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum BasicContentManifestDiffsGetError {
     Status400(),
     UnknownValue(serde_json::Value),
 }
@@ -7593,6 +7635,45 @@ pub async fn basic_accounts_search_get(configuration: &configuration::Configurat
     }
 }
 
+pub async fn basic_accounts_signup_post(configuration: &configuration::Configuration, params: BasicAccountsSignupPostParams) -> Result<models::CreateAccountWithCredsApiResponse, Error<BasicAccountsSignupPostError>> {
+
+    let uri_str = format!("{}/basic/accounts/signup", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.header("X-BEAM-SCOPE", params.x_beam_scope.to_string());
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    req_builder = req_builder.json(&params.create_account_with_creds_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateAccountWithCredsApiResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateAccountWithCredsApiResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<BasicAccountsSignupPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn basic_announcements_content_get(configuration: &configuration::Configuration, params: BasicAnnouncementsContentGetParams) -> Result<models::AnnouncementContentResponse, Error<BasicAnnouncementsContentGetError>> {
 
     let uri_str = format!("{}/basic/announcements/content", configuration.base_path);
@@ -10373,6 +10454,74 @@ pub async fn basic_content_manifest_checksums_get(configuration: &configuration:
     }
 }
 
+pub async fn basic_content_manifest_diffs_get(configuration: &configuration::Configuration, params: BasicContentManifestDiffsGetParams) -> Result<models::GetManifestDiffsResponse, Error<BasicContentManifestDiffsGetError>> {
+
+    let uri_str = format!("{}/basic/content/manifest/diffs", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("manifestId", &params.manifest_id.to_string())]);
+    if let Some(ref param_value) = params.from_uid {
+        req_builder = req_builder.query(&[("fromUid", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.to_uid {
+        req_builder = req_builder.query(&[("toUid", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.from_date {
+        req_builder = req_builder.query(&[("fromDate", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.to_date {
+        req_builder = req_builder.query(&[("toDate", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.header("X-BEAM-SCOPE", params.x_beam_scope.to_string());
+    if let Some(param_value) = params.x_beam_gamertag {
+        req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("X-DE-SIGNATURE", value);
+    };
+    if let Some(ref token) = configuration.bearer_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetManifestDiffsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetManifestDiffsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<BasicContentManifestDiffsGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn basic_content_manifest_exact_get(configuration: &configuration::Configuration, params: BasicContentManifestExactGetParams) -> Result<models::ContentBasicManifest, Error<BasicContentManifestExactGetError>> {
 
     let uri_str = format!("{}/basic/content/manifest/exact", configuration.base_path);
@@ -10533,7 +10682,7 @@ pub async fn basic_content_manifest_history_get(configuration: &configuration::C
     }
 }
 
-pub async fn basic_content_manifest_post(configuration: &configuration::Configuration, params: BasicContentManifestPostParams) -> Result<models::ContentBasicManifest, Error<BasicContentManifestPostError>> {
+pub async fn basic_content_manifest_post(configuration: &configuration::Configuration, params: BasicContentManifestPostParams) -> Result<models::SaveManifestResponse, Error<BasicContentManifestPostError>> {
 
     let uri_str = format!("{}/basic/content/manifest", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -10573,8 +10722,8 @@ pub async fn basic_content_manifest_post(configuration: &configuration::Configur
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentBasicManifest`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentBasicManifest`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SaveManifestResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SaveManifestResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -14945,7 +15094,7 @@ pub async fn basic_realms_admin_inflight_failures_get(configuration: &configurat
     }
 }
 
-pub async fn basic_realms_client_defaults_get(configuration: &configuration::Configuration, params: BasicRealmsClientDefaultsGetParams) -> Result<models::RealmConfiguration, Error<BasicRealmsClientDefaultsGetError>> {
+pub async fn basic_realms_client_defaults_get(configuration: &configuration::Configuration, params: BasicRealmsClientDefaultsGetParams) -> Result<models::RealmsBasicRealmConfiguration, Error<BasicRealmsClientDefaultsGetError>> {
 
     let uri_str = format!("{}/basic/realms/client/defaults", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -14973,8 +15122,8 @@ pub async fn basic_realms_client_defaults_get(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RealmConfiguration`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RealmConfiguration`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RealmsBasicRealmConfiguration`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RealmsBasicRealmConfiguration`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -14983,7 +15132,7 @@ pub async fn basic_realms_client_defaults_get(configuration: &configuration::Con
     }
 }
 
-pub async fn basic_realms_config_get(configuration: &configuration::Configuration, params: BasicRealmsConfigGetParams) -> Result<models::RealmConfigResponse, Error<BasicRealmsConfigGetError>> {
+pub async fn basic_realms_config_get(configuration: &configuration::Configuration, params: BasicRealmsConfigGetParams) -> Result<models::RealmsBasicRealmConfigResponse, Error<BasicRealmsConfigGetError>> {
 
     let uri_str = format!("{}/basic/realms/config", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -15022,8 +15171,8 @@ pub async fn basic_realms_config_get(configuration: &configuration::Configuratio
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RealmConfigResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RealmConfigResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RealmsBasicRealmConfigResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RealmsBasicRealmConfigResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -15105,7 +15254,7 @@ pub async fn basic_realms_config_put(configuration: &configuration::Configuratio
     if let Some(ref token) = configuration.bearer_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&params.realm_config_save_request);
+    req_builder = req_builder.json(&params.realms_basic_realm_config_save_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -15132,7 +15281,7 @@ pub async fn basic_realms_config_put(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn basic_realms_customer_activate_get(configuration: &configuration::Configuration, params: BasicRealmsCustomerActivateGetParams) -> Result<models::HtmlResponse, Error<BasicRealmsCustomerActivateGetError>> {
+pub async fn basic_realms_customer_activate_get(configuration: &configuration::Configuration, params: BasicRealmsCustomerActivateGetParams) -> Result<models::RealmsBasicHtmlResponse, Error<BasicRealmsCustomerActivateGetError>> {
 
     let uri_str = format!("{}/basic/realms/customer/activate", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -15162,8 +15311,8 @@ pub async fn basic_realms_customer_activate_get(configuration: &configuration::C
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HtmlResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HtmlResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RealmsBasicHtmlResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RealmsBasicHtmlResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -15172,7 +15321,7 @@ pub async fn basic_realms_customer_activate_get(configuration: &configuration::C
     }
 }
 
-pub async fn basic_realms_customer_alias_available_get(configuration: &configuration::Configuration, params: BasicRealmsCustomerAliasAvailableGetParams) -> Result<models::AliasAvailableResponse, Error<BasicRealmsCustomerAliasAvailableGetError>> {
+pub async fn basic_realms_customer_alias_available_get(configuration: &configuration::Configuration, params: BasicRealmsCustomerAliasAvailableGetParams) -> Result<models::RealmsBasicAliasAvailableResponse, Error<BasicRealmsCustomerAliasAvailableGetError>> {
 
     let uri_str = format!("{}/basic/realms/customer/alias/available", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -15201,8 +15350,8 @@ pub async fn basic_realms_customer_alias_available_get(configuration: &configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AliasAvailableResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AliasAvailableResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RealmsBasicAliasAvailableResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RealmsBasicAliasAvailableResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -15260,7 +15409,7 @@ pub async fn basic_realms_customer_get(configuration: &configuration::Configurat
     }
 }
 
-pub async fn basic_realms_customer_post(configuration: &configuration::Configuration, params: BasicRealmsCustomerPostParams) -> Result<models::NewCustomerResponse, Error<BasicRealmsCustomerPostError>> {
+pub async fn basic_realms_customer_post(configuration: &configuration::Configuration, params: BasicRealmsCustomerPostParams) -> Result<models::RealmsBasicNewCustomerResponse, Error<BasicRealmsCustomerPostError>> {
 
     let uri_str = format!("{}/basic/realms/customer", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -15272,7 +15421,7 @@ pub async fn basic_realms_customer_post(configuration: &configuration::Configura
     if let Some(param_value) = params.x_beam_gamertag {
         req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
     }
-    req_builder = req_builder.json(&params.new_customer_request);
+    req_builder = req_builder.json(&params.realms_basic_new_customer_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -15289,8 +15438,8 @@ pub async fn basic_realms_customer_post(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::NewCustomerResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::NewCustomerResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RealmsBasicNewCustomerResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RealmsBasicNewCustomerResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -15299,7 +15448,7 @@ pub async fn basic_realms_customer_post(configuration: &configuration::Configura
     }
 }
 
-pub async fn basic_realms_customer_verify_post(configuration: &configuration::Configuration, params: BasicRealmsCustomerVerifyPostParams) -> Result<models::NewCustomerResponse, Error<BasicRealmsCustomerVerifyPostError>> {
+pub async fn basic_realms_customer_verify_post(configuration: &configuration::Configuration, params: BasicRealmsCustomerVerifyPostParams) -> Result<models::RealmsBasicNewCustomerResponse, Error<BasicRealmsCustomerVerifyPostError>> {
 
     let uri_str = format!("{}/basic/realms/customer/verify", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -15311,7 +15460,7 @@ pub async fn basic_realms_customer_verify_post(configuration: &configuration::Co
     if let Some(param_value) = params.x_beam_gamertag {
         req_builder = req_builder.header("X-BEAM-GAMERTAG", param_value.to_string());
     }
-    req_builder = req_builder.json(&params.new_customer_request);
+    req_builder = req_builder.json(&params.realms_basic_new_customer_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -15328,8 +15477,8 @@ pub async fn basic_realms_customer_verify_post(configuration: &configuration::Co
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::NewCustomerResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::NewCustomerResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RealmsBasicNewCustomerResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RealmsBasicNewCustomerResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -15338,7 +15487,7 @@ pub async fn basic_realms_customer_verify_post(configuration: &configuration::Co
     }
 }
 
-pub async fn basic_realms_customers_get(configuration: &configuration::Configuration, params: BasicRealmsCustomersGetParams) -> Result<models::CustomersResponse, Error<BasicRealmsCustomersGetError>> {
+pub async fn basic_realms_customers_get(configuration: &configuration::Configuration, params: BasicRealmsCustomersGetParams) -> Result<models::RealmsBasicCustomersResponse, Error<BasicRealmsCustomersGetError>> {
 
     let uri_str = format!("{}/basic/realms/customers", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -15366,8 +15515,8 @@ pub async fn basic_realms_customers_get(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CustomersResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CustomersResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RealmsBasicCustomersResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RealmsBasicCustomersResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -15499,7 +15648,7 @@ pub async fn basic_realms_game_put(configuration: &configuration::Configuration,
     if let Some(ref token) = configuration.bearer_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&params.update_game_hierarchy_request);
+    req_builder = req_builder.json(&params.realms_basic_update_game_hierarchy_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -15762,7 +15911,7 @@ pub async fn basic_realms_launch_message_post(configuration: &configuration::Con
     }
 }
 
-pub async fn basic_realms_plans_get(configuration: &configuration::Configuration, params: BasicRealmsPlansGetParams) -> Result<models::ServicePlansResponse, Error<BasicRealmsPlansGetError>> {
+pub async fn basic_realms_plans_get(configuration: &configuration::Configuration, params: BasicRealmsPlansGetParams) -> Result<models::RealmsBasicServicePlansResponse, Error<BasicRealmsPlansGetError>> {
 
     let uri_str = format!("{}/basic/realms/plans", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -15801,8 +15950,8 @@ pub async fn basic_realms_plans_get(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ServicePlansResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ServicePlansResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RealmsBasicServicePlansResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RealmsBasicServicePlansResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -16134,7 +16283,7 @@ pub async fn basic_realms_project_promote_post(configuration: &configuration::Co
     if let Some(ref token) = configuration.bearer_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&params.promote_realm_request);
+    req_builder = req_builder.json(&params.realms_basic_promote_realm_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -16261,7 +16410,7 @@ pub async fn basic_realms_project_rename_put(configuration: &configuration::Conf
     }
 }
 
-pub async fn basic_realms_promotion_get(configuration: &configuration::Configuration, params: BasicRealmsPromotionGetParams) -> Result<models::PromoteRealmResponse, Error<BasicRealmsPromotionGetError>> {
+pub async fn basic_realms_promotion_get(configuration: &configuration::Configuration, params: BasicRealmsPromotionGetParams) -> Result<models::RealmsBasicPromoteRealmResponse, Error<BasicRealmsPromotionGetError>> {
 
     let uri_str = format!("{}/basic/realms/promotion", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -16313,8 +16462,8 @@ pub async fn basic_realms_promotion_get(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PromoteRealmResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PromoteRealmResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RealmsBasicPromoteRealmResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RealmsBasicPromoteRealmResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -16323,7 +16472,7 @@ pub async fn basic_realms_promotion_get(configuration: &configuration::Configura
     }
 }
 
-pub async fn basic_realms_promotion_post(configuration: &configuration::Configuration, params: BasicRealmsPromotionPostParams) -> Result<models::PromoteRealmResponse, Error<BasicRealmsPromotionPostError>> {
+pub async fn basic_realms_promotion_post(configuration: &configuration::Configuration, params: BasicRealmsPromotionPostParams) -> Result<models::RealmsBasicPromoteRealmResponse, Error<BasicRealmsPromotionPostError>> {
 
     let uri_str = format!("{}/basic/realms/promotion", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -16346,7 +16495,7 @@ pub async fn basic_realms_promotion_post(configuration: &configuration::Configur
     if let Some(ref token) = configuration.bearer_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&params.promote_realm_request);
+    req_builder = req_builder.json(&params.realms_basic_promote_realm_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -16363,8 +16512,8 @@ pub async fn basic_realms_promotion_post(configuration: &configuration::Configur
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PromoteRealmResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PromoteRealmResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RealmsBasicPromoteRealmResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RealmsBasicPromoteRealmResponse`")))),
         }
     } else {
         let content = resp.text().await?;
