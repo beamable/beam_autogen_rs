@@ -1,6 +1,5 @@
 name: Generate API
 
-# TODO: eventually, we want this job to trigger based on perforce pushes
 on:
   schedule:
     # this cron string runs at 00:00, only on Monday
@@ -9,7 +8,7 @@ on:
 
 jobs:
   generate:
-    timeout-minutes: 10
+    timeout-minutes: 30
     runs-on: ubuntu-latest
     concurrency:
       group: generate-${{ github.head_ref }}
@@ -23,7 +22,7 @@ jobs:
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: "10.0.x"
       - name: Cache
         uses: actions/cache@v4
         with:
@@ -36,34 +35,31 @@ jobs:
           key: ${{ runner.os }}-cargo-clippy-${{ hashFiles('**/Cargo.toml') }}
       - name: Install stable toolchain
         uses: dtolnay/rust-toolchain@stable
-      - name: Install Beamable CLI 
+      - uses: extractions/setup-just@v2
+      - name: Install Beamable CLI
         run: |
-          dotnet tool install --global Beamable.Tools
+          just setup
       - name: Generate API
-        working-directory: gen_api
         run: |
-          beam oapi download --output . --combine-into-one-document
+          just download
       - name: Update OpenAPI from script
-        working-directory: gen_api
-        run: bash updateOpenApi.sh
+        run: just update
       - name: Generate code
-        working-directory: gen_api
-        run: docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate -i /local/combinedOpenApi.json -g rust -c /local/package_oapi_config.json -o /local/
+        run: just generate
+      - name: Apply clippy fixes and formatting
+        run: just fix
       - name: Test build
-        working-directory: gen_api
-        run: cargo build
+        run: just validate
       - name: Check for Changes
-        working-directory: gen_api
         run: |
-            lines=$(git status --porcelain | grep -v 'README.md' | wc -l)
-            if [ "$lines" -eq 0 ]; then
-                echo "::set-output name=any::false"
-            else
-                echo "::set-output name=any::true"
-            fi
+          lines=$(git status --porcelain | grep -v 'README.md' | wc -l)
+          if [ "$lines" -eq 0 ]; then
+              echo "::set-output name=any::false"
+          else
+              echo "::set-output name=any::true"
+          fi
         id: changes
       - name: Create Pull Request
-        working-directory: gen_api
         if: ${{ steps.changes.outputs.any == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.BOT_TOKEN }}
