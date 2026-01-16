@@ -5,7 +5,7 @@ list:
 # Download the OpenAPI specification for the Beam API
 [group('openapi')]
 download:
-    beam oapi download --output . --combine-into-one-document
+    dotnet beam oapi download --output combinedOpenApi.json --combine-into-one-document
 
 # Update the OpenAPI specification with additional information
 [group('openapi')]
@@ -28,7 +28,7 @@ generate: _remove_old
 
 # Install dependencies
 setup:
-    dotnet tool install --global Beamable.Tools
+    dotnet tool restore
 
 # Apply clippy fixes and formatting
 [group('code')]
