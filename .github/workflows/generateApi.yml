@@ -53,9 +53,9 @@ jobs:
       - name: Generate code
         working-directory: gen_api
         run: just generate
-      - name: Apply clippy fixes and formatting
-        working-directory: gen_api
-        run: just fix
+      # - name: Apply clippy fixes and formatting
+      #   working-directory: gen_api
+      #   run: just fix
       - name: Test build
         working-directory: gen_api
         run: just validate
