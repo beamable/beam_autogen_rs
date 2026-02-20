@@ -53,6 +53,9 @@ jobs:
       - name: Generate code
         working-directory: gen_api
         run: just generate
+      - name: Fix formatting
+        working-directory: gen_api
+        run: cargo fmt --all
       # - name: Apply clippy fixes and formatting
       #   working-directory: gen_api
       #   run: just fix
