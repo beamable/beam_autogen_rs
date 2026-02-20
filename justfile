@@ -23,8 +23,8 @@ _remove_old:
 
 # Generate code from the OpenAPI specification
 [group('openapi')]
-generate: _remove_old
-    docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate -i /local/combinedOpenApi.json -g rust -c /local/package_oapi_config.json -o /local/
+generate: 
+    docker run --rm --user "$(id -u):$(id -g)" -v "${PWD}:/local" openapitools/openapi-generator-cli generate -i /local/combinedOpenApi.json -g rust -c /local/package_oapi_config.json -o /local/
 
 # Install dependencies
 setup:
