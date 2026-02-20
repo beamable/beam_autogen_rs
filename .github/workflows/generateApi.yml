@@ -18,6 +18,7 @@ jobs:
         with:
           persist-credentials: true
           token: ${{ secrets.BOT_TOKEN }}
+          path: gen_api/
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v4
         with:
@@ -36,18 +37,24 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
       - uses: extractions/setup-just@v2
       - name: Install Beamable CLI
+        working-directory: gen_api
         run: |
           just setup
       - name: Generate API
+        working-directory: gen_api
         run: |
           just download
       - name: Update OpenAPI from script
+        working-directory: gen_api
         run: just update
       - name: Generate code
+        working-directory: gen_api
         run: just generate
       - name: Apply clippy fixes and formatting
+        working-directory: gen_api
         run: just fix
       - name: Test build
+        working-directory: gen_api
         run: just validate
       - name: Check for Changes
         run: |
