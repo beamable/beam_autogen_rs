@@ -1,5 +1,8 @@
 name: Generate API
 
+permissions:
+  contents: write
+
 on:
   schedule:
     # this cron string runs at 00:00, only on Monday
