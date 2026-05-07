@@ -25,7 +25,12 @@ pub struct Catalog {
 }
 
 impl Catalog {
-    pub fn new(version: i64, created: i64, stores: Vec<models::Store>, offer_definitions: Vec<models::OfferDefinition>) -> Catalog {
+    pub fn new(
+        version: i64,
+        created: i64,
+        stores: Vec<models::Store>,
+        offer_definitions: Vec<models::OfferDefinition>,
+    ) -> Catalog {
         Catalog {
             version,
             created,
@@ -34,4 +39,3 @@ impl Catalog {
         }
     }
 }
-

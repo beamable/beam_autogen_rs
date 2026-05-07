@@ -21,10 +21,6 @@ pub struct MailTemplate {
 
 impl MailTemplate {
     pub fn new(subject: String, body: String) -> MailTemplate {
-        MailTemplate {
-            subject,
-            body,
-        }
+        MailTemplate { subject, body }
     }
 }
-

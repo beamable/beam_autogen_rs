@@ -26,7 +26,13 @@ pub struct DonationRequest {
 }
 
 impl DonationRequest {
-    pub fn new(time_requested: i64, progress: Vec<models::DonationEntry>, satisfied: bool, player_id: i64, currency: models::Currency) -> DonationRequest {
+    pub fn new(
+        time_requested: i64,
+        progress: Vec<models::DonationEntry>,
+        satisfied: bool,
+        player_id: i64,
+        currency: models::Currency,
+    ) -> DonationRequest {
         DonationRequest {
             time_requested,
             progress,
@@ -36,4 +42,3 @@ impl DonationRequest {
         }
     }
 }
-

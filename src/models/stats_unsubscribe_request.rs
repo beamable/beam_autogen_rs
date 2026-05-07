@@ -15,8 +15,13 @@ use serde::{Deserialize, Serialize};
 pub struct StatsUnsubscribeRequest {
     #[serde(rename = "service")]
     pub service: String,
-    #[serde(rename = "subscriptions", skip_serializing_if = "Option::is_none")]
-    pub subscriptions: Option<Vec<String>>,
+    #[serde(
+        rename = "subscriptions",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub subscriptions: Option<Option<Vec<String>>>,
 }
 
 impl StatsUnsubscribeRequest {
@@ -27,4 +32,3 @@ impl StatsUnsubscribeRequest {
         }
     }
 }
-

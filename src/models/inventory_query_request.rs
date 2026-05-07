@@ -15,13 +15,15 @@ use serde::{Deserialize, Serialize};
 pub struct InventoryQueryRequest {
     #[serde(rename = "scopes", skip_serializing_if = "Option::is_none")]
     pub scopes: Option<Vec<String>>,
+    #[serde(rename = "itemFilters", skip_serializing_if = "Option::is_none")]
+    pub item_filters: Option<Box<models::InventoryFiltersDto>>,
 }
 
 impl InventoryQueryRequest {
     pub fn new() -> InventoryQueryRequest {
         InventoryQueryRequest {
             scopes: None,
+            item_filters: None,
         }
     }
 }
-

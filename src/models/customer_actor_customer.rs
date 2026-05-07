@@ -17,20 +17,43 @@ pub struct CustomerActorCustomer {
     pub customer_id: i64,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "alias", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "alias",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub alias: Option<Option<String>>,
     #[serde(rename = "realms", skip_serializing_if = "Option::is_none")]
     pub realms: Option<Vec<models::Realm>>,
+    #[serde(rename = "accounts", skip_serializing_if = "Option::is_none")]
+    pub accounts: Option<Vec<models::CustomerActorAccount>>,
     #[serde(rename = "paymentStatus", skip_serializing_if = "Option::is_none")]
     pub payment_status: Option<models::PaymentStatus>,
     #[serde(rename = "activationStatus", skip_serializing_if = "Option::is_none")]
     pub activation_status: Option<models::ActivationStatus>,
-    #[serde(rename = "contact", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "contact",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub contact: Option<Option<String>>,
+    #[serde(
+        rename = "stripeCustomerId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub stripe_customer_id: Option<Option<String>>,
+    #[serde(rename = "requiresCustomTier", skip_serializing_if = "Option::is_none")]
+    pub requires_custom_tier: Option<bool>,
     #[serde(rename = "created", skip_serializing_if = "Option::is_none")]
-    pub created: Option<i64>,
+    pub created: Option<chrono::DateTime<chrono::FixedOffset>>,
     #[serde(rename = "updated", skip_serializing_if = "Option::is_none")]
-    pub updated: Option<i64>,
+    pub updated: Option<chrono::DateTime<chrono::FixedOffset>>,
+    #[serde(rename = "config", skip_serializing_if = "Option::is_none")]
+    pub config: Option<std::collections::HashMap<String, String>>,
 }
 
 impl CustomerActorCustomer {
@@ -40,12 +63,15 @@ impl CustomerActorCustomer {
             name,
             alias: None,
             realms: None,
+            accounts: None,
             payment_status: None,
             activation_status: None,
             contact: None,
+            stripe_customer_id: None,
+            requires_custom_tier: None,
             created: None,
             updated: None,
+            config: None,
         }
     }
 }
-

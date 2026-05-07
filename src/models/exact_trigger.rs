@@ -16,7 +16,7 @@ pub struct ExactTrigger {
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
     pub r#type: Option<String>,
     #[serde(rename = "executeAt", skip_serializing_if = "Option::is_none")]
-    pub execute_at: Option<String>,
+    pub execute_at: Option<chrono::DateTime<chrono::FixedOffset>>,
 }
 
 impl ExactTrigger {
@@ -27,4 +27,3 @@ impl ExactTrigger {
         }
     }
 }
-

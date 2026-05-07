@@ -19,9 +19,6 @@ pub struct GetTokenRequest {
 
 impl GetTokenRequest {
     pub fn new(token: String) -> GetTokenRequest {
-        GetTokenRequest {
-            token,
-        }
+        GetTokenRequest { token }
     }
 }
-

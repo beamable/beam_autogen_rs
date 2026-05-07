@@ -18,10 +18,9 @@ pub struct RealmsBasicRealmConfigResponse {
 }
 
 impl RealmsBasicRealmConfigResponse {
-    pub fn new(config: std::collections::HashMap<String, String>) -> RealmsBasicRealmConfigResponse {
-        RealmsBasicRealmConfigResponse {
-            config,
-        }
+    pub fn new(
+        config: std::collections::HashMap<String, String>,
+    ) -> RealmsBasicRealmConfigResponse {
+        RealmsBasicRealmConfigResponse { config }
     }
 }
-

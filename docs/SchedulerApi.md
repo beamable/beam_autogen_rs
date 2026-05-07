@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## api_internal_scheduler_job_execute_post
 
-> models::JobExecutionResult api_internal_scheduler_job_execute_post(x_beam_scope, x_beam_gamertag, job_execution_event)
+> models::JobExecutionResult api_internal_scheduler_job_execute_post(x_beam_gamertag, x_beam_timeout, execute_job_request)
 
 
 Called by the Dispatcher lambda function to start a job execution at the appropriate time.
@@ -32,9 +32,9 @@ Called by the Dispatcher lambda function to start a job execution at the appropr
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**job_execution_event** | Option<[**JobExecutionEvent**](JobExecutionEvent.md)> |  |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**execute_job_request** | Option<[**ExecuteJobRequest**](ExecuteJobRequest.md)> | Job execution request from the Dispatcher Lambda. |  |
 
 ### Return type
 
@@ -42,7 +42,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -54,17 +54,19 @@ No authorization required
 
 ## api_internal_scheduler_job_post
 
-> models::JobDefinitionView api_internal_scheduler_job_post(x_beam_scope, x_beam_gamertag, job_definition_save_request)
+> models::JobDefinitionView api_internal_scheduler_job_post(x_beam_gamertag, x_beam_timeout, job_definition_save_request)
 
+
+Create or update a job definition.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**job_definition_save_request** | Option<[**JobDefinitionSaveRequest**](JobDefinitionSaveRequest.md)> |  |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**job_definition_save_request** | Option<[**JobDefinitionSaveRequest**](JobDefinitionSaveRequest.md)> | Job definition to create or update. |  |
 
 ### Return type
 
@@ -72,7 +74,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -84,18 +86,20 @@ No authorization required
 
 ## api_scheduler_job_job_id_activity_get
 
-> Vec<models::JobActivity> api_scheduler_job_job_id_activity_get(job_id, x_beam_scope, x_beam_gamertag, limit)
+> Vec<models::JobActivity> api_scheduler_job_job_id_activity_get(job_id, x_beam_gamertag, x_beam_timeout, limit)
 
+
+List activity records for a specific job. DEPRECATED: Use job/{jobId}/activity-paged instead.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**job_id** | **String** |  | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**job_id** | **String** | ID of the job to retrieve activity for. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**limit** | Option<**i32**> |  |  |[default to 1000]
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**limit** | Option<**i32**> | Maximum number of results. Cannot exceed 10000. |  |[default to 1000]
 
 ### Return type
 
@@ -103,7 +107,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -115,18 +119,20 @@ No authorization required
 
 ## api_scheduler_job_job_id_activity_paged_get
 
-> models::JobActivityViewCursorPagedResult api_scheduler_job_job_id_activity_paged_get(job_id, x_beam_scope, x_beam_gamertag, cursor)
+> models::JobActivityViewCursorPagedResult api_scheduler_job_job_id_activity_paged_get(job_id, x_beam_gamertag, x_beam_timeout, cursor)
 
+
+List activity records for a specific job with cursor-based pagination.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**job_id** | **String** |  | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**job_id** | **String** | ID of the job to retrieve activity for. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**cursor** | Option<**String**> |  |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**cursor** | Option<**String**> | Pagination cursor from a previous response. |  |
 
 ### Return type
 
@@ -134,7 +140,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -146,17 +152,19 @@ No authorization required
 
 ## api_scheduler_job_job_id_cancel_put
 
-> serde_json::Value api_scheduler_job_job_id_cancel_put(job_id, x_beam_scope, x_beam_gamertag)
+> serde_json::Value api_scheduler_job_job_id_cancel_put(job_id, x_beam_gamertag, x_beam_timeout)
 
+
+Cancel a job's triggers, preventing future executions without deleting the job definition.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**job_id** | **String** |  | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**job_id** | **String** | ID of the job to cancel. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 
 ### Return type
 
@@ -164,7 +172,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -176,17 +184,19 @@ No authorization required
 
 ## api_scheduler_job_job_id_delete
 
-> serde_json::Value api_scheduler_job_job_id_delete(job_id, x_beam_scope, x_beam_gamertag)
+> serde_json::Value api_scheduler_job_job_id_delete(job_id, x_beam_gamertag, x_beam_timeout)
 
+
+Delete a job definition and remove it from the scheduler.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**job_id** | **String** |  | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**job_id** | **String** | ID of the job to delete. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 
 ### Return type
 
@@ -194,7 +204,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -206,17 +216,19 @@ No authorization required
 
 ## api_scheduler_job_job_id_get
 
-> models::JobDefinitionView api_scheduler_job_job_id_get(job_id, x_beam_scope, x_beam_gamertag)
+> models::JobDefinitionView api_scheduler_job_job_id_get(job_id, x_beam_gamertag, x_beam_timeout)
 
+
+Get a single job definition by ID.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**job_id** | **String** |  | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**job_id** | **String** | ID of the job to retrieve. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 
 ### Return type
 
@@ -224,7 +236,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -236,27 +248,29 @@ No authorization required
 
 ## api_scheduler_job_job_id_next_executions_get
 
-> Vec<String> api_scheduler_job_job_id_next_executions_get(job_id, x_beam_scope, x_beam_gamertag, from, limit)
+> Vec<chrono::DateTime<chrono::FixedOffset>> api_scheduler_job_job_id_next_executions_get(job_id, x_beam_gamertag, x_beam_timeout, from, limit)
 
+
+Preview the next scheduled execution times for a job.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**job_id** | **String** |  | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**job_id** | **String** | ID of the job to compute schedules for. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**from** | Option<**String**> |  |  |
-**limit** | Option<**i32**> |  |  |[default to 200]
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**from** | Option<**chrono::DateTime<chrono::FixedOffset>**> | Start time for the schedule preview. Defaults to now. |  |
+**limit** | Option<**i32**> | Maximum number of executions to return. Cannot exceed 1000. |  |[default to 200]
 
 ### Return type
 
-**Vec<String>**
+[**Vec<chrono::DateTime<chrono::FixedOffset>>**](chrono::DateTime<chrono::FixedOffset>.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -268,17 +282,19 @@ No authorization required
 
 ## api_scheduler_job_post
 
-> models::JobDefinitionView api_scheduler_job_post(x_beam_scope, x_beam_gamertag, job_definition_save_request)
+> models::JobDefinitionView api_scheduler_job_post(x_beam_gamertag, x_beam_timeout, job_definition_save_request)
 
+
+Create or update a job definition.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**job_definition_save_request** | Option<[**JobDefinitionSaveRequest**](JobDefinitionSaveRequest.md)> |  |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**job_definition_save_request** | Option<[**JobDefinitionSaveRequest**](JobDefinitionSaveRequest.md)> | Job definition to create or update. |  |
 
 ### Return type
 
@@ -286,7 +302,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -298,17 +314,19 @@ No authorization required
 
 ## api_scheduler_jobs_activity_paged_get
 
-> models::JobActivityViewCursorPagedResult api_scheduler_jobs_activity_paged_get(x_beam_scope, x_beam_gamertag, cursor)
+> models::JobActivityViewCursorPagedResult api_scheduler_jobs_activity_paged_get(x_beam_gamertag, x_beam_timeout, cursor)
 
+
+List activity records across all jobs in the realm with cursor-based pagination.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**cursor** | Option<**String**> |  |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**cursor** | Option<**String**> | Pagination cursor from a previous response. |  |
 
 ### Return type
 
@@ -316,7 +334,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -328,19 +346,21 @@ No authorization required
 
 ## api_scheduler_jobs_get
 
-> Vec<models::JobDefinition> api_scheduler_jobs_get(x_beam_scope, x_beam_gamertag, source, name, limit)
+> Vec<models::JobDefinition> api_scheduler_jobs_get(x_beam_gamertag, x_beam_timeout, source, name, limit)
 
+
+List job definitions for the current realm. DEPRECATED: Use jobs-paged instead.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**source** | Option<**String**> |  |  |
-**name** | Option<**String**> |  |  |
-**limit** | Option<**i32**> |  |  |[default to 1000]
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**source** | Option<**String**> | Optional source filter. |  |
+**name** | Option<**String**> | Optional name filter. |  |
+**limit** | Option<**i32**> | Maximum number of results. Cannot exceed 10000. |  |[default to 1000]
 
 ### Return type
 
@@ -348,7 +368,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -360,20 +380,22 @@ No authorization required
 
 ## api_scheduler_jobs_paged_get
 
-> models::JobDefinitionViewCursorPagedResult api_scheduler_jobs_paged_get(x_beam_scope, x_beam_gamertag, source, name, only_unique, cursor)
+> models::JobDefinitionViewCursorPagedResult api_scheduler_jobs_paged_get(x_beam_gamertag, x_beam_timeout, source, name, only_unique, cursor)
 
+
+List job definitions for the current realm with cursor-based pagination.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**source** | Option<**String**> |  |  |
-**name** | Option<**String**> |  |  |
-**only_unique** | Option<**bool**> |  |  |[default to false]
-**cursor** | Option<**String**> |  |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**source** | Option<**String**> | Optional source filter. |  |
+**name** | Option<**String**> | Optional name filter. |  |
+**only_unique** | Option<**bool**> | When true, only returns unique jobs. |  |[default to false]
+**cursor** | Option<**String**> | Pagination cursor from a previous response. |  |
 
 ### Return type
 
@@ -381,7 +403,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -393,18 +415,20 @@ No authorization required
 
 ## api_scheduler_jobs_suspended_get
 
-> models::JobDefinitionViewCursorPagedResult api_scheduler_jobs_suspended_get(x_beam_scope, x_beam_gamertag, from, cursor)
+> models::JobDefinitionViewCursorPagedResult api_scheduler_jobs_suspended_get(x_beam_gamertag, x_beam_timeout, from, cursor)
 
+
+List suspended job definitions with cursor-based pagination.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**from** | Option<**String**> |  |  |
-**cursor** | Option<**String**> |  |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**from** | Option<**chrono::DateTime<chrono::FixedOffset>**> | Return jobs suspended from this datetime. Mutually exclusive with cursor. |  |
+**cursor** | Option<**String**> | Pagination cursor from a previous response. Mutually exclusive with from. |  |
 
 ### Return type
 
@@ -412,7 +436,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 

@@ -22,7 +22,11 @@ pub struct AccountRolesReport {
 }
 
 impl AccountRolesReport {
-    pub fn new(account_id: i64, email: String, realms: Vec<models::RealmRolesReport>) -> AccountRolesReport {
+    pub fn new(
+        account_id: i64,
+        email: String,
+        realms: Vec<models::RealmRolesReport>,
+    ) -> AccountRolesReport {
         AccountRolesReport {
             account_id,
             email,
@@ -30,4 +34,3 @@ impl AccountRolesReport {
         }
     }
 }
-

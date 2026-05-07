@@ -11,14 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum GroupType {
     #[serde(rename = "guild")]
+    #[default]
     Guild,
     #[serde(rename = "subgroup")]
     Subgroup,
-
 }
 
 impl std::fmt::Display for GroupType {
@@ -29,10 +31,3 @@ impl std::fmt::Display for GroupType {
         }
     }
 }
-
-impl Default for GroupType {
-    fn default() -> GroupType {
-        Self::Guild
-    }
-}
-

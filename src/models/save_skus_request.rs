@@ -19,9 +19,6 @@ pub struct SaveSkusRequest {
 
 impl SaveSkusRequest {
     pub fn new(definitions: Vec<models::Sku>) -> SaveSkusRequest {
-        SaveSkusRequest {
-            definitions,
-        }
+        SaveSkusRequest { definitions }
     }
 }
-

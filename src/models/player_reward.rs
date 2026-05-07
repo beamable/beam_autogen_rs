@@ -30,7 +30,10 @@ pub struct PlayerReward {
 }
 
 impl PlayerReward {
-    pub fn new(add_item_requests: Vec<models::ItemCreateRequest>, add_currency_map: std::collections::HashMap<String, String>) -> PlayerReward {
+    pub fn new(
+        add_item_requests: Vec<models::ItemCreateRequest>,
+        add_currency_map: std::collections::HashMap<String, String>,
+    ) -> PlayerReward {
         PlayerReward {
             description: None,
             add_item_requests,
@@ -42,4 +45,3 @@ impl PlayerReward {
         }
     }
 }
-

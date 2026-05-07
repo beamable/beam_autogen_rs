@@ -28,7 +28,11 @@ pub struct CustomCohortRule {
 }
 
 impl CustomCohortRule {
-    pub fn new(custom_op: String, custom_attr: String, custom_val: Vec<String>) -> CustomCohortRule {
+    pub fn new(
+        custom_op: String,
+        custom_attr: String,
+        custom_val: Vec<String>,
+    ) -> CustomCohortRule {
         CustomCohortRule {
             custom_op,
             domain: None,
@@ -39,4 +43,3 @@ impl CustomCohortRule {
         }
     }
 }
-

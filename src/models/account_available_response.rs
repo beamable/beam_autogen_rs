@@ -19,9 +19,6 @@ pub struct AccountAvailableResponse {
 
 impl AccountAvailableResponse {
     pub fn new(available: bool) -> AccountAvailableResponse {
-        AccountAvailableResponse {
-            available,
-        }
+        AccountAvailableResponse { available }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct RenameRealmRequest {
 
 impl RenameRealmRequest {
     pub fn new(new_name: String) -> RenameRealmRequest {
-        RenameRealmRequest {
-            new_name,
-        }
+        RenameRealmRequest { new_name }
     }
 }
-

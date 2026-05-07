@@ -24,7 +24,12 @@ pub struct ListTokenResponseItem {
 }
 
 impl ListTokenResponseItem {
-    pub fn new(token: String, platform: String, device: String, created: String) -> ListTokenResponseItem {
+    pub fn new(
+        token: String,
+        platform: String,
+        device: String,
+        created: String,
+    ) -> ListTokenResponseItem {
         ListTokenResponseItem {
             token,
             platform,
@@ -33,4 +38,3 @@ impl ListTokenResponseItem {
         }
     }
 }
-

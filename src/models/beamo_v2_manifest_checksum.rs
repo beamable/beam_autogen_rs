@@ -18,7 +18,7 @@ pub struct BeamoV2ManifestChecksum {
     #[serde(rename = "checksum", skip_serializing_if = "Option::is_none")]
     pub checksum: Option<String>,
     #[serde(rename = "createdAt", skip_serializing_if = "Option::is_none")]
-    pub created_at: Option<String>,
+    pub created_at: Option<chrono::DateTime<chrono::FixedOffset>>,
 }
 
 impl BeamoV2ManifestChecksum {
@@ -30,4 +30,3 @@ impl BeamoV2ManifestChecksum {
         }
     }
 }
-

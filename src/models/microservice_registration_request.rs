@@ -19,7 +19,10 @@ pub struct MicroserviceRegistrationRequest {
     pub routing_key: Option<String>,
     #[serde(rename = "federation", skip_serializing_if = "Option::is_none")]
     pub federation: Option<Vec<models::SupportedFederation>>,
-    #[serde(rename = "trafficFilterEnabled", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "trafficFilterEnabled",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub traffic_filter_enabled: Option<bool>,
 }
 
@@ -33,4 +36,3 @@ impl MicroserviceRegistrationRequest {
         }
     }
 }
-

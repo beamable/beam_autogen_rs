@@ -19,9 +19,6 @@ pub struct GetOrderInfoRequest {
 
 impl GetOrderInfoRequest {
     pub fn new(order_id: String) -> GetOrderInfoRequest {
-        GetOrderInfoRequest {
-            order_id,
-        }
+        GetOrderInfoRequest { order_id }
     }
 }
-

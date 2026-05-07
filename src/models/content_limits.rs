@@ -13,7 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ContentLimits {
-    #[serde(rename = "maxDistinctContentIds", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "maxDistinctContentIds",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub max_distinct_content_ids: Option<i32>,
 }
 
@@ -24,4 +27,3 @@ impl ContentLimits {
         }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct ServiceTemplate {
 
 impl ServiceTemplate {
     pub fn new(id: String) -> ServiceTemplate {
-        ServiceTemplate {
-            id,
-        }
+        ServiceTemplate { id }
     }
 }
-

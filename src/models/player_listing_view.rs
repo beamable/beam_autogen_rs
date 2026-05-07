@@ -36,7 +36,15 @@ pub struct PlayerListingView {
 }
 
 impl PlayerListingView {
-    pub fn new(client_data_list: Vec<models::ClientDataEntry>, symbol: String, client_data: std::collections::HashMap<String, String>, seconds_active: i64, offer: models::PlayerOfferView, query_after_purchase: bool, active: bool) -> PlayerListingView {
+    pub fn new(
+        client_data_list: Vec<models::ClientDataEntry>,
+        symbol: String,
+        client_data: std::collections::HashMap<String, String>,
+        seconds_active: i64,
+        offer: models::PlayerOfferView,
+        query_after_purchase: bool,
+        active: bool,
+    ) -> PlayerListingView {
         PlayerListingView {
             client_data_list,
             symbol,
@@ -51,4 +59,3 @@ impl PlayerListingView {
         }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct Player {
 
 impl Player {
     pub fn new(player_id: String) -> Player {
-        Player {
-            player_id,
-        }
+        Player { player_id }
     }
 }
-

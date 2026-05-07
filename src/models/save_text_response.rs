@@ -19,9 +19,6 @@ pub struct SaveTextResponse {
 
 impl SaveTextResponse {
     pub fn new(text: Vec<models::TextReference>) -> SaveTextResponse {
-        SaveTextResponse {
-            text,
-        }
+        SaveTextResponse { text }
     }
 }
-

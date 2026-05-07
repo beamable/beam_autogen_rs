@@ -13,15 +13,17 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RemoveFromLobby {
-    #[serde(rename = "playerId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "playerId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub player_id: Option<Option<String>>,
 }
 
 impl RemoveFromLobby {
     pub fn new() -> RemoveFromLobby {
-        RemoveFromLobby {
-            player_id: None,
-        }
+        RemoveFromLobby { player_id: None }
     }
 }
-

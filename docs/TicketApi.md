@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## api_matchmaking_tickets_get
 
-> models::TicketQueryResponse api_matchmaking_tickets_get(x_beam_scope, x_beam_gamertag, players, include_inactive, skip, limit)
+> models::TicketQueryResponse api_matchmaking_tickets_get(x_beam_gamertag, x_beam_timeout, players, include_inactive, skip, limit)
 
 
 Query for active tickets
@@ -23,8 +23,8 @@ Query for active tickets
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **players** | Option<[**Vec<String>**](String.md)> |  |  |
 **include_inactive** | Option<**bool**> |  |  |
 **skip** | Option<**i32**> |  |  |
@@ -36,7 +36,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -48,7 +48,7 @@ No authorization required
 
 ## api_matchmaking_tickets_id_delete
 
-> serde_json::Value api_matchmaking_tickets_id_delete(id, x_beam_scope, x_beam_gamertag)
+> serde_json::Value api_matchmaking_tickets_id_delete(id, x_beam_gamertag, x_beam_timeout)
 
 
 Cancel a pending ticket. If no ticket with the id exists, this will still return a 204.
@@ -58,9 +58,9 @@ Cancel a pending ticket. If no ticket with the id exists, this will still return
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **uuid::Uuid** |  | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**id** | **uuid::Uuid** | Ticket ID to cancel. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 
 ### Return type
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -80,7 +80,7 @@ No authorization required
 
 ## api_matchmaking_tickets_id_get
 
-> models::Ticket api_matchmaking_tickets_id_get(id, x_beam_scope, x_beam_gamertag)
+> models::Ticket api_matchmaking_tickets_id_get(id, x_beam_gamertag, x_beam_timeout)
 
 
 Fetch a ticket by ID.
@@ -91,8 +91,8 @@ Fetch a ticket by ID.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Ticket ID | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 
 ### Return type
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -112,7 +112,7 @@ No authorization required
 
 ## api_matchmaking_tickets_post
 
-> models::TicketReservationResponse api_matchmaking_tickets_post(x_beam_scope, x_beam_gamertag, ticket_reservation_request)
+> models::TicketReservationResponse api_matchmaking_tickets_post(x_beam_gamertag, x_beam_timeout, ticket_reservation_request)
 
 
 Create a ticket representing 1 or more players to be matched with others.
@@ -122,9 +122,9 @@ Create a ticket representing 1 or more players to be matched with others.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**ticket_reservation_request** | Option<[**TicketReservationRequest**](TicketReservationRequest.md)> |  |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**ticket_reservation_request** | Option<[**TicketReservationRequest**](TicketReservationRequest.md)> | Ticket reservation request specifying players and match types. |  |
 
 ### Return type
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 

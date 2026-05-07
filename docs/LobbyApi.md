@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## api_lobbies_get
 
-> models::LobbyQueryResponse api_lobbies_get(x_beam_scope, x_beam_gamertag, skip, limit, match_type)
+> models::LobbyQueryResponse api_lobbies_get(x_beam_gamertag, x_beam_timeout, skip, limit, match_type)
 
 
 Query for active lobbies
@@ -30,8 +30,8 @@ Query for active lobbies
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **skip** | Option<**i32**> |  |  |
 **limit** | Option<**i32**> |  |  |
 **match_type** | Option<**String**> |  |  |
@@ -42,7 +42,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -54,7 +54,7 @@ No authorization required
 
 ## api_lobbies_id_delete
 
-> serde_json::Value api_lobbies_id_delete(id, x_beam_scope, x_beam_gamertag, remove_from_lobby)
+> serde_json::Value api_lobbies_id_delete(id, x_beam_gamertag, x_beam_timeout, remove_from_lobby)
 
 
 Remove the requested player from the lobby. The host is able to remove anyone. Others may only remove themselves without error.
@@ -65,8 +65,8 @@ Remove the requested player from the lobby. The host is able to remove anyone. O
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the lobby | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **remove_from_lobby** | Option<[**RemoveFromLobby**](RemoveFromLobby.md)> | Request including the player requested to remove |  |
 
 ### Return type
@@ -75,7 +75,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -87,7 +87,7 @@ No authorization required
 
 ## api_lobbies_id_get
 
-> models::Lobby api_lobbies_id_get(id, x_beam_scope, x_beam_gamertag)
+> models::Lobby api_lobbies_id_get(id, x_beam_gamertag, x_beam_timeout)
 
 
 Get the current status of a lobby by id.
@@ -98,8 +98,8 @@ Get the current status of a lobby by id.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | The lobby id. | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 
 ### Return type
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -119,7 +119,7 @@ No authorization required
 
 ## api_lobbies_id_metadata_put
 
-> models::Lobby api_lobbies_id_metadata_put(id, x_beam_scope, x_beam_gamertag, update_lobby)
+> models::Lobby api_lobbies_id_metadata_put(id, x_beam_gamertag, x_beam_timeout, update_lobby)
 
 
 Update the properties of a lobby
@@ -130,8 +130,8 @@ Update the properties of a lobby
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the lobby | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **update_lobby** | Option<[**UpdateLobby**](UpdateLobby.md)> | The update lobby request. |  |
 
 ### Return type
@@ -140,7 +140,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -152,7 +152,7 @@ No authorization required
 
 ## api_lobbies_id_put
 
-> models::Lobby api_lobbies_id_put(id, x_beam_scope, x_beam_gamertag, join_lobby)
+> models::Lobby api_lobbies_id_put(id, x_beam_gamertag, x_beam_timeout, join_lobby)
 
 
 Join a lobby
@@ -163,8 +163,8 @@ Join a lobby
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the lobby | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **join_lobby** | Option<[**JoinLobby**](JoinLobby.md)> | The join lobby request. Includes tags. |  |
 
 ### Return type
@@ -173,7 +173,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -185,7 +185,7 @@ No authorization required
 
 ## api_lobbies_id_server_post
 
-> serde_json::Value api_lobbies_id_server_post(id, x_beam_scope, x_beam_gamertag, create_federated_game_server)
+> serde_json::Value api_lobbies_id_server_post(id, x_beam_gamertag, x_beam_timeout, create_federated_game_server)
 
 
 Invoke the Lobby actor to make the federated game server request.
@@ -196,8 +196,8 @@ Invoke the Lobby actor to make the federated game server request.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the lobby | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **create_federated_game_server** | Option<[**CreateFederatedGameServer**](CreateFederatedGameServer.md)> | Includes an optional matchtype |  |
 
 ### Return type
@@ -206,7 +206,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -218,7 +218,7 @@ No authorization required
 
 ## api_lobbies_id_tags_delete
 
-> models::Lobby api_lobbies_id_tags_delete(id, x_beam_scope, x_beam_gamertag, remove_tags)
+> models::Lobby api_lobbies_id_tags_delete(id, x_beam_gamertag, x_beam_timeout, remove_tags)
 
 
 Remove the request tags from the requested player.
@@ -229,8 +229,8 @@ Remove the request tags from the requested player.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the lobby | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **remove_tags** | Option<[**RemoveTags**](RemoveTags.md)> | Includes the player ID and the tags to remove. |  |
 
 ### Return type
@@ -239,7 +239,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -251,7 +251,7 @@ No authorization required
 
 ## api_lobbies_id_tags_put
 
-> models::Lobby api_lobbies_id_tags_put(id, x_beam_scope, x_beam_gamertag, add_tags)
+> models::Lobby api_lobbies_id_tags_put(id, x_beam_gamertag, x_beam_timeout, add_tags)
 
 
 Add the request tags to the requested player.
@@ -262,8 +262,8 @@ Add the request tags to the requested player.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the lobby | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **add_tags** | Option<[**AddTags**](AddTags.md)> | Includes the player ID and tags to add. |  |
 
 ### Return type
@@ -272,7 +272,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -284,7 +284,7 @@ No authorization required
 
 ## api_lobbies_passcode_put
 
-> models::Lobby api_lobbies_passcode_put(x_beam_scope, x_beam_gamertag, join_lobby)
+> models::Lobby api_lobbies_passcode_put(x_beam_gamertag, x_beam_timeout, join_lobby)
 
 
 Join a lobby by passcode.
@@ -294,8 +294,8 @@ Join a lobby by passcode.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **join_lobby** | Option<[**JoinLobby**](JoinLobby.md)> | The join lobby request. Includes tags. |  |
 
 ### Return type
@@ -304,7 +304,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -316,7 +316,7 @@ No authorization required
 
 ## api_lobbies_post
 
-> models::Lobby api_lobbies_post(x_beam_scope, x_beam_gamertag, create_lobby)
+> models::Lobby api_lobbies_post(x_beam_gamertag, x_beam_timeout, create_lobby)
 
 
 Create a lobby. A leader is not necessary to create a lobby.
@@ -326,9 +326,9 @@ Create a lobby. A leader is not necessary to create a lobby.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**create_lobby** | Option<[**CreateLobby**](CreateLobby.md)> | The Create request. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**create_lobby** | Option<[**CreateLobby**](CreateLobby.md)> | The create lobby request. |  |
 
 ### Return type
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -348,19 +348,19 @@ No authorization required
 
 ## api_lobbies_put
 
-> models::SetLobbyResponse api_lobbies_put(x_beam_scope, x_beam_gamertag, lobby)
+> models::SetLobbyResponse api_lobbies_put(x_beam_gamertag, x_beam_timeout, lobby)
 
 
-Exposes the internal \"SetLobby\" behavior as an Admin only endpoint
+Exposes the internal \"SetLobby\" behavior as an Admin only endpoint.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**lobby** | Option<[**Lobby**](Lobby.md)> |  |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**lobby** | Option<[**Lobby**](Lobby.md)> | The lobby to create or replace. |  |
 
 ### Return type
 
@@ -368,7 +368,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 

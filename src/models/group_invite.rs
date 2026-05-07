@@ -17,7 +17,10 @@ pub struct GroupInvite {
     pub gamer_tag: i64,
     #[serde(rename = "subGroup", skip_serializing_if = "Option::is_none")]
     pub sub_group: Option<i64>,
-    #[serde(rename = "useNewRewardsSystem", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "useNewRewardsSystem",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub use_new_rewards_system: Option<bool>,
 }
 
@@ -30,4 +33,3 @@ impl GroupInvite {
         }
     }
 }
-

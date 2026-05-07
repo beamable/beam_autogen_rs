@@ -19,9 +19,6 @@ pub struct VariableReference {
 
 impl VariableReference {
     pub fn new(name: String) -> VariableReference {
-        VariableReference {
-            name,
-        }
+        VariableReference { name }
     }
 }
-

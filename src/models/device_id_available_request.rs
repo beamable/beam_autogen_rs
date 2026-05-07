@@ -19,9 +19,6 @@ pub struct DeviceIdAvailableRequest {
 
 impl DeviceIdAvailableRequest {
     pub fn new(device_id: String) -> DeviceIdAvailableRequest {
-        DeviceIdAvailableRequest {
-            device_id,
-        }
+        DeviceIdAvailableRequest { device_id }
     }
 }
-

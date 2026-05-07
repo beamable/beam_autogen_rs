@@ -19,9 +19,6 @@ pub struct GetSkusReq {
 
 impl GetSkusReq {
     pub fn new() -> GetSkusReq {
-        GetSkusReq {
-            version: None,
-        }
+        GetSkusReq { version: None }
     }
 }
-

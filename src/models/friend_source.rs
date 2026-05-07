@@ -11,14 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum FriendSource {
     #[serde(rename = "native")]
+    #[default]
     Native,
     #[serde(rename = "facebook")]
     Facebook,
-
 }
 
 impl std::fmt::Display for FriendSource {
@@ -29,10 +31,3 @@ impl std::fmt::Display for FriendSource {
         }
     }
 }
-
-impl Default for FriendSource {
-    fn default() -> FriendSource {
-        Self::Native
-    }
-}
-

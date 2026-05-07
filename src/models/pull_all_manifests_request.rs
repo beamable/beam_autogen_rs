@@ -19,9 +19,6 @@ pub struct PullAllManifestsRequest {
 
 impl PullAllManifestsRequest {
     pub fn new(source_realm_pid: String) -> PullAllManifestsRequest {
-        PullAllManifestsRequest {
-            source_realm_pid,
-        }
+        PullAllManifestsRequest { source_realm_pid }
     }
 }
-

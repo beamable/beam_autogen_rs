@@ -21,12 +21,20 @@ pub struct ServiceStatus {
     pub service_name: String,
     #[serde(rename = "imageId")]
     pub image_id: String,
-    #[serde(rename = "serviceDependencyReferences", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "serviceDependencyReferences",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub service_dependency_references: Option<Vec<models::ServiceDependencyReference>>,
 }
 
 impl ServiceStatus {
-    pub fn new(is_current: bool, running: bool, service_name: String, image_id: String) -> ServiceStatus {
+    pub fn new(
+        is_current: bool,
+        running: bool,
+        service_name: String,
+        image_id: String,
+    ) -> ServiceStatus {
         ServiceStatus {
             is_current,
             running,
@@ -36,4 +44,3 @@ impl ServiceStatus {
         }
     }
 }
-

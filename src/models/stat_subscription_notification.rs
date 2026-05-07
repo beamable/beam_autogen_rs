@@ -20,11 +20,13 @@ pub struct StatSubscriptionNotification {
 }
 
 impl StatSubscriptionNotification {
-    pub fn new(stats_before: std::collections::HashMap<String, String>, stats_after: std::collections::HashMap<String, String>) -> StatSubscriptionNotification {
+    pub fn new(
+        stats_before: std::collections::HashMap<String, String>,
+        stats_after: std::collections::HashMap<String, String>,
+    ) -> StatSubscriptionNotification {
         StatSubscriptionNotification {
             stats_before,
             stats_after,
         }
     }
 }
-

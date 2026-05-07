@@ -19,9 +19,6 @@ pub struct GroupApplication {
 
 impl GroupApplication {
     pub fn new() -> GroupApplication {
-        GroupApplication {
-            sub_group: None,
-        }
+        GroupApplication { sub_group: None }
     }
 }
-

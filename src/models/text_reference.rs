@@ -34,7 +34,14 @@ pub struct TextReference {
 }
 
 impl TextReference {
-    pub fn new(tags: Vec<String>, uri: String, version: String, id: String, r#type: Type, visibility: String) -> TextReference {
+    pub fn new(
+        tags: Vec<String>,
+        uri: String,
+        version: String,
+        id: String,
+        r#type: Type,
+        visibility: String,
+    ) -> TextReference {
         TextReference {
             tags,
             uri,
@@ -48,16 +55,12 @@ impl TextReference {
         }
     }
 }
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum Type {
     #[serde(rename = "text")]
+    #[default]
     Text,
 }
-
-impl Default for Type {
-    fn default() -> Type {
-        Self::Text
-    }
-}
-

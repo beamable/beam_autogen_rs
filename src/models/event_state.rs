@@ -11,10 +11,13 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum EventState {
     #[serde(rename = "running")]
+    #[default]
     Running,
     #[serde(rename = "unknown")]
     Unknown,
@@ -24,7 +27,6 @@ pub enum EventState {
     Done,
     #[serde(rename = "pending")]
     Pending,
-
 }
 
 impl std::fmt::Display for EventState {
@@ -38,10 +40,3 @@ impl std::fmt::Display for EventState {
         }
     }
 }
-
-impl Default for EventState {
-    fn default() -> EventState {
-        Self::Running
-    }
-}
-

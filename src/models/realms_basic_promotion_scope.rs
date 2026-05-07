@@ -21,10 +21,6 @@ pub struct RealmsBasicPromotionScope {
 
 impl RealmsBasicPromotionScope {
     pub fn new(name: String, promotions: Vec<models::Promotion>) -> RealmsBasicPromotionScope {
-        RealmsBasicPromotionScope {
-            name,
-            promotions,
-        }
+        RealmsBasicPromotionScope { name, promotions }
     }
 }
-

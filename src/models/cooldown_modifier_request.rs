@@ -20,11 +20,13 @@ pub struct CooldownModifierRequest {
 }
 
 impl CooldownModifierRequest {
-    pub fn new(gamer_tag: i64, update_listing_cooldown_requests: Vec<models::UpdateListingCooldownRequest>) -> CooldownModifierRequest {
+    pub fn new(
+        gamer_tag: i64,
+        update_listing_cooldown_requests: Vec<models::UpdateListingCooldownRequest>,
+    ) -> CooldownModifierRequest {
         CooldownModifierRequest {
             gamer_tag,
             update_listing_cooldown_requests,
         }
     }
 }
-

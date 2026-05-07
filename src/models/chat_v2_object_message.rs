@@ -30,7 +30,15 @@ pub struct ChatV2ObjectMessage {
 }
 
 impl ChatV2ObjectMessage {
-    pub fn new(room_id: String, gamer_tag: i64, reactions: std::collections::HashMap<String, String>, timestamp_millis: i64, censored_content: String, message_id: uuid::Uuid, content: String) -> ChatV2ObjectMessage {
+    pub fn new(
+        room_id: String,
+        gamer_tag: i64,
+        reactions: std::collections::HashMap<String, String>,
+        timestamp_millis: i64,
+        censored_content: String,
+        message_id: uuid::Uuid,
+        content: String,
+    ) -> ChatV2ObjectMessage {
         ChatV2ObjectMessage {
             room_id,
             gamer_tag,
@@ -42,4 +50,3 @@ impl ChatV2ObjectMessage {
         }
     }
 }
-

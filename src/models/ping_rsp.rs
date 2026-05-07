@@ -19,9 +19,6 @@ pub struct PingRsp {
 
 impl PingRsp {
     pub fn new(keep_alive: bool) -> PingRsp {
-        PingRsp {
-            keep_alive,
-        }
+        PingRsp { keep_alive }
     }
 }
-

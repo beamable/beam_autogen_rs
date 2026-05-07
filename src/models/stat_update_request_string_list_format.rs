@@ -19,9 +19,6 @@ pub struct StatUpdateRequestStringListFormat {
 
 impl StatUpdateRequestStringListFormat {
     pub fn new() -> StatUpdateRequestStringListFormat {
-        StatUpdateRequestStringListFormat {
-            set: None,
-        }
+        StatUpdateRequestStringListFormat { set: None }
     }
 }
-

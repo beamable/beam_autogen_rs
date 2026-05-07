@@ -21,10 +21,6 @@ pub struct BeamoV2PaSlowQuery {
 
 impl BeamoV2PaSlowQuery {
     pub fn new(line: String, namespace: String) -> BeamoV2PaSlowQuery {
-        BeamoV2PaSlowQuery {
-            line,
-            namespace,
-        }
+        BeamoV2PaSlowQuery { line, namespace }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct LeaveRoomResponse {
 
 impl LeaveRoomResponse {
     pub fn new(removed: String) -> LeaveRoomResponse {
-        LeaveRoomResponse {
-            removed,
-        }
+        LeaveRoomResponse { removed }
     }
 }
-

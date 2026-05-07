@@ -38,7 +38,15 @@ pub struct PaymentDetailsEntryViewModel {
 }
 
 impl PaymentDetailsEntryViewModel {
-    pub fn new(reference: String, name: String, quantity: i32, sku: String, price: i32, gameplace: String, provider_product_id: String) -> PaymentDetailsEntryViewModel {
+    pub fn new(
+        reference: String,
+        name: String,
+        quantity: i32,
+        sku: String,
+        price: i32,
+        gameplace: String,
+        provider_product_id: String,
+    ) -> PaymentDetailsEntryViewModel {
         PaymentDetailsEntryViewModel {
             reference,
             name,
@@ -54,4 +62,3 @@ impl PaymentDetailsEntryViewModel {
         }
     }
 }
-

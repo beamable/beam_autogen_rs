@@ -19,9 +19,6 @@ pub struct GetTotalCouponResponse {
 
 impl GetTotalCouponResponse {
     pub fn new(count: i64) -> GetTotalCouponResponse {
-        GetTotalCouponResponse {
-            count,
-        }
+        GetTotalCouponResponse { count }
     }
 }
-

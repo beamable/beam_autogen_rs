@@ -19,9 +19,6 @@ pub struct StatRequest {
 
 impl StatRequest {
     pub fn new() -> StatRequest {
-        StatRequest {
-            stats: None,
-        }
+        StatRequest { stats: None }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct MailQueryResponse {
 
 impl MailQueryResponse {
     pub fn new(unread_count: i64) -> MailQueryResponse {
-        MailQueryResponse {
-            unread_count,
-        }
+        MailQueryResponse { unread_count }
     }
 }
-

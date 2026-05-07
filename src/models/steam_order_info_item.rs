@@ -26,7 +26,13 @@ pub struct SteamOrderInfoItem {
 }
 
 impl SteamOrderInfoItem {
-    pub fn new(vat: i64, amount: i64, itemid: i64, qty: i64, itemstatus: String) -> SteamOrderInfoItem {
+    pub fn new(
+        vat: i64,
+        amount: i64,
+        itemid: i64,
+        qty: i64,
+        itemstatus: String,
+    ) -> SteamOrderInfoItem {
         SteamOrderInfoItem {
             vat,
             amount,
@@ -36,4 +42,3 @@ impl SteamOrderInfoItem {
         }
     }
 }
-

@@ -28,7 +28,13 @@ pub struct ServiceStorageReference {
 }
 
 impl ServiceStorageReference {
-    pub fn new(archived: bool, enabled: bool, storage_type: String, id: String, checksum: String) -> ServiceStorageReference {
+    pub fn new(
+        archived: bool,
+        enabled: bool,
+        storage_type: String,
+        id: String,
+        checksum: String,
+    ) -> ServiceStorageReference {
         ServiceStorageReference {
             archived,
             enabled,
@@ -39,4 +45,3 @@ impl ServiceStorageReference {
         }
     }
 }
-

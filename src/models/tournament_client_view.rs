@@ -28,7 +28,14 @@ pub struct TournamentClientView {
 }
 
 impl TournamentClientView {
-    pub fn new(tournament_id: String, start_time_utc: String, seconds_remaining: i64, cycle: i32, end_time_utc: String, content_id: String) -> TournamentClientView {
+    pub fn new(
+        tournament_id: String,
+        start_time_utc: String,
+        seconds_remaining: i64,
+        cycle: i32,
+        end_time_utc: String,
+        content_id: String,
+    ) -> TournamentClientView {
         TournamentClientView {
             tournament_id,
             start_time_utc,
@@ -39,4 +46,3 @@ impl TournamentClientView {
         }
     }
 }
-

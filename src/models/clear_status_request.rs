@@ -19,9 +19,6 @@ pub struct ClearStatusRequest {
 
 impl ClearStatusRequest {
     pub fn new(store: String) -> ClearStatusRequest {
-        ClearStatusRequest {
-            store,
-        }
+        ClearStatusRequest { store }
     }
 }
-

@@ -18,10 +18,9 @@ pub struct PutLocalizationsRequest {
 }
 
 impl PutLocalizationsRequest {
-    pub fn new(localizations: std::collections::HashMap<String, Vec<models::LocalizedValue>>) -> PutLocalizationsRequest {
-        PutLocalizationsRequest {
-            localizations,
-        }
+    pub fn new(
+        localizations: std::collections::HashMap<String, Vec<models::LocalizedValue>>,
+    ) -> PutLocalizationsRequest {
+        PutLocalizationsRequest { localizations }
     }
 }
-

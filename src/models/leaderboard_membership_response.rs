@@ -19,9 +19,6 @@ pub struct LeaderboardMembershipResponse {
 
 impl LeaderboardMembershipResponse {
     pub fn new(result: bool) -> LeaderboardMembershipResponse {
-        LeaderboardMembershipResponse {
-            result,
-        }
+        LeaderboardMembershipResponse { result }
     }
 }
-

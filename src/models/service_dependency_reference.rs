@@ -21,10 +21,6 @@ pub struct ServiceDependencyReference {
 
 impl ServiceDependencyReference {
     pub fn new(id: String, storage_type: String) -> ServiceDependencyReference {
-        ServiceDependencyReference {
-            id,
-            storage_type,
-        }
+        ServiceDependencyReference { id, storage_type }
     }
 }
-

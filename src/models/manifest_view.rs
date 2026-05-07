@@ -30,7 +30,12 @@ pub struct ManifestView {
 }
 
 impl ManifestView {
-    pub fn new(id: String, checksum: String, manifest: Vec<models::ServiceReference>, created: i64) -> ManifestView {
+    pub fn new(
+        id: String,
+        checksum: String,
+        manifest: Vec<models::ServiceReference>,
+        created: i64,
+    ) -> ManifestView {
         ManifestView {
             created_by_account_id: None,
             id,
@@ -42,4 +47,3 @@ impl ManifestView {
         }
     }
 }
-

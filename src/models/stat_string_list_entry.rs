@@ -21,10 +21,6 @@ pub struct StatStringListEntry {
 
 impl StatStringListEntry {
     pub fn new(k: String, v: String) -> StatStringListEntry {
-        StatStringListEntry {
-            k,
-            v,
-        }
+        StatStringListEntry { k, v }
     }
 }
-

@@ -11,14 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum InvitationDirection {
     #[serde(rename = "incoming")]
+    #[default]
     Incoming,
     #[serde(rename = "outgoing")]
     Outgoing,
-
 }
 
 impl std::fmt::Display for InvitationDirection {
@@ -29,10 +31,3 @@ impl std::fmt::Display for InvitationDirection {
         }
     }
 }
-
-impl Default for InvitationDirection {
-    fn default() -> InvitationDirection {
-        Self::Incoming
-    }
-}
-

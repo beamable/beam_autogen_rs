@@ -44,7 +44,16 @@ pub struct PaymentAuditEntryViewModel {
 }
 
 impl PaymentAuditEntryViewModel {
-    pub fn new(providerid: String, history: Vec<models::PaymentHistoryEntryViewModel>, txid: i64, providername: String, txstate: String, entitlements: Vec<models::EntitlementGenerator>, details: models::PaymentDetailsEntryViewModel, gt: i64) -> PaymentAuditEntryViewModel {
+    pub fn new(
+        providerid: String,
+        history: Vec<models::PaymentHistoryEntryViewModel>,
+        txid: i64,
+        providername: String,
+        txstate: String,
+        entitlements: Vec<models::EntitlementGenerator>,
+        details: models::PaymentDetailsEntryViewModel,
+        gt: i64,
+    ) -> PaymentAuditEntryViewModel {
         PaymentAuditEntryViewModel {
             providerid,
             history,
@@ -63,4 +72,3 @@ impl PaymentAuditEntryViewModel {
         }
     }
 }
-

@@ -34,7 +34,17 @@ pub struct LocalDate {
 }
 
 impl LocalDate {
-    pub fn new(day_of_year: i32, leap_year: bool, chronology: models::IsoChronology, day_of_week: DayOfWeek, month_value: i32, day_of_month: i32, year: i32, era: models::Era, month: Month) -> LocalDate {
+    pub fn new(
+        day_of_year: i32,
+        leap_year: bool,
+        chronology: models::IsoChronology,
+        day_of_week: DayOfWeek,
+        month_value: i32,
+        day_of_month: i32,
+        year: i32,
+        era: models::Era,
+        month: Month,
+    ) -> LocalDate {
         LocalDate {
             day_of_year,
             leap_year,
@@ -48,10 +58,13 @@ impl LocalDate {
         }
     }
 }
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum DayOfWeek {
     #[serde(rename = "SATURDAY")]
+    #[default]
     Saturday,
     #[serde(rename = "MONDAY")]
     Monday,
@@ -67,15 +80,13 @@ pub enum DayOfWeek {
     Sunday,
 }
 
-impl Default for DayOfWeek {
-    fn default() -> DayOfWeek {
-        Self::Saturday
-    }
-}
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum Month {
     #[serde(rename = "DECEMBER")]
+    #[default]
     December,
     #[serde(rename = "APRIL")]
     April,
@@ -100,10 +111,3 @@ pub enum Month {
     #[serde(rename = "JANUARY")]
     January,
 }
-
-impl Default for Month {
-    fn default() -> Month {
-        Self::December
-    }
-}
-

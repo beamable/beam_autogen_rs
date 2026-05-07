@@ -19,9 +19,6 @@ pub struct AccountSearchResponse {
 
 impl AccountSearchResponse {
     pub fn new(accounts: Vec<models::Account>) -> AccountSearchResponse {
-        AccountSearchResponse {
-            accounts,
-        }
+        AccountSearchResponse { accounts }
     }
 }
-

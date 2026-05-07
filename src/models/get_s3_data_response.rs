@@ -19,9 +19,6 @@ pub struct GetS3DataResponse {
 
 impl GetS3DataResponse {
     pub fn new(data: Vec<i32>) -> GetS3DataResponse {
-        GetS3DataResponse {
-            data,
-        }
+        GetS3DataResponse { data }
     }
 }
-

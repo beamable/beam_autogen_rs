@@ -19,9 +19,6 @@ pub struct LeaderboardRemoveEntryRequest {
 
 impl LeaderboardRemoveEntryRequest {
     pub fn new(id: i64) -> LeaderboardRemoveEntryRequest {
-        LeaderboardRemoveEntryRequest {
-            id,
-        }
+        LeaderboardRemoveEntryRequest { id }
     }
 }
-

@@ -21,10 +21,6 @@ pub struct FailPurchaseRequest {
 
 impl FailPurchaseRequest {
     pub fn new(txid: i64, reason: String) -> FailPurchaseRequest {
-        FailPurchaseRequest {
-            txid,
-            reason,
-        }
+        FailPurchaseRequest { txid, reason }
     }
 }
-

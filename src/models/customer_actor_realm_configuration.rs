@@ -28,7 +28,14 @@ pub struct CustomerActorRealmConfiguration {
 }
 
 impl CustomerActorRealmConfiguration {
-    pub fn new(environment: String, websocket_config: models::CustomerActorWebSocketConfiguration, microservice_uri: String, microservice_ecr_uri: String, portal_uri: String, storage_browser_uri: String) -> CustomerActorRealmConfiguration {
+    pub fn new(
+        environment: String,
+        websocket_config: models::CustomerActorWebSocketConfiguration,
+        microservice_uri: String,
+        microservice_ecr_uri: String,
+        portal_uri: String,
+        storage_browser_uri: String,
+    ) -> CustomerActorRealmConfiguration {
         CustomerActorRealmConfiguration {
             environment,
             websocket_config: Box::new(websocket_config),
@@ -39,4 +46,3 @@ impl CustomerActorRealmConfiguration {
         }
     }
 }
-

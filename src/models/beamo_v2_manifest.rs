@@ -19,16 +19,36 @@ pub struct BeamoV2Manifest {
     pub service_references: Option<Vec<models::BeamoV2ServiceReference>>,
     #[serde(rename = "created", skip_serializing_if = "Option::is_none")]
     pub created: Option<i64>,
-    #[serde(rename = "createdByAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "createdByAccountId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub created_by_account_id: Option<Option<i64>>,
     #[serde(rename = "checksum", skip_serializing_if = "Option::is_none")]
     pub checksum: Option<String>,
-    #[serde(rename = "comments", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "comments",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub comments: Option<Option<String>>,
     #[serde(rename = "storageReferences", skip_serializing_if = "Option::is_none")]
     pub storage_references: Option<Vec<models::BeamoV2ServiceStorageReference>>,
-    #[serde(rename = "storageGroupId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "storageGroupId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub storage_group_id: Option<Option<String>>,
+    #[serde(
+        rename = "portalExtensionReferences",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub portal_extension_references: Option<Vec<models::BeamoV2PortalExtensionReference>>,
 }
 
 impl BeamoV2Manifest {
@@ -42,7 +62,7 @@ impl BeamoV2Manifest {
             comments: None,
             storage_references: None,
             storage_group_id: None,
+            portal_extension_references: None,
         }
     }
 }
-

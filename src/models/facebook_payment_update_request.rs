@@ -20,11 +20,10 @@ pub struct FacebookPaymentUpdateRequest {
 }
 
 impl FacebookPaymentUpdateRequest {
-    pub fn new(object: String, entry: Vec<models::FacebookUpdatedEntry>) -> FacebookPaymentUpdateRequest {
-        FacebookPaymentUpdateRequest {
-            object,
-            entry,
-        }
+    pub fn new(
+        object: String,
+        entry: Vec<models::FacebookUpdatedEntry>,
+    ) -> FacebookPaymentUpdateRequest {
+        FacebookPaymentUpdateRequest { object, entry }
     }
 }
-

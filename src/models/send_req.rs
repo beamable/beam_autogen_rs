@@ -19,9 +19,6 @@ pub struct SendReq {
 
 impl SendReq {
     pub fn new(msgs: Vec<models::SendMsg>) -> SendReq {
-        SendReq {
-            msgs,
-        }
+        SendReq { msgs }
     }
 }
-

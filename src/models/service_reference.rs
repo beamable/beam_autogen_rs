@@ -13,7 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ServiceReference {
-    #[serde(rename = "containerHealthCheckPort", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "containerHealthCheckPort",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub container_health_check_port: Option<i64>,
     #[serde(rename = "archived")]
     pub archived: bool,
@@ -40,7 +43,15 @@ pub struct ServiceReference {
 }
 
 impl ServiceReference {
-    pub fn new(archived: bool, service_name: String, enabled: bool, arm: bool, checksum: String, template_id: String, image_id: String) -> ServiceReference {
+    pub fn new(
+        archived: bool,
+        service_name: String,
+        enabled: bool,
+        arm: bool,
+        checksum: String,
+        template_id: String,
+        image_id: String,
+    ) -> ServiceReference {
         ServiceReference {
             container_health_check_port: None,
             archived,
@@ -57,4 +68,3 @@ impl ServiceReference {
         }
     }
 }
-

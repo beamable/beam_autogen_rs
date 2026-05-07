@@ -17,7 +17,19 @@ pub struct BeamoV2PostManifestRequest {
     pub manifest: Option<Vec<models::BeamoV2ServiceReference>>,
     #[serde(rename = "storageReferences", skip_serializing_if = "Option::is_none")]
     pub storage_references: Option<Vec<models::BeamoV2ServiceStorageReference>>,
-    #[serde(rename = "comments", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "portalExtensionReferences",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub portal_extension_references: Option<Option<Vec<models::BeamoV2PortalExtensionReference>>>,
+    #[serde(
+        rename = "comments",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub comments: Option<Option<String>>,
     #[serde(rename = "autoDeploy", skip_serializing_if = "Option::is_none")]
     pub auto_deploy: Option<bool>,
@@ -28,9 +40,9 @@ impl BeamoV2PostManifestRequest {
         BeamoV2PostManifestRequest {
             manifest: None,
             storage_references: None,
+            portal_extension_references: None,
             comments: None,
             auto_deploy: None,
         }
     }
 }
-

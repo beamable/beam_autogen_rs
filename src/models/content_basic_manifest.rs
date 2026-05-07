@@ -13,6 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ContentBasicManifest {
+    #[serde(rename = "affectedContentIds")]
+    pub affected_content_ids: String,
     #[serde(rename = "archived", skip_serializing_if = "Option::is_none")]
     pub archived: Option<bool>,
     #[serde(rename = "diffObjectKey", skip_serializing_if = "Option::is_none")]
@@ -34,8 +36,15 @@ pub struct ContentBasicManifest {
 }
 
 impl ContentBasicManifest {
-    pub fn new(references: Vec<models::ContentBasicManifestReferencesInner>, id: String, checksum: String, created: i64) -> ContentBasicManifest {
+    pub fn new(
+        affected_content_ids: String,
+        references: Vec<models::ContentBasicManifestReferencesInner>,
+        id: String,
+        checksum: String,
+        created: i64,
+    ) -> ContentBasicManifest {
         ContentBasicManifest {
+            affected_content_ids,
             archived: None,
             diff_object_key: None,
             references,
@@ -48,4 +57,3 @@ impl ContentBasicManifest {
         }
     }
 }
-

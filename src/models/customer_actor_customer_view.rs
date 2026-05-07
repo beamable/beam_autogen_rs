@@ -17,7 +17,12 @@ pub struct CustomerActorCustomerView {
     pub customer_id: String,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "alias", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "alias",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub alias: Option<Option<String>>,
     #[serde(rename = "realms", skip_serializing_if = "Option::is_none")]
     pub realms: Option<Vec<models::RealmView>>,
@@ -33,4 +38,3 @@ impl CustomerActorCustomerView {
         }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct GetGamesResponse {
 
 impl GetGamesResponse {
     pub fn new() -> GetGamesResponse {
-        GetGamesResponse {
-            realms: None,
-        }
+        GetGamesResponse { realms: None }
     }
 }
-

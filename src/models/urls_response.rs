@@ -19,9 +19,6 @@ pub struct UrlsResponse {
 
 impl UrlsResponse {
     pub fn new(response: Vec<models::CloudsavingBasicUrlResponse>) -> UrlsResponse {
-        UrlsResponse {
-            response,
-        }
+        UrlsResponse { response }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct LeaderboardPartitionRequest {
 
 impl LeaderboardPartitionRequest {
     pub fn new(player_id: i64) -> LeaderboardPartitionRequest {
-        LeaderboardPartitionRequest {
-            player_id,
-        }
+        LeaderboardPartitionRequest { player_id }
     }
 }
-

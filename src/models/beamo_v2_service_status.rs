@@ -21,8 +21,14 @@ pub struct BeamoV2ServiceStatus {
     pub image_id: Option<String>,
     #[serde(rename = "isCurrent", skip_serializing_if = "Option::is_none")]
     pub is_current: Option<bool>,
-    #[serde(rename = "serviceDependencyReferences", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub service_dependency_references: Option<Option<Vec<models::BeamoV2ServiceDependencyReference>>>,
+    #[serde(
+        rename = "serviceDependencyReferences",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub service_dependency_references:
+        Option<Option<Vec<models::BeamoV2ServiceDependencyReference>>>,
 }
 
 impl BeamoV2ServiceStatus {
@@ -36,4 +42,3 @@ impl BeamoV2ServiceStatus {
         }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct BeamoV2QueryResponse {
 
 impl BeamoV2QueryResponse {
     pub fn new() -> BeamoV2QueryResponse {
-        BeamoV2QueryResponse {
-            query_id: None,
-        }
+        BeamoV2QueryResponse { query_id: None }
     }
 }
-

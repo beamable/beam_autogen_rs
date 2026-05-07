@@ -29,7 +29,12 @@ pub struct GroupUser {
 }
 
 impl GroupUser {
-    pub fn new(gamer_tag: i64, all_groups: Vec<models::GroupUserMember>, updated: i64, member: models::GroupMemberInfo) -> GroupUser {
+    pub fn new(
+        gamer_tag: i64,
+        all_groups: Vec<models::GroupUserMember>,
+        updated: i64,
+        member: models::GroupMemberInfo,
+    ) -> GroupUser {
         GroupUser {
             in_flight: None,
             gamer_tag,
@@ -40,4 +45,3 @@ impl GroupUser {
         }
     }
 }
-

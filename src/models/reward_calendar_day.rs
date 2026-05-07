@@ -19,9 +19,6 @@ pub struct RewardCalendarDay {
 
 impl RewardCalendarDay {
     pub fn new(obtain: Vec<models::EntitlementGenerator>) -> RewardCalendarDay {
-        RewardCalendarDay {
-            obtain,
-        }
+        RewardCalendarDay { obtain }
     }
 }
-

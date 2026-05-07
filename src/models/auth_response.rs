@@ -13,9 +13,19 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AuthResponse {
-    #[serde(rename = "accessToken", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "accessToken",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub access_token: Option<Option<String>>,
-    #[serde(rename = "refreshToken", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "refreshToken",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub refresh_token: Option<Option<String>>,
 }
 
@@ -27,4 +37,3 @@ impl AuthResponse {
         }
     }
 }
-

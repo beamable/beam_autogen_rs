@@ -13,11 +13,26 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BeamoV2ServiceRegistrationQuery {
-    #[serde(rename = "serviceName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "serviceName",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub service_name: Option<Option<String>>,
-    #[serde(rename = "routingKey", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "routingKey",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub routing_key: Option<Option<String>>,
-    #[serde(rename = "localOnly", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "localOnly",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub local_only: Option<Option<bool>>,
     #[serde(rename = "federation", skip_serializing_if = "Option::is_none")]
     pub federation: Option<Box<models::BeamoV2SupportedFederation>>,
@@ -33,4 +48,3 @@ impl BeamoV2ServiceRegistrationQuery {
         }
     }
 }
-

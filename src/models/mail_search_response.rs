@@ -19,9 +19,6 @@ pub struct MailSearchResponse {
 
 impl MailSearchResponse {
     pub fn new(results: Vec<models::MailSearchResponseClause>) -> MailSearchResponse {
-        MailSearchResponse {
-            results,
-        }
+        MailSearchResponse { results }
     }
 }
-

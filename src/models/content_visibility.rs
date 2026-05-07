@@ -11,14 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum ContentVisibility {
     #[serde(rename = "public")]
+    #[default]
     Public,
     #[serde(rename = "private")]
     Private,
-
 }
 
 impl std::fmt::Display for ContentVisibility {
@@ -29,10 +31,3 @@ impl std::fmt::Display for ContentVisibility {
         }
     }
 }
-
-impl Default for ContentVisibility {
-    fn default() -> ContentVisibility {
-        Self::Public
-    }
-}
-

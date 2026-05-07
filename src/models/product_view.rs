@@ -26,7 +26,13 @@ pub struct ProductView {
 }
 
 impl ProductView {
-    pub fn new(localized_price: f64, sku: String, description: String, iso_currency_code: String, localized_price_string: String) -> ProductView {
+    pub fn new(
+        localized_price: f64,
+        sku: String,
+        description: String,
+        iso_currency_code: String,
+        localized_price_string: String,
+    ) -> ProductView {
         ProductView {
             localized_price,
             sku,
@@ -36,4 +42,3 @@ impl ProductView {
         }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct AdminGetPlayerStatusResponse {
 
 impl AdminGetPlayerStatusResponse {
     pub fn new(statuses: Vec<models::AdminPlayerStatus>) -> AdminGetPlayerStatusResponse {
-        AdminGetPlayerStatusResponse {
-            statuses,
-        }
+        AdminGetPlayerStatusResponse { statuses }
     }
 }
-

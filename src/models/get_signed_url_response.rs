@@ -24,7 +24,12 @@ pub struct GetSignedUrlResponse {
 }
 
 impl GetSignedUrlResponse {
-    pub fn new(headers: Vec<models::GetLogsUrlHeader>, url: String, body: String, method: String) -> GetSignedUrlResponse {
+    pub fn new(
+        headers: Vec<models::GetLogsUrlHeader>,
+        url: String,
+        body: String,
+        method: String,
+    ) -> GetSignedUrlResponse {
         GetSignedUrlResponse {
             headers,
             url,
@@ -33,4 +38,3 @@ impl GetSignedUrlResponse {
         }
     }
 }
-

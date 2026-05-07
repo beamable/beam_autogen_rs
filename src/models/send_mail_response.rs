@@ -19,9 +19,6 @@ pub struct SendMailResponse {
 
 impl SendMailResponse {
     pub fn new() -> SendMailResponse {
-        SendMailResponse {
-            mail_id: None,
-        }
+        SendMailResponse { mail_id: None }
     }
 }
-

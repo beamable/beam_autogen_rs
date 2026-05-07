@@ -19,9 +19,6 @@ pub struct MicroserviceSecretResponse {
 
 impl MicroserviceSecretResponse {
     pub fn new(secret: String) -> MicroserviceSecretResponse {
-        MicroserviceSecretResponse {
-            secret,
-        }
+        MicroserviceSecretResponse { secret }
     }
 }
-

@@ -13,15 +13,17 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BeamoV2DeleteRegistrationRequest {
-    #[serde(rename = "routingKey", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "routingKey",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub routing_key: Option<Option<String>>,
 }
 
 impl BeamoV2DeleteRegistrationRequest {
     pub fn new() -> BeamoV2DeleteRegistrationRequest {
-        BeamoV2DeleteRegistrationRequest {
-            routing_key: None,
-        }
+        BeamoV2DeleteRegistrationRequest { routing_key: None }
     }
 }
-

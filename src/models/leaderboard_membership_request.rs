@@ -19,9 +19,6 @@ pub struct LeaderboardMembershipRequest {
 
 impl LeaderboardMembershipRequest {
     pub fn new(player_id: i64) -> LeaderboardMembershipRequest {
-        LeaderboardMembershipRequest {
-            player_id,
-        }
+        LeaderboardMembershipRequest { player_id }
     }
 }
-

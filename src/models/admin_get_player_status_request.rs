@@ -19,7 +19,10 @@ pub struct AdminGetPlayerStatusRequest {
     pub tournament_id: Option<String>,
     #[serde(rename = "contentId", skip_serializing_if = "Option::is_none")]
     pub content_id: Option<String>,
-    #[serde(rename = "hasUnclaimedRewards", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "hasUnclaimedRewards",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub has_unclaimed_rewards: Option<bool>,
 }
 
@@ -33,4 +36,3 @@ impl AdminGetPlayerStatusRequest {
         }
     }
 }
-

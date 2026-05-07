@@ -13,12 +13,27 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LobbyPlayer {
-    #[serde(rename = "playerId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "playerId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub player_id: Option<Option<String>>,
-    #[serde(rename = "tags", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "tags",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub tags: Option<Option<Vec<models::Tag>>>,
-    #[serde(rename = "joined", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub joined: Option<Option<String>>,
+    #[serde(
+        rename = "joined",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub joined: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
 }
 
 impl LobbyPlayer {
@@ -30,4 +45,3 @@ impl LobbyPlayer {
         }
     }
 }
-

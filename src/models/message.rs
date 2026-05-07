@@ -46,7 +46,15 @@ pub struct Message {
 }
 
 impl Message {
-    pub fn new(receiver_gamer_tag: i64, state: String, id: i64, sender_gamer_tag: i64, sent: i64, category: String, attachments: Vec<models::Attachment>) -> Message {
+    pub fn new(
+        receiver_gamer_tag: i64,
+        state: String,
+        id: i64,
+        sender_gamer_tag: i64,
+        sent: i64,
+        category: String,
+        attachments: Vec<models::Attachment>,
+    ) -> Message {
         Message {
             body: None,
             expires: None,
@@ -65,4 +73,3 @@ impl Message {
         }
     }
 }
-

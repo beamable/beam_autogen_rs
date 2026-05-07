@@ -18,10 +18,15 @@ pub struct JobActivityView {
     #[serde(rename = "jobId", skip_serializing_if = "Option::is_none")]
     pub job_id: Option<String>,
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
-    pub timestamp: Option<String>,
+    pub timestamp: Option<chrono::DateTime<chrono::FixedOffset>>,
     #[serde(rename = "state", skip_serializing_if = "Option::is_none")]
     pub state: Option<models::JobState>,
-    #[serde(rename = "message", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "message",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub message: Option<Option<String>>,
     #[serde(rename = "jobName", skip_serializing_if = "Option::is_none")]
     pub job_name: Option<String>,
@@ -39,4 +44,3 @@ impl JobActivityView {
         }
     }
 }
-

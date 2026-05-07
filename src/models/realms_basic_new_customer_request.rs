@@ -28,7 +28,11 @@ pub struct RealmsBasicNewCustomerRequest {
 }
 
 impl RealmsBasicNewCustomerRequest {
-    pub fn new(project_name: String, email: String, password: String) -> RealmsBasicNewCustomerRequest {
+    pub fn new(
+        project_name: String,
+        email: String,
+        password: String,
+    ) -> RealmsBasicNewCustomerRequest {
         RealmsBasicNewCustomerRequest {
             project_name,
             email,
@@ -39,4 +43,3 @@ impl RealmsBasicNewCustomerRequest {
         }
     }
 }
-

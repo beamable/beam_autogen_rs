@@ -19,7 +19,10 @@ pub struct Store {
     pub choose: Option<i32>,
     #[serde(rename = "listings")]
     pub listings: Vec<models::Listing>,
-    #[serde(rename = "showInactiveListings", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "showInactiveListings",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub show_inactive_listings: Option<bool>,
     #[serde(rename = "symbol")]
     pub symbol: String,
@@ -42,4 +45,3 @@ impl Store {
         }
     }
 }
-

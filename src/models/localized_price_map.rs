@@ -21,10 +21,6 @@ pub struct LocalizedPriceMap {
 
 impl LocalizedPriceMap {
     pub fn new(currency: String, prices: Vec<models::LocalizedPrice>) -> LocalizedPriceMap {
-        LocalizedPriceMap {
-            currency,
-            prices,
-        }
+        LocalizedPriceMap { currency, prices }
     }
 }
-

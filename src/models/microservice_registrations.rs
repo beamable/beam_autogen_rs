@@ -17,7 +17,10 @@ pub struct MicroserviceRegistrations {
     pub routing_key: Option<String>,
     #[serde(rename = "serviceName")]
     pub service_name: String,
-    #[serde(rename = "trafficFilterEnabled", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "trafficFilterEnabled",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub traffic_filter_enabled: Option<bool>,
     #[serde(rename = "cid")]
     pub cid: String,
@@ -34,7 +37,12 @@ pub struct MicroserviceRegistrations {
 }
 
 impl MicroserviceRegistrations {
-    pub fn new(service_name: String, cid: String, pid: String, instance_count: i32) -> MicroserviceRegistrations {
+    pub fn new(
+        service_name: String,
+        cid: String,
+        pid: String,
+        instance_count: i32,
+    ) -> MicroserviceRegistrations {
         MicroserviceRegistrations {
             routing_key: None,
             service_name,
@@ -48,4 +56,3 @@ impl MicroserviceRegistrations {
         }
     }
 }
-

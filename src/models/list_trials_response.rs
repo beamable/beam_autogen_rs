@@ -19,9 +19,6 @@ pub struct ListTrialsResponse {
 
 impl ListTrialsResponse {
     pub fn new(result: Vec<models::Trial>) -> ListTrialsResponse {
-        ListTrialsResponse {
-            result,
-        }
+        ListTrialsResponse { result }
     }
 }
-

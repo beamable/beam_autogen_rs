@@ -20,11 +20,13 @@ pub struct GetStatusForGroupsResponse {
 }
 
 impl GetStatusForGroupsResponse {
-    pub fn new(statuses: Vec<models::GroupStatus>, content_id: String) -> GetStatusForGroupsResponse {
+    pub fn new(
+        statuses: Vec<models::GroupStatus>,
+        content_id: String,
+    ) -> GetStatusForGroupsResponse {
         GetStatusForGroupsResponse {
             statuses,
             content_id,
         }
     }
 }
-

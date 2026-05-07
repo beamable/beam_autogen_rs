@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **match_id** | Option<**String**> |  | [optional]
 **status** | Option<**String**> |  | [optional]
-**created** | Option<**String**> |  | [optional]
+**created** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | [optional]
 **match_type** | Option<[**models::MatchType**](MatchType.md)> |  | [optional]
 **teams** | Option<[**Vec<models::Team>**](Team.md)> |  | [optional][readonly]
 **tickets** | Option<[**Vec<models::Ticket>**](Ticket.md)> |  | [optional][readonly]

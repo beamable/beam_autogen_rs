@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currencies** | Option<**std::collections::HashMap<String, i64>**> |  | [optional]
+**include_deltas** | Option<**bool**> |  | [optional]
+**scopes** | Option<**Vec<String>**> |  | [optional]
 **currency_properties** | Option<[**std::collections::HashMap<String, Vec<models::CurrencyProperty>>**](Vec.md)> |  | [optional]
 **apply_vip_bonus** | Option<**bool**> |  | [optional]
 **update_items** | Option<[**Vec<models::ItemUpdateRequest>**](ItemUpdateRequest.md)> |  | [optional]

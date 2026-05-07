@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> |  | [optional]
 **name** | Option<**String**> |  | [optional]
-**triggers** | Option<[**Vec<models::JobDefinitionSaveRequestTriggersInner>**](JobDefinitionSaveRequest_triggers_inner.md)> |  | [optional]
-**job_action** | Option<[**models::JobDefinitionSaveRequestJobAction**](JobDefinitionSaveRequest_jobAction.md)> |  | [optional]
+**triggers** | Option<[**Vec<models::JobDefinitionSaveRequestTriggersInner>**](JobDefinitionSaveRequestTriggersInner.md)> |  | [optional]
+**job_action** | Option<[**models::JobDefinitionSaveRequestJobAction**](JobDefinitionSaveRequestJobAction.md)> |  | [optional]
 **retry_policy** | Option<[**models::JobRetryPolicy**](JobRetryPolicy.md)> |  | [optional]
-**last_update** | Option<**String**> |  | [optional]
+**last_update** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | [optional]
 **source** | Option<**String**> |  | [optional]
 **is_unique** | Option<**bool**> |  | [optional]
-**suspended_at** | Option<**String**> |  | [optional]
+**suspended_at** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | [optional]
 **analytics** | Option<[**models::JobAnalytics**](JobAnalytics.md)> |  | [optional]
 **owner** | Option<**String**> |  | [optional]
 

@@ -26,7 +26,12 @@ pub struct EventDateRanges {
 }
 
 impl EventDateRanges {
-    pub fn new(name: String, state: String, id: String, dates: Vec<models::DateRange>) -> EventDateRanges {
+    pub fn new(
+        name: String,
+        state: String,
+        id: String,
+        dates: Vec<models::DateRange>,
+    ) -> EventDateRanges {
         EventDateRanges {
             name,
             state,
@@ -36,4 +41,3 @@ impl EventDateRanges {
         }
     }
 }
-

@@ -21,10 +21,6 @@ pub struct SendMessageRequest {
 
 impl SendMessageRequest {
     pub fn new(room_id: String, content: String) -> SendMessageRequest {
-        SendMessageRequest {
-            room_id,
-            content,
-        }
+        SendMessageRequest { room_id, content }
     }
 }
-

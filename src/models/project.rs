@@ -44,7 +44,14 @@ pub struct Project {
 }
 
 impl Project {
-    pub fn new(secret: String, name: String, custom_charts: std::collections::HashMap<String, String>, root: bool, archived: bool, plan: String) -> Project {
+    pub fn new(
+        secret: String,
+        name: String,
+        custom_charts: std::collections::HashMap<String, String>,
+        root: bool,
+        archived: bool,
+        plan: String,
+    ) -> Project {
         Project {
             display_name: None,
             secret,
@@ -63,4 +70,3 @@ impl Project {
         }
     }
 }
-

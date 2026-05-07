@@ -24,4 +24,3 @@ impl BeamoV2ServiceRegistrationResponse {
         }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct Era {
 
 impl Era {
     pub fn new(value: i32) -> Era {
-        Era {
-            value,
-        }
+        Era { value }
     }
 }
-

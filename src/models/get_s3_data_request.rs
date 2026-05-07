@@ -19,9 +19,6 @@ pub struct GetS3DataRequest {
 
 impl GetS3DataRequest {
     pub fn new(id: i64) -> GetS3DataRequest {
-        GetS3DataRequest {
-            id,
-        }
+        GetS3DataRequest { id }
     }
 }
-

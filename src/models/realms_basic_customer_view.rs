@@ -24,7 +24,11 @@ pub struct RealmsBasicCustomerView {
 }
 
 impl RealmsBasicCustomerView {
-    pub fn new(cid: i64, name: String, projects: Vec<models::ProjectView>) -> RealmsBasicCustomerView {
+    pub fn new(
+        cid: i64,
+        name: String,
+        projects: Vec<models::ProjectView>,
+    ) -> RealmsBasicCustomerView {
         RealmsBasicCustomerView {
             cid,
             name,
@@ -33,4 +37,3 @@ impl RealmsBasicCustomerView {
         }
     }
 }
-

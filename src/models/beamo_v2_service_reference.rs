@@ -21,18 +21,45 @@ pub struct BeamoV2ServiceReference {
     pub image_id: Option<String>,
     #[serde(rename = "templateId", skip_serializing_if = "Option::is_none")]
     pub template_id: Option<String>,
-    #[serde(rename = "comments", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "comments",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub comments: Option<Option<String>>,
-    #[serde(rename = "containerHealthCheckPort", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "containerHealthCheckPort",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub container_health_check_port: Option<Option<i32>>,
-    #[serde(rename = "dependencies", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "dependencies",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub dependencies: Option<Option<Vec<models::BeamoV2ServiceDependencyReference>>>,
     #[serde(rename = "archived", skip_serializing_if = "Option::is_none")]
     pub archived: Option<bool>,
-    #[serde(rename = "imageCpuArch", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "imageCpuArch",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub image_cpu_arch: Option<Option<String>>,
-    #[serde(rename = "components", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "components",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub components: Option<Option<Vec<models::BeamoV2ServiceComponent>>>,
+    #[serde(rename = "logProvider", skip_serializing_if = "Option::is_none")]
+    pub log_provider: Option<models::BeamoV2LogProvider>,
     #[serde(rename = "checksum", skip_serializing_if = "Option::is_none")]
     pub checksum: Option<String>,
 }
@@ -50,8 +77,8 @@ impl BeamoV2ServiceReference {
             archived: None,
             image_cpu_arch: None,
             components: None,
+            log_provider: None,
             checksum: None,
         }
     }
 }
-

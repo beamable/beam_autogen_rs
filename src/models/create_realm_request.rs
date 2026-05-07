@@ -15,12 +15,34 @@ use serde::{Deserialize, Serialize};
 pub struct CreateRealmRequest {
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "plan", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "plan",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub plan: Option<Option<String>>,
-    #[serde(rename = "sharded", skip_serializing_if = "Option::is_none")]
-    pub sharded: Option<bool>,
-    #[serde(rename = "parent", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "sharded",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub sharded: Option<Option<bool>>,
+    #[serde(
+        rename = "parent",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub parent: Option<Option<String>>,
+    #[serde(
+        rename = "isHidden",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub is_hidden: Option<Option<bool>>,
 }
 
 impl CreateRealmRequest {
@@ -30,7 +52,7 @@ impl CreateRealmRequest {
             plan: None,
             sharded: None,
             parent: None,
+            is_hidden: None,
         }
     }
 }
-

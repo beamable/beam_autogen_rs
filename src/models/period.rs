@@ -21,10 +21,6 @@ pub struct Period {
 
 impl Period {
     pub fn new(start: String) -> Period {
-        Period {
-            start,
-            end: None,
-        }
+        Period { start, end: None }
     }
 }
-

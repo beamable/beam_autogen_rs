@@ -19,9 +19,6 @@ pub struct RemoveLaunchMessageRequest {
 
 impl RemoveLaunchMessageRequest {
     pub fn new(file: String) -> RemoveLaunchMessageRequest {
-        RemoveLaunchMessageRequest {
-            file,
-        }
+        RemoveLaunchMessageRequest { file }
     }
 }
-

@@ -40,7 +40,13 @@ pub struct AnnouncementDto {
 }
 
 impl AnnouncementDto {
-    pub fn new(body: models::LocalizationRef, channel: String, symbol: String, title: models::LocalizationRef, description: models::LocalizationRef) -> AnnouncementDto {
+    pub fn new(
+        body: models::LocalizationRef,
+        channel: String,
+        symbol: String,
+        title: models::LocalizationRef,
+        description: models::LocalizationRef,
+    ) -> AnnouncementDto {
         AnnouncementDto {
             body: Box::new(body),
             channel,
@@ -57,4 +63,3 @@ impl AnnouncementDto {
         }
     }
 }
-

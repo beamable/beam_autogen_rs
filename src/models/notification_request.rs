@@ -15,11 +15,17 @@ use serde::{Deserialize, Serialize};
 pub struct NotificationRequest {
     #[serde(rename = "payload")]
     pub payload: Box<models::NotificationRequestData>,
-    #[serde(rename = "customChannelSuffix", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "customChannelSuffix",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub custom_channel_suffix: Option<String>,
     #[serde(rename = "dbid", skip_serializing_if = "Option::is_none")]
     pub dbid: Option<i64>,
-    #[serde(rename = "useSignalWhenPossible", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "useSignalWhenPossible",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub use_signal_when_possible: Option<bool>,
     #[serde(rename = "dbids", skip_serializing_if = "Option::is_none")]
     pub dbids: Option<Vec<i64>>,
@@ -36,4 +42,3 @@ impl NotificationRequest {
         }
     }
 }
-

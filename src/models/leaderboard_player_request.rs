@@ -19,9 +19,6 @@ pub struct LeaderboardPlayerRequest {
 
 impl LeaderboardPlayerRequest {
     pub fn new(dbid: i64) -> LeaderboardPlayerRequest {
-        LeaderboardPlayerRequest {
-            dbid,
-        }
+        LeaderboardPlayerRequest { dbid }
     }
 }
-

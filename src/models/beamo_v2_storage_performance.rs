@@ -24,7 +24,12 @@ pub struct BeamoV2StoragePerformance {
 }
 
 impl BeamoV2StoragePerformance {
-    pub fn new(namespaces: Vec<models::BeamoV2PaNamespace>, indexes: Vec<models::BeamoV2PaSuggestedIndex>, queries: Vec<models::BeamoV2PaSlowQuery>, database_measurements: models::BeamoV2DatabaseMeasurements) -> BeamoV2StoragePerformance {
+    pub fn new(
+        namespaces: Vec<models::BeamoV2PaNamespace>,
+        indexes: Vec<models::BeamoV2PaSuggestedIndex>,
+        queries: Vec<models::BeamoV2PaSlowQuery>,
+        database_measurements: models::BeamoV2DatabaseMeasurements,
+    ) -> BeamoV2StoragePerformance {
         BeamoV2StoragePerformance {
             namespaces,
             indexes,
@@ -33,4 +38,3 @@ impl BeamoV2StoragePerformance {
         }
     }
 }
-

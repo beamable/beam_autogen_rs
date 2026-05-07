@@ -19,9 +19,6 @@ pub struct GetChampionsResponse {
 
 impl GetChampionsResponse {
     pub fn new(entries: Vec<models::ChampionScore>) -> GetChampionsResponse {
-        GetChampionsResponse {
-            entries,
-        }
+        GetChampionsResponse { entries }
     }
 }
-

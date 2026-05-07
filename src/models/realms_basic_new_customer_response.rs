@@ -30,7 +30,14 @@ pub struct RealmsBasicNewCustomerResponse {
 }
 
 impl RealmsBasicNewCustomerResponse {
-    pub fn new(name: String, project_name: String, activation_pending: bool, cid: i64, pid: String, token: models::TokenResponse) -> RealmsBasicNewCustomerResponse {
+    pub fn new(
+        name: String,
+        project_name: String,
+        activation_pending: bool,
+        cid: i64,
+        pid: String,
+        token: models::TokenResponse,
+    ) -> RealmsBasicNewCustomerResponse {
         RealmsBasicNewCustomerResponse {
             name,
             project_name,
@@ -42,4 +49,3 @@ impl RealmsBasicNewCustomerResponse {
         }
     }
 }
-

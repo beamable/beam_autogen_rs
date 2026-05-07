@@ -19,9 +19,6 @@ pub struct LeaderboardCohortSettings {
 
 impl LeaderboardCohortSettings {
     pub fn new(cohorts: Vec<models::LeaderboardCohort>) -> LeaderboardCohortSettings {
-        LeaderboardCohortSettings {
-            cohorts,
-        }
+        LeaderboardCohortSettings { cohorts }
     }
 }
-

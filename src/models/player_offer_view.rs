@@ -36,7 +36,17 @@ pub struct PlayerOfferView {
 }
 
 impl PlayerOfferView {
-    pub fn new(coupons: i32, price: models::Price, titles: Vec<String>, symbol: String, obtain_items: Vec<models::ItemCreateRequest>, obtain_currency: Vec<models::CurrencyChange>, images: Vec<String>, descriptions: Vec<String>, obtain: Vec<String>) -> PlayerOfferView {
+    pub fn new(
+        coupons: i32,
+        price: models::Price,
+        titles: Vec<String>,
+        symbol: String,
+        obtain_items: Vec<models::ItemCreateRequest>,
+        obtain_currency: Vec<models::CurrencyChange>,
+        images: Vec<String>,
+        descriptions: Vec<String>,
+        obtain: Vec<String>,
+    ) -> PlayerOfferView {
         PlayerOfferView {
             coupons,
             price: Box::new(price),
@@ -51,4 +61,3 @@ impl PlayerOfferView {
         }
     }
 }
-

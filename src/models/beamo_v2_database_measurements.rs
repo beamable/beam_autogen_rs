@@ -15,22 +15,57 @@ use serde::{Deserialize, Serialize};
 pub struct BeamoV2DatabaseMeasurements {
     #[serde(rename = "databaseName")]
     pub database_name: String,
-    #[serde(rename = "granularity", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "granularity",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub granularity: Option<Option<String>>,
-    #[serde(rename = "groupId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "groupId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub group_id: Option<Option<String>>,
-    #[serde(rename = "hostId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "hostId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub host_id: Option<Option<String>>,
     #[serde(rename = "links", skip_serializing_if = "Option::is_none")]
     pub links: Option<Vec<models::BeamoV2Link>>,
-    #[serde(rename = "measurements", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "measurements",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub measurements: Option<Option<Vec<models::BeamoV2DatabaseMeasurement>>>,
-    #[serde(rename = "processId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "processId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub process_id: Option<Option<String>>,
-    #[serde(rename = "start", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub start: Option<Option<String>>,
-    #[serde(rename = "end", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub end: Option<Option<String>>,
+    #[serde(
+        rename = "start",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub start: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
+    #[serde(
+        rename = "end",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub end: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
 }
 
 impl BeamoV2DatabaseMeasurements {
@@ -48,4 +83,3 @@ impl BeamoV2DatabaseMeasurements {
         }
     }
 }
-

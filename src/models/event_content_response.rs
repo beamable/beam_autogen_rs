@@ -19,9 +19,6 @@ pub struct EventContentResponse {
 
 impl EventContentResponse {
     pub fn new(content: Vec<models::Event>) -> EventContentResponse {
-        EventContentResponse {
-            content,
-        }
+        EventContentResponse { content }
     }
 }
-

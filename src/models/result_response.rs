@@ -19,9 +19,6 @@ pub struct ResultResponse {
 
 impl ResultResponse {
     pub fn new(result: bool) -> ResultResponse {
-        ResultResponse {
-            result,
-        }
+        ResultResponse { result }
     }
 }
-

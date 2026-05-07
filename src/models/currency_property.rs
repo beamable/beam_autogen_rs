@@ -21,10 +21,6 @@ pub struct CurrencyProperty {
 
 impl CurrencyProperty {
     pub fn new(name: String, value: String) -> CurrencyProperty {
-        CurrencyProperty {
-            name,
-            value,
-        }
+        CurrencyProperty { name, value }
     }
 }
-

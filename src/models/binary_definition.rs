@@ -13,24 +13,26 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BinaryDefinition {
+    #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "checksum")]
     pub checksum: String,
     #[serde(rename = "uploadContentType")]
     pub upload_content_type: String,
-    #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
-    pub tags: Option<Vec<String>>,
+    #[serde(rename = "visibility", skip_serializing_if = "Option::is_none")]
+    pub visibility: Option<String>,
 }
 
 impl BinaryDefinition {
     pub fn new(id: String, checksum: String, upload_content_type: String) -> BinaryDefinition {
         BinaryDefinition {
+            tags: None,
             id,
             checksum,
             upload_content_type,
-            tags: None,
+            visibility: None,
         }
     }
 }
-

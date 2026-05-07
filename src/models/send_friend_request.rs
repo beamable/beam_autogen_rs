@@ -19,9 +19,6 @@ pub struct SendFriendRequest {
 
 impl SendFriendRequest {
     pub fn new(gamer_tag: i64) -> SendFriendRequest {
-        SendFriendRequest {
-            gamer_tag,
-        }
+        SendFriendRequest { gamer_tag }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct BeamoV2GetTemplatesResponse {
 
 impl BeamoV2GetTemplatesResponse {
     pub fn new() -> BeamoV2GetTemplatesResponse {
-        BeamoV2GetTemplatesResponse {
-            templates: None,
-        }
+        BeamoV2GetTemplatesResponse { templates: None }
     }
 }
-

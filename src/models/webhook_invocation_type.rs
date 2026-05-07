@@ -11,14 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum WebhookInvocationType {
     #[serde(rename = "NonBlocking")]
+    #[default]
     NonBlocking,
     #[serde(rename = "Blocking")]
     Blocking,
-
 }
 
 impl std::fmt::Display for WebhookInvocationType {
@@ -29,10 +31,3 @@ impl std::fmt::Display for WebhookInvocationType {
         }
     }
 }
-
-impl Default for WebhookInvocationType {
-    fn default() -> WebhookInvocationType {
-        Self::NonBlocking
-    }
-}
-

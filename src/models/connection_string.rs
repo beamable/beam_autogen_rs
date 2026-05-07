@@ -19,9 +19,6 @@ pub struct ConnectionString {
 
 impl ConnectionString {
     pub fn new(connection_string: String) -> ConnectionString {
-        ConnectionString {
-            connection_string,
-        }
+        ConnectionString { connection_string }
     }
 }
-

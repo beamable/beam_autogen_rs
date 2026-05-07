@@ -22,7 +22,11 @@ pub struct EventPlayerPhaseView {
 }
 
 impl EventPlayerPhaseView {
-    pub fn new(name: String, duration_seconds: i64, rules: Vec<models::EventRule>) -> EventPlayerPhaseView {
+    pub fn new(
+        name: String,
+        duration_seconds: i64,
+        rules: Vec<models::EventRule>,
+    ) -> EventPlayerPhaseView {
         EventPlayerPhaseView {
             name,
             duration_seconds,
@@ -30,4 +34,3 @@ impl EventPlayerPhaseView {
         }
     }
 }
-

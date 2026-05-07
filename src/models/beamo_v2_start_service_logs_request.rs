@@ -15,15 +15,35 @@ use serde::{Deserialize, Serialize};
 pub struct BeamoV2StartServiceLogsRequest {
     #[serde(rename = "serviceName", skip_serializing_if = "Option::is_none")]
     pub service_name: Option<String>,
-    #[serde(rename = "startTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub start_time: Option<Option<String>>,
-    #[serde(rename = "endTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub end_time: Option<Option<String>>,
+    #[serde(
+        rename = "startTime",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub start_time: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
+    #[serde(
+        rename = "endTime",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub end_time: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     #[serde(rename = "order", skip_serializing_if = "Option::is_none")]
     pub order: Option<models::BeamoV2OrderDirection>,
-    #[serde(rename = "filters", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "filters",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub filters: Option<Option<Vec<String>>>,
-    #[serde(rename = "limit", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "limit",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub limit: Option<Option<i32>>,
 }
 
@@ -39,4 +59,3 @@ impl BeamoV2StartServiceLogsRequest {
         }
     }
 }
-

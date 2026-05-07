@@ -19,9 +19,6 @@ pub struct DeleteLocalizationRequest {
 
 impl DeleteLocalizationRequest {
     pub fn new(localizations: Vec<models::LocalizationQuery>) -> DeleteLocalizationRequest {
-        DeleteLocalizationRequest {
-            localizations,
-        }
+        DeleteLocalizationRequest { localizations }
     }
 }
-

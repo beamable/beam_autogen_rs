@@ -13,15 +13,17 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LobbyQueryResponse {
-    #[serde(rename = "results", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "results",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub results: Option<Option<Vec<models::Lobby>>>,
 }
 
 impl LobbyQueryResponse {
     pub fn new() -> LobbyQueryResponse {
-        LobbyQueryResponse {
-            results: None,
-        }
+        LobbyQueryResponse { results: None }
     }
 }
-

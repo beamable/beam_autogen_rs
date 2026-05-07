@@ -19,9 +19,6 @@ pub struct PaymentResultResponse {
 
 impl PaymentResultResponse {
     pub fn new(result: String) -> PaymentResultResponse {
-        PaymentResultResponse {
-            result,
-        }
+        PaymentResultResponse { result }
     }
 }
-

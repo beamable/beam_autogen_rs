@@ -19,9 +19,6 @@ pub struct MailResponse {
 
 impl MailResponse {
     pub fn new() -> MailResponse {
-        MailResponse {
-            result: None,
-        }
+        MailResponse { result: None }
     }
 }
-

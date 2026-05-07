@@ -24,7 +24,12 @@ pub struct CloudsavingBasicManifest {
 }
 
 impl CloudsavingBasicManifest {
-    pub fn new(id: String, manifest: Vec<models::CloudsavingBasicReference>, created: i64, replacement: bool) -> CloudsavingBasicManifest {
+    pub fn new(
+        id: String,
+        manifest: Vec<models::CloudsavingBasicReference>,
+        created: i64,
+        replacement: bool,
+    ) -> CloudsavingBasicManifest {
         CloudsavingBasicManifest {
             id,
             manifest,
@@ -33,4 +38,3 @@ impl CloudsavingBasicManifest {
         }
     }
 }
-

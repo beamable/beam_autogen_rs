@@ -19,9 +19,6 @@ pub struct CalendarQueryResponse {
 
 impl CalendarQueryResponse {
     pub fn new(calendars: Vec<models::CalendarView>) -> CalendarQueryResponse {
-        CalendarQueryResponse {
-            calendars,
-        }
+        CalendarQueryResponse { calendars }
     }
 }
-

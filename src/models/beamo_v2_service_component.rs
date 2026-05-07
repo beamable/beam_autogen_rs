@@ -19,9 +19,6 @@ pub struct BeamoV2ServiceComponent {
 
 impl BeamoV2ServiceComponent {
     pub fn new() -> BeamoV2ServiceComponent {
-        BeamoV2ServiceComponent {
-            name: None,
-        }
+        BeamoV2ServiceComponent { name: None }
     }
 }
-

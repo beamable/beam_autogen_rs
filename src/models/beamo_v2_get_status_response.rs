@@ -17,7 +17,12 @@ pub struct BeamoV2GetStatusResponse {
     pub services: Option<Vec<models::BeamoV2ServiceStatus>>,
     #[serde(rename = "isCurrent", skip_serializing_if = "Option::is_none")]
     pub is_current: Option<bool>,
-    #[serde(rename = "storageStatuses", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "storageStatuses",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub storage_statuses: Option<Option<Vec<models::BeamoV2ServiceStorageStatus>>>,
 }
 
@@ -30,4 +35,3 @@ impl BeamoV2GetStatusResponse {
         }
     }
 }
-

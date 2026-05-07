@@ -28,7 +28,13 @@ pub struct WebhookComet {
 }
 
 impl WebhookComet {
-    pub fn new(method: String, variables: models::RouteVariables, symbol: String, route: models::ServiceRoute, parameters: models::RouteParameters) -> WebhookComet {
+    pub fn new(
+        method: String,
+        variables: models::RouteVariables,
+        symbol: String,
+        route: models::ServiceRoute,
+        parameters: models::RouteParameters,
+    ) -> WebhookComet {
         WebhookComet {
             method,
             description: None,
@@ -39,4 +45,3 @@ impl WebhookComet {
         }
     }
 }
-

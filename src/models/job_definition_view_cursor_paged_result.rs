@@ -15,7 +15,12 @@ use serde::{Deserialize, Serialize};
 pub struct JobDefinitionViewCursorPagedResult {
     #[serde(rename = "records", skip_serializing_if = "Option::is_none")]
     pub records: Option<Vec<models::JobDefinitionView>>,
-    #[serde(rename = "nextCursor", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "nextCursor",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub next_cursor: Option<Option<String>>,
 }
 
@@ -27,4 +32,3 @@ impl JobDefinitionViewCursorPagedResult {
         }
     }
 }
-

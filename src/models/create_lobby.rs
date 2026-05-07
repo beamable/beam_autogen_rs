@@ -13,21 +13,58 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateLobby {
-    #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "name",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub name: Option<Option<String>>,
-    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "hasName", skip_serializing_if = "Option::is_none")]
+    pub has_name: Option<bool>,
+    #[serde(
+        rename = "description",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub description: Option<Option<String>>,
+    #[serde(rename = "hasDescription", skip_serializing_if = "Option::is_none")]
+    pub has_description: Option<bool>,
     #[serde(rename = "restriction", skip_serializing_if = "Option::is_none")]
     pub restriction: Option<models::LobbyRestriction>,
-    #[serde(rename = "matchType", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "hasRestriction", skip_serializing_if = "Option::is_none")]
+    pub has_restriction: Option<bool>,
+    #[serde(
+        rename = "matchType",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub match_type: Option<Option<String>>,
-    #[serde(rename = "playerTags", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "hasMatchType", skip_serializing_if = "Option::is_none")]
+    pub has_match_type: Option<bool>,
+    #[serde(
+        rename = "playerTags",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub player_tags: Option<Option<Vec<models::Tag>>>,
     #[serde(rename = "passcodeLength", skip_serializing_if = "Option::is_none")]
     pub passcode_length: Option<i32>,
+    #[serde(rename = "hasPasscodeLength", skip_serializing_if = "Option::is_none")]
+    pub has_passcode_length: Option<bool>,
     #[serde(rename = "maxPlayers", skip_serializing_if = "Option::is_none")]
     pub max_players: Option<i32>,
-    #[serde(rename = "data", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "hasMaxPlayers", skip_serializing_if = "Option::is_none")]
+    pub has_max_players: Option<bool>,
+    #[serde(
+        rename = "data",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub data: Option<Option<std::collections::HashMap<String, String>>>,
 }
 
@@ -35,14 +72,19 @@ impl CreateLobby {
     pub fn new() -> CreateLobby {
         CreateLobby {
             name: None,
+            has_name: None,
             description: None,
+            has_description: None,
             restriction: None,
+            has_restriction: None,
             match_type: None,
+            has_match_type: None,
             player_tags: None,
             passcode_length: None,
+            has_passcode_length: None,
             max_players: None,
+            has_max_players: None,
             data: None,
         }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct GetGameResponse {
 
 impl GetGameResponse {
     pub fn new(projects: Vec<models::ProjectView>) -> GetGameResponse {
-        GetGameResponse {
-            projects,
-        }
+        GetGameResponse { projects }
     }
 }
-

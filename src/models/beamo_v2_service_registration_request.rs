@@ -13,11 +13,24 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BeamoV2ServiceRegistrationRequest {
-    #[serde(rename = "routingKey", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "routingKey",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub routing_key: Option<Option<String>>,
-    #[serde(rename = "federation", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "federation",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub federation: Option<Option<Vec<models::BeamoV2SupportedFederation>>>,
-    #[serde(rename = "trafficFilterEnabled", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "trafficFilterEnabled",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub traffic_filter_enabled: Option<bool>,
 }
 
@@ -30,4 +43,3 @@ impl BeamoV2ServiceRegistrationRequest {
         }
     }
 }
-

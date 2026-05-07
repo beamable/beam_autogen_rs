@@ -19,9 +19,6 @@ pub struct GetGroupStatusResponse {
 
 impl GetGroupStatusResponse {
     pub fn new(statuses: Vec<models::GroupStatus>) -> GetGroupStatusResponse {
-        GetGroupStatusResponse {
-            statuses,
-        }
+        GetGroupStatusResponse { statuses }
     }
 }
-

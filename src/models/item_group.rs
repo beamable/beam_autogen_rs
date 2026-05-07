@@ -21,10 +21,6 @@ pub struct ItemGroup {
 
 impl ItemGroup {
     pub fn new(id: String, items: Vec<models::Item>) -> ItemGroup {
-        ItemGroup {
-            id,
-            items,
-        }
+        ItemGroup { id, items }
     }
 }
-

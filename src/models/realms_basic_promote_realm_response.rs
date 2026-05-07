@@ -20,11 +20,10 @@ pub struct RealmsBasicPromoteRealmResponse {
 }
 
 impl RealmsBasicPromoteRealmResponse {
-    pub fn new(source_pid: String, scopes: Vec<models::RealmsBasicPromotionScope>) -> RealmsBasicPromoteRealmResponse {
-        RealmsBasicPromoteRealmResponse {
-            source_pid,
-            scopes,
-        }
+    pub fn new(
+        source_pid: String,
+        scopes: Vec<models::RealmsBasicPromotionScope>,
+    ) -> RealmsBasicPromoteRealmResponse {
+        RealmsBasicPromoteRealmResponse { source_pid, scopes }
     }
 }
-

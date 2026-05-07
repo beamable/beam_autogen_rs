@@ -56,7 +56,15 @@ pub struct Account {
 }
 
 impl Account {
-    pub fn new(created_time_millis: i64, privileged_account: bool, id: i64, gamer_tags: Vec<models::GamerTagAssociation>, external: Vec<models::ExternalIdentity>, updated_time_millis: i64, third_parties: Vec<models::ThirdPartyAssociation>) -> Account {
+    pub fn new(
+        created_time_millis: i64,
+        privileged_account: bool,
+        id: i64,
+        gamer_tags: Vec<models::GamerTagAssociation>,
+        external: Vec<models::ExternalIdentity>,
+        updated_time_millis: i64,
+        third_parties: Vec<models::ThirdPartyAssociation>,
+    ) -> Account {
         Account {
             in_flight: None,
             created_time_millis,
@@ -81,4 +89,3 @@ impl Account {
         }
     }
 }
-

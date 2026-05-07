@@ -21,10 +21,6 @@ pub struct LocalizedValue {
 
 impl LocalizedValue {
     pub fn new(language: String, value: String) -> LocalizedValue {
-        LocalizedValue {
-            language,
-            value,
-        }
+        LocalizedValue { language, value }
     }
 }
-

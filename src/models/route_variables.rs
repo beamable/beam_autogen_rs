@@ -19,9 +19,6 @@ pub struct RouteVariables {
 
 impl RouteVariables {
     pub fn new(variables: Vec<models::RouteVariable>) -> RouteVariables {
-        RouteVariables {
-            variables,
-        }
+        RouteVariables { variables }
     }
 }
-

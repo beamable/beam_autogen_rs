@@ -19,9 +19,6 @@ pub struct BatchReadStatsResponse {
 
 impl BatchReadStatsResponse {
     pub fn new(results: Vec<serde_json::Value>) -> BatchReadStatsResponse {
-        BatchReadStatsResponse {
-            results,
-        }
+        BatchReadStatsResponse { results }
     }
 }
-

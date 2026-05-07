@@ -19,9 +19,6 @@ pub struct PullBeamoManifestRequest {
 
 impl PullBeamoManifestRequest {
     pub fn new(source_realm_pid: String) -> PullBeamoManifestRequest {
-        PullBeamoManifestRequest {
-            source_realm_pid,
-        }
+        PullBeamoManifestRequest { source_realm_pid }
     }
 }
-

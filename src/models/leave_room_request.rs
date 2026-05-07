@@ -19,9 +19,6 @@ pub struct LeaveRoomRequest {
 
 impl LeaveRoomRequest {
     pub fn new(room_id: String) -> LeaveRoomRequest {
-        LeaveRoomRequest {
-            room_id,
-        }
+        LeaveRoomRequest { room_id }
     }
 }
-

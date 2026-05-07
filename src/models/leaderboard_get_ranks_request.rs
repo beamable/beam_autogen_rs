@@ -19,9 +19,6 @@ pub struct LeaderboardGetRanksRequest {
 
 impl LeaderboardGetRanksRequest {
     pub fn new(ids: String) -> LeaderboardGetRanksRequest {
-        LeaderboardGetRanksRequest {
-            ids,
-        }
+        LeaderboardGetRanksRequest { ids }
     }
 }
-

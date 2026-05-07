@@ -24,7 +24,10 @@ pub struct AttachExternalIdentityApiRequest {
 }
 
 impl AttachExternalIdentityApiRequest {
-    pub fn new(provider_service: String, external_token: String) -> AttachExternalIdentityApiRequest {
+    pub fn new(
+        provider_service: String,
+        external_token: String,
+    ) -> AttachExternalIdentityApiRequest {
         AttachExternalIdentityApiRequest {
             provider_service,
             external_token,
@@ -33,4 +36,3 @@ impl AttachExternalIdentityApiRequest {
         }
     }
 }
-

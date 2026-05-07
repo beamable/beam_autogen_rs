@@ -12,17 +12,19 @@ Method | HTTP request | Description
 
 ## api_players_player_id_presence_get
 
-> models::OnlineStatus api_players_player_id_presence_get(player_id, x_beam_scope, x_beam_gamertag)
+> models::OnlineStatus api_players_player_id_presence_get(player_id, x_beam_gamertag, x_beam_timeout)
 
+
+Get the current online status of a player.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**player_id** | **String** |  | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**player_id** | **String** | Player ID to retrieve online status for. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 
 ### Return type
 
@@ -30,7 +32,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -42,17 +44,19 @@ No authorization required
 
 ## api_players_player_id_presence_put
 
-> serde_json::Value api_players_player_id_presence_put(player_id, x_beam_scope, x_beam_gamertag)
+> serde_json::Value api_players_player_id_presence_put(player_id, x_beam_gamertag, x_beam_timeout)
 
+
+Submit a heartbeat to mark the requesting player as online.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**player_id** | **String** |  | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**player_id** | **String** | The player ID to heartbeat. Must match the authenticated player. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 
 ### Return type
 
@@ -60,7 +64,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -72,18 +76,20 @@ No authorization required
 
 ## api_players_player_id_presence_status_put
 
-> models::OnlineStatus api_players_player_id_presence_status_put(player_id, x_beam_scope, x_beam_gamertag, set_presence_status_request)
+> models::OnlineStatus api_players_player_id_presence_status_put(player_id, x_beam_gamertag, x_beam_timeout, set_presence_status_request)
 
+
+Set a custom presence status for the requesting player.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**player_id** | **String** |  | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**player_id** | **String** | The player ID to update. Must match the authenticated player. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**set_presence_status_request** | Option<[**SetPresenceStatusRequest**](SetPresenceStatusRequest.md)> |  |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**set_presence_status_request** | Option<[**SetPresenceStatusRequest**](SetPresenceStatusRequest.md)> | Presence status to set. |  |
 
 ### Return type
 
@@ -91,7 +97,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 

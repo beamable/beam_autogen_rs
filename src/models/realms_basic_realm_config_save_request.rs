@@ -18,10 +18,9 @@ pub struct RealmsBasicRealmConfigSaveRequest {
 }
 
 impl RealmsBasicRealmConfigSaveRequest {
-    pub fn new(config: std::collections::HashMap<String, String>) -> RealmsBasicRealmConfigSaveRequest {
-        RealmsBasicRealmConfigSaveRequest {
-            config,
-        }
+    pub fn new(
+        config: std::collections::HashMap<String, String>,
+    ) -> RealmsBasicRealmConfigSaveRequest {
+        RealmsBasicRealmConfigSaveRequest { config }
     }
 }
-

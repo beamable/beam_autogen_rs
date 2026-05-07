@@ -13,39 +13,77 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Realm {
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
+    #[serde(rename = "name")]
+    pub name: String,
     #[serde(rename = "secret", skip_serializing_if = "Option::is_none")]
     pub secret: Option<String>,
-    #[serde(rename = "plan", skip_serializing_if = "Option::is_none")]
-    pub plan: Option<String>,
-    #[serde(rename = "sharded", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "plan")]
+    pub plan: String,
+    #[serde(
+        rename = "sharded",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub sharded: Option<Option<bool>>,
-    #[serde(rename = "displayName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "displayName",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub display_name: Option<Option<String>>,
-    #[serde(rename = "parent", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "parent",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub parent: Option<Option<String>>,
-    #[serde(rename = "children", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "children",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub children: Option<Option<Vec<String>>>,
-    #[serde(rename = "config", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub config: Option<Option<std::collections::HashMap<String, String>>>,
-    #[serde(rename = "isArchived", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "created", skip_serializing_if = "Option::is_none")]
+    pub created: Option<chrono::DateTime<chrono::FixedOffset>>,
+    #[serde(rename = "config", skip_serializing_if = "Option::is_none")]
+    pub config: Option<std::collections::HashMap<String, String>>,
+    #[serde(
+        rename = "isArchived",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub is_archived: Option<Option<bool>>,
+    #[serde(
+        rename = "hidden",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub hidden: Option<Option<bool>>,
+    #[serde(rename = "customCharts", skip_serializing_if = "Option::is_none")]
+    pub custom_charts: Option<std::collections::HashMap<String, String>>,
 }
 
 impl Realm {
-    pub fn new() -> Realm {
+    pub fn new(name: String, plan: String) -> Realm {
         Realm {
-            name: None,
+            name,
             secret: None,
-            plan: None,
+            plan,
             sharded: None,
             display_name: None,
             parent: None,
             children: None,
+            created: None,
             config: None,
             is_archived: None,
+            hidden: None,
+            custom_charts: None,
         }
     }
 }
-

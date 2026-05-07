@@ -11,16 +11,18 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum LobbyRestriction {
     #[serde(rename = "Null")]
+    #[default]
     Null,
     #[serde(rename = "Closed")]
     Closed,
     #[serde(rename = "Open")]
     Open,
-
 }
 
 impl std::fmt::Display for LobbyRestriction {
@@ -32,10 +34,3 @@ impl std::fmt::Display for LobbyRestriction {
         }
     }
 }
-
-impl Default for LobbyRestriction {
-    fn default() -> LobbyRestriction {
-        Self::Null
-    }
-}
-

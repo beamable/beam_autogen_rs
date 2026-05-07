@@ -21,10 +21,6 @@ pub struct EventInventoryRewardCurrency {
 
 impl EventInventoryRewardCurrency {
     pub fn new(id: String, amount: i64) -> EventInventoryRewardCurrency {
-        EventInventoryRewardCurrency {
-            id,
-            amount,
-        }
+        EventInventoryRewardCurrency { id, amount }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct GetCurrentManifestRequest {
 
 impl GetCurrentManifestRequest {
     pub fn new() -> GetCurrentManifestRequest {
-        GetCurrentManifestRequest {
-            archived: None,
-        }
+        GetCurrentManifestRequest { archived: None }
     }
 }
-

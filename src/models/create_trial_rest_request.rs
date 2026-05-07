@@ -26,7 +26,12 @@ pub struct CreateTrialRestRequest {
 }
 
 impl CreateTrialRestRequest {
-    pub fn new(name: String, cohorts: String, cohort_type: String, strat: String) -> CreateTrialRestRequest {
+    pub fn new(
+        name: String,
+        cohorts: String,
+        cohort_type: String,
+        strat: String,
+    ) -> CreateTrialRestRequest {
         CreateTrialRestRequest {
             name,
             cohorts,
@@ -36,4 +41,3 @@ impl CreateTrialRestRequest {
         }
     }
 }
-

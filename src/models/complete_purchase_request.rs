@@ -24,7 +24,12 @@ pub struct CompletePurchaseRequest {
 }
 
 impl CompletePurchaseRequest {
-    pub fn new(txid: i64, receipt: String, price_in_local_currency: String, iso_currency_symbol: String) -> CompletePurchaseRequest {
+    pub fn new(
+        txid: i64,
+        receipt: String,
+        price_in_local_currency: String,
+        iso_currency_symbol: String,
+    ) -> CompletePurchaseRequest {
         CompletePurchaseRequest {
             txid,
             receipt,
@@ -33,4 +38,3 @@ impl CompletePurchaseRequest {
         }
     }
 }
-

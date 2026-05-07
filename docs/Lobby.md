@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lobby_id** | Option<**String**> |  | [optional]
 **match_type** | Option<[**models::MatchType**](MatchType.md)> |  | [optional]
-**created** | Option<**String**> |  | [optional]
+**created** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | [optional]
 **name** | Option<**String**> |  | [optional]
 **description** | Option<**String**> |  | [optional]
 **host** | Option<**String**> |  | [optional]

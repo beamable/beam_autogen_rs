@@ -24,7 +24,12 @@ pub struct MatchMakingRanking {
 }
 
 impl MatchMakingRanking {
-    pub fn new(gt: i64, rank: i32, is_unranked: bool, variables: std::collections::HashMap<String, String>) -> MatchMakingRanking {
+    pub fn new(
+        gt: i64,
+        rank: i32,
+        is_unranked: bool,
+        variables: std::collections::HashMap<String, String>,
+    ) -> MatchMakingRanking {
         MatchMakingRanking {
             gt,
             rank,
@@ -33,4 +38,3 @@ impl MatchMakingRanking {
         }
     }
 }
-

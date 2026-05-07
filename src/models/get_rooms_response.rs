@@ -19,9 +19,6 @@ pub struct GetRoomsResponse {
 
 impl GetRoomsResponse {
     pub fn new(rooms: Vec<models::RoomInfo>) -> GetRoomsResponse {
-        GetRoomsResponse {
-            rooms,
-        }
+        GetRoomsResponse { rooms }
     }
 }
-

@@ -21,10 +21,6 @@ pub struct GetLogsUrlHeader {
 
 impl GetLogsUrlHeader {
     pub fn new(key: String, value: String) -> GetLogsUrlHeader {
-        GetLogsUrlHeader {
-            key,
-            value,
-        }
+        GetLogsUrlHeader { key, value }
     }
 }
-

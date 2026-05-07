@@ -36,7 +36,18 @@ pub struct SteamOrderInfoResponse {
 }
 
 impl SteamOrderInfoResponse {
-    pub fn new(usstate: String, items: Vec<models::SteamOrderInfoItem>, country: String, timecreated: String, transid: i64, status: String, orderid: i64, steamid: i64, currency: String, time: String) -> SteamOrderInfoResponse {
+    pub fn new(
+        usstate: String,
+        items: Vec<models::SteamOrderInfoItem>,
+        country: String,
+        timecreated: String,
+        transid: i64,
+        status: String,
+        orderid: i64,
+        steamid: i64,
+        currency: String,
+        time: String,
+    ) -> SteamOrderInfoResponse {
         SteamOrderInfoResponse {
             usstate,
             items,
@@ -51,4 +62,3 @@ impl SteamOrderInfoResponse {
         }
     }
 }
-

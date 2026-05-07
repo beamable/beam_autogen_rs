@@ -19,9 +19,6 @@ pub struct SaveTextRequest {
 
 impl SaveTextRequest {
     pub fn new(text: Vec<models::TextDefinition>) -> SaveTextRequest {
-        SaveTextRequest {
-            text,
-        }
+        SaveTextRequest { text }
     }
 }
-

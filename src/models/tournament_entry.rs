@@ -17,7 +17,10 @@ pub struct TournamentEntry {
     pub stage: i32,
     #[serde(rename = "tier")]
     pub tier: i32,
-    #[serde(rename = "previousStageChange", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "previousStageChange",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub previous_stage_change: Option<i32>,
     #[serde(rename = "rank")]
     pub rank: i64,
@@ -34,7 +37,15 @@ pub struct TournamentEntry {
 }
 
 impl TournamentEntry {
-    pub fn new(stage: i32, tier: i32, rank: i64, score: f64, currency_rewards: Vec<models::TournamentCurrencyReward>, player_id: i64, stage_change: i32) -> TournamentEntry {
+    pub fn new(
+        stage: i32,
+        tier: i32,
+        rank: i64,
+        score: f64,
+        currency_rewards: Vec<models::TournamentCurrencyReward>,
+        player_id: i64,
+        stage_change: i32,
+    ) -> TournamentEntry {
         TournamentEntry {
             stage,
             tier,
@@ -48,4 +59,3 @@ impl TournamentEntry {
         }
     }
 }
-

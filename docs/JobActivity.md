@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | Option<**String**> |  | [optional]
 **job_id** | Option<**String**> |  | [optional]
 **execution_id** | Option<**String**> |  | [optional]
-**timestamp** | Option<**String**> |  | [optional]
+**timestamp** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | [optional]
 **state** | Option<[**models::JobState**](JobState.md)> |  | [optional]
 **message** | Option<**String**> |  | [optional]
 **job_name** | Option<**String**> |  | [optional]

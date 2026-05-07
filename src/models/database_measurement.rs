@@ -22,7 +22,11 @@ pub struct DatabaseMeasurement {
 }
 
 impl DatabaseMeasurement {
-    pub fn new(data_points: Vec<models::DataPoint>, name: String, units: String) -> DatabaseMeasurement {
+    pub fn new(
+        data_points: Vec<models::DataPoint>,
+        name: String,
+        units: String,
+    ) -> DatabaseMeasurement {
         DatabaseMeasurement {
             data_points,
             name,
@@ -30,4 +34,3 @@ impl DatabaseMeasurement {
         }
     }
 }
-

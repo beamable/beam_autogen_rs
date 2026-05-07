@@ -19,9 +19,6 @@ pub struct MultipliersGetResponse {
 
 impl MultipliersGetResponse {
     pub fn new(multipliers: Vec<models::VipBonus>) -> MultipliersGetResponse {
-        MultipliersGetResponse {
-            multipliers,
-        }
+        MultipliersGetResponse { multipliers }
     }
 }
-

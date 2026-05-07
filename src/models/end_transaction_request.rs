@@ -19,9 +19,6 @@ pub struct EndTransactionRequest {
 
 impl EndTransactionRequest {
     pub fn new(transaction: String) -> EndTransactionRequest {
-        EndTransactionRequest {
-            transaction,
-        }
+        EndTransactionRequest { transaction }
     }
 }
-

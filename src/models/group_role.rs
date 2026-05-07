@@ -21,10 +21,6 @@ pub struct GroupRole {
 
 impl GroupRole {
     pub fn new(name: String, permissions: Vec<String>) -> GroupRole {
-        GroupRole {
-            name,
-            permissions,
-        }
+        GroupRole { name, permissions }
     }
 }
-

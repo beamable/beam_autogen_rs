@@ -19,9 +19,6 @@ pub struct BulkSendMailRequest {
 
 impl BulkSendMailRequest {
     pub fn new(send_mail_requests: Vec<models::SendMailRequest>) -> BulkSendMailRequest {
-        BulkSendMailRequest {
-            send_mail_requests,
-        }
+        BulkSendMailRequest { send_mail_requests }
     }
 }
-

@@ -21,10 +21,6 @@ pub struct EntitlementClaimWindow {
 
 impl EntitlementClaimWindow {
     pub fn new(open: i64, close: i64) -> EntitlementClaimWindow {
-        EntitlementClaimWindow {
-            open,
-            close,
-        }
+        EntitlementClaimWindow { open, close }
     }
 }
-

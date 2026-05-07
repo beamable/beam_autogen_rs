@@ -21,10 +21,6 @@ pub struct OfferConstraint {
 
 impl OfferConstraint {
     pub fn new(constraint: String, value: i32) -> OfferConstraint {
-        OfferConstraint {
-            constraint,
-            value,
-        }
+        OfferConstraint { constraint, value }
     }
 }
-

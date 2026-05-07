@@ -19,9 +19,6 @@ pub struct AccountAvailableRequest {
 
 impl AccountAvailableRequest {
     pub fn new(email: String) -> AccountAvailableRequest {
-        AccountAvailableRequest {
-            email,
-        }
+        AccountAvailableRequest { email }
     }
 }
-

@@ -21,7 +21,10 @@ pub struct InFlightMessage {
     pub path: String,
     #[serde(rename = "gamerTag", skip_serializing_if = "Option::is_none")]
     pub gamer_tag: Option<i64>,
-    #[serde(rename = "limitFailureRetries", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "limitFailureRetries",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub limit_failure_retries: Option<bool>,
     #[serde(rename = "shard", skip_serializing_if = "Option::is_none")]
     pub shard: Option<String>,
@@ -32,7 +35,13 @@ pub struct InFlightMessage {
 }
 
 impl InFlightMessage {
-    pub fn new(method: String, body: String, path: String, service: String, id: String) -> InFlightMessage {
+    pub fn new(
+        method: String,
+        body: String,
+        path: String,
+        service: String,
+        id: String,
+    ) -> InFlightMessage {
         InFlightMessage {
             method,
             body,
@@ -45,4 +54,3 @@ impl InFlightMessage {
         }
     }
 }
-

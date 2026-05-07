@@ -23,4 +23,3 @@ impl Default for JobDefinitionSaveRequestTriggersInner {
         Self::CronTrigger(Default::default())
     }
 }
-

@@ -21,10 +21,6 @@ pub struct AttachmentProperty {
 
 impl AttachmentProperty {
     pub fn new(name: String, value: String) -> AttachmentProperty {
-        AttachmentProperty {
-            name,
-            value,
-        }
+        AttachmentProperty { name, value }
     }
 }
-

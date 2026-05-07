@@ -21,10 +21,6 @@ pub struct RouteVariable {
 
 impl RouteVariable {
     pub fn new(name: String, type_name: String) -> RouteVariable {
-        RouteVariable {
-            name,
-            type_name,
-        }
+        RouteVariable { name, type_name }
     }
 }
-

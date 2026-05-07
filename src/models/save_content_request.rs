@@ -19,9 +19,6 @@ pub struct SaveContentRequest {
 
 impl SaveContentRequest {
     pub fn new(content: Vec<models::ContentDefinition>) -> SaveContentRequest {
-        SaveContentRequest {
-            content,
-        }
+        SaveContentRequest { content }
     }
 }
-

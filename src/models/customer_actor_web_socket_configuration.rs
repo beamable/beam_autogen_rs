@@ -15,7 +15,12 @@ use serde::{Deserialize, Serialize};
 pub struct CustomerActorWebSocketConfiguration {
     #[serde(rename = "provider", skip_serializing_if = "Option::is_none")]
     pub provider: Option<String>,
-    #[serde(rename = "uri", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "uri",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub uri: Option<Option<String>>,
 }
 
@@ -27,4 +32,3 @@ impl CustomerActorWebSocketConfiguration {
         }
     }
 }
-

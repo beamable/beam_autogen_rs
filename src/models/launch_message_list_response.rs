@@ -19,9 +19,6 @@ pub struct LaunchMessageListResponse {
 
 impl LaunchMessageListResponse {
     pub fn new(files: Vec<String>) -> LaunchMessageListResponse {
-        LaunchMessageListResponse {
-            files,
-        }
+        LaunchMessageListResponse { files }
     }
 }
-

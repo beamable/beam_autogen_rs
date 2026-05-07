@@ -21,10 +21,6 @@ pub struct ThirdPartyAvailableRequest {
 
 impl ThirdPartyAvailableRequest {
     pub fn new(third_party: String, token: String) -> ThirdPartyAvailableRequest {
-        ThirdPartyAvailableRequest {
-            third_party,
-            token,
-        }
+        ThirdPartyAvailableRequest { third_party, token }
     }
 }
-

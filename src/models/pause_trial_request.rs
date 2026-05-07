@@ -19,9 +19,6 @@ pub struct PauseTrialRequest {
 
 impl PauseTrialRequest {
     pub fn new(name: String) -> PauseTrialRequest {
-        PauseTrialRequest {
-            name,
-        }
+        PauseTrialRequest { name }
     }
 }
-

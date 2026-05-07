@@ -30,7 +30,14 @@ pub struct GroupStatus {
 }
 
 impl GroupStatus {
-    pub fn new(last_update_cycle: i32, tournament_id: String, stage: i32, tier: i32, group_id: i64, content_id: String) -> GroupStatus {
+    pub fn new(
+        last_update_cycle: i32,
+        tournament_id: String,
+        stage: i32,
+        tier: i32,
+        group_id: i64,
+        content_id: String,
+    ) -> GroupStatus {
         GroupStatus {
             last_update_cycle,
             tournament_id,
@@ -42,4 +49,3 @@ impl GroupStatus {
         }
     }
 }
-

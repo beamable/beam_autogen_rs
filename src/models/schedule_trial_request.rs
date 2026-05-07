@@ -21,10 +21,6 @@ pub struct ScheduleTrialRequest {
 
 impl ScheduleTrialRequest {
     pub fn new(name: String, time: i64) -> ScheduleTrialRequest {
-        ScheduleTrialRequest {
-            name,
-            time,
-        }
+        ScheduleTrialRequest { name, time }
     }
 }
-

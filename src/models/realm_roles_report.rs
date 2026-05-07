@@ -22,7 +22,11 @@ pub struct RealmRolesReport {
 }
 
 impl RealmRolesReport {
-    pub fn new(realm_name: String, realm_display_name: String, roles: Vec<String>) -> RealmRolesReport {
+    pub fn new(
+        realm_name: String,
+        realm_display_name: String,
+        roles: Vec<String>,
+    ) -> RealmRolesReport {
         RealmRolesReport {
             realm_name,
             realm_display_name,
@@ -30,4 +34,3 @@ impl RealmRolesReport {
         }
     }
 }
-

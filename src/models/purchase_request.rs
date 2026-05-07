@@ -19,9 +19,6 @@ pub struct PurchaseRequest {
 
 impl PurchaseRequest {
     pub fn new(purchase_id: String) -> PurchaseRequest {
-        PurchaseRequest {
-            purchase_id,
-        }
+        PurchaseRequest { purchase_id }
     }
 }
-

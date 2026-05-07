@@ -21,10 +21,6 @@ pub struct ClientDataEntry {
 
 impl ClientDataEntry {
     pub fn new(name: String, value: String) -> ClientDataEntry {
-        ClientDataEntry {
-            name,
-            value,
-        }
+        ClientDataEntry { name, value }
     }
 }
-

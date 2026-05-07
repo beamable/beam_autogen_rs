@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **id** | **String** |  | 
 **checksum** | Option<**String**> |  | [optional]
 **last_changed** | Option<**i64**> |  | [optional]
-**r#type** | **String** |  | [default to Text]
+**r#type** | **Type** |  (enum: text) | [default to Text]
 **visibility** | **String** |  | 
 **created** | Option<**i64**> |  | [optional]
 

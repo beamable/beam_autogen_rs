@@ -13,17 +13,42 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Match {
-    #[serde(rename = "matchId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "matchId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub match_id: Option<Option<String>>,
-    #[serde(rename = "status", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "status",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub status: Option<Option<String>>,
-    #[serde(rename = "created", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub created: Option<Option<String>>,
+    #[serde(
+        rename = "created",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub created: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     #[serde(rename = "matchType", skip_serializing_if = "Option::is_none")]
     pub match_type: Option<Box<models::MatchType>>,
-    #[serde(rename = "teams", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "teams",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub teams: Option<Option<Vec<models::Team>>>,
-    #[serde(rename = "tickets", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "tickets",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub tickets: Option<Option<Vec<models::Ticket>>>,
 }
 
@@ -39,4 +64,3 @@ impl Match {
         }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct TrialSuccessResponse {
 
 impl TrialSuccessResponse {
     pub fn new(result: bool) -> TrialSuccessResponse {
-        TrialSuccessResponse {
-            result,
-        }
+        TrialSuccessResponse { result }
     }
 }
-

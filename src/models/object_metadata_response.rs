@@ -20,11 +20,13 @@ pub struct ObjectMetadataResponse {
 }
 
 impl ObjectMetadataResponse {
-    pub fn new(object_key: String, metadata: std::collections::HashMap<String, String>) -> ObjectMetadataResponse {
+    pub fn new(
+        object_key: String,
+        metadata: std::collections::HashMap<String, String>,
+    ) -> ObjectMetadataResponse {
         ObjectMetadataResponse {
             object_key,
             metadata,
         }
     }
 }
-

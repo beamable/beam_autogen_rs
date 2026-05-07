@@ -19,9 +19,6 @@ pub struct SubscriptionVerificationResponse {
 
 impl SubscriptionVerificationResponse {
     pub fn new(hub_challenge: String) -> SubscriptionVerificationResponse {
-        SubscriptionVerificationResponse {
-            hub_challenge,
-        }
+        SubscriptionVerificationResponse { hub_challenge }
     }
 }
-

@@ -26,7 +26,13 @@ pub struct ChampionScore {
 }
 
 impl ChampionScore {
-    pub fn new(end_time_ms: i64, start_time_ms: i64, score: f64, cycle: i32, player_id: i64) -> ChampionScore {
+    pub fn new(
+        end_time_ms: i64,
+        start_time_ms: i64,
+        score: f64,
+        cycle: i32,
+        player_id: i64,
+    ) -> ChampionScore {
         ChampionScore {
             end_time_ms,
             start_time_ms,
@@ -36,4 +42,3 @@ impl ChampionScore {
         }
     }
 }
-

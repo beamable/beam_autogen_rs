@@ -22,7 +22,10 @@ pub struct MailRewards {
 }
 
 impl MailRewards {
-    pub fn new(currencies: Vec<models::CurrencyChange>, items: Vec<models::ItemCreateRequest>) -> MailRewards {
+    pub fn new(
+        currencies: Vec<models::CurrencyChange>,
+        items: Vec<models::ItemCreateRequest>,
+    ) -> MailRewards {
         MailRewards {
             currencies,
             items,
@@ -30,4 +33,3 @@ impl MailRewards {
         }
     }
 }
-

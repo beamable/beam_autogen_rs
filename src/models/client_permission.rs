@@ -19,9 +19,6 @@ pub struct ClientPermission {
 
 impl ClientPermission {
     pub fn new(write_self: bool) -> ClientPermission {
-        ClientPermission {
-            write_self,
-        }
+        ClientPermission { write_self }
     }
 }
-

@@ -19,7 +19,12 @@ pub struct BeamoV2ServiceStorageReference {
     pub storage_type: Option<String>,
     #[serde(rename = "enabled", skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
-    #[serde(rename = "templateId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "templateId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub template_id: Option<Option<String>>,
     #[serde(rename = "archived", skip_serializing_if = "Option::is_none")]
     pub archived: Option<bool>,
@@ -39,4 +44,3 @@ impl BeamoV2ServiceStorageReference {
         }
     }
 }
-

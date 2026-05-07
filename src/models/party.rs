@@ -13,18 +13,57 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Party {
-    #[serde(rename = "id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "id",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub id: Option<Option<String>>,
-    #[serde(rename = "restriction", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "restriction",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub restriction: Option<Option<String>>,
-    #[serde(rename = "leader", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "leader",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub leader: Option<Option<String>>,
-    #[serde(rename = "members", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "members",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub members: Option<Option<Vec<String>>>,
     #[serde(rename = "maxSize", skip_serializing_if = "Option::is_none")]
     pub max_size: Option<i32>,
-    #[serde(rename = "pendingInvites", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "pendingInvites",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub pending_invites: Option<Option<Vec<String>>>,
+    #[serde(
+        rename = "created",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub created: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
+    #[serde(
+        rename = "membersTags",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub members_tags: Option<Option<std::collections::HashMap<String, models::TagList>>>,
 }
 
 impl Party {
@@ -36,7 +75,8 @@ impl Party {
             members: None,
             max_size: None,
             pending_invites: None,
+            created: None,
+            members_tags: None,
         }
     }
 }
-

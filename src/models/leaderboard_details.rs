@@ -28,7 +28,12 @@ pub struct LeaderboardDetails {
 }
 
 impl LeaderboardDetails {
-    pub fn new(lbid: String, number_of_entries: i32, full_name: String, view: models::LeaderBoardView) -> LeaderboardDetails {
+    pub fn new(
+        lbid: String,
+        number_of_entries: i32,
+        full_name: String,
+        view: models::LeaderBoardView,
+    ) -> LeaderboardDetails {
         LeaderboardDetails {
             lbid,
             orules: None,
@@ -39,4 +44,3 @@ impl LeaderboardDetails {
         }
     }
 }
-

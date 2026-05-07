@@ -20,11 +20,13 @@ pub struct SaveCatalogRequest {
 }
 
 impl SaveCatalogRequest {
-    pub fn new(stores: Vec<models::Store>, offer_definitions: Vec<models::OfferDefinition>) -> SaveCatalogRequest {
+    pub fn new(
+        stores: Vec<models::Store>,
+        offer_definitions: Vec<models::OfferDefinition>,
+    ) -> SaveCatalogRequest {
         SaveCatalogRequest {
             stores,
             offer_definitions,
         }
     }
 }
-

@@ -11,10 +11,13 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum BeamoV2FederationType {
     #[serde(rename = "IFederatedLogin")]
+    #[default]
     IFederatedLogin,
     #[serde(rename = "IFederatedInventory")]
     IFederatedInventory,
@@ -24,7 +27,6 @@ pub enum BeamoV2FederationType {
     IFederatedGameServer,
     #[serde(rename = "IFederatedPlayerInit")]
     IFederatedPlayerInit,
-
 }
 
 impl std::fmt::Display for BeamoV2FederationType {
@@ -38,10 +40,3 @@ impl std::fmt::Display for BeamoV2FederationType {
         }
     }
 }
-
-impl Default for BeamoV2FederationType {
-    fn default() -> BeamoV2FederationType {
-        Self::IFederatedLogin
-    }
-}
-

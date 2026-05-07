@@ -19,9 +19,6 @@ pub struct CustomerActorUpdateGameHierarchyRequest {
 
 impl CustomerActorUpdateGameHierarchyRequest {
     pub fn new(realms: Vec<models::RealmView>) -> CustomerActorUpdateGameHierarchyRequest {
-        CustomerActorUpdateGameHierarchyRequest {
-            realms,
-        }
+        CustomerActorUpdateGameHierarchyRequest { realms }
     }
 }
-

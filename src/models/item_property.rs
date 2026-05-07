@@ -21,10 +21,6 @@ pub struct ItemProperty {
 
 impl ItemProperty {
     pub fn new(name: String, value: String) -> ItemProperty {
-        ItemProperty {
-            name,
-            value,
-        }
+        ItemProperty { name, value }
     }
 }
-

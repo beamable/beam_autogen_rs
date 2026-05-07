@@ -21,10 +21,6 @@ pub struct PaNamespace {
 
 impl PaNamespace {
     pub fn new(namespace: String, r#type: String) -> PaNamespace {
-        PaNamespace {
-            namespace,
-            r#type,
-        }
+        PaNamespace { namespace, r#type }
     }
 }
-

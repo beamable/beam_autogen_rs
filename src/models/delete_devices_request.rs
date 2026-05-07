@@ -19,9 +19,6 @@ pub struct DeleteDevicesRequest {
 
 impl DeleteDevicesRequest {
     pub fn new() -> DeleteDevicesRequest {
-        DeleteDevicesRequest {
-            device_ids: None,
-        }
+        DeleteDevicesRequest { device_ids: None }
     }
 }
-

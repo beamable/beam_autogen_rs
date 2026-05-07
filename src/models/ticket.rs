@@ -13,35 +13,100 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Ticket {
-    #[serde(rename = "ticketId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "ticketId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ticket_id: Option<Option<String>>,
-    #[serde(rename = "status", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "status",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub status: Option<Option<String>>,
-    #[serde(rename = "created", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub created: Option<Option<String>>,
-    #[serde(rename = "expires", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub expires: Option<Option<String>>,
-    #[serde(rename = "players", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "created",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub created: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
+    #[serde(
+        rename = "expires",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub expires: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
+    #[serde(
+        rename = "players",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub players: Option<Option<Vec<String>>>,
-    #[serde(rename = "matchType", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "matchType",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub match_type: Option<Option<String>>,
-    #[serde(rename = "matchId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "matchId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub match_id: Option<Option<String>>,
-    #[serde(rename = "stringProperties", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "stringProperties",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub string_properties: Option<Option<std::collections::HashMap<String, String>>>,
-    #[serde(rename = "numberProperties", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "numberProperties",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub number_properties: Option<Option<std::collections::HashMap<String, f64>>>,
-    #[serde(rename = "team", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "team",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub team: Option<Option<String>>,
     #[serde(rename = "priority", skip_serializing_if = "Option::is_none")]
     pub priority: Option<i32>,
-    #[serde(rename = "partyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "partyId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub party_id: Option<Option<String>>,
     #[serde(rename = "watchOnlineStatus", skip_serializing_if = "Option::is_none")]
     pub watch_online_status: Option<bool>,
-    #[serde(rename = "tags", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tags: Option<Option<Vec<models::Tag>>>,
-    #[serde(rename = "lobbyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "tags",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub tags: Option<Option<std::collections::HashMap<String, models::TagList>>>,
+    #[serde(
+        rename = "lobbyId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub lobby_id: Option<Option<String>>,
 }
 
@@ -66,4 +131,3 @@ impl Ticket {
         }
     }
 }
-

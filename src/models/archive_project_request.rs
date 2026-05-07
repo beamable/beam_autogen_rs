@@ -19,9 +19,6 @@ pub struct ArchiveProjectRequest {
 
 impl ArchiveProjectRequest {
     pub fn new(pid: String) -> ArchiveProjectRequest {
-        ArchiveProjectRequest {
-            pid,
-        }
+        ArchiveProjectRequest { pid }
     }
 }
-

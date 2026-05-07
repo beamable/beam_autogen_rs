@@ -21,10 +21,6 @@ pub struct AvailabilityResponse {
 
 impl AvailabilityResponse {
     pub fn new(name: bool, tag: bool) -> AvailabilityResponse {
-        AvailabilityResponse {
-            name,
-            tag,
-        }
+        AvailabilityResponse { name, tag }
     }
 }
-

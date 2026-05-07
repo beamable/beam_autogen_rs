@@ -21,7 +21,10 @@ pub struct SubscriberDetailsResponse {
     pub authentication_key: String,
     #[serde(rename = "playerChannels")]
     pub player_channels: Vec<String>,
-    #[serde(rename = "gameGlobalNotificationChannel", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "gameGlobalNotificationChannel",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub game_global_notification_channel: Option<String>,
     #[serde(rename = "gameNotificationChannel")]
     pub game_notification_channel: String,
@@ -32,7 +35,15 @@ pub struct SubscriberDetailsResponse {
 }
 
 impl SubscriberDetailsResponse {
-    pub fn new(custom_channel_prefix: String, player_for_realm_channel: String, authentication_key: String, player_channels: Vec<String>, game_notification_channel: String, subscribe_key: String, player_channel: String) -> SubscriberDetailsResponse {
+    pub fn new(
+        custom_channel_prefix: String,
+        player_for_realm_channel: String,
+        authentication_key: String,
+        player_channels: Vec<String>,
+        game_notification_channel: String,
+        subscribe_key: String,
+        player_channel: String,
+    ) -> SubscriberDetailsResponse {
         SubscriberDetailsResponse {
             custom_channel_prefix,
             player_for_realm_channel,
@@ -45,4 +56,3 @@ impl SubscriberDetailsResponse {
         }
     }
 }
-

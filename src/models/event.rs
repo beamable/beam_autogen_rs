@@ -40,7 +40,12 @@ pub struct Event {
 }
 
 impl Event {
-    pub fn new(name: String, start_date: String, phases: Vec<models::EventPhase>, symbol: String) -> Event {
+    pub fn new(
+        name: String,
+        start_date: String,
+        phases: Vec<models::EventPhase>,
+        symbol: String,
+    ) -> Event {
         Event {
             name,
             start_date,
@@ -57,4 +62,3 @@ impl Event {
         }
     }
 }
-

@@ -24,4 +24,3 @@ impl Default for JobDefinitionSaveRequestJobAction {
         Self::HttpCall(Default::default())
     }
 }
-

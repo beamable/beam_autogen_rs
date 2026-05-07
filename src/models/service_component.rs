@@ -19,9 +19,6 @@ pub struct ServiceComponent {
 
 impl ServiceComponent {
     pub fn new(name: String) -> ServiceComponent {
-        ServiceComponent {
-            name,
-        }
+        ServiceComponent { name }
     }
 }
-

@@ -30,7 +30,15 @@ pub struct ScheduleDefinition {
 }
 
 impl ScheduleDefinition {
-    pub fn new(day_of_week: Vec<String>, minute: Vec<String>, day_of_month: Vec<String>, year: Vec<String>, hour: Vec<String>, second: Vec<String>, month: Vec<String>) -> ScheduleDefinition {
+    pub fn new(
+        day_of_week: Vec<String>,
+        minute: Vec<String>,
+        day_of_month: Vec<String>,
+        year: Vec<String>,
+        hour: Vec<String>,
+        second: Vec<String>,
+        month: Vec<String>,
+    ) -> ScheduleDefinition {
         ScheduleDefinition {
             day_of_week,
             minute,
@@ -42,4 +50,3 @@ impl ScheduleDefinition {
         }
     }
 }
-

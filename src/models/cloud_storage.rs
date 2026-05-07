@@ -46,7 +46,13 @@ pub struct CloudStorage {
 }
 
 impl CloudStorage {
-    pub fn new(ejected: bool, stype: i32, status: models::CloudDataStatus, sent: bool, sid: i64) -> CloudStorage {
+    pub fn new(
+        ejected: bool,
+        stype: i32,
+        status: models::CloudDataStatus,
+        sent: bool,
+        sid: i64,
+    ) -> CloudStorage {
         CloudStorage {
             retrieved: None,
             unique_identifier: None,
@@ -66,4 +72,3 @@ impl CloudStorage {
         }
     }
 }
-

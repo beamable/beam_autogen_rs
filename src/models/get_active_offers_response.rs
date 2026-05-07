@@ -19,9 +19,6 @@ pub struct GetActiveOffersResponse {
 
 impl GetActiveOffersResponse {
     pub fn new(stores: Vec<models::PlayerStoreView>) -> GetActiveOffersResponse {
-        GetActiveOffersResponse {
-            stores,
-        }
+        GetActiveOffersResponse { stores }
     }
 }
-

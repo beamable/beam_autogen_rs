@@ -11,16 +11,18 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum PaymentStatus {
     #[serde(rename = "Free")]
+    #[default]
     Free,
     #[serde(rename = "Paid")]
     Paid,
     #[serde(rename = "Banned")]
     Banned,
-
 }
 
 impl std::fmt::Display for PaymentStatus {
@@ -32,10 +34,3 @@ impl std::fmt::Display for PaymentStatus {
         }
     }
 }
-
-impl Default for PaymentStatus {
-    fn default() -> PaymentStatus {
-        Self::Free
-    }
-}
-

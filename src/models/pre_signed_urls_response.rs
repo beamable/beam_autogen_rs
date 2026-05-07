@@ -19,9 +19,6 @@ pub struct PreSignedUrlsResponse {
 
 impl PreSignedUrlsResponse {
     pub fn new(response: Vec<models::BeamoBasicUrlResponse>) -> PreSignedUrlsResponse {
-        PreSignedUrlsResponse {
-            response,
-        }
+        PreSignedUrlsResponse { response }
     }
 }
-

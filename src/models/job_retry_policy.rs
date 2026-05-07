@@ -17,7 +17,10 @@ pub struct JobRetryPolicy {
     pub max_retry_count: Option<i32>,
     #[serde(rename = "retryDelayMs", skip_serializing_if = "Option::is_none")]
     pub retry_delay_ms: Option<i32>,
-    #[serde(rename = "useExponentialBackoff", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "useExponentialBackoff",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub use_exponential_backoff: Option<bool>,
 }
 
@@ -30,4 +33,3 @@ impl JobRetryPolicy {
         }
     }
 }
-

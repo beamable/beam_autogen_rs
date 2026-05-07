@@ -19,9 +19,6 @@ pub struct GetPricesRequest {
 
 impl GetPricesRequest {
     pub fn new(steam_id: i64) -> GetPricesRequest {
-        GetPricesRequest {
-            steam_id,
-        }
+        GetPricesRequest { steam_id }
     }
 }
-

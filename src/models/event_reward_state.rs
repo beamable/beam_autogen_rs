@@ -17,7 +17,10 @@ pub struct EventRewardState {
     pub pending_inventory_rewards: Box<models::EventInventoryPendingRewards>,
     #[serde(rename = "currencies", skip_serializing_if = "Option::is_none")]
     pub currencies: Option<Vec<models::EventInventoryRewardCurrency>>,
-    #[serde(rename = "pendingCurrencyRewards", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "pendingCurrencyRewards",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub pending_currency_rewards: Option<std::collections::HashMap<String, String>>,
     #[serde(rename = "pendingItemRewards", skip_serializing_if = "Option::is_none")]
     pub pending_item_rewards: Option<Vec<models::ItemCreateRequest>>,
@@ -31,14 +34,22 @@ pub struct EventRewardState {
     pub earned: bool,
     #[serde(rename = "claimed")]
     pub claimed: bool,
-    #[serde(rename = "pendingEntitlementRewards", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "pendingEntitlementRewards",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub pending_entitlement_rewards: Option<std::collections::HashMap<String, String>>,
     #[serde(rename = "obtain", skip_serializing_if = "Option::is_none")]
     pub obtain: Option<Vec<models::EventRewardObtain>>,
 }
 
 impl EventRewardState {
-    pub fn new(pending_inventory_rewards: models::EventInventoryPendingRewards, min: f64, earned: bool, claimed: bool) -> EventRewardState {
+    pub fn new(
+        pending_inventory_rewards: models::EventInventoryPendingRewards,
+        min: f64,
+        earned: bool,
+        claimed: bool,
+    ) -> EventRewardState {
         EventRewardState {
             pending_inventory_rewards: Box::new(pending_inventory_rewards),
             currencies: None,
@@ -54,4 +65,3 @@ impl EventRewardState {
         }
     }
 }
-

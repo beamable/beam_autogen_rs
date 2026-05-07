@@ -21,10 +21,6 @@ pub struct CurrencyChangeReward {
 
 impl CurrencyChangeReward {
     pub fn new(symbol: String, amount: i64) -> CurrencyChangeReward {
-        CurrencyChangeReward {
-            symbol,
-            amount,
-        }
+        CurrencyChangeReward { symbol, amount }
     }
 }
-

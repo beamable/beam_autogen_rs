@@ -19,9 +19,6 @@ pub struct GetMailDetailsRequest {
 
 impl GetMailDetailsRequest {
     pub fn new(mid: i64) -> GetMailDetailsRequest {
-        GetMailDetailsRequest {
-            mid,
-        }
+        GetMailDetailsRequest { mid }
     }
 }
-

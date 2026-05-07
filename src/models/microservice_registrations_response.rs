@@ -18,10 +18,9 @@ pub struct MicroserviceRegistrationsResponse {
 }
 
 impl MicroserviceRegistrationsResponse {
-    pub fn new(registrations: Vec<models::MicroserviceRegistrations>) -> MicroserviceRegistrationsResponse {
-        MicroserviceRegistrationsResponse {
-            registrations,
-        }
+    pub fn new(
+        registrations: Vec<models::MicroserviceRegistrations>,
+    ) -> MicroserviceRegistrationsResponse {
+        MicroserviceRegistrationsResponse { registrations }
     }
 }
-

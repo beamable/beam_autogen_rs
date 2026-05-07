@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **max_wait_duration_secs** | Option<**i32**> |  | [optional]
 **team** | Option<**String**> |  | [optional]
 **watch_online_status** | Option<**bool**> |  | [optional]
-**tags** | Option<[**Vec<models::Tag>**](Tag.md)> |  | [optional][readonly]
+**tags** | Option<[**std::collections::HashMap<String, models::TagList>**](TagList.md)> |  | [optional][readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

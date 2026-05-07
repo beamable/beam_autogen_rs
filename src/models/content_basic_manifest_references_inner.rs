@@ -24,20 +24,16 @@ impl Default for ContentBasicManifestReferencesInner {
         Self::ContentReference(Default::default())
     }
 }
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum Type {
     #[serde(rename = "content")]
+    #[default]
     Content,
     #[serde(rename = "text")]
     Text,
     #[serde(rename = "binary")]
     Binary,
 }
-
-impl Default for Type {
-    fn default() -> Type {
-        Self::Content
-    }
-}
-

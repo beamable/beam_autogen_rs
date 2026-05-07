@@ -19,9 +19,6 @@ pub struct UnarchiveProjectRequest {
 
 impl UnarchiveProjectRequest {
     pub fn new(project_id: String) -> UnarchiveProjectRequest {
-        UnarchiveProjectRequest {
-            project_id,
-        }
+        UnarchiveProjectRequest { project_id }
     }
 }
-

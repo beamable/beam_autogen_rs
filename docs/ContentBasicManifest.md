@@ -4,9 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**affected_content_ids** | **String** |  | 
 **archived** | Option<**bool**> |  | [optional]
 **diff_object_key** | Option<**String**> |  | [optional]
-**references** | [**Vec<models::ContentBasicManifestReferencesInner>**](ContentBasicManifest_references_inner.md) |  | 
+**references** | [**Vec<models::ContentBasicManifestReferencesInner>**](ContentBasicManifestReferencesInner.md) |  | 
 **publisher_account_id** | Option<**i64**> |  | [optional]
 **id** | **String** |  | 
 **checksum** | **String** |  | 

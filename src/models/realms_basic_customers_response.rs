@@ -19,9 +19,6 @@ pub struct RealmsBasicCustomersResponse {
 
 impl RealmsBasicCustomersResponse {
     pub fn new(result: Vec<models::RealmsBasicCustomer>) -> RealmsBasicCustomersResponse {
-        RealmsBasicCustomersResponse {
-            result,
-        }
+        RealmsBasicCustomersResponse { result }
     }
 }
-

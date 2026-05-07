@@ -19,9 +19,6 @@ pub struct OptionalJsonNodeWrapper {
 
 impl OptionalJsonNodeWrapper {
     pub fn new() -> OptionalJsonNodeWrapper {
-        OptionalJsonNodeWrapper {
-            node: None,
-        }
+        OptionalJsonNodeWrapper { node: None }
     }
 }
-

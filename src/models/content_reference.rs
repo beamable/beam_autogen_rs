@@ -36,7 +36,15 @@ pub struct ContentReference {
 }
 
 impl ContentReference {
-    pub fn new(tag: String, tags: Vec<String>, uri: String, version: String, id: String, r#type: Type, visibility: models::ContentVisibility) -> ContentReference {
+    pub fn new(
+        tag: String,
+        tags: Vec<String>,
+        uri: String,
+        version: String,
+        id: String,
+        r#type: Type,
+        visibility: models::ContentVisibility,
+    ) -> ContentReference {
         ContentReference {
             tag,
             tags,
@@ -51,16 +59,12 @@ impl ContentReference {
         }
     }
 }
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum Type {
     #[serde(rename = "content")]
+    #[default]
     Content,
 }
-
-impl Default for Type {
-    fn default() -> Type {
-        Self::Content
-    }
-}
-

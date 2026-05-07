@@ -21,10 +21,6 @@ pub struct EventRewardObtain {
 
 impl EventRewardObtain {
     pub fn new(symbol: String, count: i32) -> EventRewardObtain {
-        EventRewardObtain {
-            symbol,
-            count,
-        }
+        EventRewardObtain { symbol, count }
     }
 }
-

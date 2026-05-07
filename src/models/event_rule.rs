@@ -21,10 +21,6 @@ pub struct EventRule {
 
 impl EventRule {
     pub fn new(rule: String, value: String) -> EventRule {
-        EventRule {
-            rule,
-            value,
-        }
+        EventRule { rule, value }
     }
 }
-

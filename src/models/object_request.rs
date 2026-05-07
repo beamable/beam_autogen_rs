@@ -19,9 +19,6 @@ pub struct ObjectRequest {
 
 impl ObjectRequest {
     pub fn new(object_key: String) -> ObjectRequest {
-        ObjectRequest {
-            object_key,
-        }
+        ObjectRequest { object_key }
     }
 }
-

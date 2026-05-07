@@ -19,9 +19,6 @@ pub struct AliasAvailableRequest {
 
 impl AliasAvailableRequest {
     pub fn new(alias: String) -> AliasAvailableRequest {
-        AliasAvailableRequest {
-            alias,
-        }
+        AliasAvailableRequest { alias }
     }
 }
-

@@ -21,10 +21,6 @@ pub struct UploadUrl {
 
 impl UploadUrl {
     pub fn new(key: String, url: String) -> UploadUrl {
-        UploadUrl {
-            key,
-            url,
-        }
+        UploadUrl { key, url }
     }
 }
-

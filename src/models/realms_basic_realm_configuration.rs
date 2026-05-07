@@ -28,7 +28,14 @@ pub struct RealmsBasicRealmConfiguration {
 }
 
 impl RealmsBasicRealmConfiguration {
-    pub fn new(websocket_config: models::RealmsBasicWebSocketConfiguration, microservice_uri: String, portal_uri: String, microservice_ecr_uri: String, storage_browser_uri: String, environment: String) -> RealmsBasicRealmConfiguration {
+    pub fn new(
+        websocket_config: models::RealmsBasicWebSocketConfiguration,
+        microservice_uri: String,
+        portal_uri: String,
+        microservice_ecr_uri: String,
+        storage_browser_uri: String,
+        environment: String,
+    ) -> RealmsBasicRealmConfiguration {
         RealmsBasicRealmConfiguration {
             websocket_config: Box::new(websocket_config),
             microservice_uri,
@@ -39,4 +46,3 @@ impl RealmsBasicRealmConfiguration {
         }
     }
 }
-

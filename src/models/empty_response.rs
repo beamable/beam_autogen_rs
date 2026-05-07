@@ -19,9 +19,6 @@ pub struct EmptyResponse {
 
 impl EmptyResponse {
     pub fn new(result: String) -> EmptyResponse {
-        EmptyResponse {
-            result,
-        }
+        EmptyResponse { result }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct EventClaimRequest {
 
 impl EventClaimRequest {
     pub fn new(event_id: String) -> EventClaimRequest {
-        EventClaimRequest {
-            event_id,
-        }
+        EventClaimRequest { event_id }
     }
 }
-

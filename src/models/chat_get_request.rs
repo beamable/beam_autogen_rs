@@ -19,9 +19,6 @@ pub struct ChatGetRequest {
 
 impl ChatGetRequest {
     pub fn new() -> ChatGetRequest {
-        ChatGetRequest {
-            scope: None,
-        }
+        ChatGetRequest { scope: None }
     }
 }
-

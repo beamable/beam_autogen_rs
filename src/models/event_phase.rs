@@ -26,7 +26,12 @@ pub struct EventPhase {
 }
 
 impl EventPhase {
-    pub fn new(name: String, duration_minutes: i32, duration_millis: i64, duration_seconds: i64) -> EventPhase {
+    pub fn new(
+        name: String,
+        duration_minutes: i32,
+        duration_millis: i64,
+        duration_seconds: i64,
+    ) -> EventPhase {
         EventPhase {
             name,
             duration_minutes,
@@ -36,4 +41,3 @@ impl EventPhase {
         }
     }
 }
-

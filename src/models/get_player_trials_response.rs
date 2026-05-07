@@ -20,11 +20,13 @@ pub struct GetPlayerTrialsResponse {
 }
 
 impl GetPlayerTrialsResponse {
-    pub fn new(trials: Vec<models::CohortEntry>, cohort_data: Vec<models::CloudStorage>) -> GetPlayerTrialsResponse {
+    pub fn new(
+        trials: Vec<models::CohortEntry>,
+        cohort_data: Vec<models::CloudStorage>,
+    ) -> GetPlayerTrialsResponse {
         GetPlayerTrialsResponse {
             trials,
             cohort_data,
         }
     }
 }
-

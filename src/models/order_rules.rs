@@ -19,9 +19,6 @@ pub struct OrderRules {
 
 impl OrderRules {
     pub fn new(orules: Vec<models::OrderRule>) -> OrderRules {
-        OrderRules {
-            orules,
-        }
+        OrderRules { orules }
     }
 }
-

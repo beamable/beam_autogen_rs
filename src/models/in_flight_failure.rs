@@ -28,7 +28,14 @@ pub struct InFlightFailure {
 }
 
 impl InFlightFailure {
-    pub fn new(service_object_id: String, timestamp: i64, service_name: String, in_flight_message: models::InFlightMessage, last_error: String, id: String) -> InFlightFailure {
+    pub fn new(
+        service_object_id: String,
+        timestamp: i64,
+        service_name: String,
+        in_flight_message: models::InFlightMessage,
+        last_error: String,
+        id: String,
+    ) -> InFlightFailure {
         InFlightFailure {
             service_object_id,
             timestamp,
@@ -39,4 +46,3 @@ impl InFlightFailure {
         }
     }
 }
-

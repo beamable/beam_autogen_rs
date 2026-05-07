@@ -22,7 +22,11 @@ pub struct ItemUpdateRequest {
 }
 
 impl ItemUpdateRequest {
-    pub fn new(content_id: String, id: i64, properties: Vec<models::ItemProperty>) -> ItemUpdateRequest {
+    pub fn new(
+        content_id: String,
+        id: i64,
+        properties: Vec<models::ItemProperty>,
+    ) -> ItemUpdateRequest {
         ItemUpdateRequest {
             content_id,
             id,
@@ -30,4 +34,3 @@ impl ItemUpdateRequest {
         }
     }
 }
-

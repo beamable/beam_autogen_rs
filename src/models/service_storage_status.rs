@@ -24,7 +24,12 @@ pub struct ServiceStorageStatus {
 }
 
 impl ServiceStorageStatus {
-    pub fn new(id: String, storage_type: String, is_running: bool, is_current: bool) -> ServiceStorageStatus {
+    pub fn new(
+        id: String,
+        storage_type: String,
+        is_running: bool,
+        is_current: bool,
+    ) -> ServiceStorageStatus {
         ServiceStorageStatus {
             id,
             storage_type,
@@ -33,4 +38,3 @@ impl ServiceStorageStatus {
         }
     }
 }
-

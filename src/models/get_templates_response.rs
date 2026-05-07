@@ -19,9 +19,6 @@ pub struct GetTemplatesResponse {
 
 impl GetTemplatesResponse {
     pub fn new(templates: Vec<models::ServiceTemplate>) -> GetTemplatesResponse {
-        GetTemplatesResponse {
-            templates,
-        }
+        GetTemplatesResponse { templates }
     }
 }
-

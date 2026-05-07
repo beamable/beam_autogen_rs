@@ -21,10 +21,6 @@ pub struct ActivationRequest {
 
 impl ActivationRequest {
     pub fn new(token: String, cid: i64) -> ActivationRequest {
-        ActivationRequest {
-            token,
-            cid,
-        }
+        ActivationRequest { token, cid }
     }
 }
-

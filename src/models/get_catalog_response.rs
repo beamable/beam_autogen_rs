@@ -19,9 +19,6 @@ pub struct GetCatalogResponse {
 
 impl GetCatalogResponse {
     pub fn new() -> GetCatalogResponse {
-        GetCatalogResponse {
-            catalog: None,
-        }
+        GetCatalogResponse { catalog: None }
     }
 }
-

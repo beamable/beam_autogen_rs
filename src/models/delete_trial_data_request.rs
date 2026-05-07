@@ -19,9 +19,6 @@ pub struct DeleteTrialDataRequest {
 
 impl DeleteTrialDataRequest {
     pub fn new(id: i64) -> DeleteTrialDataRequest {
-        DeleteTrialDataRequest {
-            id,
-        }
+        DeleteTrialDataRequest { id }
     }
 }
-

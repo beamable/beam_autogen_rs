@@ -21,10 +21,6 @@ pub struct DateRange {
 
 impl DateRange {
     pub fn new(from: String, to: String) -> DateRange {
-        DateRange {
-            from,
-            to,
-        }
+        DateRange { from, to }
     }
 }
-

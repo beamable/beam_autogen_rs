@@ -19,9 +19,6 @@ pub struct SaveBinaryResponse {
 
 impl SaveBinaryResponse {
     pub fn new(binary: Vec<models::BinaryReference>) -> SaveBinaryResponse {
-        SaveBinaryResponse {
-            binary,
-        }
+        SaveBinaryResponse { binary }
     }
 }
-

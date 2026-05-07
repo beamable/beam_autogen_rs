@@ -19,9 +19,6 @@ pub struct CalendarClaimRequest {
 
 impl CalendarClaimRequest {
     pub fn new(id: String) -> CalendarClaimRequest {
-        CalendarClaimRequest {
-            id,
-        }
+        CalendarClaimRequest { id }
     }
 }
-

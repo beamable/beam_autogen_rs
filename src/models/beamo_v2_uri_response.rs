@@ -19,9 +19,6 @@ pub struct BeamoV2UriResponse {
 
 impl BeamoV2UriResponse {
     pub fn new() -> BeamoV2UriResponse {
-        BeamoV2UriResponse {
-            uri: None,
-        }
+        BeamoV2UriResponse { uri: None }
     }
 }
-

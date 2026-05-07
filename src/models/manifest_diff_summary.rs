@@ -13,21 +13,30 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ManifestDiffSummary {
+    #[serde(rename = "affectedContentIds")]
+    pub affected_content_ids: Vec<String>,
     #[serde(rename = "manifestUid")]
     pub manifest_uid: String,
-    #[serde(rename = "diffUrl")]
-    pub diff_url: String,
+    #[serde(rename = "publishedByName", skip_serializing_if = "Option::is_none")]
+    pub published_by_name: Option<String>,
+    #[serde(rename = "publishedBy", skip_serializing_if = "Option::is_none")]
+    pub published_by: Option<String>,
     #[serde(rename = "createdDate")]
     pub created_date: i64,
 }
 
 impl ManifestDiffSummary {
-    pub fn new(manifest_uid: String, diff_url: String, created_date: i64) -> ManifestDiffSummary {
+    pub fn new(
+        affected_content_ids: Vec<String>,
+        manifest_uid: String,
+        created_date: i64,
+    ) -> ManifestDiffSummary {
         ManifestDiffSummary {
+            affected_content_ids,
             manifest_uid,
-            diff_url,
+            published_by_name: None,
+            published_by: None,
             created_date,
         }
     }
 }
-

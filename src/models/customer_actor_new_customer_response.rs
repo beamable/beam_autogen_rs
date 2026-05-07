@@ -21,7 +21,12 @@ pub struct CustomerActorNewCustomerResponse {
     pub realm_id: String,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "alias", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "alias",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub alias: Option<Option<String>>,
     #[serde(rename = "realmName")]
     pub realm_name: String,
@@ -30,7 +35,13 @@ pub struct CustomerActorNewCustomerResponse {
 }
 
 impl CustomerActorNewCustomerResponse {
-    pub fn new(token: models::AuthResponse, customer_id: String, realm_id: String, name: String, realm_name: String) -> CustomerActorNewCustomerResponse {
+    pub fn new(
+        token: models::AuthResponse,
+        customer_id: String,
+        realm_id: String,
+        name: String,
+        realm_name: String,
+    ) -> CustomerActorNewCustomerResponse {
         CustomerActorNewCustomerResponse {
             token: Box::new(token),
             customer_id,
@@ -42,4 +53,3 @@ impl CustomerActorNewCustomerResponse {
         }
     }
 }
-

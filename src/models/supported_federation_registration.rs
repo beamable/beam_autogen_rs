@@ -24,7 +24,10 @@ pub struct SupportedFederationRegistration {
 }
 
 impl SupportedFederationRegistration {
-    pub fn new(service_name: String, traffic_filter_enabled: bool) -> SupportedFederationRegistration {
+    pub fn new(
+        service_name: String,
+        traffic_filter_enabled: bool,
+    ) -> SupportedFederationRegistration {
         SupportedFederationRegistration {
             service_name,
             routing_key: None,
@@ -33,4 +36,3 @@ impl SupportedFederationRegistration {
         }
     }
 }
-

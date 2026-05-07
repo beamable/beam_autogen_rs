@@ -21,10 +21,6 @@ pub struct SessionLanguageContext {
 
 impl SessionLanguageContext {
     pub fn new(code: String, ctx: String) -> SessionLanguageContext {
-        SessionLanguageContext {
-            code,
-            ctx,
-        }
+        SessionLanguageContext { code, ctx }
     }
 }
-

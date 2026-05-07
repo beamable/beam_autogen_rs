@@ -19,9 +19,6 @@ pub struct BeamoV2ServiceTemplateView {
 
 impl BeamoV2ServiceTemplateView {
     pub fn new() -> BeamoV2ServiceTemplateView {
-        BeamoV2ServiceTemplateView {
-            id: None,
-        }
+        BeamoV2ServiceTemplateView { id: None }
     }
 }
-

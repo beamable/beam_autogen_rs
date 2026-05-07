@@ -28,7 +28,12 @@ pub struct ThirdPartyAssociation {
 }
 
 impl ThirdPartyAssociation {
-    pub fn new(name: String, user_app_id: String, meta: std::collections::HashMap<String, String>, app_id: String) -> ThirdPartyAssociation {
+    pub fn new(
+        name: String,
+        user_app_id: String,
+        meta: std::collections::HashMap<String, String>,
+        app_id: String,
+    ) -> ThirdPartyAssociation {
         ThirdPartyAssociation {
             name,
             email: None,
@@ -39,4 +44,3 @@ impl ThirdPartyAssociation {
         }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct GetPlayerTrialsRequest {
 
 impl GetPlayerTrialsRequest {
     pub fn new(dbid: i64) -> GetPlayerTrialsRequest {
-        GetPlayerTrialsRequest {
-            dbid,
-        }
+        GetPlayerTrialsRequest { dbid }
     }
 }
-

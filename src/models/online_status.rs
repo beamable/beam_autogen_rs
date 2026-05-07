@@ -15,13 +15,28 @@ use serde::{Deserialize, Serialize};
 pub struct OnlineStatus {
     #[serde(rename = "online", skip_serializing_if = "Option::is_none")]
     pub online: Option<bool>,
-    #[serde(rename = "lastOnline", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub last_online: Option<Option<String>>,
-    #[serde(rename = "playerId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "lastOnline",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub last_online: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
+    #[serde(
+        rename = "playerId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub player_id: Option<Option<String>>,
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<models::PresenceStatus>,
-    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "description",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub description: Option<Option<String>>,
 }
 
@@ -36,4 +51,3 @@ impl OnlineStatus {
         }
     }
 }
-

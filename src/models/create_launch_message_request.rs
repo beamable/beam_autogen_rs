@@ -21,10 +21,6 @@ pub struct CreateLaunchMessageRequest {
 
 impl CreateLaunchMessageRequest {
     pub fn new(name: String, body: String) -> CreateLaunchMessageRequest {
-        CreateLaunchMessageRequest {
-            name,
-            body,
-        }
+        CreateLaunchMessageRequest { name, body }
     }
 }
-

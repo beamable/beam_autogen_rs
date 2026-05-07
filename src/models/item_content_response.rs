@@ -19,9 +19,6 @@ pub struct ItemContentResponse {
 
 impl ItemContentResponse {
     pub fn new(content: Vec<models::ItemArchetype>) -> ItemContentResponse {
-        ItemContentResponse {
-            content,
-        }
+        ItemContentResponse { content }
     }
 }
-

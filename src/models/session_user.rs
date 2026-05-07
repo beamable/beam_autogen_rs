@@ -38,7 +38,16 @@ pub struct SessionUser {
 }
 
 impl SessionUser {
-    pub fn new(name: String, email: String, gamer_tag: i64, username: String, last_name: String, first_name: String, id: i64, lang: String) -> SessionUser {
+    pub fn new(
+        name: String,
+        email: String,
+        gamer_tag: i64,
+        username: String,
+        last_name: String,
+        first_name: String,
+        id: i64,
+        lang: String,
+    ) -> SessionUser {
         SessionUser {
             name,
             email,
@@ -54,4 +63,3 @@ impl SessionUser {
         }
     }
 }
-

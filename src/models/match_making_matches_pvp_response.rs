@@ -24,7 +24,12 @@ pub struct MatchMakingMatchesPvpResponse {
 }
 
 impl MatchMakingMatchesPvpResponse {
-    pub fn new(result: String, total_entries: i32, player_rank: models::MatchMakingRanking, windows: Vec<models::MatchMakingWindowResp>) -> MatchMakingMatchesPvpResponse {
+    pub fn new(
+        result: String,
+        total_entries: i32,
+        player_rank: models::MatchMakingRanking,
+        windows: Vec<models::MatchMakingWindowResp>,
+    ) -> MatchMakingMatchesPvpResponse {
         MatchMakingMatchesPvpResponse {
             result,
             total_entries,
@@ -33,4 +38,3 @@ impl MatchMakingMatchesPvpResponse {
         }
     }
 }
-

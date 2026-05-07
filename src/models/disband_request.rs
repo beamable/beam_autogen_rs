@@ -19,9 +19,6 @@ pub struct DisbandRequest {
 
 impl DisbandRequest {
     pub fn new() -> DisbandRequest {
-        DisbandRequest {
-            sub_group: None,
-        }
+        DisbandRequest { sub_group: None }
     }
 }
-

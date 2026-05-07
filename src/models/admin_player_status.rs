@@ -34,7 +34,17 @@ pub struct AdminPlayerStatus {
 }
 
 impl AdminPlayerStatus {
-    pub fn new(tournament_id: String, stage: i32, unclaimed_rewards: Vec<models::TournamentCurrencyReward>, tier: i32, rank: i32, score: f64, player_id: i64, content_id: String, next_cycle_start_ms: i64) -> AdminPlayerStatus {
+    pub fn new(
+        tournament_id: String,
+        stage: i32,
+        unclaimed_rewards: Vec<models::TournamentCurrencyReward>,
+        tier: i32,
+        rank: i32,
+        score: f64,
+        player_id: i64,
+        content_id: String,
+        next_cycle_start_ms: i64,
+    ) -> AdminPlayerStatus {
         AdminPlayerStatus {
             tournament_id,
             stage,
@@ -48,4 +58,3 @@ impl AdminPlayerStatus {
         }
     }
 }
-

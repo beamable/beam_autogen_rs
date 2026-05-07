@@ -32,7 +32,16 @@ pub struct TrackPurchaseRequest {
 }
 
 impl TrackPurchaseRequest {
-    pub fn new(price_in_local_currency: f64, sku_name: String, sku_product_id: String, store: String, obtain_items: Vec<models::ItemCreateRequest>, obtain_currency: Vec<models::CurrencyChange>, purchase_id: String, iso_currency_symbol: String) -> TrackPurchaseRequest {
+    pub fn new(
+        price_in_local_currency: f64,
+        sku_name: String,
+        sku_product_id: String,
+        store: String,
+        obtain_items: Vec<models::ItemCreateRequest>,
+        obtain_currency: Vec<models::CurrencyChange>,
+        purchase_id: String,
+        iso_currency_symbol: String,
+    ) -> TrackPurchaseRequest {
         TrackPurchaseRequest {
             price_in_local_currency,
             sku_name,
@@ -45,4 +54,3 @@ impl TrackPurchaseRequest {
         }
     }
 }
-

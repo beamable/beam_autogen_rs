@@ -19,9 +19,6 @@ pub struct OnlineStatusQuery {
 
 impl OnlineStatusQuery {
     pub fn new() -> OnlineStatusQuery {
-        OnlineStatusQuery {
-            player_ids: None,
-        }
+        OnlineStatusQuery { player_ids: None }
     }
 }
-

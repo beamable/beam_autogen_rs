@@ -19,9 +19,6 @@ pub struct FacebookPaymentUpdateResponse {
 
 impl FacebookPaymentUpdateResponse {
     pub fn new(result: String) -> FacebookPaymentUpdateResponse {
-        FacebookPaymentUpdateResponse {
-            result,
-        }
+        FacebookPaymentUpdateResponse { result }
     }
 }
-

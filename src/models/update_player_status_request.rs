@@ -22,7 +22,11 @@ pub struct UpdatePlayerStatusRequest {
 }
 
 impl UpdatePlayerStatusRequest {
-    pub fn new(player_id: i64, tournament_id: String, update: models::PlayerStatusUpdate) -> UpdatePlayerStatusRequest {
+    pub fn new(
+        player_id: i64,
+        tournament_id: String,
+        update: models::PlayerStatusUpdate,
+    ) -> UpdatePlayerStatusRequest {
         UpdatePlayerStatusRequest {
             player_id,
             tournament_id,
@@ -30,4 +34,3 @@ impl UpdatePlayerStatusRequest {
         }
     }
 }
-

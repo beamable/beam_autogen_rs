@@ -19,9 +19,6 @@ pub struct ContentBasicGetManifestsResponse {
 
 impl ContentBasicGetManifestsResponse {
     pub fn new(manifests: Vec<models::ContentBasicManifest>) -> ContentBasicGetManifestsResponse {
-        ContentBasicGetManifestsResponse {
-            manifests,
-        }
+        ContentBasicGetManifestsResponse { manifests }
     }
 }
-

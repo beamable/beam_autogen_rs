@@ -19,9 +19,6 @@ pub struct CustomerActorRealmConfigSaveRequest {
 
 impl CustomerActorRealmConfigSaveRequest {
     pub fn new() -> CustomerActorRealmConfigSaveRequest {
-        CustomerActorRealmConfigSaveRequest {
-            config: None,
-        }
+        CustomerActorRealmConfigSaveRequest { config: None }
     }
 }
-

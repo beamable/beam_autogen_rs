@@ -19,9 +19,6 @@ pub struct GroupSearchResponse {
 
 impl GroupSearchResponse {
     pub fn new(groups: Vec<models::Group>) -> GroupSearchResponse {
-        GroupSearchResponse {
-            groups,
-        }
+        GroupSearchResponse { groups }
     }
 }
-

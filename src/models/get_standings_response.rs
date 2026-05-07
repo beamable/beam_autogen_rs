@@ -21,10 +21,6 @@ pub struct GetStandingsResponse {
 
 impl GetStandingsResponse {
     pub fn new(entries: Vec<models::TournamentEntry>) -> GetStandingsResponse {
-        GetStandingsResponse {
-            entries,
-            me: None,
-        }
+        GetStandingsResponse { entries, me: None }
     }
 }
-

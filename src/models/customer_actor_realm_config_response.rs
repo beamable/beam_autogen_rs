@@ -19,9 +19,6 @@ pub struct CustomerActorRealmConfigResponse {
 
 impl CustomerActorRealmConfigResponse {
     pub fn new() -> CustomerActorRealmConfigResponse {
-        CustomerActorRealmConfigResponse {
-            config: None,
-        }
+        CustomerActorRealmConfigResponse { config: None }
     }
 }
-

@@ -21,10 +21,6 @@ pub struct CommonResponse {
 
 impl CommonResponse {
     pub fn new(result: String, data: std::collections::HashMap<String, String>) -> CommonResponse {
-        CommonResponse {
-            result,
-            data,
-        }
+        CommonResponse { result, data }
     }
 }
-

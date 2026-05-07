@@ -17,7 +17,12 @@ pub struct CustomerActorAliasAvailableResponse {
     pub alias: String,
     #[serde(rename = "available")]
     pub available: bool,
-    #[serde(rename = "customerId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "customerId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub customer_id: Option<Option<String>>,
 }
 
@@ -30,4 +35,3 @@ impl CustomerActorAliasAvailableResponse {
         }
     }
 }
-

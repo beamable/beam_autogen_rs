@@ -32,7 +32,11 @@ pub struct AccountPortalView {
 }
 
 impl AccountPortalView {
-    pub fn new(scopes: Vec<String>, id: i64, third_party_app_associations: Vec<String>) -> AccountPortalView {
+    pub fn new(
+        scopes: Vec<String>,
+        id: i64,
+        third_party_app_associations: Vec<String>,
+    ) -> AccountPortalView {
         AccountPortalView {
             email: None,
             role_string: None,
@@ -45,4 +49,3 @@ impl AccountPortalView {
         }
     }
 }
-

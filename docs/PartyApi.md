@@ -11,13 +11,15 @@ Method | HTTP request | Description
 [**api_parties_id_metadata_put**](PartyApi.md#api_parties_id_metadata_put) | **PUT** /api/parties/{id}/metadata | 
 [**api_parties_id_promote_put**](PartyApi.md#api_parties_id_promote_put) | **PUT** /api/parties/{id}/promote | 
 [**api_parties_id_put**](PartyApi.md#api_parties_id_put) | **PUT** /api/parties/{id} | 
+[**api_parties_id_tags_put**](PartyApi.md#api_parties_id_tags_put) | **PUT** /api/parties/{id}/tags | 
 [**api_parties_post**](PartyApi.md#api_parties_post) | **POST** /api/parties | 
+[**api_parties_put**](PartyApi.md#api_parties_put) | **PUT** /api/parties | 
 
 
 
 ## api_parties_id_get
 
-> models::Party api_parties_id_get(id, x_beam_scope, x_beam_gamertag)
+> models::Party api_parties_id_get(id, x_beam_gamertag, x_beam_timeout)
 
 
 Return the status of a party.
@@ -28,8 +30,8 @@ Return the status of a party.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the party | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 
 ### Return type
 
@@ -37,7 +39,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -49,7 +51,7 @@ No authorization required
 
 ## api_parties_id_invite_delete
 
-> serde_json::Value api_parties_id_invite_delete(id, x_beam_scope, x_beam_gamertag, cancel_invite_to_party)
+> serde_json::Value api_parties_id_invite_delete(id, x_beam_gamertag, x_beam_timeout, cancel_invite_to_party)
 
 
 Cancel party invitation.
@@ -60,8 +62,8 @@ Cancel party invitation.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the party | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **cancel_invite_to_party** | Option<[**CancelInviteToParty**](CancelInviteToParty.md)> | Player to be uninvited |  |
 
 ### Return type
@@ -70,7 +72,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -82,7 +84,7 @@ No authorization required
 
 ## api_parties_id_invite_post
 
-> serde_json::Value api_parties_id_invite_post(id, x_beam_scope, x_beam_gamertag, invite_to_party)
+> serde_json::Value api_parties_id_invite_post(id, x_beam_gamertag, x_beam_timeout, invite_to_party)
 
 
 Invite a player to a party
@@ -93,8 +95,8 @@ Invite a player to a party
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the party | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **invite_to_party** | Option<[**InviteToParty**](InviteToParty.md)> | Player to invite to the party |  |
 
 ### Return type
@@ -103,7 +105,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -115,7 +117,7 @@ No authorization required
 
 ## api_parties_id_members_delete
 
-> serde_json::Value api_parties_id_members_delete(id, x_beam_scope, x_beam_gamertag, leave_party)
+> serde_json::Value api_parties_id_members_delete(id, x_beam_gamertag, x_beam_timeout, leave_party)
 
 
 Remove the requested player from the party. The leader is able to remove anyone. Others may only remove themselves without error.
@@ -126,8 +128,8 @@ Remove the requested player from the party. The leader is able to remove anyone.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the party | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **leave_party** | Option<[**LeaveParty**](LeaveParty.md)> | The leave party request |  |
 
 ### Return type
@@ -136,7 +138,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -148,7 +150,7 @@ No authorization required
 
 ## api_parties_id_metadata_put
 
-> models::Party api_parties_id_metadata_put(id, x_beam_scope, x_beam_gamertag, update_party)
+> models::Party api_parties_id_metadata_put(id, x_beam_gamertag, x_beam_timeout, update_party)
 
 
 Updates party state.
@@ -159,8 +161,8 @@ Updates party state.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the party | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **update_party** | Option<[**UpdateParty**](UpdateParty.md)> | Argument to pass to the party actor to update state. |  |
 
 ### Return type
@@ -169,7 +171,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -181,7 +183,7 @@ No authorization required
 
 ## api_parties_id_promote_put
 
-> models::Party api_parties_id_promote_put(id, x_beam_scope, x_beam_gamertag, promote_new_leader)
+> models::Party api_parties_id_promote_put(id, x_beam_gamertag, x_beam_timeout, promote_new_leader)
 
 
 Promote a party member to leader.
@@ -192,8 +194,8 @@ Promote a party member to leader.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the party | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **promote_new_leader** | Option<[**PromoteNewLeader**](PromoteNewLeader.md)> | Player to promote to leader |  |
 
 ### Return type
@@ -202,7 +204,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -214,7 +216,7 @@ No authorization required
 
 ## api_parties_id_put
 
-> models::Party api_parties_id_put(id, x_beam_scope, x_beam_gamertag)
+> models::Party api_parties_id_put(id, x_beam_gamertag, x_beam_timeout, party_member_tags)
 
 
 Join a party
@@ -225,8 +227,9 @@ Join a party
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** | Id of the party | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**party_member_tags** | Option<[**PartyMemberTags**](PartyMemberTags.md)> | The list of player tags when joining the party |  |
 
 ### Return type
 
@@ -234,11 +237,44 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_parties_id_tags_put
+
+> models::Party api_parties_id_tags_put(id, x_beam_gamertag, x_beam_timeout, update_party_tags)
+
+
+Update the tags for the player.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **uuid::Uuid** | Id of the party | [required] |
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**update_party_tags** | Option<[**UpdatePartyTags**](UpdatePartyTags.md)> | Tags to update for the player. |  |
+
+### Return type
+
+[**models::Party**](Party.md)
+
+### Authorization
+
+[auth](../README.md#auth), [scope](../README.md#scope)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -246,7 +282,7 @@ No authorization required
 
 ## api_parties_post
 
-> models::Party api_parties_post(x_beam_scope, x_beam_gamertag, create_party)
+> models::Party api_parties_post(x_beam_gamertag, x_beam_timeout, create_party)
 
 
 Create a party for the current player.
@@ -256,8 +292,8 @@ Create a party for the current player.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 **create_party** | Option<[**CreateParty**](CreateParty.md)> | Argument to pass to the party actor to initialize state. |  |
 
 ### Return type
@@ -266,7 +302,39 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_parties_put
+
+> models::Party api_parties_put(x_beam_gamertag, x_beam_timeout, party)
+
+
+Exposes the internal \"SetParty\" behavior as an Admin only endpoint.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**party** | Option<[**Party**](Party.md)> | The party to create or replace. |  |
+
+### Return type
+
+[**models::Party**](Party.md)
+
+### Authorization
+
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 

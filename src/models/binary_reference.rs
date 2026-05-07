@@ -38,7 +38,16 @@ pub struct BinaryReference {
 }
 
 impl BinaryReference {
-    pub fn new(upload_method: String, tags: Vec<String>, uri: String, version: String, id: String, upload_uri: String, r#type: Type, visibility: String) -> BinaryReference {
+    pub fn new(
+        upload_method: String,
+        tags: Vec<String>,
+        uri: String,
+        version: String,
+        id: String,
+        upload_uri: String,
+        r#type: Type,
+        visibility: String,
+    ) -> BinaryReference {
         BinaryReference {
             upload_method,
             tags,
@@ -54,16 +63,12 @@ impl BinaryReference {
         }
     }
 }
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum Type {
     #[serde(rename = "binary")]
+    #[default]
     Binary,
 }
-
-impl Default for Type {
-    fn default() -> Type {
-        Self::Binary
-    }
-}
-

@@ -19,9 +19,6 @@ pub struct GetElasticContainerRegistryUri {
 
 impl GetElasticContainerRegistryUri {
     pub fn new(uri: String) -> GetElasticContainerRegistryUri {
-        GetElasticContainerRegistryUri {
-            uri,
-        }
+        GetElasticContainerRegistryUri { uri }
     }
 }
-

@@ -38,7 +38,11 @@ pub struct SendMailRequest {
 }
 
 impl SendMailRequest {
-    pub fn new(receiver_gamer_tag: i64, sender_gamer_tag: i64, category: String) -> SendMailRequest {
+    pub fn new(
+        receiver_gamer_tag: i64,
+        sender_gamer_tag: i64,
+        category: String,
+    ) -> SendMailRequest {
         SendMailRequest {
             body: None,
             expires: None,
@@ -54,4 +58,3 @@ impl SendMailRequest {
         }
     }
 }
-

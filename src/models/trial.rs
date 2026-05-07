@@ -38,7 +38,15 @@ pub struct Trial {
 }
 
 impl Trial {
-    pub fn new(name: String, cohorts: Vec<models::Cohort>, ctype: String, assigned: i64, strategy: String, ttype: String, active: bool) -> Trial {
+    pub fn new(
+        name: String,
+        cohorts: Vec<models::Cohort>,
+        ctype: String,
+        assigned: i64,
+        strategy: String,
+        ttype: String,
+        active: bool,
+    ) -> Trial {
         Trial {
             name,
             activated: None,
@@ -54,4 +62,3 @@ impl Trial {
         }
     }
 }
-

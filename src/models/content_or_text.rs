@@ -22,7 +22,11 @@ pub struct ContentOrText {
 }
 
 impl ContentOrText {
-    pub fn new(id: String, version: String, properties: std::collections::HashMap<String, String>) -> ContentOrText {
+    pub fn new(
+        id: String,
+        version: String,
+        properties: std::collections::HashMap<String, String>,
+    ) -> ContentOrText {
         ContentOrText {
             id,
             version,
@@ -30,4 +34,3 @@ impl ContentOrText {
         }
     }
 }
-

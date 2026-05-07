@@ -19,9 +19,6 @@ pub struct GetGroupStatusRequest {
 
 impl GetGroupStatusRequest {
     pub fn new() -> GetGroupStatusRequest {
-        GetGroupStatusRequest {
-            content_id: None,
-        }
+        GetGroupStatusRequest { content_id: None }
     }
 }
-

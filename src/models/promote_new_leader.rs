@@ -13,15 +13,17 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PromoteNewLeader {
-    #[serde(rename = "playerId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "playerId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub player_id: Option<Option<String>>,
 }
 
 impl PromoteNewLeader {
     pub fn new() -> PromoteNewLeader {
-        PromoteNewLeader {
-            player_id: None,
-        }
+        PromoteNewLeader { player_id: None }
     }
 }
-

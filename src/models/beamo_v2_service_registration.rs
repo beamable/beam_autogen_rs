@@ -21,15 +21,40 @@ pub struct BeamoV2ServiceRegistration {
     pub cid: Option<String>,
     #[serde(rename = "pid", skip_serializing_if = "Option::is_none")]
     pub pid: Option<String>,
-    #[serde(rename = "beamoName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "beamoName",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub beamo_name: Option<Option<String>>,
-    #[serde(rename = "routingKey", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "routingKey",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub routing_key: Option<Option<String>>,
-    #[serde(rename = "startedById", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "startedById",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub started_by_id: Option<Option<i64>>,
-    #[serde(rename = "federation", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "federation",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub federation: Option<Option<Vec<models::BeamoV2SupportedFederation>>>,
-    #[serde(rename = "trafficFilterEnabled", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "trafficFilterEnabled",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub traffic_filter_enabled: Option<Option<bool>>,
 }
 
@@ -48,4 +73,3 @@ impl BeamoV2ServiceRegistration {
         }
     }
 }
-

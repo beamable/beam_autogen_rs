@@ -32,7 +32,13 @@ pub struct ClientContentInfo {
 }
 
 impl ClientContentInfo {
-    pub fn new(tags: Vec<String>, uri: String, version: String, content_id: String, r#type: models::ContentType) -> ClientContentInfo {
+    pub fn new(
+        tags: Vec<String>,
+        uri: String,
+        version: String,
+        content_id: String,
+        r#type: models::ContentType,
+    ) -> ClientContentInfo {
         ClientContentInfo {
             updated_at: None,
             tags,
@@ -45,4 +51,3 @@ impl ClientContentInfo {
         }
     }
 }
-

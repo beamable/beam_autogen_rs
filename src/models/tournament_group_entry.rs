@@ -26,7 +26,13 @@ pub struct TournamentGroupEntry {
 }
 
 impl TournamentGroupEntry {
-    pub fn new(rank: i64, score: f64, currency_rewards: Vec<models::TournamentCurrencyReward>, group_id: i64, stage_change: i32) -> TournamentGroupEntry {
+    pub fn new(
+        rank: i64,
+        score: f64,
+        currency_rewards: Vec<models::TournamentCurrencyReward>,
+        group_id: i64,
+        stage_change: i32,
+    ) -> TournamentGroupEntry {
         TournamentGroupEntry {
             rank,
             score,
@@ -36,4 +42,3 @@ impl TournamentGroupEntry {
         }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct OnlineStatusResponses {
 
 impl OnlineStatusResponses {
     pub fn new(players: Vec<models::PlayerOnlineStatusResponse>) -> OnlineStatusResponses {
-        OnlineStatusResponses {
-            players,
-        }
+        OnlineStatusResponses { players }
     }
 }
-

@@ -21,10 +21,6 @@ pub struct DataPoint {
 
 impl DataPoint {
     pub fn new(timestamp: String, value: String) -> DataPoint {
-        DataPoint {
-            timestamp,
-            value,
-        }
+        DataPoint { timestamp, value }
     }
 }
-

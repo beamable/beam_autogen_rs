@@ -11,10 +11,13 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum FederationType {
     #[serde(rename = "IFederatedPlayerInit")]
+    #[default]
     IFederatedPlayerInit,
     #[serde(rename = "IFederatedInventory")]
     IFederatedInventory,
@@ -24,7 +27,6 @@ pub enum FederationType {
     IFederatedGameServer,
     #[serde(rename = "IFederatedCommerce")]
     IFederatedCommerce,
-
 }
 
 impl std::fmt::Display for FederationType {
@@ -38,10 +40,3 @@ impl std::fmt::Display for FederationType {
         }
     }
 }
-
-impl Default for FederationType {
-    fn default() -> FederationType {
-        Self::IFederatedPlayerInit
-    }
-}
-

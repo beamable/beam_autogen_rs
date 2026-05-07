@@ -24,7 +24,11 @@ pub struct LeaderBoardView {
 }
 
 impl LeaderBoardView {
-    pub fn new(lb_id: String, board_size: i64, rankings: Vec<models::RankEntry>) -> LeaderBoardView {
+    pub fn new(
+        lb_id: String,
+        board_size: i64,
+        rankings: Vec<models::RankEntry>,
+    ) -> LeaderBoardView {
         LeaderBoardView {
             lb_id,
             board_size,
@@ -33,4 +37,3 @@ impl LeaderBoardView {
         }
     }
 }
-

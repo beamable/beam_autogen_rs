@@ -24,7 +24,12 @@ pub struct Sku {
 }
 
 impl Sku {
-    pub fn new(name: String, description: String, real_price: i32, product_ids: std::collections::HashMap<String, String>) -> Sku {
+    pub fn new(
+        name: String,
+        description: String,
+        real_price: i32,
+        product_ids: std::collections::HashMap<String, String>,
+    ) -> Sku {
         Sku {
             name,
             description,
@@ -33,4 +38,3 @@ impl Sku {
         }
     }
 }
-

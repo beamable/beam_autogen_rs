@@ -21,10 +21,6 @@ pub struct SaveManifestRequest {
 
 impl SaveManifestRequest {
     pub fn new(id: String, references: Vec<models::ReferenceSuperset>) -> SaveManifestRequest {
-        SaveManifestRequest {
-            id,
-            references,
-        }
+        SaveManifestRequest { id, references }
     }
 }
-

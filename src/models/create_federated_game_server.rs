@@ -13,15 +13,17 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateFederatedGameServer {
-    #[serde(rename = "matchType", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "matchType",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub match_type: Option<Option<String>>,
 }
 
 impl CreateFederatedGameServer {
     pub fn new() -> CreateFederatedGameServer {
-        CreateFederatedGameServer {
-            match_type: None,
-        }
+        CreateFederatedGameServer { match_type: None }
     }
 }
-

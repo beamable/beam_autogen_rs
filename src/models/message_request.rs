@@ -13,16 +13,53 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MessageRequest {
-    #[serde(rename = "body", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "body",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub body: Option<Option<String>>,
-    #[serde(rename = "pid", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "pid",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub pid: Option<Option<String>>,
-    #[serde(rename = "playerId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "hasPid", skip_serializing_if = "Option::is_none")]
+    pub has_pid: Option<bool>,
+    #[serde(
+        rename = "playerId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub player_id: Option<Option<String>>,
-    #[serde(rename = "channel", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "hasPlayerId", skip_serializing_if = "Option::is_none")]
+    pub has_player_id: Option<bool>,
+    #[serde(
+        rename = "channel",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub channel: Option<Option<String>>,
-    #[serde(rename = "realmId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "hasChannel", skip_serializing_if = "Option::is_none")]
+    pub has_channel: Option<bool>,
+    #[serde(
+        rename = "realmId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub realm_id: Option<Option<String>>,
+    #[serde(rename = "hasRealmId", skip_serializing_if = "Option::is_none")]
+    pub has_realm_id: Option<bool>,
+    #[serde(rename = "singleDelivery", skip_serializing_if = "Option::is_none")]
+    pub single_delivery: Option<bool>,
+    #[serde(rename = "hasSingleDelivery", skip_serializing_if = "Option::is_none")]
+    pub has_single_delivery: Option<bool>,
 }
 
 impl MessageRequest {
@@ -30,10 +67,15 @@ impl MessageRequest {
         MessageRequest {
             body: None,
             pid: None,
+            has_pid: None,
             player_id: None,
+            has_player_id: None,
             channel: None,
+            has_channel: None,
             realm_id: None,
+            has_realm_id: None,
+            single_delivery: None,
+            has_single_delivery: None,
         }
     }
 }
-

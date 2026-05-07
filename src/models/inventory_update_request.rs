@@ -15,8 +15,13 @@ use serde::{Deserialize, Serialize};
 pub struct InventoryUpdateRequest {
     #[serde(rename = "currencies", skip_serializing_if = "Option::is_none")]
     pub currencies: Option<std::collections::HashMap<String, i64>>,
+    #[serde(rename = "includeDeltas", skip_serializing_if = "Option::is_none")]
+    pub include_deltas: Option<bool>,
+    #[serde(rename = "scopes", skip_serializing_if = "Option::is_none")]
+    pub scopes: Option<Vec<String>>,
     #[serde(rename = "currencyProperties", skip_serializing_if = "Option::is_none")]
-    pub currency_properties: Option<std::collections::HashMap<String, Vec<models::CurrencyProperty>>>,
+    pub currency_properties:
+        Option<std::collections::HashMap<String, Vec<models::CurrencyProperty>>>,
     #[serde(rename = "applyVipBonus", skip_serializing_if = "Option::is_none")]
     pub apply_vip_bonus: Option<bool>,
     #[serde(rename = "updateItems", skip_serializing_if = "Option::is_none")]
@@ -33,6 +38,8 @@ impl InventoryUpdateRequest {
     pub fn new() -> InventoryUpdateRequest {
         InventoryUpdateRequest {
             currencies: None,
+            include_deltas: None,
+            scopes: None,
             currency_properties: None,
             apply_vip_bonus: None,
             update_items: None,
@@ -42,4 +49,3 @@ impl InventoryUpdateRequest {
         }
     }
 }
-

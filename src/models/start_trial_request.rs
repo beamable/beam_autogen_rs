@@ -19,9 +19,6 @@ pub struct StartTrialRequest {
 
 impl StartTrialRequest {
     pub fn new(name: String) -> StartTrialRequest {
-        StartTrialRequest {
-            name,
-        }
+        StartTrialRequest { name }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct CancelPurchaseRequest {
 
 impl CancelPurchaseRequest {
     pub fn new(txid: i64) -> CancelPurchaseRequest {
-        CancelPurchaseRequest {
-            txid,
-        }
+        CancelPurchaseRequest { txid }
     }
 }
-

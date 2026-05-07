@@ -17,18 +17,45 @@ pub struct RealmView {
     pub display_name: String,
     #[serde(rename = "realmId")]
     pub realm_id: String,
-    #[serde(rename = "customerId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "customerId",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub customer_id: Option<Option<String>>,
-    #[serde(rename = "sharded", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "sharded",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub sharded: Option<Option<bool>>,
-    #[serde(rename = "parent", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "parent",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub parent: Option<Option<String>>,
-    #[serde(rename = "children", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "children",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub children: Option<Option<Vec<String>>>,
     #[serde(rename = "archived", skip_serializing_if = "Option::is_none")]
     pub archived: Option<bool>,
-    #[serde(rename = "secret", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "secret",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub secret: Option<Option<String>>,
+    #[serde(rename = "hidden", skip_serializing_if = "Option::is_none")]
+    pub hidden: Option<bool>,
 }
 
 impl RealmView {
@@ -42,7 +69,7 @@ impl RealmView {
             children: None,
             archived: None,
             secret: None,
+            hidden: None,
         }
     }
 }
-

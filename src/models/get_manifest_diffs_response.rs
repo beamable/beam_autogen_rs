@@ -24,7 +24,12 @@ pub struct GetManifestDiffsResponse {
 }
 
 impl GetManifestDiffsResponse {
-    pub fn new(manifest_id: String, diffs: Vec<models::ManifestDiffSummary>, has_more: bool, total_count: i32) -> GetManifestDiffsResponse {
+    pub fn new(
+        manifest_id: String,
+        diffs: Vec<models::ManifestDiffSummary>,
+        has_more: bool,
+        total_count: i32,
+    ) -> GetManifestDiffsResponse {
         GetManifestDiffsResponse {
             manifest_id,
             diffs,
@@ -33,4 +38,3 @@ impl GetManifestDiffsResponse {
         }
     }
 }
-

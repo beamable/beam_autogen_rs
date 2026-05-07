@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**gamer_stats** | [**std::collections::HashMap<String, std::collections::HashMap<String, String>>**](std::collections::HashMap.md) |  | 
+**gamer_stats** | **std::collections::HashMap<String, std::collections::HashMap<String, String>>** |  | 
 **offset** | Option<**i32**> |  | [optional]
 **limit** | Option<**i32**> |  | [optional]
 **total** | Option<**i64**> |  | [optional]

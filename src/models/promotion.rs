@@ -22,7 +22,11 @@ pub struct Promotion {
 }
 
 impl Promotion {
-    pub fn new(id: String, source: models::Promotable, destination: models::Promotable) -> Promotion {
+    pub fn new(
+        id: String,
+        source: models::Promotable,
+        destination: models::Promotable,
+    ) -> Promotion {
         Promotion {
             id,
             source: Box::new(source),
@@ -30,4 +34,3 @@ impl Promotion {
         }
     }
 }
-

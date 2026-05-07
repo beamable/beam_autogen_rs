@@ -24,7 +24,12 @@ pub struct LocalizedPrice {
 }
 
 impl LocalizedPrice {
-    pub fn new(to: i64, price: i64, price_localized: f64, price_localized_string: String) -> LocalizedPrice {
+    pub fn new(
+        to: i64,
+        price: i64,
+        price_localized: f64,
+        price_localized_string: String,
+    ) -> LocalizedPrice {
         LocalizedPrice {
             to,
             price,
@@ -33,4 +38,3 @@ impl LocalizedPrice {
         }
     }
 }
-

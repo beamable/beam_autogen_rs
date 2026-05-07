@@ -19,9 +19,6 @@ pub struct GetSocialStatusesResponse {
 
 impl GetSocialStatusesResponse {
     pub fn new(statuses: Vec<models::Social>) -> GetSocialStatusesResponse {
-        GetSocialStatusesResponse {
-            statuses,
-        }
+        GetSocialStatusesResponse { statuses }
     }
 }
-

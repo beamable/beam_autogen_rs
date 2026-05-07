@@ -19,9 +19,6 @@ pub struct CurrencyContentResponse {
 
 impl CurrencyContentResponse {
     pub fn new(content: Vec<models::CurrencyArchetype>) -> CurrencyContentResponse {
-        CurrencyContentResponse {
-            content,
-        }
+        CurrencyContentResponse { content }
     }
 }
-

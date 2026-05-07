@@ -19,9 +19,6 @@ pub struct OtelViewsResponse {
 
 impl OtelViewsResponse {
     pub fn new(views: Vec<models::OtelView>) -> OtelViewsResponse {
-        OtelViewsResponse {
-            views,
-        }
+        OtelViewsResponse { views }
     }
 }
-

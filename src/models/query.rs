@@ -19,9 +19,6 @@ pub struct Query {
 
 impl Query {
     pub fn new(query_id: String) -> Query {
-        Query {
-            query_id,
-        }
+        Query { query_id }
     }
 }
-

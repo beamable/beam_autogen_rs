@@ -19,9 +19,6 @@ pub struct GetStoresReq {
 
 impl GetStoresReq {
     pub fn new() -> GetStoresReq {
-        GetStoresReq {
-            scope: None,
-        }
+        GetStoresReq { scope: None }
     }
 }
-

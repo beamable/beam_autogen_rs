@@ -20,11 +20,13 @@ pub struct PromoteRealmResponseOld {
 }
 
 impl PromoteRealmResponseOld {
-    pub fn new(source_pid: String, promotions: Vec<models::RealmPromotion>) -> PromoteRealmResponseOld {
+    pub fn new(
+        source_pid: String,
+        promotions: Vec<models::RealmPromotion>,
+    ) -> PromoteRealmResponseOld {
         PromoteRealmResponseOld {
             source_pid,
             promotions,
         }
     }
 }
-

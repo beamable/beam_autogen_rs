@@ -21,10 +21,6 @@ pub struct Friend {
 
 impl Friend {
     pub fn new(player_id: String, source: models::FriendSource) -> Friend {
-        Friend {
-            player_id,
-            source,
-        }
+        Friend { player_id, source }
     }
 }
-

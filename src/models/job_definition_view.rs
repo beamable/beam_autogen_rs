@@ -24,13 +24,23 @@ pub struct JobDefinitionView {
     #[serde(rename = "retryPolicy", skip_serializing_if = "Option::is_none")]
     pub retry_policy: Option<Box<models::JobRetryPolicy>>,
     #[serde(rename = "lastUpdate", skip_serializing_if = "Option::is_none")]
-    pub last_update: Option<String>,
-    #[serde(rename = "source", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub last_update: Option<chrono::DateTime<chrono::FixedOffset>>,
+    #[serde(
+        rename = "source",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub source: Option<Option<String>>,
     #[serde(rename = "isUnique", skip_serializing_if = "Option::is_none")]
     pub is_unique: Option<bool>,
-    #[serde(rename = "suspendedAt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub suspended_at: Option<Option<String>>,
+    #[serde(
+        rename = "suspendedAt",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub suspended_at: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     #[serde(rename = "analytics", skip_serializing_if = "Option::is_none")]
     pub analytics: Option<Box<models::JobAnalytics>>,
     #[serde(rename = "owner", skip_serializing_if = "Option::is_none")]
@@ -54,4 +64,3 @@ impl JobDefinitionView {
         }
     }
 }
-

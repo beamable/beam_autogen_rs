@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BeamoV2DataPoint {
     #[serde(rename = "timeStamp", skip_serializing_if = "Option::is_none")]
-    pub time_stamp: Option<String>,
+    pub time_stamp: Option<chrono::DateTime<chrono::FixedOffset>>,
     #[serde(rename = "value")]
     pub value: f64,
 }
@@ -27,4 +27,3 @@ impl BeamoV2DataPoint {
         }
     }
 }
-

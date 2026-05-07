@@ -15,10 +15,15 @@ use serde::{Deserialize, Serialize};
 pub struct BeamoV2GetMetricsRequest {
     #[serde(rename = "metricName", skip_serializing_if = "Option::is_none")]
     pub metric_name: Option<String>,
-    #[serde(rename = "startTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub start_time: Option<Option<String>>,
+    #[serde(
+        rename = "startTime",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub start_time: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     #[serde(rename = "endTime", skip_serializing_if = "Option::is_none")]
-    pub end_time: Option<String>,
+    pub end_time: Option<chrono::DateTime<chrono::FixedOffset>>,
     #[serde(rename = "period", skip_serializing_if = "Option::is_none")]
     pub period: Option<i32>,
 }
@@ -33,4 +38,3 @@ impl BeamoV2GetMetricsRequest {
         }
     }
 }
-

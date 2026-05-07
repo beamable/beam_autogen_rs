@@ -19,9 +19,6 @@ pub struct GetServiceUrlsRequest {
 
 impl GetServiceUrlsRequest {
     pub fn new(requests: Vec<models::ServiceImageLayers>) -> GetServiceUrlsRequest {
-        GetServiceUrlsRequest {
-            requests,
-        }
+        GetServiceUrlsRequest { requests }
     }
 }
-

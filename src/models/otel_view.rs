@@ -39,4 +39,3 @@ impl OtelView {
         }
     }
 }
-

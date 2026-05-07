@@ -21,10 +21,6 @@ pub struct ImportFriendsRequest {
 
 impl ImportFriendsRequest {
     pub fn new(source: String, token: String) -> ImportFriendsRequest {
-        ImportFriendsRequest {
-            source,
-            token,
-        }
+        ImportFriendsRequest { source, token }
     }
 }
-

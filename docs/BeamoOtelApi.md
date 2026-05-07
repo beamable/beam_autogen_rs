@@ -15,16 +15,18 @@ Method | HTTP request | Description
 
 ## api_beamo_otel_auth_reader_config_get
 
-> models::OtelAuthConfig api_beamo_otel_auth_reader_config_get(x_beam_scope, x_beam_gamertag)
+> models::OtelAuthConfig api_beamo_otel_auth_reader_config_get(x_beam_gamertag, x_beam_timeout)
 
+
+Get OTel authentication configuration for the ClickHouse reader role.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 
 ### Return type
 
@@ -32,7 +34,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -44,16 +46,18 @@ No authorization required
 
 ## api_beamo_otel_auth_writer_config_get
 
-> models::OtelAuthConfig api_beamo_otel_auth_writer_config_get(x_beam_scope, x_beam_gamertag)
+> models::OtelAuthConfig api_beamo_otel_auth_writer_config_get(x_beam_gamertag, x_beam_timeout)
 
+
+Get OTel authentication configuration for the ClickHouse writer role. Requires admin access.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 
 ### Return type
 
@@ -61,7 +65,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -73,17 +77,19 @@ No authorization required
 
 ## api_beamo_otel_views_get
 
-> models::OtelViewsResponse api_beamo_otel_views_get(x_beam_scope, x_beam_gamertag, player_id)
+> models::OtelViewsResponse api_beamo_otel_views_get(x_beam_gamertag, x_beam_timeout, player_id)
 
+
+Get available OpenTelemetry views for a specific player.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**player_id** | Option<**String**> |  |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**player_id** | Option<**String**> | Player ID to retrieve views for. |  |
 
 ### Return type
 
@@ -91,7 +97,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -103,17 +109,19 @@ No authorization required
 
 ## api_beamo_otel_views_post
 
-> models::OtelView api_beamo_otel_views_post(x_beam_scope, x_beam_gamertag, otel_view)
+> models::OtelView api_beamo_otel_views_post(x_beam_gamertag, x_beam_timeout, otel_view)
 
+
+Save or update an OpenTelemetry view configuration.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**otel_view** | Option<[**OtelView**](OtelView.md)> |  |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**otel_view** | Option<[**OtelView**](OtelView.md)> | The OTel view to save. |  |
 
 ### Return type
 
@@ -121,7 +129,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -133,17 +141,19 @@ No authorization required
 
 ## api_beamo_otel_views_view_id_delete
 
-> serde_json::Value api_beamo_otel_views_view_id_delete(view_id, x_beam_scope, x_beam_gamertag)
+> serde_json::Value api_beamo_otel_views_view_id_delete(view_id, x_beam_gamertag, x_beam_timeout)
 
+
+Delete an OpenTelemetry view by ID.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**view_id** | **String** |  | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**view_id** | **String** | ID of the view to delete. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
 
 ### Return type
 
@@ -151,7 +161,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 
@@ -163,18 +173,20 @@ No authorization required
 
 ## api_beamo_otel_views_view_id_put
 
-> models::OtelView api_beamo_otel_views_view_id_put(view_id, x_beam_scope, x_beam_gamertag, update_otel_view_request)
+> models::OtelView api_beamo_otel_views_view_id_put(view_id, x_beam_gamertag, x_beam_timeout, update_otel_view_request)
 
+
+Update an existing OpenTelemetry view.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**view_id** | **String** |  | [required] |
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
+**view_id** | **String** | ID of the view to update. | [required] |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**update_otel_view_request** | Option<[**UpdateOtelViewRequest**](UpdateOtelViewRequest.md)> |  |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**update_otel_view_request** | Option<[**UpdateOtelViewRequest**](UpdateOtelViewRequest.md)> | Fields to update on the view. |  |
 
 ### Return type
 
@@ -182,7 +194,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 

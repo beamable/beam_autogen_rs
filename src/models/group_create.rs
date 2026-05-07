@@ -37,7 +37,13 @@ pub struct GroupCreate {
 }
 
 impl GroupCreate {
-    pub fn new(name: String, enrollment_type: String, requirement: i64, r#type: models::GroupType, max_size: i32) -> GroupCreate {
+    pub fn new(
+        name: String,
+        enrollment_type: String,
+        requirement: i64,
+        r#type: models::GroupType,
+        max_size: i32,
+    ) -> GroupCreate {
         GroupCreate {
             name,
             enrollment_type,
@@ -52,4 +58,3 @@ impl GroupCreate {
         }
     }
 }
-

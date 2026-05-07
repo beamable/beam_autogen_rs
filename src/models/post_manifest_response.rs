@@ -19,9 +19,6 @@ pub struct PostManifestResponse {
 
 impl PostManifestResponse {
     pub fn new() -> PostManifestResponse {
-        PostManifestResponse {
-            manifest: None,
-        }
+        PostManifestResponse { manifest: None }
     }
 }
-

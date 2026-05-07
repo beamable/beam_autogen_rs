@@ -13,7 +13,12 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct JobDefinitionSaveRequest {
-    #[serde(rename = "id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "id",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub id: Option<Option<String>>,
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
@@ -23,9 +28,19 @@ pub struct JobDefinitionSaveRequest {
     pub job_action: Option<Box<models::JobDefinitionSaveRequestJobAction>>,
     #[serde(rename = "retryPolicy", skip_serializing_if = "Option::is_none")]
     pub retry_policy: Option<Box<models::JobRetryPolicy>>,
-    #[serde(rename = "source", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "source",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub source: Option<Option<String>>,
-    #[serde(rename = "isUnique", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "isUnique",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub is_unique: Option<Option<bool>>,
 }
 
@@ -42,4 +57,3 @@ impl JobDefinitionSaveRequest {
         }
     }
 }
-

@@ -19,15 +19,20 @@ pub struct InventoryView {
     pub items: Vec<models::ItemGroup>,
     #[serde(rename = "scope", skip_serializing_if = "Option::is_none")]
     pub scope: Option<String>,
+    #[serde(rename = "itemFilters", skip_serializing_if = "Option::is_none")]
+    pub item_filters: Option<Box<models::InventoryFiltersDto>>,
 }
 
 impl InventoryView {
-    pub fn new(currencies: Vec<models::CurrencyView>, items: Vec<models::ItemGroup>) -> InventoryView {
+    pub fn new(
+        currencies: Vec<models::CurrencyView>,
+        items: Vec<models::ItemGroup>,
+    ) -> InventoryView {
         InventoryView {
             currencies,
             items,
             scope: None,
+            item_filters: None,
         }
     }
 }
-

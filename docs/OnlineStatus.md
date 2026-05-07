@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **online** | Option<**bool**> |  | [optional]
-**last_online** | Option<**String**> |  | [optional]
+**last_online** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | [optional]
 **player_id** | Option<**String**> |  | [optional]
 **status** | Option<[**models::PresenceStatus**](PresenceStatus.md)> |  | [optional]
 **description** | Option<**String**> |  | [optional]

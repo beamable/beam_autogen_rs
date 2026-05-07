@@ -13,7 +13,12 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UpdateParty {
-    #[serde(rename = "restriction", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "restriction",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub restriction: Option<Option<String>>,
     #[serde(rename = "maxSize", skip_serializing_if = "Option::is_none")]
     pub max_size: Option<i32>,
@@ -27,4 +32,3 @@ impl UpdateParty {
         }
     }
 }
-

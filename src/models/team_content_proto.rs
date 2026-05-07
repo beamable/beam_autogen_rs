@@ -13,7 +13,12 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TeamContentProto {
-    #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "name",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub name: Option<Option<String>>,
     #[serde(rename = "maxPlayers", skip_serializing_if = "Option::is_none")]
     pub max_players: Option<i32>,
@@ -30,4 +35,3 @@ impl TeamContentProto {
         }
     }
 }
-

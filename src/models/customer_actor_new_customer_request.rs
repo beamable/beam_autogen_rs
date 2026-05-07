@@ -15,7 +15,12 @@ use serde::{Deserialize, Serialize};
 pub struct CustomerActorNewCustomerRequest {
     #[serde(rename = "realmName")]
     pub realm_name: String,
-    #[serde(rename = "customerName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "customerName",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub customer_name: Option<Option<String>>,
     #[serde(rename = "email")]
     pub email: String,
@@ -23,12 +28,21 @@ pub struct CustomerActorNewCustomerRequest {
     pub password: String,
     #[serde(rename = "hierarchy", skip_serializing_if = "Option::is_none")]
     pub hierarchy: Option<bool>,
-    #[serde(rename = "alias", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "alias",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub alias: Option<Option<String>>,
 }
 
 impl CustomerActorNewCustomerRequest {
-    pub fn new(realm_name: String, email: String, password: String) -> CustomerActorNewCustomerRequest {
+    pub fn new(
+        realm_name: String,
+        email: String,
+        password: String,
+    ) -> CustomerActorNewCustomerRequest {
         CustomerActorNewCustomerRequest {
             realm_name,
             customer_name: None,
@@ -39,4 +53,3 @@ impl CustomerActorNewCustomerRequest {
         }
     }
 }
-

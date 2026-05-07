@@ -21,10 +21,6 @@ pub struct BeamoBasicReference {
 
 impl BeamoBasicReference {
     pub fn new(arm: bool, archived: bool) -> BeamoBasicReference {
-        BeamoBasicReference {
-            arm,
-            archived,
-        }
+        BeamoBasicReference { arm, archived }
     }
 }
-

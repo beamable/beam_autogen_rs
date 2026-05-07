@@ -19,9 +19,6 @@ pub struct BeamoBasicManifestChecksums {
 
 impl BeamoBasicManifestChecksums {
     pub fn new(manifests: Vec<models::BeamoBasicManifestChecksum>) -> BeamoBasicManifestChecksums {
-        BeamoBasicManifestChecksums {
-            manifests,
-        }
+        BeamoBasicManifestChecksums { manifests }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct GetLambdaUri {
 
 impl GetLambdaUri {
     pub fn new(uri: String) -> GetLambdaUri {
-        GetLambdaUri {
-            uri,
-        }
+        GetLambdaUri { uri }
     }
 }
-

@@ -21,10 +21,6 @@ pub struct ListLeaderBoardViewResponse {
 
 impl ListLeaderBoardViewResponse {
     pub fn new(result: String, lbs: Vec<models::LeaderBoardView>) -> ListLeaderBoardViewResponse {
-        ListLeaderBoardViewResponse {
-            result,
-            lbs,
-        }
+        ListLeaderBoardViewResponse { result, lbs }
     }
 }
-

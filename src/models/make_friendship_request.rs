@@ -19,9 +19,6 @@ pub struct MakeFriendshipRequest {
 
 impl MakeFriendshipRequest {
     pub fn new(gamer_tag: i64) -> MakeFriendshipRequest {
-        MakeFriendshipRequest {
-            gamer_tag,
-        }
+        MakeFriendshipRequest { gamer_tag }
     }
 }
-

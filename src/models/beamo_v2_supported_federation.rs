@@ -15,9 +15,19 @@ use serde::{Deserialize, Serialize};
 pub struct BeamoV2SupportedFederation {
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
     pub r#type: Option<models::BeamoV2FederationType>,
-    #[serde(rename = "nameSpace", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "nameSpace",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub name_space: Option<Option<String>>,
-    #[serde(rename = "settings", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "settings",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub settings: Option<Option<serde_json::Value>>,
 }
 
@@ -30,4 +40,3 @@ impl BeamoV2SupportedFederation {
         }
     }
 }
-

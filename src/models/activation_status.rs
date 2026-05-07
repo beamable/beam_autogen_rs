@@ -11,28 +11,23 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum ActivationStatus {
-    #[serde(rename = "Pending")]
+    #[serde(rename = "PENDING")]
+    #[default]
     Pending,
-    #[serde(rename = "Activated")]
+    #[serde(rename = "ACTIVATED")]
     Activated,
-
 }
 
 impl std::fmt::Display for ActivationStatus {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::Pending => write!(f, "Pending"),
-            Self::Activated => write!(f, "Activated"),
+            Self::Pending => write!(f, "PENDING"),
+            Self::Activated => write!(f, "ACTIVATED"),
         }
     }
 }
-
-impl Default for ActivationStatus {
-    fn default() -> ActivationStatus {
-        Self::Pending
-    }
-}
-

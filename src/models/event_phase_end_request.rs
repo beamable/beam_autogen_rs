@@ -19,9 +19,6 @@ pub struct EventPhaseEndRequest {
 
 impl EventPhaseEndRequest {
     pub fn new() -> EventPhaseEndRequest {
-        EventPhaseEndRequest {
-            time: None,
-        }
+        EventPhaseEndRequest { time: None }
     }
 }
-

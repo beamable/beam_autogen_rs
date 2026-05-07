@@ -32,7 +32,15 @@ pub struct PlayerStatus {
 }
 
 impl PlayerStatus {
-    pub fn new(last_update_cycle: i32, tournament_id: String, stage: i32, unclaimed_rewards: Vec<models::TournamentCurrencyReward>, tier: i32, player_id: i64, content_id: String) -> PlayerStatus {
+    pub fn new(
+        last_update_cycle: i32,
+        tournament_id: String,
+        stage: i32,
+        unclaimed_rewards: Vec<models::TournamentCurrencyReward>,
+        tier: i32,
+        player_id: i64,
+        content_id: String,
+    ) -> PlayerStatus {
         PlayerStatus {
             last_update_cycle,
             tournament_id,
@@ -45,4 +53,3 @@ impl PlayerStatus {
         }
     }
 }
-

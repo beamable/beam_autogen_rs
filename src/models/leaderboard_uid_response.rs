@@ -19,9 +19,6 @@ pub struct LeaderboardUidResponse {
 
 impl LeaderboardUidResponse {
     pub fn new(id: i64) -> LeaderboardUidResponse {
-        LeaderboardUidResponse {
-            id,
-        }
+        LeaderboardUidResponse { id }
     }
 }
-

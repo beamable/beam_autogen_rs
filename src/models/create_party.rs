@@ -13,12 +13,29 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateParty {
-    #[serde(rename = "restriction", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "restriction",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub restriction: Option<Option<String>>,
-    #[serde(rename = "leader", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "leader",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub leader: Option<Option<String>>,
     #[serde(rename = "maxSize", skip_serializing_if = "Option::is_none")]
     pub max_size: Option<i32>,
+    #[serde(
+        rename = "memberTags",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub member_tags: Option<Option<Vec<models::Tag>>>,
 }
 
 impl CreateParty {
@@ -27,7 +44,7 @@ impl CreateParty {
             restriction: None,
             leader: None,
             max_size: None,
+            member_tags: None,
         }
     }
 }
-

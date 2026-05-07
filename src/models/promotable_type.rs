@@ -11,14 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum PromotableType {
     #[serde(rename = "Content")]
+    #[default]
     Content,
     #[serde(rename = "Microservices")]
     Microservices,
-
 }
 
 impl std::fmt::Display for PromotableType {
@@ -29,10 +31,3 @@ impl std::fmt::Display for PromotableType {
         }
     }
 }
-
-impl Default for PromotableType {
-    fn default() -> PromotableType {
-        Self::Content
-    }
-}
-

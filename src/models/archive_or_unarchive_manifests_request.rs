@@ -19,9 +19,6 @@ pub struct ArchiveOrUnarchiveManifestsRequest {
 
 impl ArchiveOrUnarchiveManifestsRequest {
     pub fn new(manifest_ids: Vec<String>) -> ArchiveOrUnarchiveManifestsRequest {
-        ArchiveOrUnarchiveManifestsRequest {
-            manifest_ids,
-        }
+        ArchiveOrUnarchiveManifestsRequest { manifest_ids }
     }
 }
-

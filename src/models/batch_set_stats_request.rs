@@ -19,9 +19,6 @@ pub struct BatchSetStatsRequest {
 
 impl BatchSetStatsRequest {
     pub fn new(updates: Vec<models::StatUpdateRequest>) -> BatchSetStatsRequest {
-        BatchSetStatsRequest {
-            updates,
-        }
+        BatchSetStatsRequest { updates }
     }
 }
-

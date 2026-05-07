@@ -19,9 +19,6 @@ pub struct AvailableRolesResponse {
 
 impl AvailableRolesResponse {
     pub fn new(roles: Vec<String>) -> AvailableRolesResponse {
-        AvailableRolesResponse {
-            roles,
-        }
+        AvailableRolesResponse { roles }
     }
 }
-

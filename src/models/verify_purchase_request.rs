@@ -19,9 +19,6 @@ pub struct VerifyPurchaseRequest {
 
 impl VerifyPurchaseRequest {
     pub fn new(receipt: String) -> VerifyPurchaseRequest {
-        VerifyPurchaseRequest {
-            receipt,
-        }
+        VerifyPurchaseRequest { receipt }
     }
 }
-

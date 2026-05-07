@@ -11,10 +11,13 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum PresenceStatus {
     #[serde(rename = "Visible")]
+    #[default]
     Visible,
     #[serde(rename = "Invisible")]
     Invisible,
@@ -22,7 +25,6 @@ pub enum PresenceStatus {
     Dnd,
     #[serde(rename = "Away")]
     Away,
-
 }
 
 impl std::fmt::Display for PresenceStatus {
@@ -35,10 +37,3 @@ impl std::fmt::Display for PresenceStatus {
         }
     }
 }
-
-impl Default for PresenceStatus {
-    fn default() -> PresenceStatus {
-        Self::Visible
-    }
-}
-

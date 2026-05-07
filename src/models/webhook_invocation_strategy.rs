@@ -20,11 +20,13 @@ pub struct WebhookInvocationStrategy {
 }
 
 impl WebhookInvocationStrategy {
-    pub fn new(invocation_type: models::WebhookInvocationType, retry_type: models::WebhookRetryType) -> WebhookInvocationStrategy {
+    pub fn new(
+        invocation_type: models::WebhookInvocationType,
+        retry_type: models::WebhookRetryType,
+    ) -> WebhookInvocationStrategy {
         WebhookInvocationStrategy {
             invocation_type,
             retry_type,
         }
     }
 }
-

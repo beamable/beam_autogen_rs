@@ -19,9 +19,6 @@ pub struct AnnouncementQueryResponse {
 
 impl AnnouncementQueryResponse {
     pub fn new(announcements: Vec<models::AnnouncementView>) -> AnnouncementQueryResponse {
-        AnnouncementQueryResponse {
-            announcements,
-        }
+        AnnouncementQueryResponse { announcements }
     }
 }
-

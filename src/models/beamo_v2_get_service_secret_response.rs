@@ -19,9 +19,6 @@ pub struct BeamoV2GetServiceSecretResponse {
 
 impl BeamoV2GetServiceSecretResponse {
     pub fn new() -> BeamoV2GetServiceSecretResponse {
-        BeamoV2GetServiceSecretResponse {
-            secret: None,
-        }
+        BeamoV2GetServiceSecretResponse { secret: None }
     }
 }
-

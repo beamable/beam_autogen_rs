@@ -19,9 +19,6 @@ pub struct CustomerActorCustomersResponse {
 
 impl CustomerActorCustomersResponse {
     pub fn new() -> CustomerActorCustomersResponse {
-        CustomerActorCustomersResponse {
-            customers: None,
-        }
+        CustomerActorCustomersResponse { customers: None }
     }
 }
-

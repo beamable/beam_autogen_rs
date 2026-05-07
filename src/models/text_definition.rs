@@ -24,7 +24,11 @@ pub struct TextDefinition {
 }
 
 impl TextDefinition {
-    pub fn new(id: String, checksum: String, properties: std::collections::HashMap<String, String>) -> TextDefinition {
+    pub fn new(
+        id: String,
+        checksum: String,
+        properties: std::collections::HashMap<String, String>,
+    ) -> TextDefinition {
         TextDefinition {
             id,
             checksum,
@@ -33,4 +37,3 @@ impl TextDefinition {
         }
     }
 }
-

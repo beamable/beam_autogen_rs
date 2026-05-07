@@ -19,9 +19,6 @@ pub struct AcceptMultipleAttachments {
 
 impl AcceptMultipleAttachments {
     pub fn new(mail_ids: Vec<i64>) -> AcceptMultipleAttachments {
-        AcceptMultipleAttachments {
-            mail_ids,
-        }
+        AcceptMultipleAttachments { mail_ids }
     }
 }
-

@@ -21,10 +21,6 @@ pub struct PaSlowQuery {
 
 impl PaSlowQuery {
     pub fn new(line: String, namespace: String) -> PaSlowQuery {
-        PaSlowQuery {
-            line,
-            namespace,
-        }
+        PaSlowQuery { line, namespace }
     }
 }
-

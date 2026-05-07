@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
 **impact** | **Vec<String>** |  | 
-**index** | [**Vec<std::collections::HashMap<String, i32>>**](std::collections::HashMap.md) |  | 
+**index** | **Vec<std::collections::HashMap<String, i32>>** |  | 
 **namespace** | **String** |  | 
 **weight** | **f64** |  | 
 

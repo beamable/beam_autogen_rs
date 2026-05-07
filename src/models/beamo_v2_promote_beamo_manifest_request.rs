@@ -19,9 +19,6 @@ pub struct BeamoV2PromoteBeamoManifestRequest {
 
 impl BeamoV2PromoteBeamoManifestRequest {
     pub fn new(source_realm_id: String) -> BeamoV2PromoteBeamoManifestRequest {
-        BeamoV2PromoteBeamoManifestRequest {
-            source_realm_id,
-        }
+        BeamoV2PromoteBeamoManifestRequest { source_realm_id }
     }
 }
-

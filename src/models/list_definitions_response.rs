@@ -19,9 +19,6 @@ pub struct ListDefinitionsResponse {
 
 impl ListDefinitionsResponse {
     pub fn new(content: Vec<models::AnnouncementDto>) -> ListDefinitionsResponse {
-        ListDefinitionsResponse {
-            content,
-        }
+        ListDefinitionsResponse { content }
     }
 }
-

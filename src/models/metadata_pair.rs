@@ -21,10 +21,6 @@ pub struct MetadataPair {
 
 impl MetadataPair {
     pub fn new(key: String, value: String) -> MetadataPair {
-        MetadataPair {
-            key,
-            value,
-        }
+        MetadataPair { key, value }
     }
 }
-

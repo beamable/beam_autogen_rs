@@ -46,7 +46,18 @@ pub struct AnnouncementView {
 }
 
 impl AnnouncementView {
-    pub fn new(body: String, is_claimed: bool, channel: String, client_data_list: Vec<models::ClientDataEntry>, id: String, is_deleted: bool, is_read: bool, title: String, attachments: Vec<models::AnnouncementAttachment>, description: String) -> AnnouncementView {
+    pub fn new(
+        body: String,
+        is_claimed: bool,
+        channel: String,
+        client_data_list: Vec<models::ClientDataEntry>,
+        id: String,
+        is_deleted: bool,
+        is_read: bool,
+        title: String,
+        attachments: Vec<models::AnnouncementAttachment>,
+        description: String,
+    ) -> AnnouncementView {
         AnnouncementView {
             body,
             is_claimed,
@@ -66,4 +77,3 @@ impl AnnouncementView {
         }
     }
 }
-

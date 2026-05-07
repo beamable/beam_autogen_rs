@@ -19,9 +19,6 @@ pub struct FindAccountRequest {
 
 impl FindAccountRequest {
     pub fn new(query: String) -> FindAccountRequest {
-        FindAccountRequest {
-            query,
-        }
+        FindAccountRequest { query }
     }
 }
-

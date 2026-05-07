@@ -24,7 +24,12 @@ pub struct EventPhaseRuntime {
 }
 
 impl EventPhaseRuntime {
-    pub fn new(name: String, start_time: i64, end_time: i64, rules: Vec<models::EventRule>) -> EventPhaseRuntime {
+    pub fn new(
+        name: String,
+        start_time: i64,
+        end_time: i64,
+        rules: Vec<models::EventRule>,
+    ) -> EventPhaseRuntime {
         EventPhaseRuntime {
             name,
             start_time,
@@ -33,4 +38,3 @@ impl EventPhaseRuntime {
         }
     }
 }
-

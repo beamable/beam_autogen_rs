@@ -20,11 +20,10 @@ pub struct EventPlayerView {
 }
 
 impl EventPlayerView {
-    pub fn new(running: Vec<models::EventPlayerStateView>, done: Vec<models::EventPlayerStateView>) -> EventPlayerView {
-        EventPlayerView {
-            running,
-            done,
-        }
+    pub fn new(
+        running: Vec<models::EventPlayerStateView>,
+        done: Vec<models::EventPlayerStateView>,
+    ) -> EventPlayerView {
+        EventPlayerView { running, done }
     }
 }
-

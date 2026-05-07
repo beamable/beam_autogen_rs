@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **id** | **String** |  | 
 **checksum** | Option<**String**> |  | [optional]
 **last_changed** | Option<**i64**> |  | [optional]
-**r#type** | **String** |  | [default to Content]
+**r#type** | **Type** |  (enum: content) | [default to Content]
 **visibility** | [**models::ContentVisibility**](ContentVisibility.md) |  | 
 **created** | Option<**i64**> |  | [optional]
 

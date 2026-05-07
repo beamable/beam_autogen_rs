@@ -21,10 +21,6 @@ pub struct IsoChronology {
 
 impl IsoChronology {
     pub fn new(calendar_type: String, id: String) -> IsoChronology {
-        IsoChronology {
-            calendar_type,
-            id,
-        }
+        IsoChronology { calendar_type, id }
     }
 }
-

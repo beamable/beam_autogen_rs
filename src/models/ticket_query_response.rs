@@ -13,15 +13,17 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TicketQueryResponse {
-    #[serde(rename = "results", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "results",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub results: Option<Option<Vec<models::Ticket>>>,
 }
 
 impl TicketQueryResponse {
     pub fn new() -> TicketQueryResponse {
-        TicketQueryResponse {
-            results: None,
-        }
+        TicketQueryResponse { results: None }
     }
 }
-

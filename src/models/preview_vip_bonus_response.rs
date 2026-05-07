@@ -19,9 +19,6 @@ pub struct PreviewVipBonusResponse {
 
 impl PreviewVipBonusResponse {
     pub fn new(currencies: Vec<models::CurrencyPreview>) -> PreviewVipBonusResponse {
-        PreviewVipBonusResponse {
-            currencies,
-        }
+        PreviewVipBonusResponse { currencies }
     }
 }
-

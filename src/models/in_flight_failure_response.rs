@@ -19,9 +19,6 @@ pub struct InFlightFailureResponse {
 
 impl InFlightFailureResponse {
     pub fn new(failures: Vec<models::InFlightFailure>) -> InFlightFailureResponse {
-        InFlightFailureResponse {
-            failures,
-        }
+        InFlightFailureResponse { failures }
     }
 }
-

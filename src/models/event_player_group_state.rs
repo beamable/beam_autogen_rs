@@ -26,7 +26,12 @@ pub struct EventPlayerGroupState {
 }
 
 impl EventPlayerGroupState {
-    pub fn new(group_score: f64, rank_rewards: Vec<models::EventRewardState>, group_rank: i64, score_rewards: Vec<models::EventRewardState>) -> EventPlayerGroupState {
+    pub fn new(
+        group_score: f64,
+        rank_rewards: Vec<models::EventRewardState>,
+        group_rank: i64,
+        score_rewards: Vec<models::EventRewardState>,
+    ) -> EventPlayerGroupState {
         EventPlayerGroupState {
             group_score,
             group_id: None,
@@ -36,4 +41,3 @@ impl EventPlayerGroupState {
         }
     }
 }
-

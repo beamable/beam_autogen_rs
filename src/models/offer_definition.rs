@@ -34,7 +34,13 @@ pub struct OfferDefinition {
 }
 
 impl OfferDefinition {
-    pub fn new(titles: Vec<String>, symbol: String, images: Vec<String>, descriptions: Vec<String>, obtain: Vec<String>) -> OfferDefinition {
+    pub fn new(
+        titles: Vec<String>,
+        symbol: String,
+        images: Vec<String>,
+        descriptions: Vec<String>,
+        obtain: Vec<String>,
+    ) -> OfferDefinition {
         OfferDefinition {
             titles,
             symbol,
@@ -48,4 +54,3 @@ impl OfferDefinition {
         }
     }
 }
-

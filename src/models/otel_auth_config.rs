@@ -19,8 +19,13 @@ pub struct OtelAuthConfig {
     pub username: String,
     #[serde(rename = "password")]
     pub password: String,
-    #[serde(rename = "expiresAt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub expires_at: Option<Option<String>>,
+    #[serde(
+        rename = "expiresAt",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub expires_at: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
 }
 
 impl OtelAuthConfig {
@@ -33,4 +38,3 @@ impl OtelAuthConfig {
         }
     }
 }
-

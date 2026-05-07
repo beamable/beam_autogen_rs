@@ -19,9 +19,6 @@ pub struct AnnouncementContentResponse {
 
 impl AnnouncementContentResponse {
     pub fn new(content: Vec<models::AnnouncementContent>) -> AnnouncementContentResponse {
-        AnnouncementContentResponse {
-            content,
-        }
+        AnnouncementContentResponse { content }
     }
 }
-

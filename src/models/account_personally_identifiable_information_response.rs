@@ -22,7 +22,11 @@ pub struct AccountPersonallyIdentifiableInformationResponse {
 }
 
 impl AccountPersonallyIdentifiableInformationResponse {
-    pub fn new(account: models::Account, stats: Vec<models::StatsResponse>, payment_audits: models::ListAuditResponse) -> AccountPersonallyIdentifiableInformationResponse {
+    pub fn new(
+        account: models::Account,
+        stats: Vec<models::StatsResponse>,
+        payment_audits: models::ListAuditResponse,
+    ) -> AccountPersonallyIdentifiableInformationResponse {
         AccountPersonallyIdentifiableInformationResponse {
             account: Box::new(account),
             stats,
@@ -30,4 +34,3 @@ impl AccountPersonallyIdentifiableInformationResponse {
         }
     }
 }
-

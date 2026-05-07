@@ -13,17 +13,44 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UpdateLobby {
-    #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "name",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub name: Option<Option<String>>,
-    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "description",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub description: Option<Option<String>>,
     #[serde(rename = "restriction", skip_serializing_if = "Option::is_none")]
     pub restriction: Option<models::LobbyRestriction>,
-    #[serde(rename = "matchType", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "hasRestriction", skip_serializing_if = "Option::is_none")]
+    pub has_restriction: Option<bool>,
+    #[serde(
+        rename = "matchType",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub match_type: Option<Option<String>>,
-    #[serde(rename = "maxPlayers", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "maxPlayers",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub max_players: Option<Option<i32>>,
-    #[serde(rename = "newHost", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "newHost",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub new_host: Option<Option<String>>,
     #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
     pub data: Option<Box<models::UpdateData>>,
@@ -35,6 +62,7 @@ impl UpdateLobby {
             name: None,
             description: None,
             restriction: None,
+            has_restriction: None,
             match_type: None,
             max_players: None,
             new_host: None,
@@ -42,4 +70,3 @@ impl UpdateLobby {
         }
     }
 }
-

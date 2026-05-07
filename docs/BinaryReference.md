@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **checksum** | Option<**String**> |  | [optional]
 **last_changed** | Option<**String**> |  | [optional]
 **upload_uri** | **String** |  | 
-**r#type** | **String** |  | [default to Binary]
+**r#type** | **Type** |  (enum: binary) | [default to Binary]
 **visibility** | **String** |  | 
 **created** | Option<**String**> |  | [optional]
 

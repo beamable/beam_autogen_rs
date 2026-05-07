@@ -18,10 +18,9 @@ pub struct AnnouncementRawResponse {
 }
 
 impl AnnouncementRawResponse {
-    pub fn new(announcements: std::collections::HashMap<String, models::AnnouncementState>) -> AnnouncementRawResponse {
-        AnnouncementRawResponse {
-            announcements,
-        }
+    pub fn new(
+        announcements: std::collections::HashMap<String, models::AnnouncementState>,
+    ) -> AnnouncementRawResponse {
+        AnnouncementRawResponse { announcements }
     }
 }
-

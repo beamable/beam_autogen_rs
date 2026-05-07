@@ -19,9 +19,6 @@ pub struct GetCatalogReq {
 
 impl GetCatalogReq {
     pub fn new() -> GetCatalogReq {
-        GetCatalogReq {
-            version: None,
-        }
+        GetCatalogReq { version: None }
     }
 }
-

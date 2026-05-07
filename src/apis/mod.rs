@@ -16,7 +16,7 @@ pub enum Error<T> {
     ResponseError(ResponseContent<T>),
 }
 
-impl <T> fmt::Display for Error<T> {
+impl<T> fmt::Display for Error<T> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let (module, e) = match self {
             Error::Reqwest(e) => ("reqwest", e.to_string()),
@@ -28,7 +28,7 @@ impl <T> fmt::Display for Error<T> {
     }
 }
 
-impl <T: fmt::Debug> error::Error for Error<T> {
+impl<T: fmt::Debug> error::Error for Error<T> {
     fn source(&self) -> Option<&(dyn error::Error + 'static)> {
         Some(match self {
             Error::Reqwest(e) => e,
@@ -39,19 +39,19 @@ impl <T: fmt::Debug> error::Error for Error<T> {
     }
 }
 
-impl <T> From<reqwest::Error> for Error<T> {
+impl<T> From<reqwest::Error> for Error<T> {
     fn from(e: reqwest::Error) -> Self {
         Error::Reqwest(e)
     }
 }
 
-impl <T> From<serde_json::Error> for Error<T> {
+impl<T> From<serde_json::Error> for Error<T> {
     fn from(e: serde_json::Error) -> Self {
         Error::Serde(e)
     }
 }
 
-impl <T> From<std::io::Error> for Error<T> {
+impl<T> From<std::io::Error> for Error<T> {
     fn from(e: std::io::Error) -> Self {
         Error::Io(e)
     }
@@ -78,8 +78,10 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
                             value,
                         ));
                     }
-                },
-                serde_json::Value::String(s) => params.push((format!("{}[{}]", prefix, key), s.clone())),
+                }
+                serde_json::Value::String(s) => {
+                    params.push((format!("{}[{}]", prefix, key), s.clone()))
+                }
                 _ => params.push((format!("{}[{}]", prefix, key), value.to_string())),
             }
         }
@@ -96,37 +98,61 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
 enum ContentType {
     Json,
     Text,
-    Unsupported(String)
+    Unsupported(String),
 }
 
 impl From<&str> for ContentType {
     fn from(content_type: &str) -> Self {
         if content_type.starts_with("application") && content_type.contains("json") {
-            return Self::Json;
+            Self::Json
         } else if content_type.starts_with("text/plain") {
-            return Self::Text;
+            Self::Text
         } else {
-            return Self::Unsupported(content_type.to_string());
+            Self::Unsupported(content_type.to_string())
         }
     }
 }
 
+pub mod accounts_api;
+pub mod announcements_api;
 pub mod auth_api;
 pub mod beamo_api;
 pub mod beamo_otel_api;
+pub mod billing_api;
+pub mod calendars_api;
+pub mod chat_v2_api;
+pub mod cloudsaving_api;
+pub mod commerce_api;
+pub mod content_api;
 pub mod customer_api;
-pub mod default_api;
+pub mod event_players_api;
+pub mod events_api;
+pub mod group_users_api;
+pub mod groups_api;
+pub mod inventory_api;
+pub mod leaderboards_api;
 pub mod lobby_api;
+pub mod mail_api;
 pub mod mailbox_api;
 pub mod match_api;
+pub mod notification_api;
 pub mod party_api;
+pub mod payments_api;
 pub mod player_lobby_api;
 pub mod player_party_api;
 pub mod player_presence_api;
+pub mod player_session_api;
+pub mod player_stats_api;
 pub mod player_ticket_api;
 pub mod presence_api;
+pub mod push_api;
+pub mod realms_api;
 pub mod scheduler_api;
-pub mod service_plan_api;
+pub mod session_api;
+pub mod social_api;
+pub mod stats_api;
 pub mod ticket_api;
+pub mod tournaments_api;
+pub mod trials_api;
 
 pub mod configuration;

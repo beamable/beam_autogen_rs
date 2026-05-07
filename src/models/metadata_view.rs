@@ -36,7 +36,12 @@ pub struct MetadataView {
 }
 
 impl MetadataView {
-    pub fn new(parent_leaderboard: String, frozen: bool, partitioned: bool, cohorted: bool) -> MetadataView {
+    pub fn new(
+        parent_leaderboard: String,
+        frozen: bool,
+        partitioned: bool,
+        cohorted: bool,
+    ) -> MetadataView {
         MetadataView {
             freeze_time: None,
             derivatives: None,
@@ -51,4 +56,3 @@ impl MetadataView {
         }
     }
 }
-

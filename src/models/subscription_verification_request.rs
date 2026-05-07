@@ -22,7 +22,11 @@ pub struct SubscriptionVerificationRequest {
 }
 
 impl SubscriptionVerificationRequest {
-    pub fn new(hub_mode: String, hub_challenge: String, hub_verify_token: String) -> SubscriptionVerificationRequest {
+    pub fn new(
+        hub_mode: String,
+        hub_challenge: String,
+        hub_verify_token: String,
+    ) -> SubscriptionVerificationRequest {
         SubscriptionVerificationRequest {
             hub_mode,
             hub_challenge,
@@ -30,4 +34,3 @@ impl SubscriptionVerificationRequest {
         }
     }
 }
-

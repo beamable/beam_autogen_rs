@@ -19,9 +19,6 @@ pub struct LeaderboardRemoveCacheEntryRequest {
 
 impl LeaderboardRemoveCacheEntryRequest {
     pub fn new(player_id: i64) -> LeaderboardRemoveCacheEntryRequest {
-        LeaderboardRemoveCacheEntryRequest {
-            player_id,
-        }
+        LeaderboardRemoveCacheEntryRequest { player_id }
     }
 }
-

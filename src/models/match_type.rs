@@ -13,17 +13,41 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MatchType {
-    #[serde(rename = "id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "id",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub id: Option<Option<String>>,
-    #[serde(rename = "teams", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "teams",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub teams: Option<Option<Vec<models::TeamContentProto>>>,
-    #[serde(rename = "waitAfterMinReachedSecs", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "waitAfterMinReachedSecs",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub wait_after_min_reached_secs: Option<i32>,
-    #[serde(rename = "maxWaitDurationSecs", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "maxWaitDurationSecs",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub max_wait_duration_secs: Option<i32>,
-    #[serde(rename = "matchingIntervalSecs", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "matchingIntervalSecs",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub matching_interval_secs: Option<i32>,
-    #[serde(rename = "federatedGameServerNamespace", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "federatedGameServerNamespace",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub federated_game_server_namespace: Option<Option<String>>,
 }
 
@@ -39,4 +63,3 @@ impl MatchType {
         }
     }
 }
-

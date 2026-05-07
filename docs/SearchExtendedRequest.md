@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**criteria** | [**Vec<models::StatsSearchCriteria>**](StatsSearchCriteria.md) |  | 
+**criteria** | [**Vec<models::StatsBasicStatsSearchCriteria>**](StatsBasicStatsSearchCriteria.md) |  | 
 **domain** | **String** |  | 
 **offset** | Option<**i32**> |  | [optional]
 **object_type** | **String** |  | 

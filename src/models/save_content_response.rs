@@ -19,9 +19,6 @@ pub struct SaveContentResponse {
 
 impl SaveContentResponse {
     pub fn new(content: Vec<models::ContentReference>) -> SaveContentResponse {
-        SaveContentResponse {
-            content,
-        }
+        SaveContentResponse { content }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct RepeatManifestRequest {
 
 impl RepeatManifestRequest {
     pub fn new(uid: String) -> RepeatManifestRequest {
-        RepeatManifestRequest {
-            uid,
-        }
+        RepeatManifestRequest { uid }
     }
 }
-

@@ -21,10 +21,6 @@ pub struct OrderRule {
 
 impl OrderRule {
     pub fn new(v: String, o: i32) -> OrderRule {
-        OrderRule {
-            v,
-            o,
-        }
+        OrderRule { v, o }
     }
 }
-

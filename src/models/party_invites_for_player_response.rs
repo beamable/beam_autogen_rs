@@ -13,15 +13,17 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PartyInvitesForPlayerResponse {
-    #[serde(rename = "invitations", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "invitations",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub invitations: Option<Option<Vec<models::PartyInvitation>>>,
 }
 
 impl PartyInvitesForPlayerResponse {
     pub fn new() -> PartyInvitesForPlayerResponse {
-        PartyInvitesForPlayerResponse {
-            invitations: None,
-        }
+        PartyInvitesForPlayerResponse { invitations: None }
     }
 }
-

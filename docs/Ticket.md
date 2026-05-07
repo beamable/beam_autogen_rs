@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ticket_id** | Option<**String**> |  | [optional]
 **status** | Option<**String**> |  | [optional]
-**created** | Option<**String**> |  | [optional]
-**expires** | Option<**String**> |  | [optional]
+**created** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | [optional]
+**expires** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | [optional]
 **players** | Option<**Vec<String>**> |  | [optional][readonly]
 **match_type** | Option<**String**> |  | [optional]
 **match_id** | Option<**String**> |  | [optional]
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **priority** | Option<**i32**> |  | [optional]
 **party_id** | Option<**String**> |  | [optional]
 **watch_online_status** | Option<**bool**> |  | [optional]
-**tags** | Option<[**Vec<models::Tag>**](Tag.md)> |  | [optional][readonly]
+**tags** | Option<[**std::collections::HashMap<String, models::TagList>**](TagList.md)> |  | [optional][readonly]
 **lobby_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

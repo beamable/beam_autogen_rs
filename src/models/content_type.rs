@@ -11,16 +11,18 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum ContentType {
     #[serde(rename = "content")]
+    #[default]
     Content,
     #[serde(rename = "text")]
     Text,
     #[serde(rename = "binary")]
     Binary,
-
 }
 
 impl std::fmt::Display for ContentType {
@@ -32,10 +34,3 @@ impl std::fmt::Display for ContentType {
         }
     }
 }
-
-impl Default for ContentType {
-    fn default() -> ContentType {
-        Self::Content
-    }
-}
-

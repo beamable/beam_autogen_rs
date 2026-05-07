@@ -26,7 +26,13 @@ pub struct BeamoV2PaSuggestedIndex {
 }
 
 impl BeamoV2PaSuggestedIndex {
-    pub fn new(id: String, impact: Vec<String>, index: Vec<std::collections::HashMap<String, i32>>, namespace: String, weight: f64) -> BeamoV2PaSuggestedIndex {
+    pub fn new(
+        id: String,
+        impact: Vec<String>,
+        index: Vec<std::collections::HashMap<String, i32>>,
+        namespace: String,
+        weight: f64,
+    ) -> BeamoV2PaSuggestedIndex {
         BeamoV2PaSuggestedIndex {
             id,
             impact,
@@ -36,4 +42,3 @@ impl BeamoV2PaSuggestedIndex {
         }
     }
 }
-

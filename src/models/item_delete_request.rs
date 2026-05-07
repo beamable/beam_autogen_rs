@@ -21,10 +21,6 @@ pub struct ItemDeleteRequest {
 
 impl ItemDeleteRequest {
     pub fn new(content_id: String, id: i64) -> ItemDeleteRequest {
-        ItemDeleteRequest {
-            content_id,
-            id,
-        }
+        ItemDeleteRequest { content_id, id }
     }
 }
-

@@ -26,7 +26,12 @@ pub struct CloudsavingBasicReference {
 }
 
 impl CloudsavingBasicReference {
-    pub fn new(size: i64, last_modified: i64, key: String, bucket_name: String) -> CloudsavingBasicReference {
+    pub fn new(
+        size: i64,
+        last_modified: i64,
+        key: String,
+        bucket_name: String,
+    ) -> CloudsavingBasicReference {
         CloudsavingBasicReference {
             size,
             last_modified,
@@ -36,4 +41,3 @@ impl CloudsavingBasicReference {
         }
     }
 }
-

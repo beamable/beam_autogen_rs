@@ -22,7 +22,11 @@ pub struct ExternalIdentity {
 }
 
 impl ExternalIdentity {
-    pub fn new(provider_service: String, user_id: String, provider_namespace: String) -> ExternalIdentity {
+    pub fn new(
+        provider_service: String,
+        user_id: String,
+        provider_namespace: String,
+    ) -> ExternalIdentity {
         ExternalIdentity {
             provider_service,
             user_id,
@@ -30,4 +34,3 @@ impl ExternalIdentity {
         }
     }
 }
-

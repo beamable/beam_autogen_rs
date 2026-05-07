@@ -21,10 +21,6 @@ pub struct RankEntryStat {
 
 impl RankEntryStat {
     pub fn new(name: String, value: String) -> RankEntryStat {
-        RankEntryStat {
-            name,
-            value,
-        }
+        RankEntryStat { name, value }
     }
 }
-

@@ -19,9 +19,6 @@ pub struct GetProductsResponse {
 
 impl GetProductsResponse {
     pub fn new(products: Vec<models::ProductView>) -> GetProductsResponse {
-        GetProductsResponse {
-            products,
-        }
+        GetProductsResponse { products }
     }
 }
-

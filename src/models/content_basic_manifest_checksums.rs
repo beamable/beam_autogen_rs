@@ -18,10 +18,9 @@ pub struct ContentBasicManifestChecksums {
 }
 
 impl ContentBasicManifestChecksums {
-    pub fn new(manifests: Vec<models::ContentBasicManifestChecksum>) -> ContentBasicManifestChecksums {
-        ContentBasicManifestChecksums {
-            manifests,
-        }
+    pub fn new(
+        manifests: Vec<models::ContentBasicManifestChecksum>,
+    ) -> ContentBasicManifestChecksums {
+        ContentBasicManifestChecksums { manifests }
     }
 }
-

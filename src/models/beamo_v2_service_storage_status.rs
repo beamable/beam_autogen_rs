@@ -33,4 +33,3 @@ impl BeamoV2ServiceStorageStatus {
         }
     }
 }
-

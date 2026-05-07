@@ -24,7 +24,12 @@ pub struct Social {
 }
 
 impl Social {
-    pub fn new(player_id: String, friends: Vec<models::Friend>, blocked: Vec<models::Player>, invites: Vec<models::Invite>) -> Social {
+    pub fn new(
+        player_id: String,
+        friends: Vec<models::Friend>,
+        blocked: Vec<models::Player>,
+        invites: Vec<models::Invite>,
+    ) -> Social {
         Social {
             player_id,
             friends,
@@ -33,4 +38,3 @@ impl Social {
         }
     }
 }
-

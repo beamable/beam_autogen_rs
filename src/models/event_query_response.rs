@@ -19,9 +19,6 @@ pub struct EventQueryResponse {
 
 impl EventQueryResponse {
     pub fn new(events: Vec<models::EventObjectData>) -> EventQueryResponse {
-        EventQueryResponse {
-            events,
-        }
+        EventQueryResponse { events }
     }
 }
-

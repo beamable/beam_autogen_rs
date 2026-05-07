@@ -19,9 +19,6 @@ pub struct ListMailCategoriesResponse {
 
 impl ListMailCategoriesResponse {
     pub fn new(result: Vec<String>) -> ListMailCategoriesResponse {
-        ListMailCategoriesResponse {
-            result,
-        }
+        ListMailCategoriesResponse { result }
     }
 }
-

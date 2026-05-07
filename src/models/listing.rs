@@ -25,7 +25,10 @@ pub struct Listing {
     pub player_stat_requirements: Vec<models::PlayerStatRequirement>,
     #[serde(rename = "buttonText", skip_serializing_if = "Option::is_none")]
     pub button_text: Option<std::collections::HashMap<String, String>>,
-    #[serde(rename = "scheduleInstancePurchaseLimit", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "scheduleInstancePurchaseLimit",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub schedule_instance_purchase_limit: Option<i32>,
     #[serde(rename = "entitlementRequirements")]
     pub entitlement_requirements: Vec<models::EntitlementRequirement>,
@@ -35,11 +38,20 @@ pub struct Listing {
     pub client_data: std::collections::HashMap<String, String>,
     #[serde(rename = "schedule", skip_serializing_if = "Option::is_none")]
     pub schedule: Option<Box<models::Schedule>>,
-    #[serde(rename = "activeDurationCoolDownSeconds", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "activeDurationCoolDownSeconds",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub active_duration_cool_down_seconds: Option<i32>,
-    #[serde(rename = "activeDurationSeconds", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "activeDurationSeconds",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub active_duration_seconds: Option<i32>,
-    #[serde(rename = "activeDurationPurchaseLimit", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "activeDurationPurchaseLimit",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub active_duration_purchase_limit: Option<i32>,
     #[serde(rename = "offerRequirements")]
     pub offer_requirements: Vec<models::OfferRequirement>,
@@ -48,7 +60,16 @@ pub struct Listing {
 }
 
 impl Listing {
-    pub fn new(cohort_requirements: Vec<models::CohortRequirement>, offer_symbol: String, price: models::Price, player_stat_requirements: Vec<models::PlayerStatRequirement>, entitlement_requirements: Vec<models::EntitlementRequirement>, symbol: String, client_data: std::collections::HashMap<String, String>, offer_requirements: Vec<models::OfferRequirement>) -> Listing {
+    pub fn new(
+        cohort_requirements: Vec<models::CohortRequirement>,
+        offer_symbol: String,
+        price: models::Price,
+        player_stat_requirements: Vec<models::PlayerStatRequirement>,
+        entitlement_requirements: Vec<models::EntitlementRequirement>,
+        symbol: String,
+        client_data: std::collections::HashMap<String, String>,
+        offer_requirements: Vec<models::OfferRequirement>,
+    ) -> Listing {
         Listing {
             cohort_requirements,
             offer_symbol,
@@ -69,4 +90,3 @@ impl Listing {
         }
     }
 }
-

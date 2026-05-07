@@ -11,14 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum BeamoV2OrderDirection {
     #[serde(rename = "Desc")]
+    #[default]
     Desc,
     #[serde(rename = "Asc")]
     Asc,
-
 }
 
 impl std::fmt::Display for BeamoV2OrderDirection {
@@ -29,10 +31,3 @@ impl std::fmt::Display for BeamoV2OrderDirection {
         }
     }
 }
-
-impl Default for BeamoV2OrderDirection {
-    fn default() -> BeamoV2OrderDirection {
-        Self::Desc
-    }
-}
-

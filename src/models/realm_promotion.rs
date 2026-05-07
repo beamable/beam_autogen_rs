@@ -22,7 +22,11 @@ pub struct RealmPromotion {
 }
 
 impl RealmPromotion {
-    pub fn new(name: String, source: models::Promotable, destination: models::Promotable) -> RealmPromotion {
+    pub fn new(
+        name: String,
+        source: models::Promotable,
+        destination: models::Promotable,
+    ) -> RealmPromotion {
         RealmPromotion {
             name,
             source: Box::new(source),
@@ -30,4 +34,3 @@ impl RealmPromotion {
         }
     }
 }
-

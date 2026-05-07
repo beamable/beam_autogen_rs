@@ -19,9 +19,6 @@ pub struct SearchAnnouncementsRequest {
 
 impl SearchAnnouncementsRequest {
     pub fn new() -> SearchAnnouncementsRequest {
-        SearchAnnouncementsRequest {
-            date: None,
-        }
+        SearchAnnouncementsRequest { date: None }
     }
 }
-

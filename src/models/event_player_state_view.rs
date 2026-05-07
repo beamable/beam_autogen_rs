@@ -40,7 +40,18 @@ pub struct EventPlayerStateView {
 }
 
 impl EventPlayerStateView {
-    pub fn new(name: String, running: bool, all_phases: Vec<models::EventPlayerPhaseView>, rank: i64, score: f64, seconds_remaining: i64, id: String, leaderboard_id: String, rank_rewards: Vec<models::EventRewardState>, score_rewards: Vec<models::EventRewardState>) -> EventPlayerStateView {
+    pub fn new(
+        name: String,
+        running: bool,
+        all_phases: Vec<models::EventPlayerPhaseView>,
+        rank: i64,
+        score: f64,
+        seconds_remaining: i64,
+        id: String,
+        leaderboard_id: String,
+        rank_rewards: Vec<models::EventRewardState>,
+        score_rewards: Vec<models::EventRewardState>,
+    ) -> EventPlayerStateView {
         EventPlayerStateView {
             name,
             running,
@@ -57,4 +68,3 @@ impl EventPlayerStateView {
         }
     }
 }
-

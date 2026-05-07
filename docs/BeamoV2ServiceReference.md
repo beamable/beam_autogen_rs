@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **archived** | Option<**bool**> |  | [optional]
 **image_cpu_arch** | Option<**String**> |  | [optional]
 **components** | Option<[**Vec<models::BeamoV2ServiceComponent>**](BeamoV2ServiceComponent.md)> |  | [optional]
+**log_provider** | Option<[**models::BeamoV2LogProvider**](BeamoV2LogProvider.md)> |  | [optional]
 **checksum** | Option<**String**> |  | [optional][readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

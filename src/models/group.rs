@@ -51,7 +51,10 @@ pub struct Group {
     pub roles: Option<Vec<models::GroupRole>>,
     #[serde(rename = "scores")]
     pub scores: std::collections::HashMap<String, String>,
-    #[serde(rename = "canUpdateEnrollment", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "canUpdateEnrollment",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub can_update_enrollment: Option<bool>,
     #[serde(rename = "members")]
     pub members: Vec<models::Member>,
@@ -69,7 +72,22 @@ pub struct Group {
 }
 
 impl Group {
-    pub fn new(name: String, enrollment_type: String, free_slots: i32, leader: i64, slogan: String, requirement: i64, motd: String, id: i64, scores: std::collections::HashMap<String, String>, members: Vec<models::Member>, r#type: models::GroupType, max_size: i32, sub_groups: Vec<models::Group>, created: i64) -> Group {
+    pub fn new(
+        name: String,
+        enrollment_type: String,
+        free_slots: i32,
+        leader: i64,
+        slogan: String,
+        requirement: i64,
+        motd: String,
+        id: i64,
+        scores: std::collections::HashMap<String, String>,
+        members: Vec<models::Member>,
+        r#type: models::GroupType,
+        max_size: i32,
+        sub_groups: Vec<models::Group>,
+        created: i64,
+    ) -> Group {
         Group {
             in_flight: None,
             name,
@@ -100,4 +118,3 @@ impl Group {
         }
     }
 }
-

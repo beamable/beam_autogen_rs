@@ -19,9 +19,6 @@ pub struct ListTagsResponse {
 
 impl ListTagsResponse {
     pub fn new(tags: Vec<String>) -> ListTagsResponse {
-        ListTagsResponse {
-            tags,
-        }
+        ListTagsResponse { tags }
     }
 }
-

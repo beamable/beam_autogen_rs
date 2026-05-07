@@ -24,7 +24,9 @@ pub struct SearchExtendedResponse {
 }
 
 impl SearchExtendedResponse {
-    pub fn new(gamer_stats: std::collections::HashMap<String, std::collections::HashMap<String, String>>) -> SearchExtendedResponse {
+    pub fn new(
+        gamer_stats: std::collections::HashMap<String, std::collections::HashMap<String, String>>,
+    ) -> SearchExtendedResponse {
         SearchExtendedResponse {
             gamer_stats,
             offset: None,
@@ -33,4 +35,3 @@ impl SearchExtendedResponse {
         }
     }
 }
-

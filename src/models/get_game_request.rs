@@ -19,9 +19,6 @@ pub struct GetGameRequest {
 
 impl GetGameRequest {
     pub fn new(root_pid: String) -> GetGameRequest {
-        GetGameRequest {
-            root_pid,
-        }
+        GetGameRequest { root_pid }
     }
 }
-

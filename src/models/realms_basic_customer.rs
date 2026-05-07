@@ -21,6 +21,8 @@ pub struct RealmsBasicCustomer {
     pub payment_status: Option<String>,
     #[serde(rename = "image", skip_serializing_if = "Option::is_none")]
     pub image: Option<String>,
+    #[serde(rename = "config", skip_serializing_if = "Option::is_none")]
+    pub config: Option<std::collections::HashMap<String, String>>,
     #[serde(rename = "contact", skip_serializing_if = "Option::is_none")]
     pub contact: Option<String>,
     #[serde(rename = "alias", skip_serializing_if = "Option::is_none")]
@@ -40,12 +42,18 @@ pub struct RealmsBasicCustomer {
 }
 
 impl RealmsBasicCustomer {
-    pub fn new(name: String, cid: i64, projects: Vec<models::Project>, accounts: Vec<models::RealmsBasicAccount>) -> RealmsBasicCustomer {
+    pub fn new(
+        name: String,
+        cid: i64,
+        projects: Vec<models::Project>,
+        accounts: Vec<models::RealmsBasicAccount>,
+    ) -> RealmsBasicCustomer {
         RealmsBasicCustomer {
             name,
             activation_status: None,
             payment_status: None,
             image: None,
+            config: None,
             contact: None,
             alias: None,
             cid,
@@ -57,4 +65,3 @@ impl RealmsBasicCustomer {
         }
     }
 }
-

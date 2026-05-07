@@ -19,9 +19,6 @@ pub struct BeamoBasicGetManifestsResponse {
 
 impl BeamoBasicGetManifestsResponse {
     pub fn new(manifests: Vec<models::ManifestView>) -> BeamoBasicGetManifestsResponse {
-        BeamoBasicGetManifestsResponse {
-            manifests,
-        }
+        BeamoBasicGetManifestsResponse { manifests }
     }
 }
-

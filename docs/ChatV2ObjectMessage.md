@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **reactions** | **std::collections::HashMap<String, String>** |  | 
 **timestamp_millis** | **i64** |  | 
 **censored_content** | **String** |  | 
-**message_id** | [**uuid::Uuid**](uuid::Uuid.md) |  | 
+**message_id** | **uuid::Uuid** |  | 
 **content** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -26,7 +26,11 @@ pub struct ContentDefinition {
 }
 
 impl ContentDefinition {
-    pub fn new(id: String, checksum: String, properties: std::collections::HashMap<String, models::ContentMeta>) -> ContentDefinition {
+    pub fn new(
+        id: String,
+        checksum: String,
+        properties: std::collections::HashMap<String, models::ContentMeta>,
+    ) -> ContentDefinition {
         ContentDefinition {
             tags: None,
             id,
@@ -36,4 +40,3 @@ impl ContentDefinition {
         }
     }
 }
-

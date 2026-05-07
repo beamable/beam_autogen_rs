@@ -21,10 +21,6 @@ pub struct BeamoBasicGetManifestRequest {
 
 impl BeamoBasicGetManifestRequest {
     pub fn new(id: String) -> BeamoBasicGetManifestRequest {
-        BeamoBasicGetManifestRequest {
-            id,
-            archived: None,
-        }
+        BeamoBasicGetManifestRequest { id, archived: None }
     }
 }
-

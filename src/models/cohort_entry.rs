@@ -21,10 +21,6 @@ pub struct CohortEntry {
 
 impl CohortEntry {
     pub fn new(trial: String, cohort: String) -> CohortEntry {
-        CohortEntry {
-            trial,
-            cohort,
-        }
+        CohortEntry { trial, cohort }
     }
 }
-

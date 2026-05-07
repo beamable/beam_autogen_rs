@@ -19,9 +19,6 @@ pub struct TournamentQueryResponse {
 
 impl TournamentQueryResponse {
     pub fn new(tournaments: Vec<models::TournamentClientView>) -> TournamentQueryResponse {
-        TournamentQueryResponse {
-            tournaments,
-        }
+        TournamentQueryResponse { tournaments }
     }
 }
-

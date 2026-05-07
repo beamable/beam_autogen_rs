@@ -16,7 +16,7 @@ pub struct ObjectId {
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<i32>,
     #[serde(rename = "creationTime", skip_serializing_if = "Option::is_none")]
-    pub creation_time: Option<String>,
+    pub creation_time: Option<chrono::DateTime<chrono::FixedOffset>>,
 }
 
 impl ObjectId {
@@ -27,4 +27,3 @@ impl ObjectId {
         }
     }
 }
-

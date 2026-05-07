@@ -19,9 +19,6 @@ pub struct GetExactManifestRequest {
 
 impl GetExactManifestRequest {
     pub fn new(uid: String) -> GetExactManifestRequest {
-        GetExactManifestRequest {
-            uid,
-        }
+        GetExactManifestRequest { uid }
     }
 }
-

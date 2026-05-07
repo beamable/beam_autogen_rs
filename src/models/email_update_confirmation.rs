@@ -21,10 +21,6 @@ pub struct EmailUpdateConfirmation {
 
 impl EmailUpdateConfirmation {
     pub fn new(code: String, password: String) -> EmailUpdateConfirmation {
-        EmailUpdateConfirmation {
-            code,
-            password,
-        }
+        EmailUpdateConfirmation { code, password }
     }
 }
-

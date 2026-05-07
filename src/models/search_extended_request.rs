@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchExtendedRequest {
     #[serde(rename = "criteria")]
-    pub criteria: Vec<models::StatsSearchCriteria>,
+    pub criteria: Vec<models::StatsBasicStatsSearchCriteria>,
     #[serde(rename = "domain")]
     pub domain: String,
     #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
@@ -30,7 +30,13 @@ pub struct SearchExtendedRequest {
 }
 
 impl SearchExtendedRequest {
-    pub fn new(criteria: Vec<models::StatsSearchCriteria>, domain: String, object_type: String, stat_keys: Vec<String>, access: String) -> SearchExtendedRequest {
+    pub fn new(
+        criteria: Vec<models::StatsBasicStatsSearchCriteria>,
+        domain: String,
+        object_type: String,
+        stat_keys: Vec<String>,
+        access: String,
+    ) -> SearchExtendedRequest {
         SearchExtendedRequest {
             criteria,
             domain,
@@ -42,4 +48,3 @@ impl SearchExtendedRequest {
         }
     }
 }
-

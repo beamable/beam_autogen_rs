@@ -21,10 +21,6 @@ pub struct RegisterReq {
 
 impl RegisterReq {
     pub fn new(provider: String, token: String) -> RegisterReq {
-        RegisterReq {
-            provider,
-            token,
-        }
+        RegisterReq { provider, token }
     }
 }
-

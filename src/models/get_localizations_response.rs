@@ -18,10 +18,9 @@ pub struct GetLocalizationsResponse {
 }
 
 impl GetLocalizationsResponse {
-    pub fn new(localizations: std::collections::HashMap<String, Vec<models::LocalizedValue>>) -> GetLocalizationsResponse {
-        GetLocalizationsResponse {
-            localizations,
-        }
+    pub fn new(
+        localizations: std::collections::HashMap<String, Vec<models::LocalizedValue>>,
+    ) -> GetLocalizationsResponse {
+        GetLocalizationsResponse { localizations }
     }
 }
-

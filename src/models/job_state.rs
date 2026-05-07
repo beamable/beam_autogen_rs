@@ -11,10 +11,13 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum JobState {
     #[serde(rename = "ENQUEUED")]
+    #[default]
     Enqueued,
     #[serde(rename = "DISPATCHED")]
     Dispatched,
@@ -28,7 +31,6 @@ pub enum JobState {
     Suspended,
     #[serde(rename = "ERROR")]
     Error,
-
 }
 
 impl std::fmt::Display for JobState {
@@ -44,10 +46,3 @@ impl std::fmt::Display for JobState {
         }
     }
 }
-
-impl Default for JobState {
-    fn default() -> JobState {
-        Self::Enqueued
-    }
-}
-

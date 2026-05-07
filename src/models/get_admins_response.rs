@@ -19,9 +19,6 @@ pub struct GetAdminsResponse {
 
 impl GetAdminsResponse {
     pub fn new(accounts: Vec<models::AccountPortalView>) -> GetAdminsResponse {
-        GetAdminsResponse {
-            accounts,
-        }
+        GetAdminsResponse { accounts }
     }
 }
-

@@ -24,7 +24,12 @@ pub struct PerformanceResponse {
 }
 
 impl PerformanceResponse {
-    pub fn new(namespaces: Vec<models::PaNamespace>, indexes: Vec<models::PaSuggestedIndex>, queries: Vec<models::PaSlowQuery>, database_measurements: models::DatabaseMeasurements) -> PerformanceResponse {
+    pub fn new(
+        namespaces: Vec<models::PaNamespace>,
+        indexes: Vec<models::PaSuggestedIndex>,
+        queries: Vec<models::PaSlowQuery>,
+        database_measurements: models::DatabaseMeasurements,
+    ) -> PerformanceResponse {
         PerformanceResponse {
             namespaces,
             indexes,
@@ -33,4 +38,3 @@ impl PerformanceResponse {
         }
     }
 }
-

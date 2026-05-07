@@ -13,7 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct JobAnalytics {
-    #[serde(rename = "consecutiveFailures", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "consecutiveFailures",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub consecutive_failures: Option<i32>,
 }
 
@@ -24,4 +27,3 @@ impl JobAnalytics {
         }
     }
 }
-

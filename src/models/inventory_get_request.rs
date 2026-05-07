@@ -19,9 +19,6 @@ pub struct InventoryGetRequest {
 
 impl InventoryGetRequest {
     pub fn new() -> InventoryGetRequest {
-        InventoryGetRequest {
-            scope: None,
-        }
+        InventoryGetRequest { scope: None }
     }
 }
-

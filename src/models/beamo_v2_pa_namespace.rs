@@ -21,10 +21,6 @@ pub struct BeamoV2PaNamespace {
 
 impl BeamoV2PaNamespace {
     pub fn new(namespace: String, r#type: String) -> BeamoV2PaNamespace {
-        BeamoV2PaNamespace {
-            namespace,
-            r#type,
-        }
+        BeamoV2PaNamespace { namespace, r#type }
     }
 }
-

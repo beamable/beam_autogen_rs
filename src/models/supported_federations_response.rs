@@ -18,10 +18,9 @@ pub struct SupportedFederationsResponse {
 }
 
 impl SupportedFederationsResponse {
-    pub fn new(registrations: Vec<models::SupportedFederationRegistration>) -> SupportedFederationsResponse {
-        SupportedFederationsResponse {
-            registrations,
-        }
+    pub fn new(
+        registrations: Vec<models::SupportedFederationRegistration>,
+    ) -> SupportedFederationsResponse {
+        SupportedFederationsResponse { registrations }
     }
 }
-

@@ -50,7 +50,14 @@ pub struct EventObjectData {
 }
 
 impl EventObjectData {
-    pub fn new(state: models::EventState, running: bool, id: String, content: models::Event, done: bool, leaderboard_id: String) -> EventObjectData {
+    pub fn new(
+        state: models::EventState,
+        running: bool,
+        id: String,
+        content: models::Event,
+        done: bool,
+        leaderboard_id: String,
+    ) -> EventObjectData {
         EventObjectData {
             in_flight: None,
             start_time: None,
@@ -72,4 +79,3 @@ impl EventObjectData {
         }
     }
 }
-

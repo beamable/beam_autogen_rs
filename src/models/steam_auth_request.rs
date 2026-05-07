@@ -19,9 +19,6 @@ pub struct SteamAuthRequest {
 
 impl SteamAuthRequest {
     pub fn new(ticket: String) -> SteamAuthRequest {
-        SteamAuthRequest {
-            ticket,
-        }
+        SteamAuthRequest { ticket }
     }
 }
-

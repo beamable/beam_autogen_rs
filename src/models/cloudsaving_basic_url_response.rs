@@ -21,10 +21,6 @@ pub struct CloudsavingBasicUrlResponse {
 
 impl CloudsavingBasicUrlResponse {
     pub fn new(url: String, object_key: String) -> CloudsavingBasicUrlResponse {
-        CloudsavingBasicUrlResponse {
-            url,
-            object_key,
-        }
+        CloudsavingBasicUrlResponse { url, object_key }
     }
 }
-

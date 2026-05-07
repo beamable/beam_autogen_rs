@@ -19,9 +19,6 @@ pub struct RewardsResponse {
 
 impl RewardsResponse {
     pub fn new(reward_currencies: Vec<models::TournamentCurrencyReward>) -> RewardsResponse {
-        RewardsResponse {
-            reward_currencies,
-        }
+        RewardsResponse { reward_currencies }
     }
 }
-

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **comments** | Option<**String**> |  | [optional]
 **storage_references** | Option<[**Vec<models::BeamoV2ServiceStorageReference>**](BeamoV2ServiceStorageReference.md)> |  | [optional]
 **storage_group_id** | Option<**String**> |  | [optional]
+**portal_extension_references** | Option<[**Vec<models::BeamoV2PortalExtensionReference>**](BeamoV2PortalExtensionReference.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

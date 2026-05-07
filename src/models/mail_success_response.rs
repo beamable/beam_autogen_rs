@@ -19,9 +19,6 @@ pub struct MailSuccessResponse {
 
 impl MailSuccessResponse {
     pub fn new(result: bool) -> MailSuccessResponse {
-        MailSuccessResponse {
-            result,
-        }
+        MailSuccessResponse { result }
     }
 }
-

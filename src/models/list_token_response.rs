@@ -19,9 +19,6 @@ pub struct ListTokenResponse {
 
 impl ListTokenResponse {
     pub fn new(items: Vec<models::ListTokenResponseItem>) -> ListTokenResponse {
-        ListTokenResponse {
-            items,
-        }
+        ListTokenResponse { items }
     }
 }
-

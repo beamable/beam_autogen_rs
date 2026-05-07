@@ -11,16 +11,18 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum WebhookServiceType {
     #[serde(rename = "UserMicroservice")]
+    #[default]
     UserMicroservice,
     #[serde(rename = "ObjectService")]
     ObjectService,
     #[serde(rename = "BasicService")]
     BasicService,
-
 }
 
 impl std::fmt::Display for WebhookServiceType {
@@ -32,10 +34,3 @@ impl std::fmt::Display for WebhookServiceType {
         }
     }
 }
-
-impl Default for WebhookServiceType {
-    fn default() -> WebhookServiceType {
-        Self::UserMicroservice
-    }
-}
-

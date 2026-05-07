@@ -15,9 +15,19 @@ use serde::{Deserialize, Serialize};
 pub struct CustomerActorPromoteRealmRequest {
     #[serde(rename = "sourceRealmId")]
     pub source_realm_id: String,
-    #[serde(rename = "promotions", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "promotions",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub promotions: Option<Option<Vec<models::PromotableType>>>,
-    #[serde(rename = "contentManifestIds", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "contentManifestIds",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub content_manifest_ids: Option<Option<Vec<String>>>,
 }
 
@@ -30,4 +40,3 @@ impl CustomerActorPromoteRealmRequest {
         }
     }
 }
-

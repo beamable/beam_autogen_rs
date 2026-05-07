@@ -26,7 +26,13 @@ pub struct PaSuggestedIndex {
 }
 
 impl PaSuggestedIndex {
-    pub fn new(weight: String, impact: Vec<String>, id: String, namespace: String, index: Vec<String>) -> PaSuggestedIndex {
+    pub fn new(
+        weight: String,
+        impact: Vec<String>,
+        id: String,
+        namespace: String,
+        index: Vec<String>,
+    ) -> PaSuggestedIndex {
         PaSuggestedIndex {
             weight,
             impact,
@@ -36,4 +42,3 @@ impl PaSuggestedIndex {
         }
     }
 }
-

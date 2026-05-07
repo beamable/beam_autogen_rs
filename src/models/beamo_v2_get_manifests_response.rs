@@ -19,9 +19,6 @@ pub struct BeamoV2GetManifestsResponse {
 
 impl BeamoV2GetManifestsResponse {
     pub fn new() -> BeamoV2GetManifestsResponse {
-        BeamoV2GetManifestsResponse {
-            manifests: None,
-        }
+        BeamoV2GetManifestsResponse { manifests: None }
     }
 }
-

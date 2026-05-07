@@ -19,9 +19,6 @@ pub struct GetSocialStatusesRequest {
 
 impl GetSocialStatusesRequest {
     pub fn new(player_ids: Vec<String>) -> GetSocialStatusesRequest {
-        GetSocialStatusesRequest {
-            player_ids,
-        }
+        GetSocialStatusesRequest { player_ids }
     }
 }
-

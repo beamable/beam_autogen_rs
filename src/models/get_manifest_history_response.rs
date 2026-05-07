@@ -19,9 +19,6 @@ pub struct GetManifestHistoryResponse {
 
 impl GetManifestHistoryResponse {
     pub fn new(manifests: Vec<models::ManifestSummary>) -> GetManifestHistoryResponse {
-        GetManifestHistoryResponse {
-            manifests,
-        }
+        GetManifestHistoryResponse { manifests }
     }
 }
-

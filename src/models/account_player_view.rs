@@ -30,7 +30,12 @@ pub struct AccountPlayerView {
 }
 
 impl AccountPlayerView {
-    pub fn new(device_ids: Vec<String>, scopes: Vec<String>, id: i64, third_party_app_associations: Vec<String>) -> AccountPlayerView {
+    pub fn new(
+        device_ids: Vec<String>,
+        scopes: Vec<String>,
+        id: i64,
+        third_party_app_associations: Vec<String>,
+    ) -> AccountPlayerView {
         AccountPlayerView {
             email: None,
             device_ids,
@@ -42,4 +47,3 @@ impl AccountPlayerView {
         }
     }
 }
-

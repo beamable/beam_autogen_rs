@@ -21,10 +21,6 @@ pub struct RoleMapping {
 
 impl RoleMapping {
     pub fn new(project_id: String, role: String) -> RoleMapping {
-        RoleMapping {
-            project_id,
-            role,
-        }
+        RoleMapping { project_id, role }
     }
 }
-

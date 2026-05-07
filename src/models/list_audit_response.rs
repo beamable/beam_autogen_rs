@@ -19,9 +19,6 @@ pub struct ListAuditResponse {
 
 impl ListAuditResponse {
     pub fn new(audits: Vec<models::PaymentAuditEntryViewModel>) -> ListAuditResponse {
-        ListAuditResponse {
-            audits,
-        }
+        ListAuditResponse { audits }
     }
 }
-

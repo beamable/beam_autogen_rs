@@ -19,9 +19,6 @@ pub struct DeleteAnnouncementRequest {
 
 impl DeleteAnnouncementRequest {
     pub fn new(symbol: String) -> DeleteAnnouncementRequest {
-        DeleteAnnouncementRequest {
-            symbol,
-        }
+        DeleteAnnouncementRequest { symbol }
     }
 }
-

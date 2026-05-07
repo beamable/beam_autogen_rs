@@ -26,7 +26,13 @@ pub struct CalendarView {
 }
 
 impl CalendarView {
-    pub fn new(next_index: i32, next_claim_seconds: i64, id: String, remaining_seconds: i64, days: Vec<models::RewardCalendarDay>) -> CalendarView {
+    pub fn new(
+        next_index: i32,
+        next_claim_seconds: i64,
+        id: String,
+        remaining_seconds: i64,
+        days: Vec<models::RewardCalendarDay>,
+    ) -> CalendarView {
         CalendarView {
             next_index,
             next_claim_seconds,
@@ -36,4 +42,3 @@ impl CalendarView {
         }
     }
 }
-

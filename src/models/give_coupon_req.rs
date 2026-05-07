@@ -19,9 +19,6 @@ pub struct GiveCouponReq {
 
 impl GiveCouponReq {
     pub fn new(listing: String) -> GiveCouponReq {
-        GiveCouponReq {
-            listing,
-        }
+        GiveCouponReq { listing }
     }
 }
-

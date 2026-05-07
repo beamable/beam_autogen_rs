@@ -13,18 +13,41 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TicketReservationRequest {
-    #[serde(rename = "players", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "players",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub players: Option<Option<Vec<String>>>,
-    #[serde(rename = "matchTypes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "matchTypes",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub match_types: Option<Option<Vec<String>>>,
-    #[serde(rename = "maxWaitDurationSecs", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "maxWaitDurationSecs",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub max_wait_duration_secs: Option<i32>,
-    #[serde(rename = "team", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "team",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub team: Option<Option<String>>,
     #[serde(rename = "watchOnlineStatus", skip_serializing_if = "Option::is_none")]
     pub watch_online_status: Option<bool>,
-    #[serde(rename = "tags", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tags: Option<Option<Vec<models::Tag>>>,
+    #[serde(
+        rename = "tags",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub tags: Option<Option<std::collections::HashMap<String, models::TagList>>>,
 }
 
 impl TicketReservationRequest {
@@ -39,4 +62,3 @@ impl TicketReservationRequest {
         }
     }
 }
-

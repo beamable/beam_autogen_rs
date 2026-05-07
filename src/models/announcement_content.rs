@@ -40,7 +40,13 @@ pub struct AnnouncementContent {
 }
 
 impl AnnouncementContent {
-    pub fn new(body: String, channel: String, symbol: String, title: String, description: String) -> AnnouncementContent {
+    pub fn new(
+        body: String,
+        channel: String,
+        symbol: String,
+        title: String,
+        description: String,
+    ) -> AnnouncementContent {
         AnnouncementContent {
             body,
             channel,
@@ -57,4 +63,3 @@ impl AnnouncementContent {
         }
     }
 }
-

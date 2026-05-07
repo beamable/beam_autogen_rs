@@ -10,17 +10,19 @@ Method | HTTP request | Description
 
 ## api_mailbox_publish_post
 
-> serde_json::Value api_mailbox_publish_post(x_beam_scope, x_beam_gamertag, message_request)
+> serde_json::Value api_mailbox_publish_post(x_beam_gamertag, x_beam_timeout, message_request)
 
+
+Publish a message to a player mailbox, channel mailbox, or realm broadcast.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_beam_scope** | Option<**String**> | Customer and project scope. This should be in the form of '{customerId}.{projectId}'. This is only necessary when not using a JWT bearer token |  |
 **x_beam_gamertag** | Option<**String**> | Override the playerId of the requester. This is only necessary when not using a JWT bearer token. |  |
-**message_request** | Option<[**MessageRequest**](MessageRequest.md)> |  |  |
+**x_beam_timeout** | Option<**i32**> | Set the request timeout in seconds. Defaults to 10 seconds. |  |
+**message_request** | Option<[**MessageRequest**](MessageRequest.md)> | Message request. Use PlayerId for player mailbox, Channel for channel mailbox, or RealmId for realm broadcast. |  |
 
 ### Return type
 
@@ -28,7 +30,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth), [scope](../README.md#scope)
 
 ### HTTP request headers
 

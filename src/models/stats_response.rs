@@ -21,10 +21,6 @@ pub struct StatsResponse {
 
 impl StatsResponse {
     pub fn new(id: i64, stats: std::collections::HashMap<String, String>) -> StatsResponse {
-        StatsResponse {
-            id,
-            stats,
-        }
+        StatsResponse { id, stats }
     }
 }
-

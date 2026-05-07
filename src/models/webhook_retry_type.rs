@@ -11,16 +11,18 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+///
+#[derive(
+    Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, Default,
+)]
 pub enum WebhookRetryType {
     #[serde(rename = "None")]
+    #[default]
     None,
     #[serde(rename = "Once")]
     Once,
     #[serde(rename = "ExponentialBackoff")]
     ExponentialBackoff,
-
 }
 
 impl std::fmt::Display for WebhookRetryType {
@@ -32,10 +34,3 @@ impl std::fmt::Display for WebhookRetryType {
         }
     }
 }
-
-impl Default for WebhookRetryType {
-    fn default() -> WebhookRetryType {
-        Self::None
-    }
-}
-

@@ -19,9 +19,6 @@ pub struct PlayerBasicCloudDataRequest {
 
 impl PlayerBasicCloudDataRequest {
     pub fn new() -> PlayerBasicCloudDataRequest {
-        PlayerBasicCloudDataRequest {
-            player_id: None,
-        }
+        PlayerBasicCloudDataRequest { player_id: None }
     }
 }
-

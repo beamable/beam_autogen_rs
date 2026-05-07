@@ -19,9 +19,6 @@ pub struct ObjectsMetadataResponse {
 
 impl ObjectsMetadataResponse {
     pub fn new(response: Vec<models::ObjectMetadataResponse>) -> ObjectsMetadataResponse {
-        ObjectsMetadataResponse {
-            response,
-        }
+        ObjectsMetadataResponse { response }
     }
 }
-

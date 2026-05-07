@@ -22,7 +22,11 @@ pub struct ServiceRoute {
 }
 
 impl ServiceRoute {
-    pub fn new(service: String, endpoint: String, service_type_str: models::WebhookServiceType) -> ServiceRoute {
+    pub fn new(
+        service: String,
+        endpoint: String,
+        service_type_str: models::WebhookServiceType,
+    ) -> ServiceRoute {
         ServiceRoute {
             service,
             endpoint,
@@ -30,4 +34,3 @@ impl ServiceRoute {
         }
     }
 }
-

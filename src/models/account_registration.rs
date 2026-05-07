@@ -21,10 +21,6 @@ pub struct AccountRegistration {
 
 impl AccountRegistration {
     pub fn new(email: String, password: String) -> AccountRegistration {
-        AccountRegistration {
-            email,
-            password,
-        }
+        AccountRegistration { email, password }
     }
 }
-

@@ -15,14 +15,34 @@ use serde::{Deserialize, Serialize};
 pub struct BeamoV2FederationRegistration {
     #[serde(rename = "serviceName", skip_serializing_if = "Option::is_none")]
     pub service_name: Option<String>,
-    #[serde(rename = "routingKey", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "routingKey",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub routing_key: Option<Option<String>>,
-    #[serde(rename = "federation", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "federation",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub federation: Option<Option<Vec<models::BeamoV2SupportedFederation>>>,
-    #[serde(rename = "trafficFilterEnabled", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "trafficFilterEnabled",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub traffic_filter_enabled: Option<Option<bool>>,
-    #[serde(rename = "ttl", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub ttl: Option<Option<String>>,
+    #[serde(
+        rename = "ttl",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub ttl: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
 }
 
 impl BeamoV2FederationRegistration {
@@ -36,4 +56,3 @@ impl BeamoV2FederationRegistration {
         }
     }
 }
-

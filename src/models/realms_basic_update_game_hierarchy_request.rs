@@ -20,11 +20,10 @@ pub struct RealmsBasicUpdateGameHierarchyRequest {
 }
 
 impl RealmsBasicUpdateGameHierarchyRequest {
-    pub fn new(root_pid: String, projects: Vec<models::ProjectView>) -> RealmsBasicUpdateGameHierarchyRequest {
-        RealmsBasicUpdateGameHierarchyRequest {
-            root_pid,
-            projects,
-        }
+    pub fn new(
+        root_pid: String,
+        projects: Vec<models::ProjectView>,
+    ) -> RealmsBasicUpdateGameHierarchyRequest {
+        RealmsBasicUpdateGameHierarchyRequest { root_pid, projects }
     }
 }
-

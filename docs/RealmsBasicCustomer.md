@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **activation_status** | Option<**String**> |  | [optional]
 **payment_status** | Option<**String**> |  | [optional]
 **image** | Option<**String**> |  | [optional]
+**config** | Option<**std::collections::HashMap<String, String>**> |  | [optional]
 **contact** | Option<**String**> |  | [optional]
 **alias** | Option<**String**> |  | [optional]
 **cid** | **i64** |  | 

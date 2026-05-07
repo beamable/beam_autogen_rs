@@ -13,9 +13,19 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RealmConfigChangeRequest {
-    #[serde(rename = "upserts", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "upserts",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub upserts: Option<Option<std::collections::HashMap<String, String>>>,
-    #[serde(rename = "deletes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "deletes",
+        default,
+        with = "::serde_with::rust::double_option",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub deletes: Option<Option<Vec<String>>>,
 }
 
@@ -27,4 +37,3 @@ impl RealmConfigChangeRequest {
         }
     }
 }
-

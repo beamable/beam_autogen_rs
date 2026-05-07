@@ -26,7 +26,12 @@ pub struct GroupMembershipResponse {
 }
 
 impl GroupMembershipResponse {
-    pub fn new(member: bool, r#type: models::GroupType, sub_groups: Vec<i64>, group: models::GroupMetaData) -> GroupMembershipResponse {
+    pub fn new(
+        member: bool,
+        r#type: models::GroupType,
+        sub_groups: Vec<i64>,
+        group: models::GroupMetaData,
+    ) -> GroupMembershipResponse {
         GroupMembershipResponse {
             gamer_tag: None,
             member,
@@ -36,4 +41,3 @@ impl GroupMembershipResponse {
         }
     }
 }
-

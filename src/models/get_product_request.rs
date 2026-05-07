@@ -19,9 +19,6 @@ pub struct GetProductRequest {
 
 impl GetProductRequest {
     pub fn new(sku: String) -> GetProductRequest {
-        GetProductRequest {
-            sku,
-        }
+        GetProductRequest { sku }
     }
 }
-

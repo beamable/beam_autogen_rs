@@ -22,7 +22,10 @@ pub struct LeaderboardCohort {
 }
 
 impl LeaderboardCohort {
-    pub fn new(id: String, stat_requirements: Vec<models::PlayerStatRequirement>) -> LeaderboardCohort {
+    pub fn new(
+        id: String,
+        stat_requirements: Vec<models::PlayerStatRequirement>,
+    ) -> LeaderboardCohort {
         LeaderboardCohort {
             id,
             description: None,
@@ -30,4 +33,3 @@ impl LeaderboardCohort {
         }
     }
 }
-

@@ -20,11 +20,13 @@ pub struct TransferThirdPartyAssociation {
 }
 
 impl TransferThirdPartyAssociation {
-    pub fn new(from_account_id: i64, third_party: models::ThirdPartyAssociation) -> TransferThirdPartyAssociation {
+    pub fn new(
+        from_account_id: i64,
+        third_party: models::ThirdPartyAssociation,
+    ) -> TransferThirdPartyAssociation {
         TransferThirdPartyAssociation {
             from_account_id,
             third_party: Box::new(third_party),
         }
     }
 }
-
